@@ -44,15 +44,24 @@ namespace RPG.Control
         }
         private bool InteractWithMovement()
         {
-            RaycastHit hit;
-            bool hasHit = Physics.Raycast(GetMouseRay(), out hit);
-            if (hasHit)
+            //RaycastHit hit;
+            //bool hasHit = Physics.Raycast(GetMouseRay(), out hit);
+            //if (hasHit)
+            //{
+            //    if (Input.GetMouseButton(0))
+            //    {
+            //        GetComponent<Mover>().StartMoveAction(hit.point);
+            //    }
+            //    return true;
+            //}
+            //return false;
+            if (Input.GetKey(KeyCode.W))
             {
-                if (Input.GetMouseButton(0))
-                {
-                    GetComponent<Mover>().StartMoveAction(hit.point);
-                }
-                return true;
+                transform.position += Vector3.forward * 3 * Time.deltaTime;
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                transform.position += Vector3.back * 3 * Time.deltaTime;
             }
             return false;
         }
