@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7043035265558414312}
   - component: {fileID: 3981433795133892279}
   - component: {fileID: 2121752440003374713}
+  - component: {fileID: 3508128420801741193}
   - component: {fileID: 2450384258257419809}
   - component: {fileID: 5046199311807748886}
   - component: {fileID: 5980525497268970929}
@@ -40,7 +41,7 @@ Transform:
   m_Children:
   - {fileID: 1681615124087141956}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &7043035265558414312
 NavMeshAgent:
@@ -114,6 +115,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!143 &3508128420801741193
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4081947231599042501}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2450384258257419809
 MonoBehaviour:
   m_ObjectHideFlags: 0

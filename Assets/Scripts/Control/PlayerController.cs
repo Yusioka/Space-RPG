@@ -8,18 +8,26 @@ namespace RPG.Control
     public class PlayerController : MonoBehaviour
     {
         Health health;
+        CharacterController characterController;
 
         private void Awake()
         {
             health = GetComponent<Health>();
         }
 
+        private void Start()
+        {
+            characterController = GetComponent<CharacterController>();
+        }
+
         private void Update()
         {
             //если сработает одна из функций - другая работать не будет
-            if (health.IsDead()) return;
-            if (InteractWithCombat()) return;
-            if (InteractWithMovement()) return;
+            //if (health.IsDead()) return;
+            //if (InteractWithCombat()) return;
+            //if (InteractWithMovement()) return;
+
+            InteractWithMovementByButtons();
         }
 
         private bool InteractWithCombat()
@@ -44,30 +52,28 @@ namespace RPG.Control
         }
         private bool InteractWithMovement()
         {
-            //RaycastHit hit;
-            //bool hasHit = Physics.Raycast(GetMouseRay(), out hit);
-            //if (hasHit)
-            //{
-            //    if (Input.GetMouseButton(0))
-            //    {
-            //        GetComponent<Mover>().StartMoveAction(hit.point);
-            //    }
-            //    return true;
-            //}
-            //return false;
-            if (Input.GetKey(KeyCode.W))
+            RaycastHit hit;
+            bool hasHit = Physics.Raycast(GetMouseRay(), out hit);
+            if (hasHit)
             {
-                transform.position += Vector3.forward * 3 * Time.deltaTime;
-            }
-            else if (Input.GetKey(KeyCode.S))
-            {
-                transform.position += Vector3.back * 3 * Time.deltaTime;
+                if (Input.GetMouseButton(0))
+                {
+                    GetComponent<Mover>().StartMoveAction(hit.point);
+                }
+                return true;
             }
             return false;
         }
         private static Ray GetMouseRay()
         {
             return Camera.main.ScreenPointToRay(Input.mousePosition);
+        }
+
+        private void InteractWithMovementByButtons()
+        {
+            float speed = GetComponent<Mover>().GetLocalVelocity();
+            Vector3 moveDirection = new Vector3 (Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            characterController.SimpleMove(moveDirection * 5);
         }
     }
 }

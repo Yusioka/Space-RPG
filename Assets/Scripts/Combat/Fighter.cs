@@ -50,7 +50,7 @@ namespace RPG.Combat
         {
             currentWeapon = weapon;
             Animator animator = GetComponent<Animator>();
-            weapon.Spawn(rightHandTransform,leftHandTransform, animator);
+          //  weapon.Spawn(rightHandTransform,leftHandTransform, animator);
         }
 
         public Health GetHealth()
