@@ -7,8 +7,10 @@ namespace RPG.Control
 {
     public class PlayerController : MonoBehaviour
     {
+        [SerializeField] GameObject camera;
         Health health;
         CharacterController characterController;
+        Rigidbody rb;
 
         private void Awake()
         {
@@ -18,6 +20,7 @@ namespace RPG.Control
         private void Start()
         {
             characterController = GetComponent<CharacterController>();
+            rb = GetComponent<Rigidbody>();
         }
 
         private void Update()
@@ -27,7 +30,11 @@ namespace RPG.Control
             //if (InteractWithCombat()) return;
             //if (InteractWithMovement()) return;
 
-            InteractWithMovementByButtons();
+            if (Input.GetKey(KeyCode.W))
+            {
+                rb.AddForce(camera.transform.forward * 2 * Time.deltaTime);
+            }
+          //  InteractWithMovementByButtons();
         }
 
         private bool InteractWithCombat()
