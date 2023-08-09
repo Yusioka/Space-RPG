@@ -95,7 +95,7 @@ namespace RPG.Control
             // enemy arrives to the point and waiting for the statement
             if (timeSinceArrivedAtWaypoint > waypointDwellTime)
             {
-                mover.StartMoveAction(nextPosition);
+                mover.StartMoveActionByMouse(nextPosition);
             }
         }
 

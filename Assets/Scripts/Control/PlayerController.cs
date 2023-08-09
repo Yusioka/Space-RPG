@@ -10,7 +10,11 @@ namespace RPG.Control
         [SerializeField] GameObject camera;
         Health health;
         CharacterController characterController;
-        Rigidbody rb;
+
+        public CharacterController GetCharacterController()
+        {
+            return characterController;
+        }
 
         private void Awake()
         {
@@ -20,7 +24,6 @@ namespace RPG.Control
         private void Start()
         {
             characterController = GetComponent<CharacterController>();
-            rb = GetComponent<Rigidbody>();
         }
 
         private void Update()
@@ -30,11 +33,7 @@ namespace RPG.Control
             //if (InteractWithCombat()) return;
             //if (InteractWithMovement()) return;
 
-            if (Input.GetKey(KeyCode.W))
-            {
-                rb.AddForce(camera.transform.forward * 2 * Time.deltaTime);
-            }
-          //  InteractWithMovementByButtons();
+            InteractWithMovementByButtons();
         }
 
         private bool InteractWithCombat()
@@ -65,7 +64,7 @@ namespace RPG.Control
             {
                 if (Input.GetMouseButton(0))
                 {
-                    GetComponent<Mover>().StartMoveAction(hit.point);
+                    GetComponent<Mover>().StartMoveActionByMouse(hit.point);
                 }
                 return true;
             }
@@ -78,9 +77,7 @@ namespace RPG.Control
 
         private void InteractWithMovementByButtons()
         {
-            float speed = GetComponent<Mover>().GetLocalVelocity();
-            Vector3 moveDirection = new Vector3 (Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            characterController.SimpleMove(moveDirection * 5);
+            GetComponent<Mover>().StartMoveActionByButtons();
         }
     }
 }

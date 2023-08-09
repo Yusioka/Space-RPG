@@ -3,6 +3,8 @@ using UnityEngine.AI;
 using RPG.Core;
 using RPG.Saving;
 using RPG.Attributes;
+using RPG.Control;
+using UnityEngine.EventSystems;
 
 namespace RPG.Movement
 {
@@ -13,11 +15,6 @@ namespace RPG.Movement
         Health health;
         Vector3 localVelocity;
 
-        public float GetLocalVelocity()
-        {
-            return localVelocity.z;
-        }
-
         private void Awake()
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
@@ -27,11 +24,11 @@ namespace RPG.Movement
         private void Update()
         {
             // navMesh is enabled if IsNotDead()!
-            navMeshAgent.isStopped = health.IsDead();
+        //    navMeshAgent.isStopped = health.IsDead();
             UpdateAnimator();
         }
 
-        public void StartMoveAction(Vector3 destination)
+        public void StartMoveActionByMouse(Vector3 destination)
         {
             GetComponent<ActionSceduler>().StartAction(this);
             MoveTo(destination);
@@ -42,6 +39,32 @@ namespace RPG.Movement
             navMeshAgent.destination = destination;
             navMeshAgent.isStopped = false;
         }
+        public void StartMoveActionByButtons()
+        {
+            GetComponent<ActionSceduler>().StartAction(this);
+
+            float speed = GetSpeed();
+            CharacterController controller = GetComponent<PlayerController>().GetCharacterController();
+            Vector3 moveDirectionCameraSpace = FindMoveDirectionCameraSpace(FindMoveDirestion());
+
+            controller.SimpleMove(moveDirectionCameraSpace * speed);
+        }
+        private Vector3 FindMoveDirestion()
+        { 
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
+            Vector3 moveDirection = new Vector3(horizontalInput, 0, verticalInput);
+            return moveDirection;
+        }
+        private Vector3 FindMoveDirectionCameraSpace(Vector3 moveDirection)
+        {
+            // ѕреобразуем вектор движени€ относительно направлени€ камеры
+            Vector3 cameraForward = Camera.main.transform.forward;
+            cameraForward.y = 0; // ќбнул€ем компоненту Y, чтобы двигатьс€ по горизонтали
+            Quaternion cameraRotation = Quaternion.LookRotation(cameraForward);
+            Vector3 moveDirectionCameraSpace = cameraRotation * moveDirection;
+            return moveDirectionCameraSpace;
+        }
         public void Cancel()
         {
             navMeshAgent.isStopped = true;
@@ -49,10 +72,16 @@ namespace RPG.Movement
         private void UpdateAnimator()
         {
             Vector3 velocity = navMeshAgent.velocity;
-            localVelocity = transform.InverseTransformDirection(velocity);
+            Vector3 localVelocity = transform.InverseTransformDirection(velocity);
 
             float speed = localVelocity.z;
-         //   GetComponent<Animator>().SetFloat("forwardSpeed", speed);
+          //  GetComponent<Animator>().SetFloat("forwardSpeed", speed);
+        }
+
+        private float GetSpeed()
+        {
+            float speed = navMeshAgent.speed;
+            return speed;
         }
 
         public object CaptureState()
