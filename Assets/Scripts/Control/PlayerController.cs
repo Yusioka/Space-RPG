@@ -7,7 +7,6 @@ namespace RPG.Control
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] GameObject camera;
         Health health;
         CharacterController characterController;
 
@@ -31,7 +30,7 @@ namespace RPG.Control
             //если сработает одна из функций - другая работать не будет
             //if (health.IsDead()) return;
             //if (InteractWithCombat()) return;
-            //if (InteractWithMovement()) return;
+            //if (InteractWithMovementByMouse()) return;
 
             InteractWithMovementByButtons();
         }
@@ -56,7 +55,7 @@ namespace RPG.Control
             }
             return false;
         }
-        private bool InteractWithMovement()
+        private bool InteractWithMovementByMouse()
         {
             RaycastHit hit;
             bool hasHit = Physics.Raycast(GetMouseRay(), out hit);

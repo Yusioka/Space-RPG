@@ -24,8 +24,8 @@ namespace RPG.Movement
         private void Update()
         {
             // navMesh is enabled if IsNotDead()!
-        //    navMeshAgent.isStopped = health.IsDead();
-            UpdateAnimator();
+            //    navMeshAgent.isStopped = health.IsDead();
+            UpdateButtonsAnimator();
         }
 
         public void StartMoveActionByMouse(Vector3 destination)
@@ -48,6 +48,14 @@ namespace RPG.Movement
             Vector3 moveDirectionCameraSpace = FindMoveDirectionCameraSpace(FindMoveDirestion());
 
             controller.SimpleMove(moveDirectionCameraSpace * speed);
+            RotationCameraSpace();
+        }
+
+        private Vector3 MotionVectorToTheCameraDirection()
+        {
+            Vector3 cameraForward = Camera.main.transform.forward;
+            cameraForward.y = 0; // Обнуляем компоненту Y, чтобы двигаться по горизонтали
+            return cameraForward;
         }
         private Vector3 FindMoveDirestion()
         { 
@@ -59,12 +67,17 @@ namespace RPG.Movement
         private Vector3 FindMoveDirectionCameraSpace(Vector3 moveDirection)
         {
             // Преобразуем вектор движения относительно направления камеры
-            Vector3 cameraForward = Camera.main.transform.forward;
-            cameraForward.y = 0; // Обнуляем компоненту Y, чтобы двигаться по горизонтали
+            Vector3 cameraForward = MotionVectorToTheCameraDirection();
             Quaternion cameraRotation = Quaternion.LookRotation(cameraForward);
             Vector3 moveDirectionCameraSpace = cameraRotation * moveDirection;
             return moveDirectionCameraSpace;
         }
+        private void RotationCameraSpace()
+        {
+            Vector3 cameraForward = MotionVectorToTheCameraDirection();
+            transform.rotation = Quaternion.LookRotation(cameraForward);
+        }
+
         public void Cancel()
         {
             navMeshAgent.isStopped = true;
@@ -75,7 +88,34 @@ namespace RPG.Movement
             Vector3 localVelocity = transform.InverseTransformDirection(velocity);
 
             float speed = localVelocity.z;
-          //  GetComponent<Animator>().SetFloat("forwardSpeed", speed);
+         //   GetComponent<Animator>().SetFloat("forwardSpeed", speed);
+        }
+        private void UpdateButtonsAnimator()
+        {
+            if (!InputsCheck("Vertical", "isForward", "isBackward") && !InputsCheck("Horizontal", "isRight", "isLeft"))
+            {
+                GetComponent<Animator>().SetBool("isForward", false);
+                GetComponent<Animator>().SetBool("isBackward", false);
+                GetComponent<Animator>().SetBool("isLeft", false);
+                GetComponent<Animator>().SetBool("isRight", false);
+            }
+
+        }
+        private bool InputsCheck(string axis, string inputFirstBoolName, string inputSecondBoolName)
+        {
+            float input = Input.GetAxis(axis);
+
+            if (input > 0)
+            {
+                GetComponent<Animator>().SetBool(inputFirstBoolName, true);
+                return true;
+            }
+            else if (input < 0)
+            {
+                GetComponent<Animator>().SetBool(inputSecondBoolName, true);
+                return true;
+            }
+            return false;
         }
 
         private float GetSpeed()
