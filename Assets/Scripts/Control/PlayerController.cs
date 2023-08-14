@@ -10,6 +10,7 @@ namespace RPG.Control
         Health health;
         CharacterController characterController;
 
+
         public CharacterController GetCharacterController()
         {
             return characterController;
@@ -30,9 +31,9 @@ namespace RPG.Control
             //если сработает одна из функций - другая работать не будет
             //if (health.IsDead()) return;
             //if (InteractWithCombat()) return;
-            //if (InteractWithMovementByMouse()) return;
+            if (InteractWithMovementByMouse()) return;
 
-            InteractWithMovementByButtons();
+          //  InteractWithMovementByButtons();
         }
 
         private bool InteractWithCombat()

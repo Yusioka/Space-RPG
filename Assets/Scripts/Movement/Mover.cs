@@ -5,6 +5,7 @@ using RPG.Saving;
 using RPG.Attributes;
 using RPG.Control;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.XR;
 
 namespace RPG.Movement
 {
@@ -25,7 +26,7 @@ namespace RPG.Movement
         {
             // navMesh is enabled if IsNotDead()!
             //    navMeshAgent.isStopped = health.IsDead();
-            UpdateButtonsAnimator();
+           // UpdateButtonsAnimator();
         }
 
         public void StartMoveActionByMouse(Vector3 destination)
