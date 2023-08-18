@@ -756,6 +756,7 @@ GameObject:
   - component: {fileID: 43514974}
   - component: {fileID: 43514976}
   - component: {fileID: 43514975}
+  - component: {fileID: 43514977}
   m_Layer: 0
   m_Name: FreeLook Camera (1)
   m_TagString: Untagged
@@ -836,7 +837,7 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 10
-    NearClipPlane: 3.16
+    NearClipPlane: 2.44
     FarClipPlane: 5000
     Dutch: 0
     ModeOverride: 0
@@ -917,6 +918,20 @@ MonoBehaviour:
   - {fileID: 1982515042}
   - {fileID: 556579680}
   - {fileID: 592788031}
+--- !u!114 &43514977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43514973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d05d06ecd852c54e878099fb3fafdd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 356354315}
+  sensitivity: 3
 --- !u!1 &45356136 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1818237785379436, guid: d99e4aa50932b05448e4ce72fed91c91, type: 3}
@@ -9102,7 +9117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 5.952534, z: -5.55113}
+  m_FollowOffset: {x: 0, y: 3.752934, z: -3.057999}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -11345,7 +11360,7 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 10
-    NearClipPlane: 3.16
+    NearClipPlane: 2.44
     FarClipPlane: 5000
     Dutch: 0
     ModeOverride: 0
@@ -11863,7 +11878,7 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 10
-    NearClipPlane: 3.16
+    NearClipPlane: 2.44
     FarClipPlane: 5000
     Dutch: 0
     ModeOverride: 0
@@ -14134,7 +14149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 5.952534, z: -5.55113}
+  m_FollowOffset: {x: 0, y: 3.752934, z: -3.057999}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -36800,7 +36815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 5.952534, z: -5.55113}
+  m_FollowOffset: {x: 0, y: 3.752934, z: -3.057999}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -43422,7 +43437,7 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 10
-    NearClipPlane: 3.16
+    NearClipPlane: 2.44
     FarClipPlane: 5000
     Dutch: 0
     ModeOverride: 0
@@ -47477,7 +47492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2323987420448890657, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9999751
+      value: 0.99997514
       objectReference: {fileID: 0}
     - target: {fileID: 2323987420448890657, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.x
@@ -47485,11 +47500,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2323987420448890657, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000203743
+      value: -0.00000002681409
       objectReference: {fileID: 0}
     - target: {fileID: 2323987420448890657, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000133043905
+      value: -0.000000017509564
       objectReference: {fileID: 0}
     - target: {fileID: 2581468293965963221, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_Enabled
@@ -47749,11 +47764,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8418237301811683718, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000032113764
+      value: 0.000000032113768
       objectReference: {fileID: 0}
     - target: {fileID: 8418237301811683718, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000012367073
+      value: 0.000000012367074
       objectReference: {fileID: 0}
     - target: {fileID: 8447587568422638125, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_TrackedObjectOffset.y
@@ -47793,11 +47808,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9091322201017751533, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000013663202
+      value: 0.0000000136632075
       objectReference: {fileID: 0}
     - target: {fileID: 9091322201017751533, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000010458321
+      value: 0.000000010458325
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9213853712785066517, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
