@@ -4,15 +4,14 @@ using RPG.Core;
 using RPG.Saving;
 using RPG.Attributes;
 using RPG.Control;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem.XR;
 
 namespace RPG.Movement
 {
     public class Mover : MonoBehaviour, IAction, ISaveable
     {
-        NavMeshAgent navMeshAgent;
+        [SerializeField] MoverController moverController;
 
+        NavMeshAgent navMeshAgent;
         Health health;
         Vector3 localVelocity;
 
@@ -24,9 +23,19 @@ namespace RPG.Movement
 
         private void Update()
         {
+            if (moverController.GetIsButtonsMoving())
+            {
+                GetComponent<CharacterController>().enabled = true;
+                UpdateButtonsAnimator();
+
+            }
+            else
+            {
+                GetComponent<CharacterController>().enabled = false;
+                UpdateAnimator();
+            }
             // navMesh is enabled if IsNotDead()!
             //    navMeshAgent.isStopped = health.IsDead();
-            UpdateButtonsAnimator();
         }
 
         public void StartMoveActionByMouse(Vector3 destination)
@@ -89,7 +98,7 @@ namespace RPG.Movement
             Vector3 localVelocity = transform.InverseTransformDirection(velocity);
 
             float speed = localVelocity.z;
-         //   GetComponent<Animator>().SetFloat("forwardSpeed", speed);
+            GetComponent<Animator>().SetFloat("forwardSpeed", speed);
         }
         private void UpdateButtonsAnimator()
         {
@@ -100,7 +109,10 @@ namespace RPG.Movement
                 GetComponent<Animator>().SetBool("isLeft", false);
                 GetComponent<Animator>().SetBool("isRight", false);
             }
-
+            else
+            {
+                GetComponent<Animator>().SetFloat("forwardSpeed", 0);
+            }
         }
         private bool InputsCheck(string axis, string inputFirstBoolName, string inputSecondBoolName)
         {

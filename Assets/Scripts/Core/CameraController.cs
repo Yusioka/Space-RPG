@@ -23,26 +23,26 @@ namespace RPG.Core
         private void Update()
         {
             RotateCamera();
-            ZoomCamera();
+        //    ZoomCamera();
         }
 
-        private void ZoomCamera()
-        {
-            if (componentBase == null)
-            {
-                componentBase = virtualCamera.GetCinemachineComponent(CinemachineCore.Stage.Body);
-            }
-            if (Input.GetAxis("Mouse ScrollWheel") != 0)
-            {
-                cameraDistance = Input.GetAxis("Mouse ScrollWheel") * sensitivity * 5;
-                if (componentBase is CinemachineFramingTransposer)
-                {
-                    if ((componentBase as CinemachineFramingTransposer).m_CameraDistance <= 4 && cameraDistance > 0) return;
-                    else if ((componentBase as CinemachineFramingTransposer).m_CameraDistance >= 20 && cameraDistance < 0) return;
-                    (componentBase as CinemachineFramingTransposer).m_CameraDistance -= cameraDistance;
-                }
-            }
-        }
+        //private void ZoomCamera()
+        //{
+        //    if (componentBase == null)
+        //    {
+        //        componentBase = virtualCamera.GetCinemachineComponent(CinemachineCore.Stage.Body);
+        //    }
+        //    if (Input.GetAxis("Mouse ScrollWheel") != 0)
+        //    {
+        //        cameraDistance = Input.GetAxis("Mouse ScrollWheel") * sensitivity * 5;
+        //        if (componentBase is CinemachineFramingTransposer)
+        //        {
+        //            if ((componentBase as CinemachineFramingTransposer).m_CameraDistance <= 4 && cameraDistance > 0) return;
+        //            else if ((componentBase as CinemachineFramingTransposer).m_CameraDistance >= 20 && cameraDistance < 0) return;
+        //            (componentBase as CinemachineFramingTransposer).m_CameraDistance -= cameraDistance;
+        //        }
+        //    }
+        //}
 
         private void RotateCamera()
         {

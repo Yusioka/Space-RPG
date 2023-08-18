@@ -7,6 +7,10 @@ namespace RPG.Control
 {
     public class PlayerController : MonoBehaviour
     {
+        [SerializeField] MoverController moverController;
+        [SerializeField] GameObject buttonsMovingCamera;
+        [SerializeField] GameObject mouseMovingCamera;
+
         Health health;
         CharacterController characterController;
 
@@ -28,12 +32,19 @@ namespace RPG.Control
 
         private void Update()
         {
+            if (moverController.GetIsButtonsMoving())
+            {
+                SwitchCameras(mouseMovingCamera, buttonsMovingCamera);
+                InteractWithMovementByButtons();
+            }
+            else
+            {
+                SwitchCameras(buttonsMovingCamera, mouseMovingCamera);
+                if (InteractWithMovementByMouse()) return;
+            }
             //если сработает одна из функций - другая работать не будет
             //if (health.IsDead()) return;
-            //if (InteractWithCombat()) return;
-          //  if (InteractWithMovementByMouse()) return;
-
-            InteractWithMovementByButtons();
+            //if (InteractWithCombat()) return;      
         }
 
         private bool InteractWithCombat()
@@ -78,6 +89,12 @@ namespace RPG.Control
         private void InteractWithMovementByButtons()
         {
             GetComponent<Mover>().StartMoveActionByButtons();
+        }
+
+        private void SwitchCameras(GameObject cameraToSwitch, GameObject cameraToActive)
+        {
+            cameraToSwitch.SetActive(false);
+            cameraToActive.SetActive(true);
         }
     }
 }
