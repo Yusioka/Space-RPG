@@ -98,37 +98,23 @@ namespace RPG.Movement
             Vector3 localVelocity = transform.InverseTransformDirection(velocity);
 
             float speed = localVelocity.z;
-            GetComponent<Animator>().SetFloat("forwardSpeed", speed);
+            GetComponent<Animator>().SetFloat("speedY", speed);
         }
         private void UpdateButtonsAnimator()
         {
-            if (!InputsCheck("Vertical", "isForward", "isBackward") && !InputsCheck("Horizontal", "isRight", "isLeft"))
-            {
-                GetComponent<Animator>().SetBool("isForward", false);
-                GetComponent<Animator>().SetBool("isBackward", false);
-                GetComponent<Animator>().SetBool("isLeft", false);
-                GetComponent<Animator>().SetBool("isRight", false);
-            }
-            else
-            {
-                GetComponent<Animator>().SetFloat("forwardSpeed", 0);
-            }
-        }
-        private bool InputsCheck(string axis, string inputFirstBoolName, string inputSecondBoolName)
-        {
-            float input = Input.GetAxis(axis);
+            float xAxis = Input.GetAxis("Horizontal");
+            float yAxis = Input.GetAxis("Vertical");
+            if (xAxis > 0) GetComponent<Animator>().SetFloat("speedX", 1);
+            if (xAxis < 0) GetComponent<Animator>().SetFloat("speedX", -1);
 
-            if (input > 0)
+            if (yAxis > 0) GetComponent<Animator>().SetFloat("speedY", 1);
+            if (yAxis < 0) GetComponent<Animator>().SetFloat("speedY", -1);
+
+            if (xAxis == 0 && yAxis == 0)
             {
-                GetComponent<Animator>().SetBool(inputFirstBoolName, true);
-                return true;
+                GetComponent<Animator>().SetFloat("speedX", 0);
+                GetComponent<Animator>().SetFloat("speedY", 0);
             }
-            else if (input < 0)
-            {
-                GetComponent<Animator>().SetBool(inputSecondBoolName, true);
-                return true;
-            }
-            return false;
         }
 
         private float GetSpeed()
