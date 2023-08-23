@@ -4,7 +4,7 @@ namespace RPG.Dialogue
     public class DialogueNode
     {
         public string uniqueID;
-        public string test;
+        public string text;
         public string[] children;
     }
 }

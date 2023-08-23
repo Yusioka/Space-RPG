@@ -6,6 +6,8 @@ namespace RPG.Dialogue.Editor
 {
     public class DialoqueEditor : EditorWindow
     {
+        Dialogue selectedDialogue = null;
+
         [MenuItem("Window/Dialogue Editor")]
 
         public static void ShowEditorWindow()
@@ -14,7 +16,7 @@ namespace RPG.Dialogue.Editor
         }
 
         [OnOpenAsset(1)]
-        public static bool OpenDialogue(int instanceID, int line)
+        public static bool OnOpenAsset(int instanceID, int line)
         {
             // as = if the object ISN'T Dialogue, it WON'T WORK, else - it WILL WORK
             Dialogue dialogue = EditorUtility.InstanceIDToObject(instanceID) as Dialogue;
@@ -27,9 +29,35 @@ namespace RPG.Dialogue.Editor
             return false;
         }
 
+        private void OnEnable()
+        {
+            Selection.selectionChanged += OnSelectionChanged;
+        }
+        private void OnSelectionChanged()
+        {
+            Dialogue newDialogue = Selection.activeObject as Dialogue;
+            if (newDialogue != null)
+            {
+                selectedDialogue = newDialogue;
+                // обновляет OnGUI()
+                Repaint();
+            }
+        }
+
         private void OnGUI()
         {
-            EditorGUI.LabelField(new Rect(50, 30, 200, 200), "Hi");
+            if (selectedDialogue == null)
+            {
+                EditorGUILayout.LabelField("No Dialogue Selected");
+            }
+            else
+            {
+                // для каждой записи в записях выбранного диалога...
+                foreach (DialogueNode node in selectedDialogue.GetAllNodes())
+                {
+                    node.text = EditorGUILayout.TextField(node.text);
+                }
+            }
         }
     }
 }

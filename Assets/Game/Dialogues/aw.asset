@@ -10,18 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 591f37a1e8894a141b4d49be861dfef9, type: 3}
-  m_Name: New Dialogue
+  m_Name: aw
   m_EditorClassIdentifier: 
   nodes:
-  - uniqueID: a
-    text: Second text
-    children: []
-  - uniqueID: b
-    text: Hi maaan
-    children: []
-  - uniqueID: c
-    text: Awwwwww..
-    children: []
-  - uniqueID: d
-    text: Ok
+  - uniqueID: 
+    text: First text
     children: []
