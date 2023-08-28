@@ -9,7 +9,6 @@ namespace RPG.Dialogue.Editor
     {
         Dialogue selectedDialogue = null;
         GUIStyle nodeStyle;
-        bool isDragging = false;
         DialogueNode draggingNode = null;
         Vector2 draggingOffset;
 
@@ -66,7 +65,8 @@ namespace RPG.Dialogue.Editor
                 // для каждой записи в записях выбранного диалога...
                 foreach (DialogueNode node in selectedDialogue.GetAllNodes())
                 {
-                    OnGUINode(node);
+                    DrawNode(node);
+                    DrawConnections(node);
                 }
             }
         }
@@ -94,7 +94,7 @@ namespace RPG.Dialogue.Editor
             }
         }
 
-        private void OnGUINode(DialogueNode node)
+        private void DrawNode(DialogueNode node)
         {
             GUILayout.BeginArea(node.rect, nodeStyle);
             EditorGUI.BeginChangeCheck();
@@ -114,6 +114,20 @@ namespace RPG.Dialogue.Editor
             }
 
             GUILayout.EndArea();
+        }
+        private void DrawConnections(DialogueNode node)
+        {
+            Vector3 startPosition = new Vector2(node.rect.xMax, node.rect.center.y);
+            foreach (DialogueNode childNode in selectedDialogue.GetAllChildren(node))
+            {
+                Vector3 endPosition = new Vector2(childNode.rect.xMin, childNode.rect.center.y);
+                Vector3 controllPointOffset = endPosition - startPosition;
+                controllPointOffset.y = 0;
+                Handles.DrawBezier(
+                    startPosition, endPosition,
+                    startPosition + controllPointOffset, endPosition - controllPointOffset, 
+                    Color.white, null, 4f);
+            }    
         }
 
         private DialogueNode GetNodeAtPoint(Vector2 point)

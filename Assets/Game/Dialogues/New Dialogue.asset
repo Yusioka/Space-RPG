@@ -15,37 +15,40 @@ MonoBehaviour:
   nodes:
   - uniqueID: a
     text: Second text
-    children: []
+    children:
+    - b
+    - c
     rect:
       serializedVersion: 2
-      x: 377
-      y: 91.2
+      x: 20
+      y: 50.199997
       width: 155.4
-      height: 100
+      height: 150
   - uniqueID: b
     text: Hi maaan
     children: []
     rect:
       serializedVersion: 2
-      x: 503
-      y: 266.2
+      x: 269
+      y: -0.79999924
       width: 100
       height: 100
   - uniqueID: c
-    text: dfsfsdf
-    children: []
+    text: Biba
+    children:
+    - d
     rect:
       serializedVersion: 2
-      x: 113
-      y: 163.2
-      width: 100
-      height: 100
+      x: 260
+      y: 170.20001
+      width: 150
+      height: 150
   - uniqueID: d
     text: Ok
     children: []
     rect:
       serializedVersion: 2
-      x: 215
-      y: 348.2
+      x: 488
+      y: 193.2
       width: 100
       height: 100
