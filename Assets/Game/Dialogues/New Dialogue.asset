@@ -20,17 +20,18 @@ MonoBehaviour:
     - c
     rect:
       serializedVersion: 2
-      x: 20
-      y: 50.199997
+      x: 42
+      y: 77.2
       width: 155.4
       height: 150
   - uniqueID: b
     text: Hi maaan
-    children: []
+    children:
+    - 441b9f78-69c0-4bfe-9541-787cb4b8beae
     rect:
       serializedVersion: 2
-      x: 269
-      y: -0.79999924
+      x: 274
+      y: 2.199997
       width: 100
       height: 100
   - uniqueID: c
@@ -39,8 +40,8 @@ MonoBehaviour:
     - d
     rect:
       serializedVersion: 2
-      x: 260
-      y: 170.20001
+      x: 252
+      y: 171.20001
       width: 150
       height: 150
   - uniqueID: d

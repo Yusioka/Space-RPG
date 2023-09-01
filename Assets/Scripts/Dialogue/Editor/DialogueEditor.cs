@@ -11,6 +11,8 @@ namespace RPG.Dialogue.Editor
         GUIStyle nodeStyle;
         DialogueNode draggingNode = null;
         Vector2 draggingOffset;
+        DialogueNode creatingNode = null;
+        DialogueNode deletingNode = null;
 
         [MenuItem("Window/Dialogue Editor")]
 
@@ -68,6 +70,18 @@ namespace RPG.Dialogue.Editor
                     DrawNode(node);
                     DrawConnections(node);
                 }
+                if (creatingNode != null)
+                {
+                    Undo.RecordObject(selectedDialogue, "Added Dialogue Node");
+                    selectedDialogue.CreateNode(creatingNode);
+                    creatingNode = null;
+                }
+                if (deletingNode != null)
+                {
+                    Undo.RecordObject(selectedDialogue, "Deleted Dialogue Node");
+                    selectedDialogue.DeleteNode(deletingNode);
+                    deletingNode = null;
+                }
             }
         }
 
@@ -99,9 +113,7 @@ namespace RPG.Dialogue.Editor
             GUILayout.BeginArea(node.rect, nodeStyle);
             EditorGUI.BeginChangeCheck();
 
-            EditorGUILayout.LabelField("Node: ", EditorStyles.whiteLabel);
             string newText = EditorGUILayout.TextField(node.text);
-            string newUniqueId = EditorGUILayout.TextField(node.uniqueID);
 
             // если были изменения в строке...
             if (EditorGUI.EndChangeCheck())
@@ -110,7 +122,14 @@ namespace RPG.Dialogue.Editor
                 Undo.RecordObject(selectedDialogue, "Update Dialogue Text");
 
                 node.text = newText;
-                node.uniqueID = newUniqueId;
+            }
+            if (GUILayout.Button("+"))
+            {
+                creatingNode = node;
+            }
+            if (GUILayout.Button("-"))
+            {
+                deletingNode = node;
             }
 
             GUILayout.EndArea();
