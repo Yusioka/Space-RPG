@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace RPG.Dialogue
@@ -15,12 +16,7 @@ namespace RPG.Dialogue
 #if UNITY_EDITOR
         private void Awake()
         {
-            if (nodes.Count == 0)
-            {
-                DialogueNode rootNode = new DialogueNode();
-                rootNode.uniqueID = Guid.NewGuid().ToString();
-                nodes.Add(rootNode);
-            }
+            OnValidate();
         }
 #endif
         private void OnValidate()
@@ -28,8 +24,8 @@ namespace RPG.Dialogue
             nodeLookup.Clear();
             foreach (DialogueNode node in GetAllNodes())
             {
-                // пример nodeLookup["a"] = ноду с таким uniqueID;
-                nodeLookup[node.uniqueID] = node;
+                // пример nodeLookup["a"] = ноду с таким node.name;
+                nodeLookup[node.name] = node;
             }
         }
 
@@ -56,9 +52,13 @@ namespace RPG.Dialogue
 
         public void CreateNode(DialogueNode parent)
         {
-            DialogueNode newNode = new DialogueNode();
-            newNode.uniqueID = Guid.NewGuid().ToString();
-            parent.children.Add(newNode.uniqueID);
+            DialogueNode newNode = CreateInstance<DialogueNode>();
+            newNode.name = Guid.NewGuid().ToString();
+            Undo.RegisterCreatedObjectUndo(newNode, "Created Dialogue Node");
+            if (parent != null)
+            {
+                parent.children.Add(newNode.name);
+            }
             nodes.Add(newNode);
             OnValidate();
         }
@@ -68,8 +68,9 @@ namespace RPG.Dialogue
             OnValidate();
             foreach(DialogueNode node in GetAllNodes())
             {
-                node.children.Remove(nodeToDelete.uniqueID);
+                node.children.Remove(nodeToDelete.name);
             }
+            Undo.DestroyObjectImmediate(nodeToDelete);
         }
     }
 }
