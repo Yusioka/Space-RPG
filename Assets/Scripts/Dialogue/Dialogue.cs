@@ -6,19 +6,13 @@ using UnityEngine;
 namespace RPG.Dialogue
 {
     [CreateAssetMenu(fileName = "New Dialogue", menuName = "Dialogue", order = 0)]
-    public class Dialogue : ScriptableObject
+    public class Dialogue : ScriptableObject, ISerializationCallbackReceiver
     {
-        [SerializeField] 
-        List<DialogueNode> nodes = new List<DialogueNode>();
+        [SerializeField] List<DialogueNode> nodes = new List<DialogueNode>();
+        [SerializeField] Vector2 newNodeOffset = new Vector2(250, 0);
 
         Dictionary<string, DialogueNode> nodeLookup = new Dictionary<string, DialogueNode>();
 
-#if UNITY_EDITOR
-        private void Awake()
-        {
-            OnValidate();
-        }
-#endif
         private void OnValidate()
         {
             nodeLookup.Clear();
@@ -39,7 +33,7 @@ namespace RPG.Dialogue
         }
         public IEnumerable<DialogueNode> GetAllChildren(DialogueNode parentNode)
         {
-            foreach (string childID in parentNode.children)
+            foreach (string childID in parentNode.GetChildren())
             {
                 // проверяет на наличие child-ключа у Dictionary
                 if (nodeLookup.ContainsKey(childID))
@@ -50,6 +44,8 @@ namespace RPG.Dialogue
             }
         }
 
+
+#if UNITY_EDITOR
         public void CreateNode(DialogueNode parent)
         {
             DialogueNode newNode = CreateInstance<DialogueNode>();
@@ -57,20 +53,47 @@ namespace RPG.Dialogue
             Undo.RegisterCreatedObjectUndo(newNode, "Created Dialogue Node");
             if (parent != null)
             {
-                parent.children.Add(newNode.name);
+                parent.GetChildren().Add(newNode.name);
+                // if player speaking, the child will be not from player
+                newNode.SetIsPlayerSpeaking(!parent.IsPlayerSpeaking());
+                newNode.SetPosition(parent.GetRect().position + newNodeOffset);
             }
+            Undo.RecordObject(this, "Added Dialogue Node");
             nodes.Add(newNode);
             OnValidate();
         }
         public void DeleteNode(DialogueNode nodeToDelete)
         {
+            Undo.RecordObject(this, "Deleted Dialogue Node");
             nodes.Remove(nodeToDelete);
             OnValidate();
             foreach(DialogueNode node in GetAllNodes())
             {
-                node.children.Remove(nodeToDelete.name);
+                node.GetChildren().Remove(nodeToDelete.name);
             }
             Undo.DestroyObjectImmediate(nodeToDelete);
+        }
+#endif
+        public void OnBeforeSerialize()
+        {
+#if UNITY_EDITOR
+            if (AssetDatabase.GetAssetPath(this) != "")
+            {
+                foreach(DialogueNode node in GetAllNodes())
+                {
+                    if (AssetDatabase.GetAssetPath(node) == "")
+                    {
+                        // сохраняет созданный node в проекте юнити(под диалогом)
+                        AssetDatabase.AddObjectToAsset(node, this);
+                    }
+                }
+            }
+#endif
+        }
+
+        public void OnAfterDeserialize()
+        {
+
         }
     }
 }
