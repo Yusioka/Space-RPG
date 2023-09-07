@@ -13,24 +13,28 @@ namespace RPG.UI
         [SerializeField] Button nextButton;
         [SerializeField] Transform choiceRoot;
         [SerializeField] GameObject choicePrefab;
+        [SerializeField] Button quitButton;
 
         private void Start()
         {
             playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
-            nextButton.onClick.AddListener(Next);
+            playerConversant.onConversationUpdated += UpdateUI;
+            nextButton.onClick.AddListener(() => playerConversant.Next());
+            quitButton.onClick.AddListener(() => playerConversant.Quit());
+
             UpdateUI();
         }
 
-        void Next()
+        public void Next()
         {
             playerConversant.Next();
-            UpdateUI();
         }
 
         void UpdateUI()
         {
-            AIText.text = playerConversant.GetText();
-            nextButton.gameObject.SetActive(playerConversant.HasNext());
+            gameObject.SetActive(playerConversant.IsActive());
+            if (!playerConversant.IsActive()) return;
+
             AIResponse.SetActive(!playerConversant.IsChoosing());
             choiceRoot.gameObject.SetActive(playerConversant.IsChoosing());
 
