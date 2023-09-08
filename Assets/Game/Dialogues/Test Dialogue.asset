@@ -21,6 +21,8 @@ MonoBehaviour:
     y: 1
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &-4006697293564709925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,6 +46,8 @@ MonoBehaviour:
     y: 102
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &-2893563312137391838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,6 +70,8 @@ MonoBehaviour:
     y: 1
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &-1978683390018641906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,6 +94,8 @@ MonoBehaviour:
     y: 200.00002
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,6 +120,7 @@ MonoBehaviour:
   - {fileID: 2696852708366951709}
   - {fileID: -8672984586023663464}
   - {fileID: 8568324160344819576}
+  - {fileID: 1615661469307664076}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &260405780568662466
 MonoBehaviour:
@@ -136,6 +145,31 @@ MonoBehaviour:
     y: 0
     width: 200
     height: 100
+  onEnterAction: TestRootEntry
+  onExitAction: 
+--- !u!114 &1615661469307664076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: caccf48b-ae42-4d20-a79f-1ef1751a4db8
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Arr, I hate unkind people!!!
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1497
+    y: 102
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: Attack
 --- !u!114 &2696852708366951709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +193,8 @@ MonoBehaviour:
     y: 1
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &3014981776840680927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,6 +217,8 @@ MonoBehaviour:
     y: 1
     width: 200
     height: 100
+  onEnterAction: TestSelection
+  onExitAction: 
 --- !u!114 &3888738309079987831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +241,8 @@ MonoBehaviour:
     y: 98
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: TestAIExit
 --- !u!114 &7073129865793843535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,6 +264,8 @@ MonoBehaviour:
     y: 97
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &7717940900051337890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,6 +288,8 @@ MonoBehaviour:
     y: 1
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 
 --- !u!114 &8568324160344819576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,10 +304,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: I don't want do this.
-  children: []
+  children:
+  - caccf48b-ae42-4d20-a79f-1ef1751a4db8
   rect:
     serializedVersion: 2
     x: 1248
     y: 102
     width: 200
     height: 100
+  onEnterAction: 
+  onExitAction: 

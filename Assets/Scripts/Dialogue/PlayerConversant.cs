@@ -1,32 +1,25 @@
-using RPG.UI;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace RPG.Dialogue
 {
     public class PlayerConversant : MonoBehaviour
     {
-        [SerializeField] Dialogue testDialogue;
         Dialogue currentDialogue;
-        [SerializeField] DialogueUI dialogueUI;
         DialogueNode currentNode = null;
+        AIConversant currentConversant = null;
         bool isChoosing = false;
 
         public event Action onConversationUpdated;
 
-        IEnumerator Start()
+        public void StartDialogue(AIConversant newConversant, Dialogue newDialogue)
         {
-            yield return new WaitForSeconds(2);
-            StartDialogue(testDialogue);
-        }
-        private void StartDialogue(Dialogue newDialogue)
-        {
+            currentConversant = newConversant;
             currentDialogue = newDialogue;
             currentNode = currentDialogue.GetRootNode();
+            TriggerEnterAction();
             onConversationUpdated();
         }
 
@@ -60,6 +53,7 @@ namespace RPG.Dialogue
         public void SelectChoice(DialogueNode chosenNode)
         {
             currentNode = chosenNode;
+            TriggerEnterAction();
             isChoosing = false;
             Next();
         }
@@ -70,15 +64,16 @@ namespace RPG.Dialogue
             if (numPlayerResponses > 0) 
             {
                 isChoosing = true;
+                TriggerExitAction();
                 onConversationUpdated();
                 return;
             }
 
-            print(currentNode.GetText());
-
             DialogueNode[] children = currentDialogue.GetAIChildren(currentNode).ToArray();
             int randomIndex = UnityEngine.Random.Range(0, children.Count());
+            TriggerEnterAction();
             currentNode = children[randomIndex];
+            TriggerExitAction();
             onConversationUpdated();
         }
         public bool HasNext()
@@ -89,9 +84,36 @@ namespace RPG.Dialogue
         public void Quit()
         {
             currentDialogue = null;
+            TriggerExitAction();
             currentNode = null;
             isChoosing = false;
+            currentConversant = null;
             onConversationUpdated();
+        }
+
+        public void TriggerEnterAction()
+        {
+            if (currentDialogue != null && currentNode.GetOnEnterAction() != "")
+            {
+                TriggerAction(currentNode.GetOnEnterAction());
+            }
+        }
+        public void TriggerExitAction()
+        {
+            print(currentNode.GetOnExitAction());
+            if (currentDialogue != null && currentNode.GetOnExitAction() != "")
+            {
+                TriggerAction(currentNode.GetOnExitAction());
+            }
+        }
+
+        void TriggerAction(string action)
+        {
+            if (action == "") ;
+            foreach (DialogueTrigger trigger in currentConversant.GetComponents<DialogueTrigger>())
+            {
+                trigger.Trigger(action);
+            }
         }
     }
 }
