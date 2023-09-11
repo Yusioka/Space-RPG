@@ -1,6 +1,7 @@
+using RPG.Quests;
 using UnityEngine;
 
-namespace RPG.Quests
+namespace RPG.UI.Quests
 {
     public class QuestListUI: MonoBehaviour
     {
@@ -9,6 +10,7 @@ namespace RPG.Quests
 
         private void Start()
         {
+            transform.DetachChildren();
             foreach (Quest quest in tempQuests)
             {
                 QuestItemUI uiInstance = Instantiate(questPrefab, transform);

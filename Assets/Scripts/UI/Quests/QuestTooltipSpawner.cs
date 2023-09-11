@@ -1,4 +1,5 @@
 using RPG.Core.UI.Tooltips;
+using RPG.Quests;
 using UnityEngine;
 
 namespace RPG.UI.Quests
@@ -12,7 +13,8 @@ namespace RPG.UI.Quests
 
         public override void UpdateTooltip(GameObject tooltip)
         {
-            
+            Quest quest = GetComponent<QuestItemUI>().GetQuest();
+            tooltip.GetComponent<QuestTooltipUI>().Setup(quest);
         }
     }
 }
