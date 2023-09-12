@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8672984586023663464
+--- !u!114 &-6341645959855322844
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,92 +10,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
-  m_Name: 369e8ee3-9531-4889-b16a-4f3fea783dd5
+  m_Name: 71ba5737-adda-4805-9b04-4b3662067570
   m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: Ok
+  isPlayerSpeaking: 0
+  text: I don't like unkind people ARR!!
   children: []
   rect:
     serializedVersion: 2
-    x: 1250
+    x: 993
+    y: 103
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: Attack
+--- !u!114 &-2697719524441827823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: c7444383-d81d-4873-9809-61ad8cbed02b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Okay.Bring me my sock, please
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 989
     y: 1
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: 
---- !u!114 &-4006697293564709925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
-  m_Name: 014b6d24-6761-4bb3-b27a-4565f0c11018
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  text: Really? Why?
-  children:
-  - 59b336f3-dc0f-4348-92a7-ef931f2bee2f
-  - 5e716818-d99b-4982-a11c-3e1832883e73
-  rect:
-    serializedVersion: 2
-    x: 494
-    y: 102
-    width: 200
-    height: 100
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &-2893563312137391838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
-  m_Name: 8a66850e-04cc-4c19-819b-de977aa67ab3
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  text: I heard, you're a good person, so I have a question for you.
-  children:
-  - 35c1daf0-b406-4fdd-a055-31c7a7959f37
-  rect:
-    serializedVersion: 2
-    x: 500
-    y: 1
-    width: 200
-    height: 100
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &-1978683390018641906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
-  m_Name: 5e716818-d99b-4982-a11c-3e1832883e73
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: Can you give smthing interesting for me?
-  children:
-  - 0610ed63-cdde-4969-a48b-31063791c6bf
-  rect:
-    serializedVersion: 2
-    x: 750
-    y: 200.00002
-    width: 200
-    height: 100
-  onEnterAction: 
-  onExitAction: 
+  onExitAction: GiveQuest
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,15 +62,11 @@ MonoBehaviour:
   - {fileID: 260405780568662466}
   - {fileID: 3014981776840680927}
   - {fileID: 3888738309079987831}
-  - {fileID: -4006697293564709925}
-  - {fileID: 7073129865793843535}
-  - {fileID: -1978683390018641906}
-  - {fileID: -2893563312137391838}
-  - {fileID: 7717940900051337890}
-  - {fileID: 2696852708366951709}
-  - {fileID: -8672984586023663464}
-  - {fileID: 8568324160344819576}
-  - {fileID: 1615661469307664076}
+  - {fileID: 2077791632583823821}
+  - {fileID: 3068585274329512298}
+  - {fileID: -6341645959855322844}
+  - {fileID: 8074782054606428292}
+  - {fileID: -2697719524441827823}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &260405780568662466
 MonoBehaviour:
@@ -145,32 +91,9 @@ MonoBehaviour:
     y: 0
     width: 200
     height: 100
-  onEnterAction: TestRootEntry
-  onExitAction: 
---- !u!114 &1615661469307664076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
-  m_Name: caccf48b-ae42-4d20-a79f-1ef1751a4db8
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  text: Arr, I hate unkind people!!!
-  children: []
-  rect:
-    serializedVersion: 2
-    x: 1497
-    y: 101
-    width: 200
-    height: 100
   onEnterAction: 
-  onExitAction: Attack
---- !u!114 &2696852708366951709
+  onExitAction: 
+--- !u!114 &2077791632583823821
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,17 +103,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
-  m_Name: 0610ed63-cdde-4969-a48b-31063791c6bf
+  m_Name: 6fb9a420-a958-4f07-99e7-e18804e93eb9
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: I'll give you this golden apple if you help me.
+  text: Can you help me?
   children:
-  - 369e8ee3-9531-4889-b16a-4f3fea783dd5
-  - f2e7574d-f560-4351-91b2-a37bd5fb7f67
+  - 9099b46d-bac4-4006-9c62-0b91f35647f2
+  - b35f0bcb-192c-470b-86ab-3b42eea99ee6
   rect:
     serializedVersion: 2
-    x: 1000
-    y: 1
+    x: 503
+    y: 33
     width: 200
     height: 100
   onEnterAction: 
@@ -210,14 +133,38 @@ MonoBehaviour:
   isPlayerSpeaking: 1
   text: Oh, Hello!
   children:
-  - 8a66850e-04cc-4c19-819b-de977aa67ab3
+  - 6fb9a420-a958-4f07-99e7-e18804e93eb9
   rect:
     serializedVersion: 2
     x: 250
-    y: 1
+    y: 0
     width: 200
     height: 100
-  onEnterAction: TestSelection
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &3068585274329512298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 9099b46d-bac4-4006-9c62-0b91f35647f2
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: No!
+  children:
+  - 71ba5737-adda-4805-9b04-4b3662067570
+  rect:
+    serializedVersion: 2
+    x: 743
+    y: 103
+    width: 200
+    height: 100
+  onEnterAction: 
   onExitAction: 
 --- !u!114 &3888738309079987831
 MonoBehaviour:
@@ -234,39 +181,16 @@ MonoBehaviour:
   isPlayerSpeaking: 1
   text: I don't want talk with you.
   children:
-  - 014b6d24-6761-4bb3-b27a-4565f0c11018
+  - 6fb9a420-a958-4f07-99e7-e18804e93eb9
   rect:
     serializedVersion: 2
-    x: 249
+    x: 253
     y: 98
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: TestAIExit
---- !u!114 &7073129865793843535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
-  m_Name: 59b336f3-dc0f-4348-92a7-ef931f2bee2f
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: Bye.
-  children: []
-  rect:
-    serializedVersion: 2
-    x: 749
-    y: 97
-    width: 200
-    height: 100
-  onEnterAction: 
   onExitAction: 
---- !u!114 &7717940900051337890
+--- !u!114 &8074782054606428292
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -276,40 +200,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
-  m_Name: 35c1daf0-b406-4fdd-a055-31c7a7959f37
+  m_Name: b35f0bcb-192c-470b-86ab-3b42eea99ee6
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Okay, let's see
+  text: Oh, okay
   children:
-  - 0610ed63-cdde-4969-a48b-31063791c6bf
+  - c7444383-d81d-4873-9809-61ad8cbed02b
   rect:
     serializedVersion: 2
-    x: 750
+    x: 739
     y: 1
-    width: 200
-    height: 100
-  onEnterAction: 
-  onExitAction: 
---- !u!114 &8568324160344819576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
-  m_Name: f2e7574d-f560-4351-91b2-a37bd5fb7f67
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: I don't want do this.
-  children:
-  - caccf48b-ae42-4d20-a79f-1ef1751a4db8
-  rect:
-    serializedVersion: 2
-    x: 1248
-    y: 102
     width: 200
     height: 100
   onEnterAction: 

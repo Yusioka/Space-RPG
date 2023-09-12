@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 457117935436890963}
   - component: {fileID: 7589881139852813992}
   m_Layer: 5
-  m_Name: Objective
+  m_Name: Objective Incomplete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -216,16 +216,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 212619aea848509449704f41e4a1d3f2, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 212619aea848509449704f41e4a1d3f2, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 212619aea848509449704f41e4a1d3f2, type: 3}
-      propertyPath: m_Color.r
+    - target: {fileID: 11400002, guid: 212619aea848509449704f41e4a1d3f2, type: 3}
+      propertyPath: m_IsOn
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22400002, guid: 212619aea848509449704f41e4a1d3f2, type: 3}

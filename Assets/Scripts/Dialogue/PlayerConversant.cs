@@ -122,7 +122,7 @@ namespace RPG.Dialogue
 
         void TriggerAction(string action)
         {
-            if (action == "") ;
+            if (action == "") return;
             foreach (DialogueTrigger trigger in currentConversant.GetComponents<DialogueTrigger>())
             {
                 trigger.Trigger(action);

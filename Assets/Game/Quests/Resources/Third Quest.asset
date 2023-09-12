@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Do nothing
   objectives:
-  - Do nothing man, just chill
+  - reference: Do nothing
+    description: Stay and sleep
+  rewards:
+  - number: 1
+    item: {fileID: 0}

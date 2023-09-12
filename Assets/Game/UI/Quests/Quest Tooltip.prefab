@@ -593,6 +593,7 @@ MonoBehaviour:
   title: {fileID: 6298094236366739120}
   objectiveContainer: {fileID: 2420761364627135556}
   objectivePrefab: {fileID: 6466402484856891217, guid: b9d51aef193689e45b40545932cdf7e7, type: 3}
+  objectiveIncompletePrefab: {fileID: 6466402484856891217, guid: 1bb3ed02c75954b42a880c6998437a66, type: 3}
 --- !u!1 &7596336407218177817
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,6 +863,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4678485769355654311, guid: b9d51aef193689e45b40545932cdf7e7, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678485769361654087, guid: b9d51aef193689e45b40545932cdf7e7, type: 3}
+      propertyPath: m_IsOn
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5492611566036334124, guid: b9d51aef193689e45b40545932cdf7e7, type: 3}

@@ -28,7 +28,7 @@ namespace RPG.Saving
 
         private void Update()
         {
-            if (Input.GetKeyUp(KeyCode.S))
+            if (Input.GetKeyUp(KeyCode.K))
             {
                 Save();
             }
@@ -45,10 +45,12 @@ namespace RPG.Saving
         public void Save()
         {
             GetComponent<SavingSystem>().Save(defaultSaveFile);
+            print("saved");
         }
         public void Load()
         {
             GetComponent<SavingSystem>().Load(defaultSaveFile);
+            print("loaded");
         }
         public void Delete()
         {
