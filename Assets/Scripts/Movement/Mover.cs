@@ -23,17 +23,17 @@ namespace RPG.Movement
 
         private void Update()
         {
-            if (moverController.GetIsButtonsMoving())
-            {
+        //    if (moverController.GetIsButtonsMoving())
+        //    {
                 GetComponent<CharacterController>().enabled = true;
                 UpdateButtonsAnimator();
 
-            }
-            else
-            {
-                GetComponent<CharacterController>().enabled = false;
-                UpdateAnimator();
-            }
+         //   }
+          //  else
+          //  {
+           //     GetComponent<CharacterController>().enabled = false;
+            //    UpdateAnimator();
+         //   }
             // navMesh is enabled if IsNotDead()!
             //    navMeshAgent.isStopped = health.IsDead();
         }

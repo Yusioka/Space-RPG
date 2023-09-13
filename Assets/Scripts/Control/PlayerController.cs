@@ -32,16 +32,16 @@ namespace RPG.Control
 
         private void Update()
         {
-            if (moverController.GetIsButtonsMoving())
-            {
+          //  if (moverController.GetIsButtonsMoving())
+          //  {
                 SwitchCameras(mouseMovingCamera, buttonsMovingCamera);
                 InteractWithMovementByButtons();
-            }
-            else
-            {
-                SwitchCameras(buttonsMovingCamera, mouseMovingCamera);
-                if (InteractWithMovementByMouse()) return;
-            }
+          //  }
+          //  else
+           // {
+             //   SwitchCameras(buttonsMovingCamera, mouseMovingCamera);
+               // if (InteractWithMovementByMouse()) return;
+           // }
             //если сработает одна из функций - другая работать не будет
             //if (health.IsDead()) return;
             //if (InteractWithCombat()) return;      
