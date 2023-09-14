@@ -5109,6 +5109,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Core
       objectReference: {fileID: 0}
+    - target: {fileID: 1121341963565521587, guid: 8eca5e2170a1d3540867a153bf452298, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1204109464236445157, guid: 8eca5e2170a1d3540867a153bf452298, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -5168,6 +5172,10 @@ PrefabInstance:
     - target: {fileID: 2562113420803548797, guid: 8eca5e2170a1d3540867a153bf452298, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ButtonsMoving
+      objectReference: {fileID: 0}
+    - target: {fileID: 5350927457068620560, guid: 8eca5e2170a1d3540867a153bf452298, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8128539115008683573, guid: 8eca5e2170a1d3540867a153bf452298, type: 3}
@@ -11027,11 +11035,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 665818483440499771, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000001706328
+      value: 0.000000017063288
       objectReference: {fileID: 0}
     - target: {fileID: 665818483440499771, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000022144677
+      value: -0.0000000022144686
       objectReference: {fileID: 0}
     - target: {fileID: 746113677418115681, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_IsActive
