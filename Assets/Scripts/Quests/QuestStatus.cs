@@ -35,6 +35,17 @@ namespace RPG.Quests
                 completeObjectives.Add(objective);
             }
         }
+        public bool IsComplete()
+        {
+            foreach (var objective in quest.GetObjectives())
+            {
+                if (!completeObjectives.Contains(objective.reference))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
 
         public Quest GetQuest()
         {
