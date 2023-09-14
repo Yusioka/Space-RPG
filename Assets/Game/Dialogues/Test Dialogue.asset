@@ -23,6 +23,9 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: Attack
+  condition:
+    predicate: 
+    parameters: []
 --- !u!114 &-2697719524441827823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,6 +49,63 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: GiveQuest
+  condition:
+    predicate: 
+    parameters: []
+--- !u!114 &-2164901763487636722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 8d50669d-8f37-41af-836f-f69804c0c74d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I'm not a stranger. You gave me a quest, do you remember?
+  children:
+  - 5ad1e129-550a-44be-bc61-dee796503996
+  rect:
+    serializedVersion: 2
+    x: 247
+    y: 203.99998
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    predicate: HasQuest
+    parameters:
+    - Third Quest
+--- !u!114 &-59236979709016860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 5ad1e129-550a-44be-bc61-dee796503996
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Oh, I forgot. My bad
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 497
+    y: 203.99998
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    predicate: 
+    parameters: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,6 +127,8 @@ MonoBehaviour:
   - {fileID: -6341645959855322844}
   - {fileID: 8074782054606428292}
   - {fileID: -2697719524441827823}
+  - {fileID: -2164901763487636722}
+  - {fileID: -59236979709016860}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &260405780568662466
 MonoBehaviour:
@@ -85,6 +147,7 @@ MonoBehaviour:
   children:
   - 4177e1ba-8542-4041-8be5-6d99c99b9966
   - c6a19c35-f663-4e54-ab61-63d81b8040bc
+  - 8d50669d-8f37-41af-836f-f69804c0c74d
   rect:
     serializedVersion: 2
     x: 0
@@ -93,6 +156,9 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 
+    parameters: []
 --- !u!114 &2077791632583823821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +184,9 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 
+    parameters: []
 --- !u!114 &3014981776840680927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,6 +211,9 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 
+    parameters: []
 --- !u!114 &3068585274329512298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +238,9 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 
+    parameters: []
 --- !u!114 &3888738309079987831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,12 +259,15 @@ MonoBehaviour:
   - 6fb9a420-a958-4f07-99e7-e18804e93eb9
   rect:
     serializedVersion: 2
-    x: 253
-    y: 98
+    x: 250
+    y: 99
     width: 200
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 
+    parameters: []
 --- !u!114 &8074782054606428292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,3 +292,6 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    predicate: 
+    parameters: []

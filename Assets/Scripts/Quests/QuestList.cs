@@ -1,3 +1,4 @@
+using RPG.Core;
 using RPG.Inventories;
 using RPG.Saving;
 using System;
@@ -6,7 +7,7 @@ using UnityEngine;
 
 namespace RPG.Quests
 {
-    public class QuestList : MonoBehaviour, ISaveable
+    public class QuestList : MonoBehaviour, ISaveable, IPredicateEvaluator
     {
         List<QuestStatus> statuses = new List<QuestStatus>();
         public event Action onUpdate;
@@ -89,6 +90,13 @@ namespace RPG.Quests
             {
                 statuses.Add(new QuestStatus(objectState));
             }
+        }
+
+        public bool? Evaluate(string predicate, string[] parameters)
+        {
+            if (predicate != "HasQuest") return null;
+            // проверяет, есть ли квест, который подписан в диалоге как HasQuest
+            return HasQuest(Quest.GetByName(parameters[0]));
         }
     }
 }
