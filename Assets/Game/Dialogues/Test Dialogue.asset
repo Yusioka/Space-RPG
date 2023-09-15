@@ -24,8 +24,7 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: Attack
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &-2697719524441827823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50,8 +49,7 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: GiveQuest
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &-2164901763487636722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,15 +69,13 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 247
-    y: 203.99998
+    y: 202.99998
     width: 200
     height: 100
   onEnterAction: 
   onExitAction: 
   condition:
-    predicate: HasQuest
-    parameters:
-    - Third Quest
+    and: []
 --- !u!114 &-59236979709016860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,8 +100,7 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,8 +152,7 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &2077791632583823821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,8 +179,7 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &3014981776840680927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,8 +205,7 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &3068585274329512298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,8 +231,7 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &3888738309079987831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,8 +257,7 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &8074782054606428292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,5 +283,4 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    predicate: 
-    parameters: []
+    and: []

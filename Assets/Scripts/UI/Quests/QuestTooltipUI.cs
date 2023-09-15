@@ -17,7 +17,11 @@ namespace RPG.UI.Quests
         {
             Quest quest = status.GetQuest();
             title.text = quest.GetTitle();
-            objectiveContainer.DetachChildren();
+
+            foreach (Transform item in objectiveContainer)
+            {
+                Destroy(item.gameObject);
+            }
 
             // сравнивает objective плеера и quest.GetObjectives
             foreach (var objective in quest.GetObjectives())

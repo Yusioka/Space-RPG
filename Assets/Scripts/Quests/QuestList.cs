@@ -94,9 +94,15 @@ namespace RPG.Quests
 
         public bool? Evaluate(string predicate, string[] parameters)
         {
-            if (predicate != "HasQuest") return null;
-            // проверяет, есть ли квест, который подписан в диалоге как HasQuest
-            return HasQuest(Quest.GetByName(parameters[0]));
+            // проверяет, есть ли квест, который подписан в диалоге как ...
+            switch (predicate)
+            {
+                case "HasQuest":
+                    return HasQuest(Quest.GetByName(parameters[0]));
+                case "CompletedQuest":
+                    return GetQuestStatus(Quest.GetByName(parameters[0])).IsComplete();
+            }
+            return null;
         }
     }
 }

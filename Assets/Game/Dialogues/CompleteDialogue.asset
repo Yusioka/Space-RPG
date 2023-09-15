@@ -1,5 +1,39 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6529023007106962550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 150c56a0-00aa-4be7-8a7b-f8328d09f2f1
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I've already get it
+  children:
+  - 3674d05e-0dca-4d9a-aa47-bf4f703b6fbd
+  rect:
+    serializedVersion: 2
+    x: 248
+    y: 104
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: 
+        parameters: []
+        negate: 0
+    - or:
+      - predicate: 
+        parameters: []
+        negate: 0
 --- !u!114 &-4709165493568742148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16,6 +50,7 @@ MonoBehaviour:
   text: Yo, you want to get this sock?
   children:
   - 6f693f26-f567-4eac-b57c-f8f5794dae78
+  - 150c56a0-00aa-4be7-8a7b-f8328d09f2f1
   rect:
     serializedVersion: 2
     x: 0
@@ -25,8 +60,7 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &-115632632328659843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,8 +85,7 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: CompleteQuest
   condition:
-    predicate: 
-    parameters: []
+    and: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,6 +102,8 @@ MonoBehaviour:
   - {fileID: -4709165493568742148}
   - {fileID: 1423691449309123300}
   - {fileID: -115632632328659843}
+  - {fileID: -6529023007106962550}
+  - {fileID: 4666464791309514678}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &1423691449309123300
 MonoBehaviour:
@@ -95,5 +130,29 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    predicate: 
-    parameters: []
+    and: []
+--- !u!114 &4666464791309514678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 3674d05e-0dca-4d9a-aa47-bf4f703b6fbd
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Ok
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 497
+    y: 105
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
