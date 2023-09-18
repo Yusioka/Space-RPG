@@ -16,7 +16,6 @@ namespace RPG.Control
         GameObject player;
         Fighter fighter;
         Health health;
-        Mover mover;
 
         Vector3 guardPosition;
         float timeSinceLastSawPlayer = Mathf.Infinity;
@@ -26,7 +25,6 @@ namespace RPG.Control
         private void Awake()
         {
             player = GameObject.FindWithTag("Player");
-            mover = GetComponent<Mover>();
             fighter = GetComponent<Fighter>();
             health = GetComponent<Health>();
         }
@@ -37,44 +35,37 @@ namespace RPG.Control
 
         private void Update()
         {
-            if (fighter != null || fighter.enabled)
+            if (health.IsDead()) return;
+            if (DistanceToPlayer(player) <= chaseDistance && fighter.CanAttack(player))
             {
-                if (health.IsDead()) return;
-                if (DistanceToPlayer(player) <= chaseDistance && fighter.CanAttack(player))
-                {
-                    timeSinceLastSawPlayer = 0;
-                    AttackBehaviour();
-                }
-                else if (DistanceToPlayer(player) > chaseDistance)
-                {
-                    SuspicionBehaviour();
-                }
+                timeSinceLastSawPlayer = 0;
+                AttackBehaviour();
+            }
+            else if (DistanceToPlayer(player) > chaseDistance)
+            {
+                SuspicionBehaviour();
+            }
 
-                if (timeSinceLastSawPlayer > suspiciousTime)
+            if (timeSinceLastSawPlayer > suspiciousTime)
+            {
+                PatrolBehaviour();
+                if (DistanceToPlayer(player) <= chaseDistance)
                 {
-                    PatrolBehaviour();
-                    if (DistanceToPlayer(player) <= chaseDistance)
-                    {
-                        transform.LookAt(player.transform.position);
-                    }
-                }
-                // or 
-                //if (timeSinceLastSawPlayer < suspiciousTime)
-                //{
-                //    GetComponent<ActionSceduler>().CancelCurrentAction();
-                //}
-
-                timeSinceLastSawPlayer += Time.deltaTime;
-                timeSinceArrivedAtWaypoint += Time.deltaTime;
-
-                if (player.GetComponent<Health>().IsDead())
-                {
-                    //mover.StartMoveAction(guardPosition);
-                    PatrolBehaviour();
+                    transform.LookAt(player.transform.position);
                 }
             }
-            else
+            // or 
+            //if (timeSinceLastSawPlayer < suspiciousTime)
+            //{
+            //    GetComponent<ActionSceduler>().CancelCurrentAction();
+            //}
+
+            timeSinceLastSawPlayer += Time.deltaTime;
+            timeSinceArrivedAtWaypoint += Time.deltaTime;
+
+            if (player.GetComponent<Health>().IsDead())
             {
+                //GetComponent<Mover>().StartMoveAction(guardPosition);
                 PatrolBehaviour();
             }
         }
@@ -93,7 +84,7 @@ namespace RPG.Control
         {
             Vector3 nextPosition = guardPosition;
 
-            if (patrolPath!= null)
+            if (patrolPath != null)
             {
                 if (AtWaypoint())
                 {
@@ -106,7 +97,7 @@ namespace RPG.Control
             // enemy arrives to the point and waiting for the statement
             if (timeSinceArrivedAtWaypoint > waypointDwellTime)
             {
-                mover.StartMoveActionByMouse(nextPosition);
+                GetComponent<Mover>().StartMoveActionByMouse(nextPosition, 1f);
             }
         }
 

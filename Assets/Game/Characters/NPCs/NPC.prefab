@@ -3138,11 +3138,7 @@ GameObject:
   - component: {fileID: 5708212879717019648}
   - component: {fileID: 3127679650488059870}
   - component: {fileID: 483096898492787468}
-  - component: {fileID: 5259859282062072497}
-  - component: {fileID: 3590390482999660934}
-  - component: {fileID: 6889351686545872603}
-  - component: {fileID: 5352731558553137729}
-  - component: {fileID: 6650967026967469869}
+  - component: {fileID: 7995465443754025439}
   - component: {fileID: 1725801844771292324}
   - component: {fileID: 675277859312957690}
   - component: {fileID: 6518554409310232856}
@@ -3308,7 +3304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moverController: {fileID: 0}
---- !u!114 &5259859282062072497
+--- !u!114 &7995465443754025439
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3317,72 +3313,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5458913622955550070}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0154305c4fa1a2f4d814d5755f08a309, type: 3}
+  m_Script: {fileID: 11500000, guid: b5151a300c83a364eaadad3ae21d0698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseDistance: 10
-  suspiciousTime: 3
-  patrolPath: {fileID: 0}
-  waypointTolerance: 1
-  waypointDwellTime: 2
---- !u!114 &3590390482999660934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5458913622955550070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a246fcfbe7b0ccb45a21a00654d16933, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  regenerationPercentage: 70
---- !u!114 &6889351686545872603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5458913622955550070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d9aef674bad65848b775af5b79c6293, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5352731558553137729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5458913622955550070}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4aad789b83ce5734cb8b141b7fb7917e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeBetweenAttacks: 1
-  rightHandTransform: {fileID: 7338831266240815981}
-  leftHandTransform: {fileID: 2602711530737924289}
-  defaultWeapon: {fileID: 11400000, guid: 607be2493e2b6684eb08c964fe2545e5, type: 2}
---- !u!114 &6650967026967469869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5458913622955550070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92ad67c740331dd459181f065ac0346b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingLevel: 1
-  characterClass: 0
-  progression: {fileID: 0}
-  levelUpParticleEffect: {fileID: 0}
-  shouldUseModifiers: 0
 --- !u!114 &1725801844771292324
 MonoBehaviour:
   m_ObjectHideFlags: 0

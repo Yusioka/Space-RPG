@@ -1,0 +1,340 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5992212244027295378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 516adb13-8100-4fc5-be64-65f18eb05ab0
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Nice. Your first task - go to Mickle, he is in the Canteen, as you can remember.
+  children:
+  - fb786520-3f90-4064-a1cb-7fc63f7a75c7
+  rect:
+    serializedVersion: 2
+    x: 989
+    y: -15.000004
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: GiveQuest
+  condition:
+    and: []
+--- !u!114 &-4945991428308805740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 2f99f55e-4a47-41fc-8c0b-1f8a4e69f649
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Oh, hi!  I already thought that you wouldn\u2019t wake up, hehe."
+  children:
+  - 6456ae83-ac81-4743-b58e-a3c6afede125
+  - 8c58981c-1c89-41f9-ac96-57d315cd90a4
+  rect:
+    serializedVersion: 2
+    x: 4
+    y: 55
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-4314412759038048635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: d1a73108-8a3a-4394-a6d2-eaffd611f080
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Okay.
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 989
+    y: 81
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-3718376707164734528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: e1669d09-87e0-4f80-bda4-b33ab8b0325a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: I see, you're in a good mood. Ready to work?
+  children:
+  - b681a368-652f-49f8-bef7-1cfdc3f45dc7
+  - 1bbac25f-d651-488d-bc3e-d0e5da71a5d4
+  rect:
+    serializedVersion: 2
+    x: 498
+    y: -11
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 591f37a1e8894a141b4d49be861dfef9, type: 3}
+  m_Name: Giving First Quest
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -4945991428308805740}
+  - {fileID: 389956460874854649}
+  - {fileID: 7455301069106906196}
+  - {fileID: -3718376707164734528}
+  - {fileID: 7016068676695967432}
+  - {fileID: 3497067593431684690}
+  - {fileID: 3240871468394505596}
+  - {fileID: 6416630171037598598}
+  - {fileID: -4314412759038048635}
+  - {fileID: -5992212244027295378}
+  - {fileID: 4996986348872457980}
+  - {fileID: 8297992070369925106}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &389956460874854649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 6456ae83-ac81-4743-b58e-a3c6afede125
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Hel-lo-o.
+  children:
+  - e1669d09-87e0-4f80-bda4-b33ab8b0325a
+  rect:
+    serializedVersion: 2
+    x: 245
+    y: -14.000004
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &3240871468394505596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: b681a368-652f-49f8-bef7-1cfdc3f45dc7
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Sure, let's go.
+  children:
+  - 516adb13-8100-4fc5-be64-65f18eb05ab0
+  rect:
+    serializedVersion: 2
+    x: 743
+    y: -15.000004
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &3497067593431684690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: cf2a4fdf-ab81-47df-b005-32694e61143b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Okay.
+  children:
+  - e1669d09-87e0-4f80-bda4-b33ab8b0325a
+  rect:
+    serializedVersion: 2
+    x: 820
+    y: 213.99997
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &4996986348872457980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: fb786520-3f90-4064-a1cb-7fc63f7a75c7
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Okay.
+  children:
+  - 614d59ad-5591-441a-878e-db16d60dfa2d
+  rect:
+    serializedVersion: 2
+    x: 1239
+    y: -15.000004
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &6416630171037598598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 1bbac25f-d651-488d-bc3e-d0e5da71a5d4
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Nah, I need more time.
+  children:
+  - d1a73108-8a3a-4394-a6d2-eaffd611f080
+  rect:
+    serializedVersion: 2
+    x: 744
+    y: 81
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &7016068676695967432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 9f657173-778b-4e55-8f1a-e74fdbddf9af
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: You've been sleeping for a 3 days. Don't worry, all are good.
+  children:
+  - cf2a4fdf-ab81-47df-b005-32694e61143b
+  rect:
+    serializedVersion: 2
+    x: 498
+    y: 102
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &7455301069106906196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 8c58981c-1c89-41f9-ac96-57d315cd90a4
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: How long have I been sleeping?
+  children:
+  - 9f657173-778b-4e55-8f1a-e74fdbddf9af
+  rect:
+    serializedVersion: 2
+    x: 245
+    y: 103
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &8297992070369925106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 614d59ad-5591-441a-878e-db16d60dfa2d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: He needs your help. Bye.
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1489
+    y: -15.000004
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
