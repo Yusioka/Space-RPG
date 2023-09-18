@@ -23,21 +23,32 @@ namespace RPG.Movement
 
         private void Update()
         {
-        //    if (moverController.GetIsButtonsMoving())
-        //    {
+            if (gameObject.tag == "Player")
+            {
+                FindTypeOfPlayersControl();
+            }
+            else
+            {
+                UpdateAnimator();
+            }
+            // navMesh is enabled if IsNotDead()!
+            navMeshAgent.isStopped = health.IsDead();
+        }
+
+        private void FindTypeOfPlayersControl()
+        {
+            if (moverController.GetIsButtonsMoving())
+            {
                 GetComponent<CharacterController>().enabled = true;
                 UpdateButtonsAnimator();
 
-         //   }
-          //  else
-          //  {
-           //     GetComponent<CharacterController>().enabled = false;
-            //    UpdateAnimator();
-         //   }
-            // navMesh is enabled if IsNotDead()!
-            //    navMeshAgent.isStopped = health.IsDead();
+            }
+            else
+            {
+                GetComponent<CharacterController>().enabled = false;
+                UpdateAnimator();
+            }
         }
-
         public void StartMoveActionByMouse(Vector3 destination)
         {
             GetComponent<ActionSceduler>().StartAction(this);

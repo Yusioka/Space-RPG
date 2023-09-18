@@ -916,6 +916,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5138280221438131530}
+  - component: {fileID: 6770879420612697}
   m_Layer: 5
   m_Name: Quest UI
   m_TagString: Untagged
@@ -948,6 +949,22 @@ RectTransform:
   m_AnchoredPosition: {x: -6.593628, y: -0.5}
   m_SizeDelta: {x: -9.187, y: 8.433197}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6770879420612697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960813964298502427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e375197d66c92d4ebf9dbfb546a1424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleKey: 9
+  uiContainer: {fileID: 784249150943736151}
+  audioClip: {fileID: 0}
+  activateOnStart: 0
 --- !u!1 &2091502764350450920
 GameObject:
   m_ObjectHideFlags: 0

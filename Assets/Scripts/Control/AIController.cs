@@ -37,33 +37,44 @@ namespace RPG.Control
 
         private void Update()
         {
-            if (health.IsDead()) return;
-            if (DistanceToPlayer(player) <= chaseDistance && fighter.CanAttack(player))
+            if (fighter != null || fighter.enabled)
             {
-                timeSinceLastSawPlayer = 0;
-                AttackBehaviour();
-            }
-            else if (DistanceToPlayer(player) > chaseDistance)
-            {
-                SuspicionBehaviour();
-            }
+                if (health.IsDead()) return;
+                if (DistanceToPlayer(player) <= chaseDistance && fighter.CanAttack(player))
+                {
+                    timeSinceLastSawPlayer = 0;
+                    AttackBehaviour();
+                }
+                else if (DistanceToPlayer(player) > chaseDistance)
+                {
+                    SuspicionBehaviour();
+                }
 
-            if (timeSinceLastSawPlayer > suspiciousTime)
-            {
-                PatrolBehaviour();
+                if (timeSinceLastSawPlayer > suspiciousTime)
+                {
+                    PatrolBehaviour();
+                    if (DistanceToPlayer(player) <= chaseDistance)
+                    {
+                        transform.LookAt(player.transform.position);
+                    }
+                }
+                // or 
+                //if (timeSinceLastSawPlayer < suspiciousTime)
+                //{
+                //    GetComponent<ActionSceduler>().CancelCurrentAction();
+                //}
+
+                timeSinceLastSawPlayer += Time.deltaTime;
+                timeSinceArrivedAtWaypoint += Time.deltaTime;
+
+                if (player.GetComponent<Health>().IsDead())
+                {
+                    //mover.StartMoveAction(guardPosition);
+                    PatrolBehaviour();
+                }
             }
-            // or 
-            //if (timeSinceLastSawPlayer < suspiciousTime)
-            //{
-            //    GetComponent<ActionSceduler>().CancelCurrentAction();
-            //}
-
-            timeSinceLastSawPlayer += Time.deltaTime;
-            timeSinceArrivedAtWaypoint += Time.deltaTime;
-
-            if (player.GetComponent<Health>().IsDead())
+            else
             {
-                //mover.StartMoveAction(guardPosition);
                 PatrolBehaviour();
             }
         }
