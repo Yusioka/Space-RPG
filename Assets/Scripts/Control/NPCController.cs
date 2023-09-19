@@ -1,6 +1,7 @@
-using RPG.Combat;
+using RPG.Control.AnimationController;
 using RPG.Core;
 using RPG.Movement;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,6 +9,7 @@ namespace RPG.Control
 {
     public class NPCController : MonoBehaviour
     {
+        [SerializeField] Animations animationName;
         [SerializeField] float chaseDistance = 3f;
         [SerializeField] PatrolPath patrolPath;
         [SerializeField] float waypointTolerance = 1f;
@@ -17,6 +19,7 @@ namespace RPG.Control
 
         GameObject player;
 
+        Animator animator;
         Quaternion startRotation;
         Vector3 guardPosition;
         float timeSinceArrivedAtWaypoint = Mathf.Infinity;
@@ -27,6 +30,12 @@ namespace RPG.Control
             startRotation = transform.rotation;
             guardPosition = transform.position;
             player = GameObject.FindWithTag("Player");
+        }
+
+        private void Start()
+        {
+            animator = GetComponent<Animator>();
+            animator.Play(animationName.ToString());
         }
 
         public void Reset()
@@ -46,7 +55,7 @@ namespace RPG.Control
         {
             if (DistanceToPlayer(player) <= chaseDistance)
             {
-                LootAtPlayer();
+                LookAtPlayer();
             }
             else
             {
@@ -68,6 +77,7 @@ namespace RPG.Control
             {
                 if (AtWaypoint())
                 {
+                    animator.Play("Idle");
                     timeSinceArrivedAtWaypoint = 0;
                     CycleWaypoint();
                 }
@@ -80,6 +90,7 @@ namespace RPG.Control
 
             if (timeSinceArrivedAtWaypoint > waypointDwellTime)
             {
+                animator.Play(animationName.ToString());
                 GetComponent<Mover>().StartMoveActionByMouse(nextPosition, patrolSpeed);
             }
         }
@@ -105,7 +116,7 @@ namespace RPG.Control
             return Vector3.Distance(player.transform.position, transform.position);
         }
 
-        private void LootAtPlayer()
+        private void LookAtPlayer()
         {
             timeSinceArrivedAtWaypoint = 0;
 
@@ -116,6 +127,7 @@ namespace RPG.Control
             if (directionToPlayer != Vector3.zero)
             {
                 transform.rotation = Quaternion.LookRotation(directionToPlayer);
+                animator.Play("Idle");
             }
 
             GetComponent<ActionSceduler>().CancelCurrentAction();

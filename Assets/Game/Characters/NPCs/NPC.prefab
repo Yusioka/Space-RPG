@@ -3138,11 +3138,12 @@ GameObject:
   - component: {fileID: 5708212879717019648}
   - component: {fileID: 3127679650488059870}
   - component: {fileID: 483096898492787468}
+  - component: {fileID: 9195200189225642044}
   - component: {fileID: 7995465443754025439}
+  - component: {fileID: 2334041734800057844}
+  - component: {fileID: 5035993172570367281}
   - component: {fileID: 1725801844771292324}
   - component: {fileID: 675277859312957690}
-  - component: {fileID: 6518554409310232856}
-  - component: {fileID: 8095644708816930640}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -3196,7 +3197,7 @@ Animator:
   m_GameObject: {fileID: 5458913622955550070}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: c8c20564eb982f84a96a0d4d8e357cc5, type: 3}
-  m_Controller: {fileID: 9100000, guid: 75fe98214de7055408b4e1e1d1703e36, type: 2}
+  m_Controller: {fileID: 9100000, guid: 449eb8b7c995a594cb69c1f6ce6d0a72, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -3304,6 +3305,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moverController: {fileID: 0}
+  maxSpeed: 5
+--- !u!114 &9195200189225642044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5458913622955550070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f84030b8e5dd7ad4b933cab777c26bc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animations:
+  - {fileID: 7400000, guid: 4209bae04bb8c8844bba85e9c69800c9, type: 3}
+  - {fileID: 7400000, guid: 6abdca93cb802f942a14bd4eb225b8f9, type: 3}
+  - {fileID: 7400000, guid: e58d8f49bf7a3b9479537b52fee279fc, type: 3}
+  - {fileID: 7400000, guid: 2bf95971e97dfbc43a26d04ad0cbf2a4, type: 3}
+  - {fileID: 7400000, guid: 8fba7d9542512554bb43924d9714e51d, type: 3}
+  - {fileID: 7400000, guid: 393274f3704ac8a49adb190785ca48db, type: 3}
 --- !u!114 &7995465443754025439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3316,6 +3337,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5151a300c83a364eaadad3ae21d0698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationName: 0
+  chaseDistance: 3
+  patrolPath: {fileID: 0}
+  waypointTolerance: 1
+  waypointDwellTime: 2
+  patrolSpeed: 0.2
+  lookAtOffset: 0.15
+--- !u!114 &2334041734800057844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5458913622955550070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f84030b8e5dd7ad4b933cab777c26bc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animations: []
+--- !u!114 &5035993172570367281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5458913622955550070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f84030b8e5dd7ad4b933cab777c26bc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animations: []
 --- !u!114 &1725801844771292324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3341,49 +3395,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70979b9cce2cff24c892976d64cb5f36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: 959ed52b3661749458d327225b6670d1, type: 2}
-  conversantName: Kyle
---- !u!114 &6518554409310232856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5458913622955550070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5fc186e66aeae9488a30d03df03c19e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  action: GiveQuest
-  onTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8095644708816930640}
-        m_TargetAssemblyTypeName: RPG.Quests.GuestGiver, Assembly-CSharp
-        m_MethodName: GiveGuest
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &8095644708816930640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5458913622955550070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6a3bfb050261c848b0da0e3fe82ad5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quest: {fileID: 11400000, guid: c9407caf619fea14aa7ae9e04b9f8be8, type: 2}
+  dialogue: {fileID: 0}
+  conversantName: 
 --- !u!1 &5511168111928625734
 GameObject:
   m_ObjectHideFlags: 0
