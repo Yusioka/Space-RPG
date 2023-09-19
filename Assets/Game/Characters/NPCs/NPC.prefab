@@ -741,7 +741,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1394956308002602594
 Transform:
   m_ObjectHideFlags: 0
@@ -2580,7 +2580,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5978898596763702779
 Transform:
   m_ObjectHideFlags: 0
@@ -3138,10 +3138,7 @@ GameObject:
   - component: {fileID: 5708212879717019648}
   - component: {fileID: 3127679650488059870}
   - component: {fileID: 483096898492787468}
-  - component: {fileID: 9195200189225642044}
   - component: {fileID: 7995465443754025439}
-  - component: {fileID: 2334041734800057844}
-  - component: {fileID: 5035993172570367281}
   - component: {fileID: 1725801844771292324}
   - component: {fileID: 675277859312957690}
   m_Layer: 0
@@ -3185,7 +3182,7 @@ Transform:
   - {fileID: 2170407556592688033}
   - {fileID: 1489662916114161575}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!95 &4841010710005862853
 Animator:
@@ -3306,25 +3303,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moverController: {fileID: 0}
   maxSpeed: 5
---- !u!114 &9195200189225642044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5458913622955550070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f84030b8e5dd7ad4b933cab777c26bc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animations:
-  - {fileID: 7400000, guid: 4209bae04bb8c8844bba85e9c69800c9, type: 3}
-  - {fileID: 7400000, guid: 6abdca93cb802f942a14bd4eb225b8f9, type: 3}
-  - {fileID: 7400000, guid: e58d8f49bf7a3b9479537b52fee279fc, type: 3}
-  - {fileID: 7400000, guid: 2bf95971e97dfbc43a26d04ad0cbf2a4, type: 3}
-  - {fileID: 7400000, guid: 8fba7d9542512554bb43924d9714e51d, type: 3}
-  - {fileID: 7400000, guid: 393274f3704ac8a49adb190785ca48db, type: 3}
 --- !u!114 &7995465443754025439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3344,32 +3322,6 @@ MonoBehaviour:
   waypointDwellTime: 2
   patrolSpeed: 0.2
   lookAtOffset: 0.15
---- !u!114 &2334041734800057844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5458913622955550070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f84030b8e5dd7ad4b933cab777c26bc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animations: []
---- !u!114 &5035993172570367281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5458913622955550070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f84030b8e5dd7ad4b933cab777c26bc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animations: []
 --- !u!114 &1725801844771292324
 MonoBehaviour:
   m_ObjectHideFlags: 0

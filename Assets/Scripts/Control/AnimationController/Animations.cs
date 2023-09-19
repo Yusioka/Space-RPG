@@ -6,6 +6,8 @@ namespace RPG.Control.AnimationController
     {
         Idle,
         Walk,
+        Sit_Idle,
+        Laydown_Sleep,
         Talk1,
         Talk2,
         Talk8,

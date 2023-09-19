@@ -5031,7 +5031,6 @@ GameObject:
   - component: {fileID: 955696926032905209}
   - component: {fileID: 6504910835470280468}
   - component: {fileID: 5624834363869024605}
-  - component: {fileID: 5449114109788172543}
   - component: {fileID: 2052739555045656882}
   - component: {fileID: 3119269629534442701}
   - component: {fileID: 2187143911869109403}
@@ -5217,19 +5216,6 @@ MonoBehaviour:
   waypointDwellTime: 0
   patrolSpeed: 0.2
   lookAtOffset: 0.15
---- !u!114 &5449114109788172543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8641965049601648238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f84030b8e5dd7ad4b933cab777c26bc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animations: []
 --- !u!114 &2052739555045656882
 MonoBehaviour:
   m_ObjectHideFlags: 0
