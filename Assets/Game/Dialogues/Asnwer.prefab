@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.683}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.6000061, y: 0}
+  m_AnchoredPosition: {x: -0.5999756, y: 0}
   m_SizeDelta: {x: -1.000061, y: 5.6299973}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3008187119234772416
@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.21591187, y: 0}
+  m_AnchoredPosition: {x: -0.21594238, y: 0}
   m_SizeDelta: {x: -21.207306, y: -8.695}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7138677801956132588
@@ -190,8 +190,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: How can I help you
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4bfd37f977c536d43ac25a48425ceed5, type: 2}
+  m_sharedMaterial: {fileID: 8353355733669435688, guid: 4bfd37f977c536d43ac25a48425ceed5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -215,8 +215,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
