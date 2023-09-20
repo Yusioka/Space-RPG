@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 4a254e08-0495-42bd-b31c-5a7c57164b32
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: "\u041E, \u043F\u0440\u0438\u0432\u0435\u0442!"
+  text: "\u0427\u0442\u043E \u0442\u0435\u0431\u0435 \u043D\u0443\u0436\u043D\u043E?"
   children: []
   rect:
     serializedVersion: 2
@@ -35,7 +35,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 591f37a1e8894a141b4d49be861dfef9, type: 3}
-  m_Name: NPC Dialogue1
+  m_Name: What do you need
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: -1572344708320905790}

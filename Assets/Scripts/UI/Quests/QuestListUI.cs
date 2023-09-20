@@ -11,6 +11,7 @@ namespace RPG.UI.Quests
         private void Start()
         {
             questList = GameObject.FindWithTag("Player").GetComponent<QuestList>();
+            Redraw();
             questList.onUpdate += Redraw;
         }
 

@@ -41,6 +41,12 @@ namespace RPG.Quests
             return GetQuestStatus(quest) != null;
         }
 
+        private bool IsObjectiveComplete(Quest quest, string  objective)
+        {
+            QuestStatus status = GetQuestStatus(quest);
+            return status.IsObjectiveComplete(objective);
+        }
+
         public IEnumerable<QuestStatus> GetStatuses()
         {
             return statuses;
@@ -101,6 +107,8 @@ namespace RPG.Quests
                     return HasQuest(Quest.GetByName(parameters[0]));
                 case "CompletedQuest":
                     return GetQuestStatus(Quest.GetByName(parameters[0])).IsComplete();
+                case "CompletedObjective":
+                    return IsObjectiveComplete(Quest.GetByName(parameters[0]), parameters[1]);
             }
             return null;
         }
