@@ -42,12 +42,12 @@ MonoBehaviour:
   text: "\u041F\u0440\u0438\u0432\u0435\u0442."
   children:
   - b371559a-f27c-475c-bcef-b66dc2a8b7af
-  - 2bff455a-c1d3-486a-9655-61fe3dd8bf6d
   - a10e72c5-e05e-4171-b26b-46f1cc10ceba
+  - 2bff455a-c1d3-486a-9655-61fe3dd8bf6d
   rect:
     serializedVersion: 2
     x: 250
-    y: 0
+    y: -1
     width: 200
     height: 100
   onEnterAction: 
@@ -126,7 +126,7 @@ MonoBehaviour:
   - a141df1f-cf9a-43d7-9976-935212916eb4
   rect:
     serializedVersion: 2
-    x: 750
+    x: 747
     y: 3
     width: 200
     height: 100
@@ -181,7 +181,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 1500
-    y: 3
+    y: 2
     width: 200
     height: 100
   onEnterAction: 
@@ -213,7 +213,7 @@ MonoBehaviour:
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: 
+  onExitAction: CompletedQuest
   condition:
     and: []
 --- !u!114 &3604245260698207510
@@ -233,8 +233,8 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 497
-    y: 101
+    x: 501
+    y: 99
     width: 200
     height: 100
   onEnterAction: 
@@ -246,10 +246,15 @@ MonoBehaviour:
         parameters:
         - What are the plans?
         negate: 0
+    - or:
       - predicate: CompletedQuest
         parameters:
         - What are the plans?
         negate: 0
+      - predicate: CompletedQuest
+        parameters:
+        - What are the plans?
+        negate: 1
 --- !u!114 &3990885855290371518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,12 +275,12 @@ MonoBehaviour:
   - be16a34e-6352-433e-b48d-c000c02f519a
   rect:
     serializedVersion: 2
-    x: 500
-    y: 0
+    x: 498
+    y: -2
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: CompletedQuest
+  onExitAction: 
   condition:
     and:
     - or:
@@ -310,7 +315,7 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 501
+    x: 500
     y: 202.99998
     width: 200
     height: 100

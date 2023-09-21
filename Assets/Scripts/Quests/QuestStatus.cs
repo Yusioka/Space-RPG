@@ -40,7 +40,7 @@ namespace RPG.Quests
         {
             foreach (var objective in quest.GetObjectives())
             {
-                if (!completeObjectives.Contains(objective.reference))
+                if (!completeObjectives.Contains(objective.reference) || GetQuest() == null)
                 {
                     return false;
                 }

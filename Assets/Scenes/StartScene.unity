@@ -55225,11 +55225,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5431930063066643090, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000015673624
+      value: -0.000015673608
       objectReference: {fileID: 0}
     - target: {fileID: 5431930063066643090, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000008718801
+      value: -0.000008718792
       objectReference: {fileID: 0}
     - target: {fileID: 5478749892409148562, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_Damping
@@ -55719,6 +55719,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3743982392264250258, guid: 88903c8cb91529943ae0fb268c3d883b, type: 3}
+      propertyPath: action
+      value: CompletedQuest
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743982392264250258, guid: 88903c8cb91529943ae0fb268c3d883b, type: 3}
       propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -55726,6 +55730,10 @@ PrefabInstance:
       propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3743982392264250258, guid: 88903c8cb91529943ae0fb268c3d883b, type: 3}
+      propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7995465443864542582}
     - target: {fileID: 3743982392264250258, guid: 88903c8cb91529943ae0fb268c3d883b, type: 3}
       propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -55749,7 +55757,7 @@ PrefabInstance:
     - target: {fileID: 3940309736429540495, guid: 88903c8cb91529943ae0fb268c3d883b, type: 3}
       propertyPath: dialogue
       value: 
-      objectReference: {fileID: 11400000, guid: 9cbe618632e83bc4fa0c112e0be66233, type: 2}
+      objectReference: {fileID: 11400000, guid: 922787e18b077ae449cab7ccf81c8a93, type: 2}
     - target: {fileID: 3940309736429540495, guid: 88903c8cb91529943ae0fb268c3d883b, type: 3}
       propertyPath: conversantName
       value: Mike
@@ -55822,8 +55830,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7995465443864542593}
-        m_TargetAssemblyTypeName: RPG.Quests.GuestGiver, Assembly-CSharp
-        m_MethodName: GiveGuest
+        m_TargetAssemblyTypeName: RPG.Quests.QuestGiver, Assembly-CSharp
+        m_MethodName: GiveQuest
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

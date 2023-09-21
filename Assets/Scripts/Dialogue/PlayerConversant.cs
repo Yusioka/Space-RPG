@@ -123,10 +123,10 @@ namespace RPG.Dialogue
         {
             currentDialogue = null;
             TriggerExitAction();
+            onConversationUpdated();
             currentNode = null;
             isChoosing = false;
             currentConversant = null;
-            onConversationUpdated();
         }
 
         public void TriggerEnterAction()

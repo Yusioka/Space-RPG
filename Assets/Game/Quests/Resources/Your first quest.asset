@@ -16,4 +16,7 @@ MonoBehaviour:
   objectives:
   - reference: Go to Mike
     description: Mike is in the Canteen, as you can remember.
+    usesCondition: 0
+    completionCondition:
+      and: []
   rewards: []
