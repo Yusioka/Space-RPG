@@ -77,7 +77,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 247
-    y: 208.99998
+    y: 206.99998
     width: 200
     height: 100
   onEnterAction: 
@@ -191,8 +191,8 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 501
-    y: 104
+    x: 499
+    y: 94
     width: 200
     height: 100
   onEnterAction: 
@@ -223,11 +223,11 @@ MonoBehaviour:
   - {fileID: 6334465153570912715}
   - {fileID: -6144916458552535231}
   - {fileID: -5792515212384396997}
-  - {fileID: 3444537046103406515}
   - {fileID: -8832703249170637258}
   - {fileID: -3429975070852770615}
   - {fileID: 5367965151321401675}
   - {fileID: 2958364080432806187}
+  - {fileID: 4070709330428485205}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &1660306192635776101
 MonoBehaviour:
@@ -247,12 +247,12 @@ MonoBehaviour:
     \u0443\u0434\u0435\u043B\u0438\u0442\u044C \u043C\u0438\u043D\u0443\u0442\u043A\u0443?"
   children:
   - 09548747-cfb7-4cb0-b399-2801f1de4e88
-  - c539d2f0-37a2-4a69-a81b-d66fecaf0d90
   - 8d17482f-9cb5-4f87-9009-863a6638e34f
   - dab67aa5-97a9-4474-9e68-77cda0bfc45b
+  - c9c95eb8-f698-4418-8cba-e24f8d1ab6be
   rect:
     serializedVersion: 2
-    x: 2
+    x: 1
     y: -1
     width: 200
     height: 100
@@ -279,8 +279,8 @@ MonoBehaviour:
   - a1fc47cd-3f5f-46fa-8d59-b13d1947c6f6
   rect:
     serializedVersion: 2
-    x: 247
-    y: 102
+    x: 244.99998
+    y: 95
     width: 200
     height: 100
   onEnterAction: 
@@ -317,7 +317,7 @@ MonoBehaviour:
   onExitAction: CompletedQuest
   condition:
     and: []
---- !u!114 &3444537046103406515
+--- !u!114 &4070709330428485205
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
-  m_Name: c539d2f0-37a2-4a69-a81b-d66fecaf0d90
+  m_Name: c9c95eb8-f698-4418-8cba-e24f8d1ab6be
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: "\u042F \u043D\u0430\u0448\u0435\u043B \u0433\u0430\u0435\u0447\u043D\u044B\u0439
@@ -337,14 +337,25 @@ MonoBehaviour:
   - d407ac87-64ad-41dc-88e6-aac1fae068c4
   rect:
     serializedVersion: 2
-    x: 249
-    y: 308
+    x: 244
+    y: 306
     width: 200
     height: 100
   onEnterAction: 
   onExitAction: 
   condition:
-    and: []
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Help the Worker
+        negate: 0
+    - or:
+      - predicate: CompletedObjective
+        parameters:
+        - Help the Worker
+        - Find the spanner
+        negate: 0
 --- !u!114 &5367965151321401675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,8 +400,8 @@ MonoBehaviour:
   - 405a6189-bf9a-4806-a5ea-f4909065aabb
   rect:
     serializedVersion: 2
-    x: 248
-    y: -5
+    x: 245
+    y: -6
     width: 200
     height: 100
   onEnterAction: 
@@ -422,8 +433,8 @@ MonoBehaviour:
   - b2f6199d-582f-48fb-87c4-df77d6683e07
   rect:
     serializedVersion: 2
-    x: 501
-    y: -3
+    x: 500
+    y: -6
     width: 200
     height: 100
   onEnterAction: 

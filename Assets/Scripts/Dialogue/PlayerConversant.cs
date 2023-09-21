@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using static RPG.Quests.Quest;
 
 namespace RPG.Dialogue
 {
@@ -61,7 +62,11 @@ namespace RPG.Dialogue
         {          
             foreach (DialogueNode node in currentDialogue.GetPlayerChildren(currentNode))
             {
-                yield return node;
+                if (node.CheckCondition(GetEvaluators()))
+                {
+                    // yield - как break, только с возвращаемым значением
+                    yield return node;
+                }
             }
         }
         public void SelectChoice(DialogueNode chosenNode)
@@ -74,6 +79,7 @@ namespace RPG.Dialogue
 
         public void Next()
         {
+            // к-во ответов плеера
             int numPlayerResponses = FilterOnCondition(currentDialogue.GetPlayerChildren(currentNode)).Count();
             if (numPlayerResponses > 0) 
             {
@@ -83,6 +89,7 @@ namespace RPG.Dialogue
                 return;
             }
 
+            // к-во ответов АИ
             DialogueNode[] children = FilterOnCondition(currentDialogue.GetAIChildren(currentNode)).ToArray();
             int randomIndex = UnityEngine.Random.Range(0, children.Count());
             TriggerEnterAction();
@@ -95,7 +102,7 @@ namespace RPG.Dialogue
             return currentDialogue.GetAllChildren(currentNode).Count() > 0;
         }
 
-        private IEnumerable<DialogueNode> FilterOnCondition(IEnumerable<DialogueNode> inputNode)
+        public IEnumerable<DialogueNode> FilterOnCondition(IEnumerable<DialogueNode> inputNode)
         {
             foreach (var node in inputNode)
             {
@@ -131,7 +138,6 @@ namespace RPG.Dialogue
         }
         public void TriggerExitAction()
         {
-            print(currentNode.GetOnExitAction());
             if (currentDialogue != null && currentNode.GetOnExitAction() != "")
             {
                 TriggerAction(currentNode.GetOnExitAction());

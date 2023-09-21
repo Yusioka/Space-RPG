@@ -33,7 +33,7 @@ namespace RPG.Movement
                 UpdateAnimator();
             }
             // navMesh is enabled if IsNotDead()!
-            navMeshAgent.isStopped = health.IsDead();
+          //  navMeshAgent.isStopped = health.IsDead();
         }
 
         private void FindTypeOfPlayersControl()

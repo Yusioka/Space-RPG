@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: What are the plans?
   objectives:
-  - reference: Go to Adrian, he'll tell about the plans.
-    description: Adrian is in the Engine.
+  - reference: Go to Adrian
+    description: Go to Adrian, he'll tell about the plans (he is in the Science Room)
+    usesCondition: 0
+    completionCondition:
+      and: []
   rewards: []

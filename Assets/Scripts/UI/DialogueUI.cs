@@ -62,7 +62,6 @@ namespace RPG.UI
             foreach (DialogueNode choice in playerConversant.GetChoices())
             {
                 GameObject choiceInstance = Instantiate(choicePrefab, choiceRoot);
-                print("done");
                 var textComp = choiceInstance.GetComponentInChildren<TextMeshProUGUI>();
                 textComp.text = choice.GetText();
                 Button button = choiceInstance.GetComponentInChildren<Button>();

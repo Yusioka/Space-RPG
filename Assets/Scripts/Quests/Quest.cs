@@ -1,3 +1,4 @@
+using RPG.Core;
 using RPG.Inventories;
 using System;
 using System.Collections;
@@ -26,6 +27,8 @@ namespace RPG.Quests
         {
             public string reference;
             public string description;
+            public bool usesCondition;
+            public Condition completionCondition;
         }
 
         public string GetTitle()
