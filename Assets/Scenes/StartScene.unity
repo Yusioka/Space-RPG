@@ -3448,6 +3448,11 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!1 &112964268 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5458913622955550070, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
+  m_PrefabInstance: {fileID: 1027805548}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &113151448 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5946639715342638303, guid: 224d8599c68dad745815fe69385d9d43, type: 3}
@@ -9379,6 +9384,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 122359538}
     m_Modifications:
+    - target: {fileID: 675277859312957690, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: bac1186e02f812d4b9f699ea23edc83e, type: 2}
+    - target: {fileID: 675277859312957690, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
+      propertyPath: conversantName
+      value: Jack the Captain
+      objectReference: {fileID: 0}
     - target: {fileID: 1361828511618860277, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -9445,7 +9458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2689095468204236058, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3489068236276672720, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
       propertyPath: m_IsActive
@@ -9473,7 +9486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5458913622955550070, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
       propertyPath: m_Name
-      value: NPC (16)
+      value: Captain
       objectReference: {fileID: 0}
     - target: {fileID: 6185973263782918230, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
       propertyPath: m_IsActive
@@ -9514,7 +9527,13 @@ PrefabInstance:
     - {fileID: 5035993172570367281, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5458913622955550070, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1575489142}
+    - targetCorrespondingSourceObject: {fileID: 5458913622955550070, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1575489141}
   m_SourcePrefab: {fileID: 100100000, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
 --- !u!4 &401511413 stripped
 Transform:
@@ -9926,22 +9945,22 @@ PrefabInstance:
       addedObject: {fileID: 563628784}
     - targetCorrespondingSourceObject: {fileID: 5458913622955550070, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 563628787}
+      addedObject: {fileID: 563628806}
     - targetCorrespondingSourceObject: {fileID: 5458913622955550070, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 563628786}
+      addedObject: {fileID: 563628805}
     - targetCorrespondingSourceObject: {fileID: 5458913622955550070, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 563628789}
+      addedObject: {fileID: 563628804}
     - targetCorrespondingSourceObject: {fileID: 5458913622955550070, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 563628788}
+      addedObject: {fileID: 563628803}
     - targetCorrespondingSourceObject: {fileID: 5458913622955550070, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 563628791}
+      addedObject: {fileID: 563628802}
     - targetCorrespondingSourceObject: {fileID: 5458913622955550070, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 563628790}
+      addedObject: {fileID: 563628801}
   m_SourcePrefab: {fileID: 100100000, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
 --- !u!4 &410775556 stripped
 Transform:
@@ -13369,48 +13388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest: {fileID: 11400000, guid: 6dffcd0f76a088b4d8fec91119e94bd9, type: 2}
   objective: Go to Chemist
---- !u!114 &563628786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563628774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5fc186e66aeae9488a30d03df03c19e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  action: GiveQuest(0)
-  onTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 563628787}
-        m_TargetAssemblyTypeName: RPG.Quests.QuestGiver, Assembly-CSharp
-        m_MethodName: GiveQuest
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &563628787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563628774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6a3bfb050261c848b0da0e3fe82ad5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quest: {fileID: 11400000, guid: e820ddf7a9389ee4eb0a7cb54cb6bd1d, type: 2}
---- !u!114 &563628788
+--- !u!114 &563628801
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13426,7 +13404,7 @@ MonoBehaviour:
   onTrigger:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 563628789}
+      - m_Target: {fileID: 563628802}
         m_TargetAssemblyTypeName: RPG.Quests.QuestGiver, Assembly-CSharp
         m_MethodName: GiveQuest
         m_Mode: 1
@@ -13438,7 +13416,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &563628789
+--- !u!114 &563628802
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13451,7 +13429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quest: {fileID: 11400000, guid: 26d24e7cb3d6236469a0c6b90ebfa2ea, type: 2}
---- !u!114 &563628790
+--- !u!114 &563628803
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13467,7 +13445,7 @@ MonoBehaviour:
   onTrigger:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 563628791}
+      - m_Target: {fileID: 563628804}
         m_TargetAssemblyTypeName: RPG.Quests.QuestCompletion, Assembly-CSharp
         m_MethodName: CompleteObjective
         m_Mode: 1
@@ -13479,7 +13457,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &563628791
+--- !u!114 &563628804
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13493,6 +13471,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest: {fileID: 11400000, guid: e820ddf7a9389ee4eb0a7cb54cb6bd1d, type: 2}
   objective: Bring them to the Chemist
+--- !u!114 &563628805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563628774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5fc186e66aeae9488a30d03df03c19e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: GiveQuest(0)
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 563628806}
+        m_TargetAssemblyTypeName: RPG.Quests.QuestGiver, Assembly-CSharp
+        m_MethodName: GiveQuest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &563628806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563628774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6a3bfb050261c848b0da0e3fe82ad5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest: {fileID: 11400000, guid: e820ddf7a9389ee4eb0a7cb54cb6bd1d, type: 2}
 --- !u!1001 &564005052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25999,6 +26018,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 122359538}
     m_Modifications:
+    - target: {fileID: 675277859312957690, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 37ca82c1fc403d34dbf4cf537a00a5dc, type: 2}
+    - target: {fileID: 675277859312957690, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
+      propertyPath: conversantName
+      value: Janett
+      objectReference: {fileID: 0}
     - target: {fileID: 1361828511618860277, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -26097,7 +26124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5458913622955550070, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
       propertyPath: m_Name
-      value: NPC (19)
+      value: Janett
       objectReference: {fileID: 0}
     - target: {fileID: 6185973263782918230, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
       propertyPath: m_IsActive
@@ -26142,13 +26169,60 @@ PrefabInstance:
     - {fileID: 5035993172570367281, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5458913622955550070, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1027805560}
+    - targetCorrespondingSourceObject: {fileID: 5458913622955550070, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1027805559}
   m_SourcePrefab: {fileID: 100100000, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
 --- !u!4 &1027805549 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2672719336203658623, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
   m_PrefabInstance: {fileID: 1027805548}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1027805559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112964268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5fc186e66aeae9488a30d03df03c19e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: GiveQuest
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1027805560}
+        m_TargetAssemblyTypeName: RPG.Quests.QuestGiver, Assembly-CSharp
+        m_MethodName: GiveQuest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1027805560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112964268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6a3bfb050261c848b0da0e3fe82ad5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest: {fileID: 11400000, guid: 5bb0f68fbe435df43bb6475b961dfc54, type: 2}
 --- !u!1 &1029039284
 GameObject:
   m_ObjectHideFlags: 0
@@ -42599,6 +42673,53 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!1 &1575489131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5458913622955550070, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
+  m_PrefabInstance: {fileID: 401511412}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1575489141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575489131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98dab0942a671e0429891cbc9c7c2868, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest: {fileID: 11400000, guid: 26d24e7cb3d6236469a0c6b90ebfa2ea, type: 2}
+  objective: Go to the Captain
+--- !u!114 &1575489142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575489131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5fc186e66aeae9488a30d03df03c19e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: CompletedQuest
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1575489141}
+        m_TargetAssemblyTypeName: RPG.Quests.QuestCompletion, Assembly-CSharp
+        m_MethodName: CompleteObjective
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1576481211 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6633195312887496187, guid: c6cfada4534fd7e4db15f7dfe67226fb, type: 3}
@@ -56695,11 +56816,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5431930063066643090, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000015673624
+      value: -0.00001564355
       objectReference: {fileID: 0}
     - target: {fileID: 5431930063066643090, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000008718801
+      value: -0.000008702072
       objectReference: {fileID: 0}
     - target: {fileID: 5478749892409148562, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_Damping
@@ -56895,11 +57016,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8418237301811683718, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000012230305
+      value: -0.000012294519
       objectReference: {fileID: 0}
     - target: {fileID: 8418237301811683718, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000004717655
+      value: -0.0000047424246
       objectReference: {fileID: 0}
     - target: {fileID: 8447587568422638125, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_TrackedObjectOffset.y
@@ -56951,11 +57072,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9091322201017751533, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000010418549
+      value: -0.000010445864
       objectReference: {fileID: 0}
     - target: {fileID: 9091322201017751533, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000007983853
+      value: -0.000008004785
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9213853712785066517, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}

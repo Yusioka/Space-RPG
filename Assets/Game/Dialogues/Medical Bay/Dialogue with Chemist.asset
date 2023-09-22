@@ -18,7 +18,7 @@ MonoBehaviour:
   - 8dea8cda-f940-413f-90d3-cf1254dd4fa7
   rect:
     serializedVersion: 2
-    x: 250
+    x: 249
     y: 336
     width: 200
     height: 100
@@ -27,6 +27,11 @@ MonoBehaviour:
   condition:
     and:
     - or:
+      - predicate: HasQuest
+        parameters:
+        - Bring some samples to the Chemist
+        negate: 0
+    - or:
       - predicate: CompletedObjective
         parameters:
         - Bring some samples to the Chemist
@@ -36,8 +41,13 @@ MonoBehaviour:
       - predicate: CompletedObjective
         parameters:
         - Bring some samples to the Chemist
-        - Virus Samples
+        - Black Hole Samples
         negate: 0
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Go to the Captain
+        negate: 1
 --- !u!114 &-6111089973354272999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,15 +165,6 @@ MonoBehaviour:
         - Bring some samples to the Chemist
         negate: 0
       - predicate: HasQuest
-        parameters:
-        - Go to the Captain
-        negate: 0
-    - or:
-      - predicate: CompletedQuest
-        parameters:
-        - Bring some samples to the Chemist
-        negate: 0
-      - predicate: CompletedQuest
         parameters:
         - Go to the Captain
         negate: 0
@@ -549,7 +550,7 @@ MonoBehaviour:
   - f792bdcd-3397-436e-88b0-f753b1fb737d
   rect:
     serializedVersion: 2
-    x: 498
+    x: 501
     y: 336
     width: 200
     height: 100
@@ -738,8 +739,8 @@ MonoBehaviour:
   - 7b355ae7-f405-4a9d-8429-08e9234dab59
   rect:
     serializedVersion: 2
-    x: 498
-    y: 33
+    x: 502
+    y: 32
     width: 200
     height: 100
   onEnterAction: 
