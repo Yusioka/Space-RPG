@@ -20,6 +20,7 @@ namespace RPG.Control
         GameObject player;
 
         Animator animator;
+        NavMeshAgent navMeshAgent;
         Quaternion startRotation;
         Vector3 guardPosition;
         float timeSinceArrivedAtWaypoint = Mathf.Infinity;
@@ -27,6 +28,7 @@ namespace RPG.Control
 
         private void Awake()
         {
+            navMeshAgent = GetComponent<NavMeshAgent>();
             startRotation = transform.rotation;
             guardPosition = transform.position;
             player = GameObject.FindWithTag("Player");
@@ -61,11 +63,6 @@ namespace RPG.Control
             {
                 PatrolBehaviour();
             }
-            UpdateTimer();
-        }
-
-        private void UpdateTimer()
-        {
             timeSinceArrivedAtWaypoint += Time.deltaTime;
         }
 
@@ -77,10 +74,12 @@ namespace RPG.Control
             {
                 if (AtWaypoint())
                 {
+                    navMeshAgent.isStopped = true;
                     animator.Play("Idle");
                     timeSinceArrivedAtWaypoint = 0;
                     CycleWaypoint();
                 }
+                navMeshAgent.isStopped = false;
                 nextPosition = GetCurrentWaypoint();
             }
             else
@@ -127,6 +126,7 @@ namespace RPG.Control
             if (directionToPlayer != Vector3.zero)
             {
                 transform.rotation = Quaternion.LookRotation(directionToPlayer);
+                navMeshAgent.isStopped = true;
                 animator.Play("Idle");
             }
 

@@ -1,7 +1,3 @@
-using RPG.Attributes;
-using RPG.Control;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RPG.Dialogue
@@ -30,7 +26,6 @@ namespace RPG.Dialogue
         {
             GameObject.FindWithTag("Player").GetComponent<PlayerConversant>().StartDialogue(this, dialogue);
         }
-
 
         public string GetName()
         {
