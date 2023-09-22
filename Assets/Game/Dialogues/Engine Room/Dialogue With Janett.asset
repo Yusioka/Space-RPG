@@ -28,6 +28,151 @@ MonoBehaviour:
   onExitAction: 
   condition:
     and: []
+--- !u!114 &-6560292009137374942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 1ce9d899-5e4a-47b9-bd37-402e88bdb6d7
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u042F \u0432\u0441\u0451 \u043D\u0430\u0448\u0435\u043B."
+  children:
+  - 0d3a463d-7332-4777-9014-60dac33bcf96
+  rect:
+    serializedVersion: 2
+    x: 260
+    y: 197.99998
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Do a lot of things for Janett
+        negate: 0
+    - or:
+      - predicate: CompletedObjective
+        parameters:
+        - Do a lot of things for Janett
+        - Find the Oil
+        negate: 0
+    - or:
+      - predicate: CompletedObjective
+        parameters:
+        - Do a lot of things for Janett
+        - Find the Snack
+        negate: 0
+--- !u!114 &-5604837916087922600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 569ec540-66af-4661-86e1-8c431f7266ec
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "\u0427\u0435\u0433\u043E \u0442\u044B \u0434\u043E \u0441\u0438\u0445 \u043F\u043E\u0440
+    \u0437\u0434\u0435\u0441\u044C?"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 512
+    y: 319
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-4545769150404420318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 0d3a463d-7332-4777-9014-60dac33bcf96
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "\u041E\u0442\u043B\u0438\u0447\u043D\u043E, \u0442\u043E\u0433\u0434\u0430
+    \u043C\u044B \u043F\u043E\u043B\u043D\u043E\u0441\u0442\u044C\u044E \u0433\u043E\u0442\u043E\u0432\u044B
+    \u043A \u0437\u0430\u0432\u0442\u0440\u0430\u0448\u043D\u0435\u043C\u0443 \u0434\u043D\u044E.
+    \u041C\u043E\u0436\u0435\u0448\u044C \u043F\u043E\u043A\u0430 \u0435\u0449\u0435
+    \u043F\u043E\u0445\u043E\u0434\u0438\u0442\u044C \u043F\u043E \u043A\u043E\u0441\u043C\u0438\u0447\u0435\u0441\u043A\u043E\u0439
+    \u0441\u0442\u0430\u043D\u0446\u0438\u0438, \u0430 \u043A\u043E\u0433\u0434\u0430
+    \u0431\u0443\u0434\u0435\u0448\u044C \u0433\u043E\u0442\u043E\u0432 - \u0438\u0434\u0438
+    \u043A \u0432\u044B\u0445\u043E\u0434\u0443."
+  children:
+  - 97550dc2-c1e4-4d04-89f2-3f76e7ea7403
+  rect:
+    serializedVersion: 2
+    x: 510
+    y: 197.99998
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-3462506410255626605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: fd7ce80f-4261-45dd-8720-df1a90d496b3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u041F\u0440\u0438\u0432\u0435\u0442."
+  children:
+  - 569ec540-66af-4661-86e1-8c431f7266ec
+  rect:
+    serializedVersion: 2
+    x: 262
+    y: 319
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Do a lot of things for Janett
+        negate: 0
+    - or:
+      - predicate: CompletedObjective
+        parameters:
+        - Do a lot of things for Janett
+        - Find the Oil
+        negate: 1
+    - or:
+      - predicate: CompletedObjective
+        parameters:
+        - Do a lot of things for Janett
+        - Find the Snack
+        negate: 1
 --- !u!114 &-3232005078981109412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +280,14 @@ MonoBehaviour:
   - {fileID: 101648334731121599}
   - {fileID: 4723767593221934157}
   - {fileID: -3232005078981109412}
+  - {fileID: -6560292009137374942}
+  - {fileID: -3462506410255626605}
+  - {fileID: -5604837916087922600}
+  - {fileID: -4545769150404420318}
+  - {fileID: 4133203584979282840}
+  - {fileID: 498854550733583229}
+  - {fileID: 2746090311548396926}
+  - {fileID: 8248258766013996702}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &101648334731121599
 MonoBehaviour:
@@ -162,6 +315,32 @@ MonoBehaviour:
     height: 100
   onEnterAction: 
   onExitAction: 
+  condition:
+    and: []
+--- !u!114 &498854550733583229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 81b47f35-ef56-481b-be97-6eb4984a7735
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "\u0418 \u043D\u0435 \u0437\u0430\u0431\u0443\u0434\u044C \u043D\u0430\u0434\u0435\u0442\u044C
+    \u0441\u043A\u0430\u0444\u0430\u043D\u0434\u0440!"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1010
+    y: 197.99998
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: GiveQuest(1)
   condition:
     and: []
 --- !u!114 &2654008869138060122
@@ -217,6 +396,37 @@ MonoBehaviour:
   onExitAction: 
   condition:
     and: []
+--- !u!114 &2746090311548396926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 2c5efd17-423a-47cd-8563-b22a18e1ffe5
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u042F \u0433\u043E\u0442\u043E\u0432."
+  children:
+  - 736deddd-852c-44e8-a173-35edc36c7017
+  rect:
+    serializedVersion: 2
+    x: 256
+    y: 430
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - say goodbye to the space station
+        negate: 0
 --- !u!114 &3125270954857127295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +485,32 @@ MonoBehaviour:
         parameters:
         - Go to the Captain
         negate: 1
+--- !u!114 &4133203584979282840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 97550dc2-c1e4-4d04-89f2-3f76e7ea7403
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u0425\u043E\u0440\u043E\u0448\u043E."
+  children:
+  - 81b47f35-ef56-481b-be97-6eb4984a7735
+  rect:
+    serializedVersion: 2
+    x: 759
+    y: 197.99998
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
 --- !u!114 &4579559975602367725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,6 +528,9 @@ MonoBehaviour:
   children:
   - b329ad71-84df-4860-bb0a-270a3a9f9100
   - 1c041925-9270-463f-a53d-70e9041a622d
+  - 1ce9d899-5e4a-47b9-bd37-402e88bdb6d7
+  - fd7ce80f-4261-45dd-8720-df1a90d496b3
+  - 2c5efd17-423a-47cd-8563-b22a18e1ffe5
   rect:
     serializedVersion: 2
     x: 0
@@ -319,12 +558,12 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 2500
+    x: 2499
     y: -1
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: GiveQuest
+  onExitAction: GiveQuest(0)
   condition:
     and: []
 --- !u!114 &5097221616865434464
@@ -384,6 +623,33 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1000
     y: 0
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &8248258766013996702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 736deddd-852c-44e8-a173-35edc36c7017
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "\u041E\u0442\u043B\u0438\u0447\u043D\u043E, \u0442\u0435\u043F\u0435\u0440\u044C
+    \u0438\u0434\u0438 \u043A \u0432\u044B\u0445\u043E\u0434\u0443 \u0438 \u043D\u0430\u0434\u0435\u0432\u0430\u0439
+    \u0441\u043A\u0430\u0444\u0430\u043D\u0434\u0440."
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 506
+    y: 430
     width: 200
     height: 100
   onEnterAction: 
