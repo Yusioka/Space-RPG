@@ -3,7 +3,8 @@ using UnityEngine;
 
 namespace RPG.Inventories
 {
-    public abstract class InventoryItem : ScriptableObject, ISerializationCallbackReceiver
+    [CreateAssetMenu(fileName = "InventoryItem", menuName = "Inventory/New Item", order = 0)]
+    public class InventoryItem : ScriptableObject, ISerializationCallbackReceiver
     {
         // CONFIG DATA
         [Tooltip("Auto-generated UUID for saving/loading. Clear this field if you want to generate a new one.")]
@@ -16,6 +17,7 @@ namespace RPG.Inventories
         [SerializeField] Sprite icon = null;
         [Tooltip("The prefab that should be spawned when this item is dropped.")]
         [SerializeField] bool stackable = false;
+        [SerializeField] Pickup pickup;
         [SerializeField] float price;
 
         static Dictionary<string, InventoryItem> itemLookupCache;
@@ -42,6 +44,13 @@ namespace RPG.Inventories
             return itemLookupCache[itemID];
         }
 
+        public Pickup SpawnPickup(Vector3 position, int number)
+        {
+            var pickup = Instantiate(this.pickup);
+            pickup.transform.position = position;
+            pickup.Setup(this, number);
+            return pickup;
+        }
 
         public Sprite GetIcon()
         {
