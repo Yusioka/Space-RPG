@@ -3,6 +3,7 @@ using RPG.Movement;
 using RPG.Combat;
 using RPG.Attributes;
 using System;
+using RPG.Inventories;
 
 namespace RPG.Control
 {
@@ -34,6 +35,11 @@ namespace RPG.Control
 
         private void Update()
         {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                GetComponent<ItemDropper>().DropItem(InventoryItem.GetFromID("82be6903-b622-4d76-b85c-34921bb20a80"));
+            }
+
             if (moverController.GetIsButtonsMoving())
             {
                 SwitchCameras(mouseMovingCamera, buttonsMovingCamera);

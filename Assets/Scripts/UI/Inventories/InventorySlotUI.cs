@@ -1,9 +1,10 @@
 using RPG.Inventories;
+using RPG.UI.Dragging;
 using UnityEngine;
 
 namespace RPG.UI.Inventories
 {
-    public class InventorySlotUI : MonoBehaviour
+    public class InventorySlotUI : MonoBehaviour, IItemHolder, IDragContainer<InventoryItem>
     {
         // CONFIG DATA
         [SerializeField] InventoryItemIcon icon = null;
