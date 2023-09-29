@@ -15,8 +15,8 @@ namespace RPG.Inventories
         [SerializeField][TextArea] string description = null;
         [Tooltip("The UI icon to represent this item in the inventory.")]
         [SerializeField] Sprite icon = null;
-        [Tooltip("The prefab that should be spawned when this item is dropped.")]
         [SerializeField] bool stackable = false;
+        [Tooltip("The prefab that should be spawned when this item is dropped.")]
         [SerializeField] Pickup pickup;
         [SerializeField] float price;
 

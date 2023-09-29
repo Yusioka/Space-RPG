@@ -3561,7 +3561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &462850314
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13626,11 +13626,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 665818483440499771, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000017063282
+      value: -0.000000017063288
       objectReference: {fileID: 0}
     - target: {fileID: 665818483440499771, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000002214466
+      value: 0.000000002214466
       objectReference: {fileID: 0}
     - target: {fileID: 746113677418115681, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_IsActive
@@ -13906,11 +13906,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8804809226598401363, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000038309352
+      value: 0.000000038309345
       objectReference: {fileID: 0}
     - target: {fileID: 8804809226598401363, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000035624623
+      value: -0.0000000035624614
       objectReference: {fileID: 0}
     - target: {fileID: 9091322201017751533, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalPosition.y
@@ -41811,6 +41811,10 @@ PrefabInstance:
     - target: {fileID: 8171071089209933212, guid: 33e4c9329595e36468c9e997b13bfc37, type: 3}
       propertyPath: m_Name
       value: Apocalypse
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171071089209933212, guid: 33e4c9329595e36468c9e997b13bfc37, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8171071089209933212, guid: 33e4c9329595e36468c9e997b13bfc37, type: 3}
       propertyPath: m_StaticEditorFlags

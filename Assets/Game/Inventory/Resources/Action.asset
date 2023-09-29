@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3db926b21073ad4f9fdf9ce408d5bd5, type: 3}
+  m_Name: Action
+  m_EditorClassIdentifier: 
+  itemID: 92058ee1-fb77-443c-beba-1de7623eae0e
+  displayName: Lol
+  description: ok
+  icon: {fileID: 21300000, guid: fccea209f9ea7b1488225287813f4e38, type: 3}
+  stackable: 0
+  pickup: {fileID: 7115260040961628977, guid: 914d1d3d6db5dfa499dd997a21b8fb77, type: 3}
+  price: 0
+  consumable: 1
