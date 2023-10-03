@@ -12741,6 +12741,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7995465443754025439, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995465443754025439, guid: b9fb9d2cbe619a042891393c7cd2fa36, type: 3}
       propertyPath: animationName
       value: 4
       objectReference: {fileID: 0}
@@ -40449,7 +40453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18af6ab9bf4cb684cad374f13820df99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: cdd2479d213b54048b0af3df0320e555, type: 2}
+  item: {fileID: 11400000, guid: 944e4fe831abe8f4a97c173048f70d69, type: 2}
   number: 1
 --- !u!4 &1707411601
 Transform:
@@ -51245,11 +51249,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2179937099327492350, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 0
+      value: 0.00001095891
       objectReference: {fileID: 0}
     - target: {fileID: 2179937099327492350, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -1.37
+      value: -1.370009
       objectReference: {fileID: 0}
     - target: {fileID: 2323987420448890657, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalPosition.x
@@ -51305,11 +51309,11 @@ PrefabInstance:
       objectReference: {fileID: 626425490}
     - target: {fileID: 3289513072590175755, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 0
+      value: 0.00001095891
       objectReference: {fileID: 0}
     - target: {fileID: 3289513072590175755, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -1.37
+      value: -1.370009
       objectReference: {fileID: 0}
     - target: {fileID: 3376941377664111306, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: inventorySize
@@ -51373,15 +51377,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5431930063066643090, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.06373131
+      value: 0.06373133
       objectReference: {fileID: 0}
     - target: {fileID: 5431930063066643090, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000015673624
+      value: -0.000015675505
       objectReference: {fileID: 0}
     - target: {fileID: 5431930063066643090, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000008718801
+      value: -0.000008719847
       objectReference: {fileID: 0}
     - target: {fileID: 5478749892409148562, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_Damping
@@ -51394,6 +51398,10 @@ PrefabInstance:
     - target: {fileID: 5483308012224613846, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201201932219704996, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6363519160182071386, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_Enabled
@@ -51497,11 +51505,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 959ed52b3661749458d327225b6670d1, type: 2}
     - target: {fileID: 7914270936338066497, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 0
+      value: 0.00001095891
       objectReference: {fileID: 0}
     - target: {fileID: 7914270936338066497, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -1.37
+      value: -1.370009
       objectReference: {fileID: 0}
     - target: {fileID: 7999646271332457034, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
       propertyPath: m_Constraints
