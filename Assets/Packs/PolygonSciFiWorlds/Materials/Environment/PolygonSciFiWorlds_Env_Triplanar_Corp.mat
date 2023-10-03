@@ -2,19 +2,24 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: PolygonSciFiWorlds_Env_Triplanar_Corp
   m_Shader: {fileID: 4800000, guid: 8e3a7be9db42981418988bc59e1916cb, type: 3}
-  m_ShaderKeywords: 
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -103,7 +108,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Main_Texture:
-        m_Texture: {fileID: 2800000, guid: d44fa91dd607b2243aac51d78b7922dd, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6c9366f59d7fa5844bb396b7c5be509a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Mask:
@@ -242,6 +247,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _BumpScale: 1
     - _Cliff_Defail_Power: 1
@@ -308,3 +314,4 @@ Material:
     - _Rock_Colour: {r: 0.056228366, g: 0.05482265, b: 0.09558821, a: 1}
     - _Rock_Colour_Primary: {r: 0.17766005, g: 0.24931695, b: 0.3897059, a: 0}
     - _Rock_Colour_Secondary: {r: 1, g: 0.16911763, b: 0.16911763, a: 0}
+  m_BuildTextureStacks: []
