@@ -12,10 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d450ddd0b0429874cb40ff92fcd9d535, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 1880625261243408, guid: 054873fb4d8fb414f9c75a47ff19cfe1, type: 3}
+  itemID: 0f6398a8-9286-4c6d-ab15-5789c318d275
+  displayName: 
+  description: 
+  icon: {fileID: 0}
+  stackable: 0
+  pickup: {fileID: 0}
+  price: 0
+  allowedEquipLocation: 5
+  equipCondition:
+    and: []
   animatorOverride: {fileID: 0}
-  weaponRange: 2
-  weaponDamage: 20
-  percentageBonus: 0
+  equippedPrefab: {fileID: 0}
   isRightHanded: 1
-  projectle: {fileID: 0}
+  weaponDamage: 10
+  weaponRange: 2
+  percentageBonus: 0

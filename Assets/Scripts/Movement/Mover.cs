@@ -55,6 +55,16 @@ namespace RPG.Movement
             GetComponent<ActionSceduler>().StartAction(this);
             MoveTo(destination, speed);
         }
+        public bool CanMoveTo(Vector3 destination)
+        {
+            NavMeshPath path = new NavMeshPath();
+            bool hasPath = NavMesh.CalculatePath(transform.position, destination, NavMesh.AllAreas, path);
+            if (!hasPath) return false;
+            if (path.status != NavMeshPathStatus.PathComplete) return false;
+          //  if (GetPathLength(path) > maxNavPathLength) return false;
+
+            return true;
+        }
         public void MoveTo(Vector3 destination, float speed)
         {
             //destination - место назначения

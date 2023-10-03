@@ -32,7 +32,7 @@ namespace RPG.UI.Inventories
 
         private void Update()
         {
-            cooldownOverlay.fillAmount = cooldownStore.GetFractiomRemaining(GetItem());
+         //   cooldownOverlay.fillAmount = cooldownStore.GetFractiomRemaining(GetItem());
         }
 
         // PUBLIC

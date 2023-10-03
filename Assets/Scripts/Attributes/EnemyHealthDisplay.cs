@@ -14,15 +14,15 @@ namespace RPG.Attributes
             fighter = GameObject.FindWithTag("Player").GetComponent<Fighter>();
         }
 
-        private void Update()
-        {
-            if (fighter.GetHealth() == null)
-            {
-                GetComponent<Text>().text = "N/A";
-                return;
-            }
-            Health health = fighter.GetHealth();
-            GetComponent<Text>().text = String.Format("{0}%", health.GetHealthPercentage());
-        }
+        //private void Update()
+        //{
+        //    if (fighter.GetHealth() == null)
+        //    {
+        //        GetComponent<Text>().text = "N/A";
+        //        return;
+        //    }
+        //    Health health = fighter.GetHealth();
+        //    GetComponent<Text>().text = String.Format("{0}%", health.GetHealthPercentage());
+        //}
     }
 }
