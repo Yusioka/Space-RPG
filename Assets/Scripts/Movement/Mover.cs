@@ -24,16 +24,10 @@ namespace RPG.Movement
 
         private void Update()
         {
-            if (gameObject.tag == "Player")
-            {
-                FindTypeOfPlayersControl();
-            }
-            else
-            {
-                UpdateAnimator();
-            }
+            GetComponent<CharacterController>().enabled = true;
+            UpdateButtonsAnimator();
             // navMesh is enabled if IsNotDead()!
-          //  navMeshAgent.isStopped = health.IsDead();
+            //  navMeshAgent.isStopped = health.IsDead();
         }
 
         private void FindTypeOfPlayersControl()

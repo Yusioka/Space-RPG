@@ -37,26 +37,18 @@ namespace RPG.Control
 
         private void Update()
         {
-            if (InteractWithUI()) return;
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                GetComponent<ItemDropper>().DropItem(InventoryItem.GetFromID("82be6903-b622-4d76-b85c-34921bb20a80"));
-            }
+            //  if (InteractWithUI()) return;
+            //if (Input.GetKeyDown(KeyCode.Space))
+            //{
+            //    GetComponent<ItemDropper>().DropItem(InventoryItem.GetFromID("82be6903-b622-4d76-b85c-34921bb20a80"));
+            //}
 
-            if (moverController.GetIsButtonsMoving())
-            {
-                SwitchCameras(mouseMovingCamera, buttonsMovingCamera);
-                InteractWithMovementByButtons();
-            }
-            else
-            {
-                SwitchCameras(buttonsMovingCamera, mouseMovingCamera);
-                if (InteractWithMovementByMouse()) return;
-            }
+            SwitchCameras(mouseMovingCamera, buttonsMovingCamera);
+            InteractWithMovementByButtons();
             // если сработает одна из функций - другая работать не будет
-            if (health.IsDead()) return;
-            if (InteractWithComponent()) return;
-          //  if (InteractWithCombat()) return;
+            //   if (health.IsDead()) return;
+            //   if (InteractWithComponent()) return;
+            //  if (InteractWithCombat()) return;
         }
 
         private bool InteractWithComponent()
