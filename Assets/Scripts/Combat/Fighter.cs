@@ -64,7 +64,14 @@ namespace RPG.Combat
         private Weapon AttachWeapon(WeaponConfig weapon)
         {
             Animator animator = GetComponent<Animator>();
-            return weapon.Spawn(rightHandTransform, leftHandTransform, animator);
+            if (weapon != null)
+            {
+                return weapon.Spawn(rightHandTransform, leftHandTransform, animator);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public void EquipWeapon(WeaponConfig weapon)

@@ -1286,7 +1286,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1168860155316512103}
-  m_LocalRotation: {x: 0.8005047, y: 0.000000018603995, z: -0.000000006932942, w: 0.5993265}
+  m_LocalRotation: {x: 0.8005047, y: -0.000000095497114, z: 0.000000035587824, w: 0.5993266}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2953,7 +2953,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2620043336961061286}
-  m_LocalRotation: {x: 0.7702449, y: 0.0000000068737727, z: -0.0000000021852316, w: 0.63774824}
+  m_LocalRotation: {x: 0.77024484, y: -0.000000069908296, z: 0.000000022224437, w: 0.63774836}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5654,7 +5654,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7123829176477633362}
-  m_LocalRotation: {x: 0.752295, y: -0.000000024803576, z: 0.000000007135548, w: 0.6588265}
+  m_LocalRotation: {x: 0.752295, y: 0.00000002480358, z: -0.0000000071355486, w: 0.6588265}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6883,6 +6883,7 @@ GameObject:
   - component: {fileID: 7690092285534438938}
   - component: {fileID: 2940290675493893611}
   - component: {fileID: 8637750949226752764}
+  - component: {fileID: 1100409349904650307}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -7218,6 +7219,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef34a8fa3c8937640bc0b75ac221edfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1100409349904650307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8932019800705468534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd2755af1ffe872429e790731b78ac50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8942434620551713376
@@ -7563,8 +7576,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9082556050785615245}
-  m_LocalRotation: {x: -0.3598888, y: -0.000012294519, z: -0.0000047424246, w: 0.9329952}
-  m_LocalPosition: {x: 17.400036, y: 1.49197, z: -19.37866}
+  m_LocalRotation: {x: 0.5991401, y: -0.00000012781558, z: 0.000000095647266, w: 0.8006443}
+  m_LocalPosition: {x: 17.4, y: 6.4, z: -19.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7602,7 +7615,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 1.2
+  near clip plane: 0.1
   far clip plane: 5000
   field of view: 40
   orthographic: 0

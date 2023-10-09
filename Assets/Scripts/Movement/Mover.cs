@@ -24,7 +24,10 @@ namespace RPG.Movement
 
         private void Update()
         {
-            GetComponent<CharacterController>().enabled = true;
+            if (gameObject.tag == "Player")
+            {
+                GetComponent<CharacterController>().enabled = true;
+            }
             UpdateButtonsAnimator();
             // navMesh is enabled if IsNotDead()!
             //  navMeshAgent.isStopped = health.IsDead();

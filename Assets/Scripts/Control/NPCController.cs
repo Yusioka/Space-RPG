@@ -90,7 +90,10 @@ namespace RPG.Control
             if (timeSinceArrivedAtWaypoint > waypointDwellTime)
             {
                 animator.Play(animationName.ToString());
-                GetComponent<Mover>().StartMoveActionByMouse(nextPosition, patrolSpeed);
+                if (gameObject.GetComponent<NavMeshAgent>().enabled)
+                {
+                    GetComponent<Mover>().StartMoveActionByMouse(nextPosition, patrolSpeed);
+                }
             }
         }
 

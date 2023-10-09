@@ -1,3 +1,4 @@
+using RPG.Dialogue;
 using RPG.Inventories;
 using System;
 using System.Collections.Generic;
@@ -26,5 +27,10 @@ namespace RPG.Shops
         public void ConfirmTransaction() { }
         public float TransactionTotal() { return 0; }
         public void AddToTransaction(InventoryItem item, int quantity) { }
+
+        private void OnMouseDown()
+        {
+            GameObject.FindWithTag("Player").GetComponent<Shopper>().SetActiveShop(this);
+        }
     }
 }
