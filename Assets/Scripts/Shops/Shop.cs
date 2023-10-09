@@ -14,7 +14,7 @@ namespace RPG.Shops
             float price;
             int quantityInTransaction;
         }
-
+        
         public event Action onChange;
 
         public IEnumerable<ShopItem> GetFilteredItems() { return null; }
