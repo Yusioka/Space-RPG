@@ -1,4 +1,3 @@
-using RPG.Dialogue;
 using RPG.Inventories;
 using System;
 using System.Collections.Generic;
@@ -8,17 +7,28 @@ namespace RPG.Shops
 {
     public class Shop : MonoBehaviour
     {
-        public class ShopItem
+        [SerializeField] string shopName;
+
+        [SerializeField] StockItemConfig[] stockConfigs;
+
+        [System.Serializable]
+        class StockItemConfig
         {
-            InventoryItem item;
-            int availability;
-            float price;
-            int quantityInTransaction;
+            public InventoryItem item;
+            public int initialStock;
+            [Range(0, 100)]
+            public float buyingDiscountPercentage;
         }
         
         public event Action onChange;
 
-        public IEnumerable<ShopItem> GetFilteredItems() { return null; }
+        public IEnumerable<ShopItem> GetFilteredItems()
+        { 
+            foreach (StockItemConfig config in stockConfigs)
+            {
+                yield return new ShopItem(config.item, config.initialStock, 0, 0);
+            }
+        }
         public void SelectCategory(ItemCategory category) { }
         public ItemCategory GetFilter() { return ItemCategory.None; }
         public void SelectMode(bool isBuying) { }
@@ -27,6 +37,11 @@ namespace RPG.Shops
         public void ConfirmTransaction() { }
         public float TransactionTotal() { return 0; }
         public void AddToTransaction(InventoryItem item, int quantity) { }
+
+        public string GetShopName()
+        { 
+            return shopName;
+        }
 
         private void OnMouseDown()
         {
