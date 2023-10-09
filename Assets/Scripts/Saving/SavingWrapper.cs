@@ -11,6 +11,9 @@ namespace RPG.Saving
         const string defaultSaveFile = "checkpoint";
 
         [SerializeField] float fadeInTime = 0.2f;
+        [SerializeField] KeyCode savingKey;
+        [SerializeField] KeyCode loadKey;
+        [SerializeField] KeyCode deleteKey;
 
         private void Awake()
         {
@@ -28,15 +31,15 @@ namespace RPG.Saving
 
         private void Update()
         {
-            if (Input.GetKeyUp(KeyCode.K))
+            if (Input.GetKeyUp(savingKey))
             {
                 Save();
             }
-            if (Input.GetKeyUp(KeyCode.L))
+            if (Input.GetKeyUp(loadKey))
             {
                 Load();
             }
-            if (Input.GetKeyUp(KeyCode.D))
+            if (Input.GetKeyUp(deleteKey))
             {
                 Delete();
             }

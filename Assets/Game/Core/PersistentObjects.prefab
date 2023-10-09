@@ -58,6 +58,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeInTime: 0.2
+  savingKey: 256
+  loadKey: 257
+  deleteKey: 258
 --- !u!1 &3222552704307202902
 GameObject:
   m_ObjectHideFlags: 0
