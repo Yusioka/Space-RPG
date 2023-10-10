@@ -27,15 +27,21 @@ namespace RPG.Shops
         {
             return item.GetDisplayName();
         }
-        internal int GetAvailability()
+        public int GetAvailability()
         {
             return availability;
         }
-        internal float GetPrice()
+
+        public InventoryItem GetInventoryItem()
         {
-            return item.GetPrice();
+            return item;
         }
-        internal int GetQuantity()
+
+        public float GetPrice()
+        {
+            return price;
+        }
+        public int GetQuantityInTransaction()
         {
             return quantityInTransaction;
         }
