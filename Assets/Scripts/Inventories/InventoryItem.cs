@@ -3,8 +3,15 @@ using UnityEngine;
 
 namespace RPG.Inventories
 {
-    [CreateAssetMenu(fileName = "InventoryItem", menuName = "Inventory/New Item", order = 0)]
-    public class InventoryItem : ScriptableObject, ISerializationCallbackReceiver
+    /// <summary>
+    /// A ScriptableObject that represents any item that can be put in an
+    /// inventory.
+    /// </summary>
+    /// <remarks>
+    /// In practice, you are likely to use a subclass such as `ActionItem` or
+    /// `EquipableItem`.
+    /// </remarks>
+    public abstract class InventoryItem : ScriptableObject, ISerializationCallbackReceiver
     {
         // CONFIG DATA
         [Tooltip("Auto-generated UUID for saving/loading. Clear this field if you want to generate a new one.")]
@@ -15,13 +22,27 @@ namespace RPG.Inventories
         [SerializeField][TextArea] string description = null;
         [Tooltip("The UI icon to represent this item in the inventory.")]
         [SerializeField] Sprite icon = null;
-        [SerializeField] bool stackable = false;
         [Tooltip("The prefab that should be spawned when this item is dropped.")]
-        [SerializeField] Pickup pickup;
+        [SerializeField] Pickup pickup = null;
+        [Tooltip("If true, multiple items of this type can be stacked in the same inventory slot.")]
+        [SerializeField] bool stackable = false;
         [SerializeField] float price;
+        [SerializeField] ItemCategory category = ItemCategory.None;
 
+        // STATE
         static Dictionary<string, InventoryItem> itemLookupCache;
 
+        // PUBLIC
+
+        /// <summary>
+        /// Get the inventory item instance from its UUID.
+        /// </summary>
+        /// <param name="itemID">
+        /// String UUID that persists between game instances.
+        /// </param>
+        /// <returns>
+        /// Inventory item instance corresponding to the ID.
+        /// </returns>
         public static InventoryItem GetFromID(string itemID)
         {
             if (itemLookupCache == null)
@@ -44,6 +65,12 @@ namespace RPG.Inventories
             return itemLookupCache[itemID];
         }
 
+        /// <summary>
+        /// Spawn the pickup gameobject into the world.
+        /// </summary>
+        /// <param name="position">Where to spawn the pickup.</param>
+        /// <param name="number">How many instances of the item does the pickup represent.</param>
+        /// <returns>Reference to the pickup object spawned.</returns>
         public Pickup SpawnPickup(Vector3 position, int number)
         {
             var pickup = Instantiate(this.pickup);
@@ -82,6 +109,12 @@ namespace RPG.Inventories
             return price;
         }
 
+        public ItemCategory GetCategory()
+        {
+            return category;
+        }
+
+        // PRIVATE
 
         void ISerializationCallbackReceiver.OnBeforeSerialize()
         {
