@@ -1600,6 +1600,7 @@ MonoBehaviour:
   rowPrefab: {fileID: 8728960043668226145, guid: 2e1ce3ed1c974d64fa08808d4e43711c, type: 3}
   totalField: {fileID: 6476656846959987920}
   confirmButton: {fileID: 16046020199918498}
+  switchButton: {fileID: 4110539429092931842}
 --- !u!1 &5470895689607035291
 GameObject:
   m_ObjectHideFlags: 0
@@ -1897,7 +1898,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4643585320617488852}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7011525873188482945}
+        m_TargetAssemblyTypeName: RPG.UI.Shops.ShopUI, Assembly-CSharp
+        m_MethodName: SwitchMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &8089541244593112104
 CanvasRenderer:
   m_ObjectHideFlags: 0

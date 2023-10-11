@@ -9,6 +9,9 @@ namespace RPG.Shops
     {
         [SerializeField] string shopName;
 
+        [Range(0, 100)]
+        [SerializeField] float sellingDiscountPercentage = 80f;
+
         [SerializeField] StockItemConfig[] stockConfigs;
 
         [System.Serializable]
@@ -23,6 +26,7 @@ namespace RPG.Shops
         Dictionary<InventoryItem, int> transaction = new Dictionary<InventoryItem, int>();
         Dictionary<InventoryItem, int> stock = new Dictionary<InventoryItem, int>();
         Shopper currentShopper = null;
+        bool isBuyingMode = true;
         
         public event Action onChange;
 
@@ -47,18 +51,62 @@ namespace RPG.Shops
         {
             foreach (StockItemConfig config in stockConfigs)
             {
-                float price = config.item.GetPrice() * (1 - config.buyingDiscountPercentage / 100);
+                float price = GetPrice(config);
                 int quantityInTransaction = 0;
                 transaction.TryGetValue(config.item, out quantityInTransaction);
-                int currentStock = stock[config.item];
+                int availability = GetAvailability(config.item);
                 yield return new ShopItem(config.item, config.initialStock, price, quantityInTransaction);
             }
         }
 
+        private int GetAvailability(InventoryItem item)
+        {
+            if (isBuyingMode)
+            {
+                return stock[item];
+            }
+            return CountItemsInInventory(item);
+        }
+
+        private int CountItemsInInventory(InventoryItem item)
+        {
+            Inventory inventory = currentShopper.GetComponent<Inventory>();
+            if (inventory == null) return 0;
+
+            int total = 0;
+            for (int i = 0; i < inventory.GetSize(); i++)
+            {
+                if (inventory.GetItemInSlot(i) == item)
+                {
+                    total += inventory.GetNumberInSlot(i);
+                }
+            }
+            return total;
+        }
+
+        private float GetPrice(StockItemConfig config)
+        {
+            if (isBuyingMode)
+            {
+                return config.item.GetPrice() * (1 - config.buyingDiscountPercentage / 100);
+            }
+
+            return config.item.GetPrice() * (sellingDiscountPercentage / 100);
+        }
+
         public void SelectCategory(ItemCategory category) { }
         public ItemCategory GetFilter() { return ItemCategory.None; }
-        public void SelectMode(bool isBuying) { }
-        public bool IsBuyingMode() { return true;}
+        public void SelectMode(bool isBuying)
+        {
+            isBuyingMode = isBuying;
+            if (onChange != null)
+            {
+                onChange();
+            }
+        }
+        public bool IsBuyingMode() {
+            return isBuyingMode;
+        }
         public bool CanTransact() 
         {
             if (IsTransactionEmpty()) return false;
@@ -112,10 +160,12 @@ namespace RPG.Shops
             {
                 transaction[item] = 0;
             }
-            
-            if (transaction[item] + quantity > stock[item])
+
+
+            int availability = GetAvailability(item);
+            if (transaction[item] + quantity > availability)
             {
-                transaction[item] = stock[item];
+                transaction[item] = availability;
             }
             else
             {
