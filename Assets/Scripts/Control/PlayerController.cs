@@ -14,8 +14,10 @@ namespace RPG.Control
         [SerializeField] GameObject buttonsMovingCamera;
         [SerializeField] GameObject mouseMovingCamera;
         [SerializeField] float raycastRadius = 3f;
+        [SerializeField] int numberOfAbilities = 6;
 
         Health health;
+        ActionStore actionStore;
         CharacterController characterController;
         bool isDraggingUI = false;
 
@@ -28,6 +30,7 @@ namespace RPG.Control
         private void Awake()
         {
             health = GetComponent<Health>();
+            actionStore = GetComponent<ActionStore>();
         }
 
         private void Start()
@@ -45,10 +48,22 @@ namespace RPG.Control
 
             SwitchCameras(mouseMovingCamera, buttonsMovingCamera);
             InteractWithMovementByButtons();
+            UseAbilities();
             // если сработает одна из функций - другая работать не будет
             //   if (health.IsDead()) return;
             //   if (InteractWithComponent()) return;
             //  if (InteractWithCombat()) return;
+        }
+
+        private void UseAbilities()
+        {
+            for (int i = 0; i < numberOfAbilities; i++)
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+                {
+                    actionStore.Use(i, gameObject);
+                }
+            }
         }
 
         private bool InteractWithComponent()

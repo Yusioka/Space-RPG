@@ -7,7 +7,7 @@ namespace RPG.Inventories
     /// An inventory item that can be equipped to the player. Weapons could be a
     /// subclass of this.
     /// </summary>
-    [CreateAssetMenu(fileName = "New Equipable Item", menuName = "RPG Project/Inventory/New Equipable Item", order = 0)]
+    [CreateAssetMenu(fileName = "New Equipable Item", menuName = "Inventory/New Equipable Item", order = 0)]
     public class EquipableItem : InventoryItem
     {
         // CONFIG DATA
