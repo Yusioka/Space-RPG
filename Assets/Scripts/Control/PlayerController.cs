@@ -61,7 +61,7 @@ namespace RPG.Control
             {
                 if (Input.GetKeyDown(KeyCode.Alpha1 + i))
                 {
-                    actionStore.Use(i, gameObject);
+                    actionStore.Use(i, this.gameObject);
                 }
             }
         }
@@ -127,7 +127,7 @@ namespace RPG.Control
             }
             return false;
         }
-        private static Ray GetMouseRay()
+        public static Ray GetMouseRay()
         {
             return Camera.main.ScreenPointToRay(Input.mousePosition);
         }

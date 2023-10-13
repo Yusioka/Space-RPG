@@ -6885,6 +6885,8 @@ GameObject:
   - component: {fileID: 8637750949226752764}
   - component: {fileID: 1100409349904650307}
   - component: {fileID: 11161043597426449}
+  - component: {fileID: 3480657454434432836}
+  - component: {fileID: 2476559319636049536}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -7089,6 +7091,7 @@ MonoBehaviour:
   buttonsMovingCamera: {fileID: 1599025329587047746}
   mouseMovingCamera: {fileID: 746113677418115681}
   raycastRadius: 3
+  numberOfAbilities: 6
 --- !u!114 &3994107758810010689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7247,6 +7250,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingBalance: 1000
+--- !u!114 &3480657454434432836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8932019800705468534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43bb21c7c0d25f548b7e15428efbceb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2476559319636049536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8932019800705468534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7282e4cfc684e2f4e8964d59b508196a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8942434620551713376
 GameObject:
   m_ObjectHideFlags: 0

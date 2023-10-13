@@ -3,6 +3,7 @@ using System.Collections;
 using System;
 using UnityEngine;
 using RPG.Control;
+using Unity.VisualScripting.FullSerializer;
 
 namespace RPG.Abilities.Targeting
 {
@@ -39,18 +40,18 @@ namespace RPG.Abilities.Targeting
             {
                 Cursor.SetCursor(cursorTexture, cursorHotspot, CursorMode.Auto);
                 RaycastHit raycastHit;
-                //if (Physics.Raycast(PlayerController.GetMouseRay(), out raycastHit, 1000, layerMask))
-                //{
-                //    targetingPrefabInstance.position = raycastHit.point;
-                //    if (Input.GetMouseButtonDown(0))
-                //    {
-                //        // Absorb the whole mouse click
-                //        yield return new WaitWhile(() => Input.GetMouseButton(0));
-                //        data.SetTargetedPoint(raycastHit.point);
-                //        data.SetTargets(GetGameObjectsInRadius(raycastHit.point));
-                //        break;
-                //    }
-                //}
+                if (Physics.Raycast(PlayerController.GetMouseRay(), out raycastHit, 1000, layerMask))
+                {
+                    targetingPrefabInstance.position = raycastHit.point;
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        // Absorb the whole mouse click
+                        yield return new WaitWhile(() => Input.GetMouseButton(0));
+                        data.SetTargetedPoint(raycastHit.point);
+                        data.SetTargets(GetGameObjectsInRadius(raycastHit.point));
+                        break;
+                    }
+                }
                 yield return null;
             }
             targetingPrefabInstance.gameObject.SetActive(false);

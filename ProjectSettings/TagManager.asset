@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Female
   - Male
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Terrain
   - Water
   - UI
   - Player

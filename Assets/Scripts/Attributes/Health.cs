@@ -58,6 +58,10 @@ namespace RPG.Attributes
         {
             return 100 * (healthPoints.value / GetComponent<BaseStats>().GetStat(Stat.Health));
         }
+        public float GetMaxHealthPoints()
+        {
+            return GetComponent<BaseStats>().GetStat(Stat.Health);
+        }
 
         private void Die()
         {
@@ -78,6 +82,10 @@ namespace RPG.Attributes
         {
             float regenHealthPoints = GetComponent<BaseStats>().GetStat(Stat.Health) * (regenerationPercentage / 100);
             healthPoints.value = Mathf.Max(healthPoints.value, regenHealthPoints);
+        }
+        public void Heal(float healthToRestore)
+        {
+            healthPoints.value = Mathf.Min(healthPoints.value + healthToRestore, GetMaxHealthPoints());
         }
 
         public object CaptureState()
