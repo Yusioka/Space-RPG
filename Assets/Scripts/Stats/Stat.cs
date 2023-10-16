@@ -7,7 +7,8 @@ namespace RPG.Stats
         ManaRegenRate,
         ExpeienceReward,
         ExperienceToLevelUp,
-        Damage
+        Damage,
+        TotalTraitPoints
     }
 }
 

@@ -133,6 +133,18 @@ namespace RPG.Combat
             Hit();
         }
 
+        public Transform GetHandTransform(bool isRightHand)
+        {
+            if (isRightHand)
+            {
+                return rightHandTransform;
+            }
+            else
+            {
+                return leftHandTransform;
+            }
+        }
+
         private bool GetIsInRange(Transform targetTransform)
         {
             return Vector3.Distance(transform.position, targetTransform.position) < currentWeaponConfig.GetRange();
