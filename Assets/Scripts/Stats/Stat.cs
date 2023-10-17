@@ -8,7 +8,8 @@ namespace RPG.Stats
         ExpeienceReward,
         ExperienceToLevelUp,
         Damage,
-        TotalTraitPoints
+        TotalTraitPoints,
+        BuyingDiscountPercentage
     }
 }
 
