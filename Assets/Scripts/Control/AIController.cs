@@ -2,6 +2,7 @@ using RPG.Attributes;
 using RPG.Combat;
 using RPG.Movement;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace RPG.Control
 {
@@ -68,6 +69,16 @@ namespace RPG.Control
                 //GetComponent<Mover>().StartMoveAction(guardPosition);
                 PatrolBehaviour();
             }
+        }
+
+        public void Reset()
+        {
+            NavMeshAgent navMeshAgent = GetComponent<NavMeshAgent>();
+            navMeshAgent.Warp(guardPosition);
+            timeSinceArrivedAtWaypoint = Mathf.Infinity;
+            timeSinceLastSawPlayer = Mathf.Infinity;
+        //    timeSinceAggrevated = Mathf.Infinity;
+            currentWaypointIndex = 0;
         }
 
         private void SuspicionBehaviour()

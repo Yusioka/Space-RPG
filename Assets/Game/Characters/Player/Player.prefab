@@ -5654,7 +5654,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7123829176477633362}
-  m_LocalRotation: {x: 0.752295, y: -0.00000002480358, z: 0.0000000071355486, w: 0.6588265}
+  m_LocalRotation: {x: 0.752295, y: -0.000000024803576, z: 0.000000007135548, w: 0.6588265}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6889,6 +6889,7 @@ GameObject:
   - component: {fileID: 2476559319636049536}
   - component: {fileID: 2223464001735772716}
   - component: {fileID: 7284723232415506577}
+  - component: {fileID: 1258410218128025811}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -7318,6 +7319,23 @@ MonoBehaviour:
     stat: 7
     additiveBonusPerPoint: 5
     percentageBonusPerPoint: 0
+--- !u!114 &1258410218128025811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8932019800705468534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8688cb749c3bd924393eaf49e83753af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnlocation: {fileID: 0}
+  respawnDelay: 3
+  fadeTime: 0.2
+  healthRegenPercentage: 50
+  enemyHealthRegenPercentage: 20
 --- !u!1 &8942434620551713376
 GameObject:
   m_ObjectHideFlags: 0
@@ -7661,8 +7679,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9082556050785615245}
-  m_LocalRotation: {x: -0.37995052, y: 0.00000006164247, z: 0.00000002531991, w: 0.92500675}
-  m_LocalPosition: {x: 17.4, y: 1.4, z: -19.37}
+  m_LocalRotation: {x: 0.5991401, y: -0.00000012781558, z: 0.000000095647266, w: 0.8006443}
+  m_LocalPosition: {x: 17.4, y: 6.4, z: -19.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7700,7 +7718,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 1.2
+  near clip plane: 0.1
   far clip plane: 5000
   field of view: 40
   orthographic: 0

@@ -1,3 +1,4 @@
+using RPG.Attributes;
 using UnityEngine;
 
 namespace RPG.Dialogue
@@ -24,6 +25,9 @@ namespace RPG.Dialogue
 
         private void OnMouseDown()
         {
+            Health health = GetComponent<Health>();
+            if (health &&  health.IsDead()) return;
+            if (dialogue == null) return;
             GameObject.FindWithTag("Player").GetComponent<PlayerConversant>().StartDialogue(this, dialogue);
         }
 

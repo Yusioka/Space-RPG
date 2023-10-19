@@ -1,3 +1,5 @@
+using GameDevTV.Utils;
+using RPG.Core;
 using RPG.Saving;
 using System;
 using TMPro;
@@ -10,11 +12,16 @@ namespace RPG.UI
     {
         [SerializeField] TMP_InputField newGameNameField;
 
-        SavingWrapper savingWrapper;
+        LazyValue<SavingWrapper> savingWrapper;
 
         private void Awake()
         {
-            savingWrapper = GetSavingWpapper();
+            savingWrapper = new LazyValue<SavingWrapper>(GetSavingWpapper);
+        }
+
+        private void Update()
+        {
+            if (savingWrapper == null) print("null");
         }
 
         private SavingWrapper GetSavingWpapper()
@@ -24,12 +31,16 @@ namespace RPG.UI
 
         public void ContinueGame()
         {
-            savingWrapper.ContinueGame();
+            savingWrapper.value.ContinueGame();
         }
 
         public void NewGame()
         {
-            savingWrapper.NewGame(newGameNameField.text);
+            savingWrapper.value.NewGame(newGameNameField.text);
+        }
+        public void QuitGame()
+        {
+            Application.Quit();
         }
     }
 }

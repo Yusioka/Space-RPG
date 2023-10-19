@@ -27,11 +27,25 @@ namespace RPG.Saving
             Dictionary<string, object> state = LoadFile(saveFile);
             CaptureState(state);
             SaveFile(saveFile, state);
+            string path = GetPathFromSaveFile(saveFile);
+            print(File.Exists(path));
         }
         public void Load(string saveFile)
         {
             RestoreState(LoadFile(saveFile));
         }
+        public IEnumerable<string> ListSaves()
+        {
+            foreach (string path in Directory.EnumerateFiles(Application.persistentDataPath))
+            {
+                if (Path.GetExtension(path) == ".sav")
+                {
+                    yield return Path.GetFileNameWithoutExtension(path);
+                }
+                yield return path;
+            }
+        }
+
         public bool SaveFileExists(string saveFile)
         {
             string path = GetPathFromSaveFile(saveFile);
