@@ -703,7 +703,6 @@ GameObject:
   - component: {fileID: 5895906976950317498}
   - component: {fileID: 3712887400461434930}
   - component: {fileID: 6331889086039420909}
-  - component: {fileID: 5446585380722310075}
   m_Layer: 0
   m_Name: Mouse Moving Camera
   m_TagString: Untagged
@@ -865,20 +864,6 @@ MonoBehaviour:
   m_Damping: 0
   m_DampingWhenOccluded: 0
   m_OptimalTargetDistance: 0
---- !u!114 &5446585380722310075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 746113677418115681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d05d06ecd852c54e878099fb3fafdd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 7687318177399427687}
-  sensitivity: 3
 --- !u!1 &751426605769120079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1286,7 +1271,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1168860155316512103}
-  m_LocalRotation: {x: 0.8005047, y: -0.000000095497114, z: 0.000000035587824, w: 0.5993266}
+  m_LocalRotation: {x: 0.8005047, y: 0.000000018603995, z: -0.000000006932942, w: 0.5993265}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2953,7 +2938,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2620043336961061286}
-  m_LocalRotation: {x: 0.77024484, y: -0.000000069908296, z: 0.000000022224437, w: 0.63774836}
+  m_LocalRotation: {x: 0.7702449, y: 0.0000000068737727, z: -0.0000000021852316, w: 0.63774824}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5654,7 +5639,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7123829176477633362}
-  m_LocalRotation: {x: 0.752295, y: -0.000000024803576, z: 0.000000007135548, w: 0.6588265}
+  m_LocalRotation: {x: 0.752295, y: -0.000000024803581, z: 0.0000000071355495, w: 0.6588265}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6871,7 +6856,6 @@ GameObject:
   - component: {fileID: 6363519160182071386}
   - component: {fileID: 4946100142543842368}
   - component: {fileID: 5657441736434018297}
-  - component: {fileID: 3073696585517335322}
   - component: {fileID: 8792309166144904010}
   - component: {fileID: 3994107758810010689}
   - component: {fileID: 6201201932219704996}
@@ -7064,20 +7048,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6afd0ace0e67fa48a8e2972a8093927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3073696585517335322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8932019800705468534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11cd5573723059f428eb38d75ebf80a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moverController: {fileID: 148867066746060802, guid: 0b86606c9a6845b468d0d6f24a315493, type: 3}
-  maxSpeed: 5
 --- !u!114 &8792309166144904010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7090,11 +7060,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb5b224b407449347be0a584e0f5dcb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moverController: {fileID: 148867066746060802, guid: 0b86606c9a6845b468d0d6f24a315493, type: 3}
-  buttonsMovingCamera: {fileID: 1599025329587047746}
-  mouseMovingCamera: {fileID: 746113677418115681}
-  raycastRadius: 3
-  numberOfAbilities: 6
+  maxSpeed: 5
+  rayLength: 10
+  rayColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &3994107758810010689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7108,6 +7076,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   regenerationPercentage: 70
+  takeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6201201932219704996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7679,7 +7653,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9082556050785615245}
-  m_LocalRotation: {x: 0.5991401, y: -0.00000012781558, z: 0.000000095647266, w: 0.8006443}
+  m_LocalRotation: {x: 0.5991401, y: 0.000000055672505, z: -0.00000004166099, w: 0.8006442}
   m_LocalPosition: {x: 17.4, y: 6.4, z: -19.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

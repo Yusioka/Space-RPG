@@ -56,7 +56,7 @@ namespace RPG.Combat
             }
             else
             {
-                GetComponent<Mover>().Cancel();
+            //    GetComponent<Mover>().Cancel();
                 AttackBehaviour();
             }
         }

@@ -6,10 +6,11 @@ namespace RPG.Control
     {
         public bool isButtonsMoving = false;
 
-        public bool GetIsButtonsMoving()
+        public bool IsButtonsMoving()
         {
             return isButtonsMoving;
         }
+
 
         public void MouseMoving()
         {

@@ -92,7 +92,7 @@ namespace RPG.Control
                 animator.Play(animationName.ToString());
                 if (gameObject.GetComponent<NavMeshAgent>().enabled)
                 {
-                    GetComponent<Mover>().StartMoveActionByMouse(nextPosition, patrolSpeed);
+              //      GetComponent<Mover>().StartMoveActionByMouse(nextPosition, patrolSpeed);
                 }
             }
         }

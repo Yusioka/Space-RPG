@@ -65,7 +65,7 @@ namespace RPG.Inventories
             }
             else
             {
-                player.GetComponent<Mover>().StartMoveActionByButtons();
+             //   player.GetComponent<Mover>().StartMoveActionByButtons();
             }
         }
 

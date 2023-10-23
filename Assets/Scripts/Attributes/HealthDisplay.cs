@@ -15,7 +15,7 @@ namespace RPG.Attributes
 
         private void Update()
         {
-            GetComponent<Text>().text = String.Format("{0}%", health.GetHealthPercentage());
+            GetComponent<Text>().text = String.Format("{0}%", health.GetHealthPoints());
         }
     }
 }

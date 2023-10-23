@@ -108,7 +108,7 @@ namespace RPG.Control
             // enemy arrives to the point and waiting for the statement
             if (timeSinceArrivedAtWaypoint > waypointDwellTime)
             {
-                GetComponent<Mover>().StartMoveActionByMouse(nextPosition, 1f);
+            //    GetComponent<Mover>().StartMoveActionByMouse(nextPosition, 1f);
             }
         }
 

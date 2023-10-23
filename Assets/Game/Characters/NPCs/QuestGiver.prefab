@@ -5029,7 +5029,6 @@ GameObject:
   - component: {fileID: 5782893338452097830}
   - component: {fileID: 8072091769336554656}
   - component: {fileID: 955696926032905209}
-  - component: {fileID: 6504910835470280468}
   - component: {fileID: 5624834363869024605}
   - component: {fileID: 2052739555045656882}
   - component: {fileID: 3119269629534442701}
@@ -5076,7 +5075,7 @@ Transform:
   - {fileID: 8497209860726420922}
   - {fileID: 8329210819166396982}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: -1.152, z: 0}
 --- !u!95 &4726939168047005177
 Animator:
@@ -5183,20 +5182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6afd0ace0e67fa48a8e2972a8093927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6504910835470280468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8641965049601648238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11cd5573723059f428eb38d75ebf80a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moverController: {fileID: 0}
-  maxSpeed: 1
 --- !u!114 &5624834363869024605
 MonoBehaviour:
   m_ObjectHideFlags: 0
