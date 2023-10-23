@@ -6853,7 +6853,6 @@ GameObject:
   - component: {fileID: 1608288253670068216}
   - component: {fileID: 5055454123746864405}
   - component: {fileID: 6822153723074414711}
-  - component: {fileID: 6363519160182071386}
   - component: {fileID: 4946100142543842368}
   - component: {fileID: 5657441736434018297}
   - component: {fileID: 8792309166144904010}
@@ -6988,32 +6987,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!143 &6363519160182071386
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8932019800705468534}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: -0.01, y: 0.98, z: 0}
 --- !u!195 &4946100142543842368
 NavMeshAgent:
   m_ObjectHideFlags: 0

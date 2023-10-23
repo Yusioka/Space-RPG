@@ -28,7 +28,6 @@ namespace RPG.Control
         bool hasHit;
         NavMeshAgent navMeshAgent;
         MoverController moverController;
-        CharacterController characterController;
 
         public float GetSpeed()
         {
@@ -38,7 +37,6 @@ namespace RPG.Control
 
         private void Awake()
         {
-            characterController = GetComponent<CharacterController>();
             moverController = GetComponent<MoverController>();
             navMeshAgent = GetComponent<NavMeshAgent>();
         }
@@ -56,6 +54,7 @@ namespace RPG.Control
 
             UpdateAnimator();
         }
+     
         public bool CanMoveTo()
         {
             if (!moverController.IsButtonsMoving())
@@ -88,7 +87,6 @@ namespace RPG.Control
 
         private void StartMoveActionByButtons()
         {
-            characterController.enabled = true;
             GetComponent<ActionSceduler>().StartAction(this);
 
             float speed = GetSpeed();
@@ -97,16 +95,14 @@ namespace RPG.Control
             float slew = Input.GetAxis("Horizontal");
 
             float rotation = slew * (speed / 2);
-            Vector3 moveDirection = new Vector3(0, 0, verticalMove);
+            Vector3 moveDirection = new Vector3(0, 0, verticalMove).normalized;
 
             transform.Rotate(0, rotation, 0);
-
-            characterController.SimpleMove(moveDirection * speed);
+            transform.Translate(moveDirection * speed * Time.deltaTime);
         }
 
         private void StartMoveActionByMouse(Vector3 destination, float speed)
         {
-            characterController.enabled = false;
             GetComponent<ActionSceduler>().StartAction(this);
             MoveTo(destination, speed);
         }
@@ -136,20 +132,6 @@ namespace RPG.Control
             GetComponent<Animator>().SetFloat("speedY", speed);
         }
 
-        public float rayLength = 10f; // Длина луча
-        public Color rayColor = Color.red; // Цвет луча
-
-        private void OnDrawGizmos()
-        {
-            Ray ray = GetMouseRay(); // Создаем луч из позиции объекта в направлении его направления
-
-            Gizmos.color = rayColor;
-            if (hasHit)
-            {
-                Gizmos.DrawRay(ray.origin, ray.direction * rayLength); // Визуализируем луч
-            }
-
-        }
         //public CharacterController GetCharacterController()
         //{
         //    return characterController;
