@@ -9,7 +9,7 @@ using UnityEngine.AI;
 
 namespace RPG.Control
 {
-    public class PlayerController : MonoBehaviour, Mover, IAction
+    public class PlayerController : MonoBehaviour, IMover, IAction
     {
         //[SerializeField] MoverController moverController;
         //[SerializeField] GameObject buttonsMovingCamera;
@@ -28,11 +28,16 @@ namespace RPG.Control
         bool hasHit;
         NavMeshAgent navMeshAgent;
         MoverController moverController;
+        bool isMoving;
 
         public float GetSpeed()
         {
             float speed = navMeshAgent.speed;
             return speed;
+        }
+        public bool IsMoving()
+        {
+            return isMoving;
         }
 
         private void Awake()
@@ -44,7 +49,7 @@ namespace RPG.Control
         private void Update()
         {
             if (CanMoveTo())
-            {
+            { 
                 StartMoveAction();
             }
             else
@@ -78,7 +83,7 @@ namespace RPG.Control
             }
             else
             {
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButton(1))
                 {
                     StartMoveActionByMouse(hit.point, 1f);
                 }
@@ -94,6 +99,9 @@ namespace RPG.Control
             float verticalMove = Input.GetAxis("Vertical");
             float slew = Input.GetAxis("Horizontal");
 
+            if (verticalMove != 0 || slew != 0) isMoving = true;
+            else isMoving = false;
+
             float rotation = slew * (speed / 2);
             Vector3 moveDirection = new Vector3(0, 0, verticalMove).normalized;
 
@@ -108,6 +116,8 @@ namespace RPG.Control
         }
         public void MoveTo(Vector3 destination, float speed)
         {
+            isMoving = true;
+
             navMeshAgent.destination = destination;
             navMeshAgent.speed = maxSpeed * Mathf.Clamp01(speed);
             navMeshAgent.isStopped = false;
@@ -115,6 +125,7 @@ namespace RPG.Control
 
         public void Cancel()
         {
+            isMoving = false;
             navMeshAgent.Stop();
         }
 

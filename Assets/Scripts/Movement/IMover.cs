@@ -1,16 +1,11 @@
 using UnityEngine;
-using UnityEngine.AI;
-using RPG.Core;
-using RPG.Saving;
-using RPG.Attributes;
-using RPG.Control;
 
 namespace RPG.Movement
 {
-    public interface Mover
+    public interface IMover
     {
-        void StartMoveAction();
         bool CanMoveTo();
+        void StartMoveAction();
         void MoveTo(Vector3 destination, float speed);
 
         //[SerializeField] MoverController moverController;
