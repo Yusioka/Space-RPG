@@ -55,7 +55,7 @@ namespace RPG.Control
                 Health health = enemyController.GetComponent<Health>();
                 if (health && !health.IsDead())
                 {
-                    enemyController.Reset();
+                //    enemyController.Reset();
                     health.Heal(health.GetMaxHealthPoints() * enemyHealthRegenPercentage / 100);
                 }
             }

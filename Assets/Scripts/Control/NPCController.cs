@@ -15,7 +15,6 @@ namespace RPG.Control
         [SerializeField] float waypointTolerance = 1f;
         [SerializeField] float waypointDwellTime = 2f;
         [SerializeField] float patrolSpeed = 0.2f;
-        [SerializeField] float lookAtOffset = 0.15f;
 
         GameObject player;
 
