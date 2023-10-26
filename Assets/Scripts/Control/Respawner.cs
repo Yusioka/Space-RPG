@@ -50,12 +50,12 @@ namespace RPG.Control
 
         private void ResetEnemies()
         {
-            foreach (AIController enemyController in FindObjectsOfType<AIController>())
+            foreach (EnemyController enemyController in FindObjectsOfType<EnemyController>())
             {
                 Health health = enemyController.GetComponent<Health>();
                 if (health && !health.IsDead())
                 {
-                //    enemyController.Reset();
+                    enemyController.Reset();
                     health.Heal(health.GetMaxHealthPoints() * enemyHealthRegenPercentage / 100);
                 }
             }

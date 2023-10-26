@@ -6,11 +6,13 @@ using UnityEngine.AI;
 
 namespace RPG.Control
 {
-    public class EnemyController : AIController
+    public class EnemyController : MonoBehaviour, IMover, IAIController
     {
+        [SerializeField] PatrolPath patrolPath;
+        [SerializeField] float maxSpeed = 5f;
+
         [SerializeField] float chaseDistance = 10f;
         [SerializeField] float suspiciousTime = 3f;
-        [SerializeField] PatrolPath patrolPath;
         [SerializeField] float waypointTolerance = 1f;
         [SerializeField] float waypointDwellTime = 2f;
 
@@ -19,6 +21,7 @@ namespace RPG.Control
         Health health;
 
         Vector3 guardPosition;
+        NavMeshAgent navMeshAgent;
         float timeSinceLastSawPlayer = Mathf.Infinity;
         float timeSinceArrivedAtWaypoint = Mathf.Infinity;
         int currentWaypointIndex = 0;
@@ -26,6 +29,7 @@ namespace RPG.Control
         private void Awake()
         {
             player = GameObject.FindWithTag("Player");
+            navMeshAgent = new NavMeshAgent();
             fighter = GetComponent<Fighter>();
             health = GetComponent<Health>();
         }
@@ -36,38 +40,35 @@ namespace RPG.Control
 
         private void Update()
         {
-            if (health.IsDead()) return;
-            if (DistanceToPlayer(player) <= chaseDistance && fighter.CanAttack(player))
+            if (CanMoveTo())
             {
-                timeSinceLastSawPlayer = 0;
-                AttackBehaviour();
-            }
-            else if (DistanceToPlayer(player) > chaseDistance)
-            {
-                SuspicionBehaviour();
-            }
-
-            if (timeSinceLastSawPlayer > suspiciousTime)
-            {
-                PatrolBehaviour();
-                if (DistanceToPlayer(player) <= chaseDistance)
+                if (DistanceToObject(player) <= chaseDistance && fighter.CanAttack(player))
                 {
-                    transform.LookAt(player.transform.position);
+                    timeSinceLastSawPlayer = 0;
+                    AttackBehaviour();
                 }
-            }
-            // or 
-            //if (timeSinceLastSawPlayer < suspiciousTime)
-            //{
-            //    GetComponent<ActionSceduler>().CancelCurrentAction();
-            //}
+                else if (DistanceToObject(player) > chaseDistance)
+                {
+                    SuspicionBehaviour();
+                }
 
-            timeSinceLastSawPlayer += Time.deltaTime;
-            timeSinceArrivedAtWaypoint += Time.deltaTime;
+                if (timeSinceLastSawPlayer > suspiciousTime)
+                {
+                    StartMoveAction();
+                    if (DistanceToObject(player) <= chaseDistance)
+                    {
+                        transform.LookAt(player.transform.position);
+                    }
+                }
 
-            if (player.GetComponent<Health>().IsDead())
-            {
-                //GetComponent<Mover>().StartMoveAction(guardPosition);
-                PatrolBehaviour();
+                timeSinceLastSawPlayer += Time.deltaTime;
+                timeSinceArrivedAtWaypoint += Time.deltaTime;
+
+                if (player.GetComponent<Health>().IsDead())
+                {
+                    MoveTo(guardPosition, maxSpeed);
+                    StartMoveAction();
+                }
             }
         }
 
@@ -77,7 +78,6 @@ namespace RPG.Control
             navMeshAgent.Warp(guardPosition);
             timeSinceArrivedAtWaypoint = Mathf.Infinity;
             timeSinceLastSawPlayer = Mathf.Infinity;
-        //    timeSinceAggrevated = Mathf.Infinity;
             currentWaypointIndex = 0;
         }
 
@@ -108,7 +108,7 @@ namespace RPG.Control
             // enemy arrives to the point and waiting for the statement
             if (timeSinceArrivedAtWaypoint > waypointDwellTime)
             {
-                StartMoveAction();
+                MoveTo(nextPosition, maxSpeed);
             }
         }
 
@@ -123,7 +123,7 @@ namespace RPG.Control
             return distanceToWaypoint < waypointTolerance;
         }
 
-        private float DistanceToPlayer(GameObject player)
+        private float DistanceToObject(GameObject player)
         {
             return Vector3.Distance(player.transform.position, transform.position);
         }
@@ -133,6 +133,27 @@ namespace RPG.Control
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, chaseDistance);
+        }
+
+        public bool CanMoveTo()
+        {
+            if (health.IsDead())
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public void StartMoveAction()
+        {
+            PatrolBehaviour();
+        }
+
+        public void MoveTo(Vector3 destination, float speed)
+        {
+            navMeshAgent.destination = destination;
+            navMeshAgent.speed = maxSpeed * Mathf.Clamp01(speed);
+            navMeshAgent.isStopped = false;
         }
     }
 }

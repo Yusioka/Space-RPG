@@ -1,10 +1,8 @@
 using RPG.Movement;
 using RPG.Core;
 using UnityEngine;
-using RPG.Saving;
 using RPG.Attributes;
 using RPG.Stats;
-using System.Collections.Generic;
 using RPG.Inventories;
 using GameDevTV.Utils;
 
@@ -56,7 +54,7 @@ namespace RPG.Combat
             }
             else
             {
-            //    GetComponent<Mover>().Cancel();
+                GetComponent<IAction>().Cancel();
                 AttackBehaviour();
             }
         }

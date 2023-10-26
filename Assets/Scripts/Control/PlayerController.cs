@@ -6,29 +6,27 @@ using System;
 using RPG.Inventories;
 using RPG.Core;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 namespace RPG.Control
 {
     public class PlayerController : MonoBehaviour, IMover, IAction
     {
-        //[SerializeField] MoverController moverController;
-        //[SerializeField] GameObject buttonsMovingCamera;
-        //[SerializeField] GameObject mouseMovingCamera;
-        //[SerializeField] float raycastRadius = 3f;
-        //[SerializeField] int numberOfAbilities = 6;
-
-        //Health health;
-        //ActionStore actionStore;
-        //CharacterController characterController;
-        //bool isDraggingUI = false;
-
         [SerializeField] float maxSpeed = 5f;
+
+        [SerializeField] int numberOfAbilities = 6;
+        [SerializeField] float raycastRadius = 3f;
 
         RaycastHit hit;
         bool hasHit;
         NavMeshAgent navMeshAgent;
         MoverController moverController;
         bool isMoving;
+
+        Health health;
+
+        ActionStore actionStore;
+        bool isDraggingUI = false;
 
         public float GetSpeed()
         {
@@ -44,12 +42,17 @@ namespace RPG.Control
         {
             moverController = GetComponent<MoverController>();
             navMeshAgent = GetComponent<NavMeshAgent>();
+            health = GetComponent<Health>();
+
+            actionStore = GetComponent<ActionStore>();
         }
 
         private void Update()
         {
+            if (health.IsDead()) return;
+
             if (CanMoveTo())
-            { 
+            {
                 StartMoveAction();
             }
             else
@@ -58,8 +61,19 @@ namespace RPG.Control
             }
 
             UpdateAnimator();
+
+            //if (Input.GetKeyDown(KeyCode.Space))
+            //{
+            //    GetComponent<ItemDropper>().DropItem(InventoryItem.GetFromID("82be6903-b622-4d76-b85c-34921bb20a80"));
+            //}
+
+
+            if (InteractWithUI()) return;
+            if (InteractWithComponent()) return;
+            if (InteractWithCombat()) return;
+            UseAbilities();
         }
-     
+
         public bool CanMoveTo()
         {
             if (!moverController.IsButtonsMoving())
@@ -143,145 +157,82 @@ namespace RPG.Control
             GetComponent<Animator>().SetFloat("speedY", speed);
         }
 
-        //public CharacterController GetCharacterController()
-        //{
-        //    return characterController;
-        //}
+        //
 
+        private void UseAbilities()
+        {
+            for (int i = 0; i < numberOfAbilities; i++)
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+                {
+                    actionStore.Use(i, this.gameObject);
+                }
+            }
+        }
+        private bool InteractWithUI()
+        {
+            if (Input.GetMouseButtonUp(0))
+            {
+                isDraggingUI = false;
+            }
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    isDraggingUI = true;
+                }
+                // SetCursor(CursorType.UI);
+                return true;
+            }
+            if (isDraggingUI) return true;
+            else return false;
+        }
+        private bool InteractWithComponent()
+        {
+            foreach (RaycastHit hit in RaycastAllSorted())
+            {
+                IRaycastable[] raycastables = hit.transform.GetComponents<IRaycastable>();
+                foreach (IRaycastable raycastable in raycastables)
+                {
+                    if (raycastable.HandleRaycast(this))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        private RaycastHit[] RaycastAllSorted()
+        {
+            RaycastHit[] hits = Physics.SphereCastAll(GetMouseRay(), raycastRadius);
+            float[] distances = new float[hits.Length];
+            for (int i = 0; i < hits.Length; i++)
+            {
+                distances[i] = hits[i].distance;
+            }
+            Array.Sort(distances, hits);
+            return hits;
+        }
 
-        //private void Awake()
-        //{
-        //    health = GetComponent<Health>();
-        //    actionStore = GetComponent<ActionStore>();
-        //}
+        private bool InteractWithCombat()
+        {
+            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+            foreach (RaycastHit hit in hits)
+            {
+                //если нажали на объект, который имеет скрипт CombatTarget, то таргет будет равен этому объекту
+                CombatTarget target = hit.transform.GetComponent<CombatTarget>();
+                if (target == null) continue;
 
-        //private void Start()
-        //{
-        //    characterController = GetComponent<CharacterController>();
-        //}
+                if (!GetComponent<Fighter>().CanAttack(target.gameObject)) continue; // то же самое, что и ...
+                                                                                     // if (target == null) continue;
 
-        //private void Update()
-        //{
-        //    //  if (InteractWithUI()) return;
-        //    //if (Input.GetKeyDown(KeyCode.Space))
-        //    //{
-        //    //    GetComponent<ItemDropper>().DropItem(InventoryItem.GetFromID("82be6903-b622-4d76-b85c-34921bb20a80"));
-        //    //}
-
-        //    SwitchCameras(mouseMovingCamera, buttonsMovingCamera);
-        //    InteractWithMovementByButtons();
-        //    UseAbilities();
-        //    // если сработает одна из функций - другая работать не будет
-        //    //   if (health.IsDead()) return;
-        //    //   if (InteractWithComponent()) return;
-        //    //  if (InteractWithCombat()) return;
-        //}
-
-        //private void UseAbilities()
-        //{
-        //    for (int i = 0; i < numberOfAbilities; i++)
-        //    {
-        //        if (Input.GetKeyDown(KeyCode.Alpha1 + i))
-        //        {
-        //            actionStore.Use(i, this.gameObject);
-        //        }
-        //    }
-        //}
-
-        //private bool InteractWithComponent()
-        //{
-        //    foreach (RaycastHit hit in RaycastAllSorted())
-        //    {
-        //        IRaycastable[] raycastables = hit.transform.GetComponents<IRaycastable>();
-        //        foreach (IRaycastable raycastable in raycastables)
-        //        {
-        //            if (raycastable.HandleRaycast(this))
-        //            {
-        //                return true;
-        //            }
-        //        }
-        //    }
-        //    return false;
-        //}
-        //private RaycastHit[] RaycastAllSorted()
-        //{
-        //    RaycastHit[] hits = Physics.SphereCastAll(GetMouseRay(), raycastRadius);
-        //    float[] distances = new float[hits.Length];
-        //    for (int i = 0; i < hits.Length; i++)
-        //    {
-        //        distances[i] = hits[i].distance;
-        //    }
-        //    Array.Sort(distances, hits);
-        //    return hits;
-        //}
-
-        //private bool InteractWithCombat()
-        //{
-        //    RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
-        //    foreach (RaycastHit hit in hits)
-        //    {
-        //        //если нажали на объект, который имеет скрипт CombatTarget, то таргет будет равен этому объекту
-        //        CombatTarget target = hit.transform.GetComponent<CombatTarget>();
-        //        if (target == null) continue;
-
-        //        if (!GetComponent<Fighter>().CanAttack(target.gameObject)) continue; // то же самое, что и ...
-        //       // if (target == null) continue;
-
-        //        if (Input.GetMouseButton(0))
-        //        {       
-        //            GetComponent<Fighter>().Attack(target.gameObject);
-        //        }
-        //        return true;
-        //    }
-        //    return false;
-        //}
-        //private bool InteractWithMovementByMouse()
-        //{
-        //    RaycastHit hit;
-        //    bool hasHit = Physics.Raycast(GetMouseRay(), out hit);
-        //    if (hasHit)
-        //    {
-        //        if (Input.GetMouseButton(0))
-        //        {
-        //            GetComponent<Mover>().StartMoveActionByMouse(hit.point, 1f);
-        //        }
-        //        return true;
-        //    }
-        //    return false;
-        //}
-        //public static Ray GetMouseRay()
-        //{
-        //    return Camera.main.ScreenPointToRay(Input.mousePosition);
-        //}
-
-        //private void InteractWithMovementByButtons()
-        //{
-        //    GetComponent<Mover>().StartMoveActionByButtons();
-        //}
-
-        //private void SwitchCameras(GameObject cameraToSwitch, GameObject cameraToActive)
-        //{
-        //    cameraToSwitch.SetActive(false);
-        //    cameraToActive.SetActive(true);
-        //}
-
-        //private bool InteractWithUI()
-        //{
-        //    if (Input.GetMouseButtonUp(0))
-        //    {
-        //        isDraggingUI = false;
-        //    }
-        //    if (EventSystem.current.IsPointerOverGameObject())
-        //    {
-        //        if (Input.GetMouseButtonDown(0))
-        //        {
-        //            isDraggingUI = true;
-        //        }
-        //       // SetCursor(CursorType.UI);
-        //        return true;
-        //    }
-        //    if (isDraggingUI) return true;
-        //    else return false;
-        //}
+                if (Input.GetMouseButton(0))
+                {
+                    GetComponent<Fighter>().Attack(target.gameObject);
+                }
+                return true;
+            }
+            return false;
+        }
     }
 }

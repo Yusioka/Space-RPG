@@ -1,17 +1,17 @@
 using RPG.Control.AnimationController;
 using RPG.Core;
 using RPG.Movement;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace RPG.Control
 {
-    public class NPCController : MonoBehaviour
+    public class NPCController : MonoBehaviour, IAIController, IMover
     {
         [SerializeField] Animations animationName;
-        [SerializeField] float chaseDistance = 3f;
+
         [SerializeField] PatrolPath patrolPath;
+        [SerializeField] float chaseDistance = 3f;
         [SerializeField] float waypointTolerance = 1f;
         [SerializeField] float waypointDwellTime = 2f;
         [SerializeField] float patrolSpeed = 0.2f;
@@ -27,10 +27,10 @@ namespace RPG.Control
 
         private void Awake()
         {
+            player = GameObject.FindWithTag("Player");
             navMeshAgent = GetComponent<NavMeshAgent>();
             startRotation = transform.rotation;
             guardPosition = transform.position;
-            player = GameObject.FindWithTag("Player");
         }
 
         private void Start()
@@ -47,22 +47,20 @@ namespace RPG.Control
             currentWaypointIndex = 0;
         }
 
-        private Vector3 GetGuardPosition()
-        {
-            return transform.position;
-        }
-
         private void Update()
         {
-            if (DistanceToPlayer(player) <= chaseDistance)
+            if (CanMoveTo())
             {
-                LookAtPlayer();
+                if (DistanceToPlayer(player) <= chaseDistance)
+                {
+                    LookAtPlayer();
+                }
+                else
+                {
+                    StartMoveAction();
+                }
+                timeSinceArrivedAtWaypoint += Time.deltaTime;
             }
-            else
-            {
-                PatrolBehaviour();
-            }
-            timeSinceArrivedAtWaypoint += Time.deltaTime;
         }
 
         private void PatrolBehaviour()
@@ -91,7 +89,7 @@ namespace RPG.Control
                 animator.Play(animationName.ToString());
                 if (gameObject.GetComponent<NavMeshAgent>().enabled)
                 {
-              //      GetComponent<Mover>().StartMoveActionByMouse(nextPosition, patrolSpeed);
+                    MoveTo(nextPosition, patrolSpeed);
                 }
             }
         }
@@ -133,6 +131,28 @@ namespace RPG.Control
             }
 
             GetComponent<ActionSceduler>().CancelCurrentAction();
+        }
+
+        void IAIController.PatrolBehaviour()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool CanMoveTo()
+        {
+            return true;
+        }
+
+        public void StartMoveAction()
+        {
+            PatrolBehaviour();
+        }
+
+        public void MoveTo(Vector3 destination, float speed)
+        {
+            navMeshAgent.destination = destination;
+            navMeshAgent.speed = patrolSpeed * Mathf.Clamp01(speed);
+            navMeshAgent.isStopped = false;
         }
     }
 }
