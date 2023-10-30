@@ -59,9 +59,6 @@ namespace RPG.Control
             {
                 Cancel();
             }
-
-            UpdateAnimator();
-
             //if (Input.GetKeyDown(KeyCode.Space))
             //{
             //    GetComponent<ItemDropper>().DropItem(InventoryItem.GetFromID("82be6903-b622-4d76-b85c-34921bb20a80"));
@@ -94,9 +91,11 @@ namespace RPG.Control
             if (moverController.IsButtonsMoving())
             {
                 StartMoveActionByButtons();
+                UpdateButtonsAnimator();
             }
             else
             {
+                UpdateMouseAnimator();
                 if (Input.GetMouseButton(1))
                 {
                     StartMoveActionByMouse(hit.point, 1f);
@@ -108,7 +107,7 @@ namespace RPG.Control
         {
             GetComponent<ActionSceduler>().StartAction(this);
 
-            float speed = GetSpeed();
+            float speed = maxSpeed;
 
             float verticalMove = Input.GetAxis("Vertical");
             float slew = Input.GetAxis("Horizontal");
@@ -118,6 +117,29 @@ namespace RPG.Control
 
             float rotation = slew * (speed / 2);
             Vector3 moveDirection = new Vector3(0, 0, verticalMove).normalized;
+
+            if (verticalMove > 0)
+            {
+                if (Input.GetKey(KeyCode.E))
+                {
+                    moveDirection = new Vector3(1, 0, 1).normalized;
+                }
+                else if (Input.GetKey(KeyCode.Q))
+                {
+                    moveDirection = new Vector3(-1, 0, 1).normalized;
+                }
+            }
+            else if (verticalMove < 0)
+            {
+                if (Input.GetKey(KeyCode.E))
+                {
+                    moveDirection = new Vector3(1, 0, -1).normalized;
+                }
+                else if (Input.GetKey(KeyCode.Q))
+                {
+                    moveDirection = new Vector3(-1, 0, -1).normalized;
+                }
+            }
 
             transform.Rotate(0, rotation, 0);
             transform.Translate(moveDirection * speed * Time.deltaTime);
@@ -148,13 +170,59 @@ namespace RPG.Control
             return Camera.main.ScreenPointToRay(Input.mousePosition);
         }
 
-        private void UpdateAnimator()
+        private void UpdateMouseAnimator()
         {
             Vector3 velocity = navMeshAgent.velocity;
             Vector3 localVelocity = transform.InverseTransformDirection(velocity);
 
             float speed = localVelocity.z;
             GetComponent<Animator>().SetFloat("speedY", speed);
+        }
+
+        private void UpdateButtonsAnimator()
+        {
+            float yAxis = Input.GetAxis("Vertical");
+
+            float speedX = 0;
+            float speedY = 0;
+
+            if (yAxis > 0)
+            {
+                if (Input.GetKey(KeyCode.E))
+                {
+                    speedX = 0.5f;
+                    speedY = 0.5f;
+                }
+                else if (Input.GetKey(KeyCode.Q))
+                {
+                    speedX = -0.5f;
+                    speedY = 0.5f;
+                }
+                else
+                {
+                    speedY = 1;
+                }
+            }
+            else if (yAxis < 0)
+            {
+                if (Input.GetKey(KeyCode.E))
+                {
+                    speedX = 0.5f;
+                    speedY = -0.5f;
+                }
+                else if (Input.GetKey(KeyCode.Q))
+                {
+                    speedX = -0.5f;
+                    speedY = -0.5f;
+                }
+                else
+                {
+                    speedY = -1;
+                }
+            }
+
+            GetComponent<Animator>().SetFloat("speedX", speedX);
+            GetComponent<Animator>().SetFloat("speedY", speedY);
         }
 
         //

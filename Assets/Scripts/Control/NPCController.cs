@@ -37,6 +37,7 @@ namespace RPG.Control
         {
             animator = GetComponent<Animator>();
             animator.Play(animationName.ToString());
+            navMeshAgent.stoppingDistance = waypointTolerance;
         }
 
         public void Reset()
@@ -51,7 +52,7 @@ namespace RPG.Control
         {
             if (CanMoveTo())
             {
-                if (DistanceToPlayer(player) <= chaseDistance)
+                if (DistanceToPlayer(player) < chaseDistance)
                 {
                     LookAtPlayer();
                 }
@@ -63,21 +64,30 @@ namespace RPG.Control
             }
         }
 
-        private void PatrolBehaviour()
+        public void PatrolBehaviour()
         {
             Vector3 nextPosition = guardPosition;
 
             if (patrolPath != null)
             {
-                if (AtWaypoint())
+                if (AtWaypoint() && waypointDwellTime != 0)
                 {
+                    navMeshAgent.velocity = Vector3.zero;
                     navMeshAgent.isStopped = true;
                     animator.Play("Idle");
                     timeSinceArrivedAtWaypoint = 0;
                     CycleWaypoint();
                 }
-                navMeshAgent.isStopped = false;
-                nextPosition = GetCurrentWaypoint();
+                else if (AtWaypoint() && waypointDwellTime == 0)
+                {
+                    timeSinceArrivedAtWaypoint = 0;
+                    CycleWaypoint();
+                }
+                else
+                {
+                    navMeshAgent.isStopped = false;
+                    nextPosition = GetCurrentWaypoint();
+                }
             }
             else
             {
@@ -126,16 +136,12 @@ namespace RPG.Control
             if (directionToPlayer != Vector3.zero)
             {
                 transform.rotation = Quaternion.LookRotation(directionToPlayer);
-                navMeshAgent.isStopped = true;
                 animator.Play("Idle");
+                navMeshAgent.velocity = Vector3.zero;
+                navMeshAgent.isStopped = true;
             }
 
             GetComponent<ActionSceduler>().CancelCurrentAction();
-        }
-
-        void IAIController.PatrolBehaviour()
-        {
-            throw new System.NotImplementedException();
         }
 
         public bool CanMoveTo()
