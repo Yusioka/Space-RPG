@@ -30,8 +30,15 @@ namespace RPG.Control
 
         public float GetSpeed()
         {
-            float speed = navMeshAgent.speed;
-            return speed;
+            if (moverController.IsButtonsMoving())
+            {
+                return maxSpeed;
+            }
+            else
+            {
+                float speed = navMeshAgent.speed;
+                return speed;
+            }
         }
         public bool IsMoving()
         {
@@ -59,6 +66,13 @@ namespace RPG.Control
             {
                 Cancel();
             }
+
+            if (Input.GetMouseButton(1) && Input.GetMouseButton(0) || Input.GetMouseButton(0) && Input.GetMouseButton(1))
+            {
+                GetComponent<Animator>().SetFloat("speedY", 1);
+                GetComponent<Animator>().SetFloat("speedX", 0);
+            }
+
             //if (Input.GetKeyDown(KeyCode.Space))
             //{
             //    GetComponent<ItemDropper>().DropItem(InventoryItem.GetFromID("82be6903-b622-4d76-b85c-34921bb20a80"));
@@ -128,6 +142,7 @@ namespace RPG.Control
                 {
                     moveDirection = new Vector3(-1, 0, 1).normalized;
                 }
+                transform.Rotate(0, rotation, 0);
             }
             else if (verticalMove < 0)
             {
@@ -139,9 +154,22 @@ namespace RPG.Control
                 {
                     moveDirection = new Vector3(-1, 0, -1).normalized;
                 }
+                transform.Rotate(0, -rotation, 0);
+            }
+            else if (Input.GetKey(KeyCode.E))
+            {
+                moveDirection = new Vector3(1, 0, 0).normalized;
+            }
+            else if (Input.GetKey(KeyCode.Q))
+            {
+                moveDirection = new Vector3(-1, 0, 0).normalized;
+            }
+            else
+            {
+
+                transform.Rotate(0, rotation, 0);
             }
 
-            transform.Rotate(0, rotation, 0);
             transform.Translate(moveDirection * speed * Time.deltaTime);
         }
 
@@ -207,18 +235,26 @@ namespace RPG.Control
             {
                 if (Input.GetKey(KeyCode.E))
                 {
-                    speedX = 0.5f;
-                    speedY = -0.5f;
+                    speedX = 0.25f;
+                    speedY = -0.25f;
                 }
                 else if (Input.GetKey(KeyCode.Q))
                 {
-                    speedX = -0.5f;
-                    speedY = -0.5f;
+                    speedX = -0.25f;
+                    speedY = -0.25f;
                 }
                 else
                 {
-                    speedY = -1;
+                    speedY = -0.5f;
                 }
+            }
+            else if (Input.GetKey(KeyCode.E))
+            { 
+                speedX = 1f;
+            }
+            else if (Input.GetKey(KeyCode.Q))
+            {
+                speedX = -1f;
             }
 
             GetComponent<Animator>().SetFloat("speedX", speedX);

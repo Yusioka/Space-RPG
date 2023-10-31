@@ -10,20 +10,22 @@ namespace RPG.Control
         [SerializeField] float cameraSpeed = 2.0f; // Скорость движения камеры
         [SerializeField] float rotationSpeed = 2.0f; // Скорость вращения камеры
 
-        private Vector3 offset; // Смещение между камерой и игроком
+        Vector3 offset; // Смещение между камерой и игроком
 
         [SerializeField] bool isRotating; // Флаг для проверки вращения камеры
         [SerializeField] float minYAngle = 10.0f; // Минимальный угол наклона по вертикали
         [SerializeField] float maxYAngle = 80.0f; // Максимальный угол наклона по вертикали
-        private float currentX = 0.0f;
-        private float currentY = 0.0f;
+        float currentX = 0.0f;
+        float currentY = 0.0f;
 
         [SerializeField] float zoomSpeed = 2.0f; // Скорость изменения приближения/отдаления
         [SerializeField] float minZoom = 2.0f; // Минимальное расстояние приближения
         [SerializeField] float maxZoom = 15.0f; // Максимальное расстояние отдаления
 
         [SerializeField] bool isMoving = false; // Флаг для проверки движения персонажа
-        private float currentDistance;
+        float currentDistance;
+
+        Vector3 initialPosition;
 
 
         void Start()
@@ -34,21 +36,12 @@ namespace RPG.Control
             }
             offset = transform.position - target.position;
             currentDistance = offset.magnitude;
+         //   initialPosition = transform.position;
         }
 
         void LateUpdate()
         {
-            //
-            // Проверяем движение персонажа
-            if (target.GetComponentInParent<PlayerController>().IsMoving())
-            {
-                isMoving = true;
-            }
-            else
-            {
-                isMoving = false;
-            }
-            //
+            isMoving = target.GetComponentInParent<PlayerController>().IsMoving();
 
             // Получаем величину вращения колесика мыши
             float zoomInput = Input.GetAxis("Mouse ScrollWheel");
@@ -60,11 +53,17 @@ namespace RPG.Control
             //
             if (isMoving)
             {
-               ///
+                // вид от первого лица
+                //desiredPosition = target.position - initialPosition * currentDistance;
+                //Vector3 test = Vector3.Lerp(transform.position, desiredPosition, cameraSpeed);
+                //transform.position = test;
+
+                // Используем направление персонажа
+                desiredPosition = target.position - targetBody.forward * currentDistance + Vector3.up; 
             }
             //
 
-            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, cameraSpeed);
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, 0.023f);
             transform.position = smoothedPosition;
 
 
@@ -92,10 +91,39 @@ namespace RPG.Control
             {
                 float rotationX = Input.GetAxis("Mouse X") * rotationSpeed;
                 float rotationY = Input.GetAxis("Mouse Y") * rotationSpeed;
-                targetBody.Rotate(Vector3.up * rotationX);
 
+                // Вычисляем вектор направления, в котором смотрит камера
+                Vector3 cameraForward = Camera.main.transform.forward;
+                cameraForward.y = 0f; // Обнуляем компоненту Y, чтобы двигать только по горизонтали
+                cameraForward.Normalize(); // Нормализуем вектор
+                ;
+                Quaternion rotation = Quaternion.LookRotation(cameraForward);
+                targetBody.rotation = Quaternion.Slerp(targetBody.rotation, rotation, rotationSpeed * Time.deltaTime);
+
+                targetBody.Rotate(Vector3.up * rotationX);
                 transform.RotateAround(targetBody.position, Vector3.up, rotationX);
                 transform.RotateAround(targetBody.position, transform.right, -rotationY);
+            }
+
+            if (Input.GetMouseButton(1) && Input.GetMouseButton(0) || Input.GetMouseButton(0) && Input.GetMouseButton(1))
+            {
+                float rotationX = Input.GetAxis("Mouse X") * rotationSpeed;
+                float rotationY = Input.GetAxis("Mouse Y") * rotationSpeed;
+
+                // Вычисляем вектор направления, в котором смотрит камера
+                Vector3 cameraForward = Camera.main.transform.forward;
+                cameraForward.y = 0f; // Обнуляем компоненту Y, чтобы двигать только по горизонтали
+                cameraForward.Normalize(); // Нормализуем вектор
+;
+                Quaternion rotation = Quaternion.LookRotation(cameraForward);
+                targetBody.rotation = Quaternion.Slerp(targetBody.rotation, rotation, rotationSpeed * Time.deltaTime);
+
+                targetBody.Rotate(Vector3.up * rotationX);
+                transform.RotateAround(targetBody.position, Vector3.up, rotationX);
+                transform.RotateAround(targetBody.position, transform.right, -rotationY);
+
+                float targetSpeed = targetBody.GetComponent<PlayerController>().GetSpeed();
+                targetBody.position += cameraForward * targetSpeed * Time.deltaTime; // Перемещаем таргет вперед
             }
         }
     }
