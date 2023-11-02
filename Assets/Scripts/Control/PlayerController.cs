@@ -67,12 +67,6 @@ namespace RPG.Control
                 Cancel();
             }
 
-            if (Input.GetMouseButton(1) && Input.GetMouseButton(0) || Input.GetMouseButton(0) && Input.GetMouseButton(1))
-            {
-                GetComponent<Animator>().SetFloat("speedY", 1);
-                GetComponent<Animator>().SetFloat("speedX", 0);
-            }
-
             //if (Input.GetKeyDown(KeyCode.Space))
             //{
             //    GetComponent<ItemDropper>().DropItem(InventoryItem.GetFromID("82be6903-b622-4d76-b85c-34921bb20a80"));
@@ -256,6 +250,13 @@ namespace RPG.Control
             {
                 speedX = -1f;
             }
+            //
+            if (Input.GetMouseButton(1) && Input.GetMouseButton(0) || Input.GetMouseButton(0) && Input.GetMouseButton(1))
+            {
+                GetComponent<Animator>().SetFloat("speedY", 1);
+                GetComponent<Animator>().SetFloat("speedX", 0);
+            }
+            //
 
             GetComponent<Animator>().SetFloat("speedX", speedX);
             GetComponent<Animator>().SetFloat("speedY", speedY);

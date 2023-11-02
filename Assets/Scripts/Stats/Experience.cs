@@ -15,7 +15,7 @@ namespace RPG.Stats
 
         private void Update()
         {
-            if (Input.GetKeyUp(KeyCode.E))
+            if (Input.GetKeyUp(KeyCode.O))
             {
                 GainExperience(Time.deltaTime * 1000);
             }
