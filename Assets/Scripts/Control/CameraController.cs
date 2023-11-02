@@ -26,7 +26,7 @@ namespace RPG.Control
         float currentDistance;
 
         Vector3 initialPosition;
-
+        [SerializeField] MoverController controller;
 
         void Start()
         {
@@ -51,7 +51,7 @@ namespace RPG.Control
             Vector3 desiredPosition = target.position - transform.forward * currentDistance;
 
             //
-            if (isMoving)
+            if (isMoving && controller.IsButtonsMoving())
             {
                 // вид от первого лица
                 //desiredPosition = target.position - initialPosition * currentDistance;
@@ -63,8 +63,16 @@ namespace RPG.Control
             }
             //
 
-            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, 0.023f);
-            transform.position = smoothedPosition;
+            if (controller.IsButtonsMoving())
+            {
+                Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, 0.023f);
+                transform.position = smoothedPosition;
+            }
+            
+            else
+            {
+                transform.position = desiredPosition;
+            }
 
 
             // Направление камеры всегда смотрит на цель
@@ -86,45 +94,48 @@ namespace RPG.Control
                 transform.position = position;
             }
 
-            // Если нажата правая кнопка мыши, игрок всегда смотрит в сторону камеры
-            if (Input.GetMouseButton(1))
+            if (controller.IsButtonsMoving())
             {
-                float rotationX = Input.GetAxis("Mouse X") * rotationSpeed;
-                float rotationY = Input.GetAxis("Mouse Y") * rotationSpeed;
+                // Если нажата правая кнопка мыши, игрок всегда смотрит в сторону камеры
+                if (Input.GetMouseButton(1))
+                {
+                    float rotationX = Input.GetAxis("Mouse X") * rotationSpeed;
+                    float rotationY = Input.GetAxis("Mouse Y") * rotationSpeed;
 
-                // Вычисляем вектор направления, в котором смотрит камера
-                Vector3 cameraForward = Camera.main.transform.forward;
-                cameraForward.y = 0f; // Обнуляем компоненту Y, чтобы двигать только по горизонтали
-                cameraForward.Normalize(); // Нормализуем вектор
-                ;
-                Quaternion rotation = Quaternion.LookRotation(cameraForward);
-                targetBody.rotation = Quaternion.Slerp(targetBody.rotation, rotation, rotationSpeed * Time.deltaTime);
+                    // Вычисляем вектор направления, в котором смотрит камера
+                    Vector3 cameraForward = Camera.main.transform.forward;
+                    cameraForward.y = 0f; // Обнуляем компоненту Y, чтобы двигать только по горизонтали
+                    cameraForward.Normalize(); // Нормализуем вектор
+                    ;
+                    Quaternion rotation = Quaternion.LookRotation(cameraForward);
+                    targetBody.rotation = Quaternion.Slerp(targetBody.rotation, rotation, rotationSpeed * Time.deltaTime);
 
-                targetBody.Rotate(Vector3.up * rotationX);
-                transform.RotateAround(targetBody.position, Vector3.up, rotationX);
-                transform.RotateAround(targetBody.position, transform.right, -rotationY);
-            }
+                    targetBody.Rotate(Vector3.up * rotationX);
+                    transform.RotateAround(targetBody.position, Vector3.up, rotationX);
+                    transform.RotateAround(targetBody.position, transform.right, -rotationY);
+                }
 
-            if (Input.GetMouseButton(1) && Input.GetMouseButton(0) || Input.GetMouseButton(0) && Input.GetMouseButton(1))
-            {
-                float rotationX = Input.GetAxis("Mouse X") * rotationSpeed;
-                float rotationY = Input.GetAxis("Mouse Y") * rotationSpeed;
+                if (Input.GetMouseButton(1) && Input.GetMouseButton(0) || Input.GetMouseButton(0) && Input.GetMouseButton(1))
+                {
+                    float rotationX = Input.GetAxis("Mouse X") * rotationSpeed;
+                    float rotationY = Input.GetAxis("Mouse Y") * rotationSpeed;
 
-                // Вычисляем вектор направления, в котором смотрит камера
-                Vector3 cameraForward = Camera.main.transform.forward;
-                cameraForward.y = 0f; // Обнуляем компоненту Y, чтобы двигать только по горизонтали
-                cameraForward.Normalize(); // Нормализуем вектор
-;
-                Quaternion rotation = Quaternion.LookRotation(cameraForward);
-                targetBody.rotation = Quaternion.Slerp(targetBody.rotation, rotation, rotationSpeed * Time.deltaTime);
+                    // Вычисляем вектор направления, в котором смотрит камера
+                    Vector3 cameraForward = Camera.main.transform.forward;
+                    cameraForward.y = 0f; // Обнуляем компоненту Y, чтобы двигать только по горизонтали
+                    cameraForward.Normalize(); // Нормализуем вектор
+                    ;
+                    Quaternion rotation = Quaternion.LookRotation(cameraForward);
+                    targetBody.rotation = Quaternion.Slerp(targetBody.rotation, rotation, rotationSpeed * Time.deltaTime);
 
-                targetBody.Rotate(Vector3.up * rotationX);
-                transform.RotateAround(targetBody.position, Vector3.up, rotationX);
-                transform.RotateAround(targetBody.position, transform.right, -rotationY);
+                    targetBody.Rotate(Vector3.up * rotationX);
+                    transform.RotateAround(targetBody.position, Vector3.up, rotationX);
+                    transform.RotateAround(targetBody.position, transform.right, -rotationY);
 
-                float targetSpeed = targetBody.GetComponent<PlayerController>().GetSpeed();
-                targetBody.position += cameraForward * targetSpeed * Time.deltaTime; // Перемещаем таргет вперед
-            }
+                    float targetSpeed = targetBody.GetComponent<PlayerController>().GetSpeed();
+                    targetBody.position += cameraForward * targetSpeed * Time.deltaTime; // Перемещаем таргет вперед
+                }
+            }        
         }
     }
 }
