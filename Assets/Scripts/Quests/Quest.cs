@@ -1,9 +1,6 @@
 using RPG.Core;
 using RPG.Inventories;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 
 namespace RPG.Quests
@@ -11,7 +8,7 @@ namespace RPG.Quests
     [CreateAssetMenu(fileName = "Quest", menuName = "Quests/Create Quest", order = 0)]
     public class Quest : ScriptableObject
     {
-        [SerializeField] string name;
+        [SerializeField] new string name;
         [SerializeField] List<Objective> objectives = new List<Objective>();
         [SerializeField] List<Reward> rewards = new List<Reward>();
 

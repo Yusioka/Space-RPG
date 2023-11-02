@@ -3977,7 +3977,6 @@ GameObject:
   - component: {fileID: 402061323153244741}
   - component: {fileID: 5511567018844557247}
   - component: {fileID: 5128977325118240155}
-  - component: {fileID: 6975403082084597772}
   - component: {fileID: 6619625382477480803}
   - component: {fileID: 1140157519993968927}
   - component: {fileID: 1412337563002168037}
@@ -4135,19 +4134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6afd0ace0e67fa48a8e2972a8093927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6975403082084597772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1700146612509344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11cd5573723059f428eb38d75ebf80a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moverController: {fileID: 0}
 --- !u!114 &6619625382477480803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4160,9 +4146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0154305c4fa1a2f4d814d5755f08a309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patrolPath: {fileID: 0}
+  maxSpeed: 5
   chaseDistance: 10
   suspiciousTime: 3
-  patrolPath: {fileID: 0}
   waypointTolerance: 1
   waypointDwellTime: 2
 --- !u!114 &1140157519993968927
@@ -4178,6 +4165,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   regenerationPercentage: 70
+  takeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1412337563002168037
 MonoBehaviour:
   m_ObjectHideFlags: 0

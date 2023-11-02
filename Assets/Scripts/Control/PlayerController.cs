@@ -257,9 +257,11 @@ namespace RPG.Control
                 GetComponent<Animator>().SetFloat("speedX", 0);
             }
             //
-
-            GetComponent<Animator>().SetFloat("speedX", speedX);
-            GetComponent<Animator>().SetFloat("speedY", speedY);
+            else
+            {
+                GetComponent<Animator>().SetFloat("speedX", speedX);
+                GetComponent<Animator>().SetFloat("speedY", speedY);
+            }
         }
 
         //

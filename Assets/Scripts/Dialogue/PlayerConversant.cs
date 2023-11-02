@@ -2,9 +2,7 @@ using RPG.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using TMPro;
 using UnityEngine;
-using static RPG.Quests.Quest;
 
 namespace RPG.Dialogue
 {

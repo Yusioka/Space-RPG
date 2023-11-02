@@ -1,5 +1,4 @@
 using RPG.Core;
-using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -59,11 +58,10 @@ namespace RPG.Dialogue
             children.Remove(childID);
             EditorUtility.SetDirty(this);
         }
-
+#endif
         public bool CheckCondition(IEnumerable<IPredicateEvaluator> evaluators)
         {
             return condition.Check(evaluators);
         }
-#endif
     }
 }
