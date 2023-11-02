@@ -133,7 +133,7 @@ namespace RPG.Control
             directionToPlayer.y = 0;
 
             // Поворачиваем НПС к игроку
-            if (directionToPlayer != Vector3.zero)
+            if (chaseDistance != 0 && directionToPlayer != Vector3.zero)
             {
                 transform.rotation = Quaternion.LookRotation(directionToPlayer);
                 animator.Play("Idle");

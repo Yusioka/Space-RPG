@@ -16,8 +16,14 @@ MonoBehaviour:
   objectives:
   - reference: Find the spanner
     description: Find the spanner in the Engine room
+    usesCondition: 0
+    completionCondition:
+      and: []
   - reference: Bring it to the Worker
     description: Bring the spanner to the Worker(the Worker is near the Canteen)
+    usesCondition: 0
+    completionCondition:
+      and: []
   rewards:
-  - number: 0
-    item: {fileID: 0}
+  - number: 1000
+    item: {fileID: 11400000, guid: 0c5cea220450b8f4d8ed646b58501fe3, type: 2}

@@ -42,8 +42,6 @@ MonoBehaviour:
   text: "\u041F\u0440\u0438\u0432\u0435\u0442."
   children:
   - b371559a-f27c-475c-bcef-b66dc2a8b7af
-  - a10e72c5-e05e-4171-b26b-46f1cc10ceba
-  - 2bff455a-c1d3-486a-9655-61fe3dd8bf6d
   rect:
     serializedVersion: 2
     x: 250
@@ -100,8 +98,8 @@ MonoBehaviour:
   - 89de293d-523b-4a8f-8216-fc8d05479434
   rect:
     serializedVersion: 2
-    x: 1750
-    y: 3
+    x: 1730
+    y: 4
     width: 200
     height: 100
   onEnterAction: 
@@ -126,8 +124,8 @@ MonoBehaviour:
   - a141df1f-cf9a-43d7-9976-935212916eb4
   rect:
     serializedVersion: 2
-    x: 747
-    y: 3
+    x: 754
+    y: -1
     width: 200
     height: 100
   onEnterAction: 
@@ -208,12 +206,12 @@ MonoBehaviour:
   - d86560d3-c7f3-4f76-8acf-56da3a727144
   rect:
     serializedVersion: 2
-    x: 1000
-    y: 3
+    x: 1002
+    y: -1
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: CompletedQuest
+  onExitAction: CompleteObjective
   condition:
     and: []
 --- !u!114 &3604245260698207510
@@ -233,8 +231,8 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 501
-    y: 99
+    x: 491
+    y: 102
     width: 200
     height: 100
   onEnterAction: 
@@ -275,7 +273,7 @@ MonoBehaviour:
   - be16a34e-6352-433e-b48d-c000c02f519a
   rect:
     serializedVersion: 2
-    x: 498
+    x: 493
     y: -2
     width: 200
     height: 100
@@ -315,8 +313,8 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 500
-    y: 202.99998
+    x: 494
+    y: 215.99998
     width: 200
     height: 100
   onEnterAction: 

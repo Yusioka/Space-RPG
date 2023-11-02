@@ -24,9 +24,9 @@ namespace RPG.Inventories
             return equipCondition.Check(equipment.GetComponents<IPredicateEvaluator>());
         }
 
-        //public EquipLocation GetAllowedEquipLocation()
-        //{
-        //    return allowedEquipLocation;
-        //}
+        public EquipLocation GetAllowedEquipLocation()
+        {
+            return allowedEquipLocation;
+        }
     }
 }
