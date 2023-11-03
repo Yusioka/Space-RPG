@@ -24,4 +24,14 @@ MonoBehaviour:
     usesCondition: 0
     completionCondition:
       and: []
-  rewards: []
+  rewards:
+  - number: 1
+    item: {fileID: 11400000, guid: 24320eafb7fe1f448a0579e2cd683040, type: 2}
+  - number: 1
+    item: {fileID: 11400000, guid: 353780375e40f45419b4857bbe245aae, type: 2}
+  - number: 1
+    item: {fileID: 11400000, guid: 426e86e5cad235c40aeaf8334d0d52a1, type: 2}
+  - number: 1
+    item: {fileID: 11400000, guid: 14ab4f34eceedfe4ba4e058f87268743, type: 2}
+  - number: 1
+    item: {fileID: 11400000, guid: d78732c6d90c82948a2df3935ae74939, type: 2}

@@ -29,4 +29,8 @@ MonoBehaviour:
     usesCondition: 0
     completionCondition:
       and: []
-  rewards: []
+  rewards:
+  - number: 500
+    item: {fileID: 11400000, guid: 0c5cea220450b8f4d8ed646b58501fe3, type: 2}
+  - number: 500
+    item: {fileID: 11400000, guid: 6dccd2c5a9dec8f4b893d64d53557355, type: 2}

@@ -19,4 +19,6 @@ MonoBehaviour:
     usesCondition: 0
     completionCondition:
       and: []
-  rewards: []
+  rewards:
+  - number: 1
+    item: {fileID: 11400000, guid: 944e4fe831abe8f4a97c173048f70d69, type: 2}

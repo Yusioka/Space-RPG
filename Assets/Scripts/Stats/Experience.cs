@@ -1,6 +1,7 @@
 using UnityEngine;
 using RPG.Saving;
 using System;
+using RPG.Inventories;
 
 namespace RPG.Stats
 {
@@ -15,9 +16,9 @@ namespace RPG.Stats
 
         private void Update()
         {
-            if (Input.GetKeyUp(KeyCode.O))
+            if (Input.GetKey(KeyCode.O))
             {
-                GainExperience(Time.deltaTime * 1000);
+                GainExperience(Time.deltaTime * 100);
             }
         }
 

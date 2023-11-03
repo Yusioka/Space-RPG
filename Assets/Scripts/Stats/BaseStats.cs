@@ -10,7 +10,7 @@ namespace RPG.Stats
         [SerializeField] int startingLevel = 1;
         [SerializeField] CharacterClass characterClass;
         [SerializeField] Progression progression = null;
-        [SerializeField] GameObject levelUpParticleEffect = null;
+      //  [SerializeField] GameObject levelUpParticleEffect = null;
         [SerializeField] bool shouldUseModifiers = false;
 
         public event Action onLevelUp;
@@ -50,14 +50,15 @@ namespace RPG.Stats
             if (newLevel > currentLevel)
             {
                 currentLevel = newLevel;
-                LevelUpEffect();
+              //  LevelUpEffect();
                 onLevelUp();
+                print(currentLevel);
             }
         }
 
         private void LevelUpEffect()
         {
-            Instantiate(levelUpParticleEffect, transform);
+         //   Instantiate(levelUpParticleEffect, transform);
         }
 
         public float GetStat(Stat stat)

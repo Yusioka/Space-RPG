@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24298ccf71abb9c46a0c95799b49e979, type: 3}
+  m_Name: Splash Targeting
+  m_EditorClassIdentifier: 
+  cursorTexture: {fileID: 2800000, guid: ebc7e0c62801cac41bdfaa5c13861b5d, type: 3}
+  cursorHotspot: {x: 0, y: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  areaAffectRadius: 5
+  targetingPrefab: {fileID: 7440790462764655688, guid: c759b7e0bc0313a49a9e0a908f0bfa06, type: 3}
