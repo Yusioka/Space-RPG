@@ -109,6 +109,12 @@ namespace RPG.Stats
             }
             return total;
         }
+        public float GetStatByPrevLevel(Stat stat)
+        {
+            if (GetLevel() <= 1) return 0;
+            float baseStatByPrevLevel = progression.GetStat(stat, characterClass, GetLevel() - 1);
+            return (baseStatByPrevLevel + GetAdditiveModifier(stat)) * (1 + GetPercentageModifier(stat) / 100);
+        }
 
         public int CalculateLevel()
         {

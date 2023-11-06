@@ -2,6 +2,7 @@ using UnityEngine;
 using RPG.Saving;
 using System;
 using RPG.Inventories;
+using static Cinemachine.DocumentationSortingAttribute;
 
 namespace RPG.Stats
 {
@@ -10,22 +11,43 @@ namespace RPG.Stats
         [SerializeField] float experiencePoints = 0;
 
         // the same as 
-            //public delegate void ExperienceGainedDelegate();
-            // public event ......;
+        //public delegate void ExperienceGainedDelegate();
+        // public event ......;
         public event Action onExperienceGained;
+
 
         private void Update()
         {
             if (Input.GetKey(KeyCode.O))
             {
-                GainExperience(Time.deltaTime * 100);
+                GainExperience(Time.deltaTime * 500);
             }
         }
 
         public float GetExperience()
         {
             return experiencePoints;
-        } 
+        }
+
+        public float GetCurrentLevelExperience()
+        {
+            return (GetMaxExperiencePrevLevel() - GetExperience()) * -1;
+        }
+
+        public float GetMaxExperiencePrevLevel()
+        {
+            return GetComponent<BaseStats>().GetStatByPrevLevel(Stat.ExperienceToLevelUp);
+        }
+
+        public float GetMaxExperience()
+        {
+            return GetComponent<BaseStats>().GetStat(Stat.ExperienceToLevelUp);
+        }
+
+        public float CalculateMaxExperienceToNextLevel()
+        {
+            return GetMaxExperience() - GetMaxExperiencePrevLevel();
+        }
 
         public void GainExperience(float experience)
         {
