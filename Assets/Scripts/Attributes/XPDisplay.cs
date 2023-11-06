@@ -18,10 +18,7 @@ namespace RPG.Attributes
 
         private void Update()
         {
-            //    GetComponent<Text>().text = (experience.GetExperience() / experience.CalculateMaxExperienceToNextLevel()).ToString();
-              image.fillAmount = experience.GetCurrentLevelExperience() / experience.CalculateMaxExperienceToNextLevel();
-            //  print(experienceToFill);
-            //     GetComponent<Text>().text = experience.GetExperience().ToString();
+        //    image.fillAmount = experience.GetCurrentLevelExperience() / experience.CalculateMaxExperienceToNextLevel();
         }
     }
 }
