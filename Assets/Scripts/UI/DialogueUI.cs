@@ -18,6 +18,7 @@ namespace RPG.UI
 
         private void Start()
         {
+            gameObject.SetActive(false);
             playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
             playerConversant.onConversationUpdated += UpdateUI;
             nextButton.onClick.AddListener(() => playerConversant.Next());

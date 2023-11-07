@@ -91,7 +91,7 @@ namespace RPG.Combat
             }
         }
 
-        public Health GetHealth()
+        public Health GetTargetHealth()
         {
             return target;
         }

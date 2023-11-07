@@ -21,6 +21,7 @@ namespace RPG.UI.Shops
 
         private void Start()
         {
+            gameObject.SetActive(false);
             originalTotalTestColor = totalField.color;
             shopper = GameObject.FindGameObjectWithTag("Player").GetComponent<Shopper>();
             if (shopper == null) return;

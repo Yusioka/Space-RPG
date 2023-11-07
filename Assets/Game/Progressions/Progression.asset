@@ -17,18 +17,322 @@ MonoBehaviour:
     stats:
     - stat: 0
       levels:
-      - 1
-      - 2
-      - 3
-      - 4
-      - 4
+      - 100
+      - 150
+      - 220
+      - 260
+      - 300
     - stat: 1
+      levels:
+      - 100
+      - 150
+      - 200
+      - 300
+      - 500
+    - stat: 2
       levels:
       - 1
       - 2
       - 3
       - 4
       - 4
+    - stat: 3
+      levels:
+      - 100
+      - 200
+      - 300
+      - 400
+      - 500
+    - stat: 4
+      levels:
+      - 1000
+      - 2000
+      - 2500
+      - 3000
+      - 5000
+    - stat: 5
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 4
+    - stat: 6
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+    - stat: 7
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+  - characterClass: 1
+    stats:
+    - stat: 0
+      levels:
+      - 100
+      - 150
+      - 220
+      - 260
+      - 300
+    - stat: 1
+      levels:
+      - 100
+      - 150
+      - 200
+      - 300
+      - 500
+    - stat: 2
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 4
+    - stat: 3
+      levels:
+      - 100
+      - 200
+      - 300
+      - 400
+      - 500
+    - stat: 4
+      levels:
+      - 1000
+      - 2000
+      - 2500
+      - 3000
+      - 5000
+    - stat: 5
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 4
+    - stat: 6
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+    - stat: 7
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+    - stat: 7
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+  - characterClass: 2
+    stats:
+    - stat: 0
+      levels:
+      - 100
+      - 150
+      - 220
+      - 260
+      - 300
+    - stat: 1
+      levels:
+      - 100
+      - 150
+      - 200
+      - 300
+      - 500
+    - stat: 2
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 4
+    - stat: 3
+      levels:
+      - 100
+      - 200
+      - 300
+      - 400
+      - 500
+    - stat: 4
+      levels:
+      - 1000
+      - 2000
+      - 2500
+      - 3000
+      - 5000
+    - stat: 5
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 4
+    - stat: 6
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+    - stat: 7
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+    - stat: 7
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+  - characterClass: 3
+    stats:
+    - stat: 0
+      levels:
+      - 100
+      - 150
+      - 220
+      - 260
+      - 300
+    - stat: 1
+      levels:
+      - 100
+      - 150
+      - 200
+      - 300
+      - 500
+    - stat: 2
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 4
+    - stat: 3
+      levels:
+      - 100
+      - 200
+      - 300
+      - 400
+      - 500
+    - stat: 4
+      levels:
+      - 1000
+      - 2000
+      - 2500
+      - 3000
+      - 5000
+    - stat: 5
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 4
+    - stat: 6
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+    - stat: 7
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+    - stat: 7
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+  - characterClass: 4
+    stats:
+    - stat: 0
+      levels:
+      - 100
+      - 150
+      - 220
+      - 260
+      - 300
+    - stat: 1
+      levels:
+      - 100
+      - 150
+      - 200
+      - 300
+      - 500
+    - stat: 2
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 4
+    - stat: 3
+      levels:
+      - 100
+      - 200
+      - 300
+      - 400
+      - 500
+    - stat: 4
+      levels:
+      - 1000
+      - 2000
+      - 2500
+      - 3000
+      - 5000
+    - stat: 5
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 4
+    - stat: 6
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+    - stat: 7
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+    - stat: 7
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+  - characterClass: 5
+    stats:
+    - stat: 0
+      levels:
+      - 100
+      - 150
+      - 220
+      - 260
+      - 300
+    - stat: 1
+      levels:
+      - 100
+      - 150
+      - 200
+      - 300
+      - 500
     - stat: 2
       levels:
       - 1

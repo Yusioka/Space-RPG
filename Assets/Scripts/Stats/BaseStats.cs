@@ -61,6 +61,11 @@ namespace RPG.Stats
          //   Instantiate(levelUpParticleEffect, transform);
         }
 
+        public CharacterClass GetCharacterClass()
+        {
+            return characterClass;
+        }
+
         public float GetStat(Stat stat)
         {
             return (GetBaseStat(stat) + GetAdditiveModifier(stat)) * (1 + GetPercentageModifier(stat) / 100);

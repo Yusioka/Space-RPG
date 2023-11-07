@@ -8,17 +8,18 @@ namespace RPG.Attributes
     public class XPDisplay : MonoBehaviour
     {
         Experience experience;
-        Image image;
+        Slider XpSlider;
 
         private void Awake()
         {
             experience = GameObject.FindWithTag("Player").GetComponent<Experience>();
-            image = GetComponent<Image>();
+            XpSlider = GetComponent<Slider>();
         }
 
         private void Update()
         {
-        //    image.fillAmount = experience.GetCurrentLevelExperience() / experience.CalculateMaxExperienceToNextLevel();
+            XpSlider.maxValue = experience.CalculateMaxExperienceToNextLevel();
+            XpSlider.value = experience.GetCurrentLevelExperience();
         }
     }
 }

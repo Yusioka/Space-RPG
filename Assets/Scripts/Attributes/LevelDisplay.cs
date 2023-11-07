@@ -1,7 +1,6 @@
 using RPG.Stats;
-using System;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace RPG.Attributes
 {
@@ -16,7 +15,7 @@ namespace RPG.Attributes
 
         private void Update()
         {
-            GetComponent<Text>().text = stats.CalculateLevel().ToString();
+            GetComponent<TextMeshProUGUI>().text = stats.CalculateLevel().ToString();
         }
     }
 }
