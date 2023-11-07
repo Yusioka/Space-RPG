@@ -6905,6 +6905,7 @@ GameObject:
   - component: {fileID: 7284723232415506577}
   - component: {fileID: 1258410218128025811}
   - component: {fileID: 1403385062503108125}
+  - component: {fileID: 4922199991734725869}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -7119,7 +7120,6 @@ MonoBehaviour:
   startingLevel: 1
   characterClass: 0
   progression: {fileID: 11400000, guid: aff812314e28fe446b5596751c72aa26, type: 2}
-  levelUpParticleEffect: {fileID: 0}
   shouldUseModifiers: 0
 --- !u!114 &787301284910636713
 MonoBehaviour:
@@ -7329,6 +7329,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isButtonsMoving: 1
+--- !u!114 &4922199991734725869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8932019800705468534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9aef674bad65848b775af5b79c6293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8942434620551713376
 GameObject:
   m_ObjectHideFlags: 0
@@ -7809,3 +7821,4 @@ MonoBehaviour:
   minZoom: 3
   maxZoom: 15
   isMoving: 0
+  controller: {fileID: 0}

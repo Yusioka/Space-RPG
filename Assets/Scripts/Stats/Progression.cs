@@ -36,6 +36,7 @@ namespace RPG.Stats
         public int GetLevels(Stat stat, CharacterClass characterClass)
         {
             // ищет кол-во уровней для определенного класса с определенным статом
+            BuildLookup();
             float[] levels = lookupTable[characterClass][stat];
             return levels.Length;
         }

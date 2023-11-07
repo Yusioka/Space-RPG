@@ -106,28 +106,6 @@ namespace RPG.Stats
             return (int)GetComponent<BaseStats>().GetStat(Stat.TotalTraitPoints);
         }
 
-        public IEnumerable<float> GetAdditiveModifier(Stat stat)
-        {
-            if (!additiveBonusCache.ContainsKey(stat)) yield break;
-
-            foreach (Trait trait in additiveBonusCache[stat].Keys)
-            {
-                float bonus = additiveBonusCache[stat][trait];
-                yield return bonus * GetPoints(trait);
-            }
-        }
-
-        public IEnumerable<float> GetPercentageModifier(Stat stat)
-        {
-            if (!percentageBonusCache.ContainsKey(stat)) yield break;
-
-            foreach (Trait trait in percentageBonusCache[stat].Keys)
-            {
-                float bonus = percentageBonusCache[stat][trait];
-                yield return bonus * GetPoints(trait);
-            }
-        }
-
         public object CaptureState()
         {
             return assignedPoints;
@@ -153,12 +131,24 @@ namespace RPG.Stats
 
         public IEnumerable<float> GetAdditiveModifiers(Stat stat)
         {
-            throw new NotImplementedException();
+            if (!additiveBonusCache.ContainsKey(stat)) yield break;
+
+            foreach (Trait trait in additiveBonusCache[stat].Keys)
+            {
+                float bonus = additiveBonusCache[stat][trait];
+                yield return bonus * GetPoints(trait);
+            }
         }
 
         public IEnumerable<float> GetPercentageModifiers(Stat stat)
         {
-            throw new NotImplementedException();
+            if (!percentageBonusCache.ContainsKey(stat)) yield break;
+
+            foreach (Trait trait in percentageBonusCache[stat].Keys)
+            {
+                float bonus = percentageBonusCache[stat][trait];
+                yield return bonus * GetPoints(trait);
+            }
         }
     }
 }
