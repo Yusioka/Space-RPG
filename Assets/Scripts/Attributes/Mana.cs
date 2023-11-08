@@ -7,28 +7,28 @@ namespace RPG.Attributes
 {
     public class Mana : MonoBehaviour, ISaveable
     {
-        LazyValue<float> mana;
+        float mana;
 
         private void Awake()
         {
-            mana = new LazyValue<float>(GetMaxMana);
+            mana = GetMaxMana();
         }
 
         private void Update()
         {
-            if (mana.value < GetMaxMana())
+            if (mana < GetMaxMana())
             {
-                mana.value += GetManaRegenRate() * Time.deltaTime;
-                if (mana.value > GetMaxMana())
+                mana += GetManaRegenRate() * Time.deltaTime;
+                if (mana > GetMaxMana())
                 {
-                    mana.value = GetMaxMana();
+                    mana = GetMaxMana();
                 }
             }
         }
 
         public float GetMana()
         {
-            return mana.value;
+            return mana;
         }
 
         public float GetMaxMana()
@@ -43,22 +43,22 @@ namespace RPG.Attributes
 
         public bool UseMana(float manaToUse)
         {
-            if (manaToUse > mana.value)
+            if (manaToUse > mana)
             {
                 return false;
             }
-            mana.value -= manaToUse;
+            mana -= manaToUse;
             return true;
         }
 
         public object CaptureState()
         {
-            return mana.value;
+            return mana;
         }
 
         public void RestoreState(object state)
         {
-            mana.value = (float)state;
+            mana = (float)state;
         }
     }
 }

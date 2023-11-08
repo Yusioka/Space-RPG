@@ -10,6 +10,7 @@ namespace RPG.Combat
     public class WeaponConfig : EquipableItem, IModifierProvider
     {
         [SerializeField] AnimatorOverrideController animatorOverride = null;
+        [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] Weapon equippedPrefab = null;
         [SerializeField] bool isRightHanded = true;
         [SerializeField] float weaponDamage = 10f;
@@ -42,6 +43,11 @@ namespace RPG.Combat
             }
 
             return weapon;
+        }
+
+        public float GetTimeBetweenAttacks()
+        {
+            return timeBetweenAttacks;
         }
 
         private void DestroyOldWeapon(Transform rightHand, Transform leftHand)

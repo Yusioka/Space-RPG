@@ -11,7 +11,6 @@ namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour, IAction
     {
-        [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] Transform rightHandTransform = null;
         [SerializeField] Transform leftHandTransform = null;
         [SerializeField] WeaponConfig defaultWeapon = null;
@@ -21,12 +20,12 @@ namespace RPG.Combat
         Equipment equipment;
         float timeSinceLastAttack = 0;
         WeaponConfig currentWeaponConfig = null;
-        LazyValue<Weapon> currentWeapon;
+        Weapon currentWeapon;
 
         private void Awake()
         {
             currentWeaponConfig = defaultWeapon;
-            currentWeapon = new LazyValue<Weapon>(SetupDefaultWeapon);
+            SetupDefaultWeapon();
 
             equipment = GetComponent<Equipment>();
             if (equipment)
@@ -78,7 +77,7 @@ namespace RPG.Combat
         public void EquipWeapon(WeaponConfig weapon)
         {
             currentWeaponConfig = weapon;
-            currentWeapon.value = AttachWeapon(weapon);
+            currentWeapon = AttachWeapon(weapon);
         }
         private void UpdateWeapon()
         {
@@ -89,7 +88,6 @@ namespace RPG.Combat
             }
             else
             {
-                print("equiped");
                 EquipWeapon(weapon);
             }
         }
@@ -101,13 +99,17 @@ namespace RPG.Combat
 
         private void AttackBehaviour()
         {
-            transform.LookAt(target.transform);
+            //transform.LookAt(target.transform.position);
 
-            if (timeSinceLastAttack > timeBetweenAttacks)
+            if (timeSinceLastAttack > currentWeaponConfig.GetTimeBetweenAttacks())
             {
                 // This will trigger the Hit() event
                 TriggerAttack();
                 timeSinceLastAttack = 0;
+            }
+            else
+            {
+                ResetTriggerAttack();
             }
         }
 
@@ -119,9 +121,9 @@ namespace RPG.Combat
 
             float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
 
-            if (currentWeapon.value != null)
+            if (currentWeapon != null)
             {
-                currentWeapon.value.OnHit();
+                currentWeapon.Hit();
             }
             if (currentWeaponConfig.HasProjectile())
             {

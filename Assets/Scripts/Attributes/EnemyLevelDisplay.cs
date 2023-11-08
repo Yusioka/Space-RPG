@@ -12,7 +12,7 @@ namespace RPG.Abilities
         private void Awake()
         {
             fighter = GameObject.FindWithTag("Player").GetComponent<Fighter>();
-            stats = fighter.GetTargetHealth().GetComponent<BaseStats>();
+    //        stats = fighter.GetTargetHealth().GetComponent<BaseStats>();
         }
 
         private void Update()

@@ -26,21 +26,21 @@ namespace RPG.Attributes
 
         private void Update()
         {
-            Health target = fighter.GetTargetHealth();
-            if (target == null || target.GetHealthPoints() <= 0)
-            {
-                gameObject.SetActive(false);
-                return;
-            }
-            gameObject.SetActive(true);
+            //Health target = fighter.GetTargetHealth();
+            //if (target == null || target.GetHealthPoints() <= 0)
+            //{
+            //    gameObject.SetActive(false);
+            //    return;
+            //}
+            //gameObject.SetActive(true);
 
-            foreach (AvatarCharacterClass characterClass in characterClasses)
-            {
-                if (target.GetComponent<BaseStats>().GetCharacterClass() == characterClass.characterClass)
-                {
-                    enemyAvatar.GetComponent<Image>().sprite = characterClass.avatar;
-                }
-            }
+            //foreach (AvatarCharacterClass characterClass in characterClasses)
+            //{
+            //    if (target.GetComponent<BaseStats>().GetCharacterClass() == characterClass.characterClass)
+            //    {
+            //        enemyAvatar.GetComponent<Image>().sprite = characterClass.avatar;
+            //    }
+            //}
         }
     }
 }

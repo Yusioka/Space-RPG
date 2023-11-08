@@ -24,9 +24,9 @@ namespace RPG.Attributes
             //    return;
             //}
 
-            Health health = fighter.GetTargetHealth();
-            healthSlider.maxValue = health.GetMaxHealthPoints();
-            healthSlider.value = health.GetHealthPoints();
+    //        Health health = fighter.GetTargetHealth();
+            //healthSlider.maxValue = health.GetMaxHealthPoints();
+            //healthSlider.value = health.GetHealthPoints();
         }
     }
 }
