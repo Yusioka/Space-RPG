@@ -1,92 +1,92 @@
 fileFormatVersion: 2
-guid: 841b2c438c95c83479a59db0d737063d
+guid: fcd5d479f75a6b44595e56fa981bdda4
 ModelImporter:
-  serializedVersion: 25
+  serializedVersion: 22200
   internalIDToNameTable:
   - first:
       1: 100000
-    second: //RootNode
-  - first:
-      1: 100002
-    second: B_Prop1
-  - first:
-      1: 100004
-    second: B_L_Hand
-  - first:
-      1: 100006
-    second: B_L_Forearm
-  - first:
-      1: 100008
-    second: B_L_UpperArm
-  - first:
-      1: 100010
-    second: B_Head
-  - first:
-      1: 100012
-    second: B_L_Finger11
-  - first:
-      1: 100014
-    second: B_L_Finger1
-  - first:
-      1: 100016
-    second: B_L_Finger01
-  - first:
-      1: 100018
-    second: B_L_Finger0
-  - first:
-      1: 100020
-    second: B_R_Foot
-  - first:
-      1: 100022
-    second: B_R_Hand
-  - first:
-      1: 100024
-    second: B_R_Forearm
-  - first:
-      1: 100026
-    second: B_R_UpperArm
-  - first:
-      1: 100028
-    second: B_R_Calf
-  - first:
-      1: 100030
-    second: B_R_Finger11
-  - first:
-      1: 100032
-    second: B_R_Finger1
-  - first:
-      1: 100034
-    second: B_R_Finger01
-  - first:
-      1: 100036
-    second: B_R_Finger0
-  - first:
-      1: 100038
-    second: B_R_Thigh
-  - first:
-      1: 100040
-    second: B_L_Foot
-  - first:
-      1: 100042
-    second: B_Spine1
-  - first:
-      1: 100044
-    second: B_Spine
-  - first:
-      1: 100046
-    second: B_Pelvis
-  - first:
-      1: 100048
-    second: PositionLocator
-  - first:
-      1: 100050
-    second: Mesh_Soldier_A
-  - first:
-      1: 100052
     second: B_L_Calf
   - first:
-      1: 100054
+      1: 100002
     second: B_L_Thigh
+  - first:
+      1: 100004
+    second: B_Head
+  - first:
+      1: 100006
+    second: B_R_Foot
+  - first:
+      1: 100008
+    second: B_L_Finger0
+  - first:
+      1: 100010
+    second: B_L_Hand
+  - first:
+      1: 100012
+    second: B_L_Forearm
+  - first:
+      1: 100014
+    second: B_L_UpperArm
+  - first:
+      1: 100016
+    second: B_Spine1
+  - first:
+      1: 100018
+    second: B_Spine
+  - first:
+      1: 100020
+    second: B_R_Finger11
+  - first:
+      1: 100022
+    second: B_R_Finger1
+  - first:
+      1: 100024
+    second: B_R_Finger01
+  - first:
+      1: 100026
+    second: B_R_Finger0
+  - first:
+      1: 100028
+    second: B_R_Hand
+  - first:
+      1: 100030
+    second: B_R_Forearm
+  - first:
+      1: 100032
+    second: B_Prop1
+  - first:
+      1: 100034
+    second: B_R_UpperArm
+  - first:
+      1: 100036
+    second: B_L_Finger11
+  - first:
+      1: 100038
+    second: B_L_Finger1
+  - first:
+      1: 100040
+    second: B_L_Finger01
+  - first:
+      1: 100042
+    second: B_Pelvis
+  - first:
+      1: 100044
+    second: PositionLocator
+  - first:
+      1: 100046
+    second: Mesh_Soldier_A
+  - first:
+      1: 100048
+    second: //RootNode
+  - first:
+      1: 100050
+    second: B_R_Calf
+  - first:
+      1: 100052
+    second: B_R_Thigh
+  - first:
+      1: 100054
+    second: B_L_Foot
   - first:
       1: 100056
     second: AK47
@@ -272,139 +272,148 @@ ModelImporter:
     second: B_L_Toe0
   - first:
       1: 100178
-    second: B_R_Finger02
+    second: B_Prop
   - first:
       1: 100180
-    second: B_R_Finger12
+    second: B_R_Finger02
   - first:
       1: 100182
-    second: B_R_Finger2
+    second: B_R_Finger12
   - first:
       1: 100184
-    second: B_R_Finger21
+    second: B_R_Finger2
   - first:
       1: 100186
-    second: B_R_Finger22
+    second: B_R_Finger21
   - first:
       1: 100188
-    second: B_R_Finger3
+    second: B_R_Finger22
   - first:
       1: 100190
-    second: B_R_Finger31
+    second: B_R_Finger3
   - first:
       1: 100192
-    second: B_R_Finger32
+    second: B_R_Finger31
   - first:
       1: 100194
-    second: B_R_Finger4
+    second: B_R_Finger32
   - first:
       1: 100196
-    second: B_R_Finger41
+    second: B_R_Finger4
   - first:
       1: 100198
-    second: B_R_Finger42
+    second: B_R_Finger41
   - first:
       1: 100200
-    second: B_R_Toe0
+    second: B_R_Finger42
   - first:
       1: 100202
-    second: B_Spine2
+    second: B_R_Toe0
   - first:
       1: 100204
-    second: Motion
+    second: B_Spine2
   - first:
       1: 100206
-    second: RPG-Character-Mesh
+    second: Motion
   - first:
       1: 100208
-    second: Sword
+    second: Particle View 001
   - first:
       1: 100210
+    second: Rifle_Mesh
+  - first:
+      1: 100212
+    second: RPG-Character-Mesh
+  - first:
+      1: 100214
+    second: Staff
+  - first:
+      1: 100216
     second: Exporter
   - first:
       4: 400000
-    second: //RootNode
-  - first:
-      4: 400002
-    second: B_Prop1
-  - first:
-      4: 400004
-    second: B_L_Hand
-  - first:
-      4: 400006
-    second: B_L_Forearm
-  - first:
-      4: 400008
-    second: B_L_UpperArm
-  - first:
-      4: 400010
-    second: B_Head
-  - first:
-      4: 400012
-    second: B_L_Finger11
-  - first:
-      4: 400014
-    second: B_L_Finger1
-  - first:
-      4: 400016
-    second: B_L_Finger01
-  - first:
-      4: 400018
-    second: B_L_Finger0
-  - first:
-      4: 400020
-    second: B_R_Foot
-  - first:
-      4: 400022
-    second: B_R_Hand
-  - first:
-      4: 400024
-    second: B_R_Forearm
-  - first:
-      4: 400026
-    second: B_R_UpperArm
-  - first:
-      4: 400028
-    second: B_R_Calf
-  - first:
-      4: 400030
-    second: B_R_Finger11
-  - first:
-      4: 400032
-    second: B_R_Finger1
-  - first:
-      4: 400034
-    second: B_R_Finger01
-  - first:
-      4: 400036
-    second: B_R_Finger0
-  - first:
-      4: 400038
-    second: B_R_Thigh
-  - first:
-      4: 400040
-    second: B_L_Foot
-  - first:
-      4: 400042
-    second: B_Spine1
-  - first:
-      4: 400044
-    second: B_Spine
-  - first:
-      4: 400046
-    second: B_Pelvis
-  - first:
-      4: 400048
-    second: PositionLocator
-  - first:
-      4: 400050
-    second: Mesh_Soldier_A
-  - first:
-      4: 400052
     second: B_L_Calf
   - first:
-      4: 400054
+      4: 400002
     second: B_L_Thigh
+  - first:
+      4: 400004
+    second: B_Head
+  - first:
+      4: 400006
+    second: B_R_Foot
+  - first:
+      4: 400008
+    second: B_L_Finger0
+  - first:
+      4: 400010
+    second: B_L_Hand
+  - first:
+      4: 400012
+    second: B_L_Forearm
+  - first:
+      4: 400014
+    second: B_L_UpperArm
+  - first:
+      4: 400016
+    second: B_Spine1
+  - first:
+      4: 400018
+    second: B_Spine
+  - first:
+      4: 400020
+    second: B_R_Finger11
+  - first:
+      4: 400022
+    second: B_R_Finger1
+  - first:
+      4: 400024
+    second: B_R_Finger01
+  - first:
+      4: 400026
+    second: B_R_Finger0
+  - first:
+      4: 400028
+    second: B_R_Hand
+  - first:
+      4: 400030
+    second: B_R_Forearm
+  - first:
+      4: 400032
+    second: B_Prop1
+  - first:
+      4: 400034
+    second: B_R_UpperArm
+  - first:
+      4: 400036
+    second: B_L_Finger11
+  - first:
+      4: 400038
+    second: B_L_Finger1
+  - first:
+      4: 400040
+    second: B_L_Finger01
+  - first:
+      4: 400042
+    second: B_Pelvis
+  - first:
+      4: 400044
+    second: PositionLocator
+  - first:
+      4: 400046
+    second: Mesh_Soldier_A
+  - first:
+      4: 400048
+    second: //RootNode
+  - first:
+      4: 400050
+    second: B_R_Calf
+  - first:
+      4: 400052
+    second: B_R_Thigh
+  - first:
+      4: 400054
+    second: B_L_Foot
   - first:
       4: 400056
     second: AK47
@@ -590,54 +599,63 @@ ModelImporter:
     second: B_L_Toe0
   - first:
       4: 400178
-    second: B_R_Finger02
+    second: B_Prop
   - first:
       4: 400180
-    second: B_R_Finger12
+    second: B_R_Finger02
   - first:
       4: 400182
-    second: B_R_Finger2
+    second: B_R_Finger12
   - first:
       4: 400184
-    second: B_R_Finger21
+    second: B_R_Finger2
   - first:
       4: 400186
-    second: B_R_Finger22
+    second: B_R_Finger21
   - first:
       4: 400188
-    second: B_R_Finger3
+    second: B_R_Finger22
   - first:
       4: 400190
-    second: B_R_Finger31
+    second: B_R_Finger3
   - first:
       4: 400192
-    second: B_R_Finger32
+    second: B_R_Finger31
   - first:
       4: 400194
-    second: B_R_Finger4
+    second: B_R_Finger32
   - first:
       4: 400196
-    second: B_R_Finger41
+    second: B_R_Finger4
   - first:
       4: 400198
-    second: B_R_Finger42
+    second: B_R_Finger41
   - first:
       4: 400200
-    second: B_R_Toe0
+    second: B_R_Finger42
   - first:
       4: 400202
-    second: B_Spine2
+    second: B_R_Toe0
   - first:
       4: 400204
-    second: Motion
+    second: B_Spine2
   - first:
       4: 400206
-    second: RPG-Character-Mesh
+    second: Motion
   - first:
       4: 400208
-    second: Sword
+    second: Particle View 001
   - first:
       4: 400210
+    second: Rifle_Mesh
+  - first:
+      4: 400212
+    second: RPG-Character-Mesh
+  - first:
+      4: 400214
+    second: Staff
+  - first:
+      4: 400216
     second: Exporter
   - first:
       23: 2300000
@@ -656,7 +674,10 @@ ModelImporter:
     second: USP
   - first:
       23: 2300010
-    second: Sword
+    second: Rifle_Mesh
+  - first:
+      23: 2300012
+    second: Staff
   - first:
       33: 3300000
     second: Mesh_Soldier_A
@@ -674,7 +695,10 @@ ModelImporter:
     second: USP
   - first:
       33: 3300010
-    second: Sword
+    second: Rifle_Mesh
+  - first:
+      33: 3300012
+    second: Staff
   - first:
       43: 4300000
     second: Mesh_Soldier_A
@@ -695,13 +719,16 @@ ModelImporter:
     second: Soldier_Mesh
   - first:
       43: 4300012
-    second: RPG-Character-Mesh
+    second: Rifle_Mesh
   - first:
       43: 4300014
-    second: Sword
+    second: RPG-Character-Mesh
+  - first:
+      43: 4300016
+    second: Staff
   - first:
       74: 7400000
-    second: Sword-Attack-R4
+    second: Staff-Attack1
   - first:
       95: 9500000
     second: //RootNode
@@ -719,7 +746,7 @@ ModelImporter:
     second: ImportLogs
   externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 0
@@ -728,6 +755,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: Motion
     rigImportErrors: 
     rigImportWarnings: 
@@ -737,20 +765,21 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 0
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
-    extraExposedTransformPaths: []
+    extraExposedTransformPaths:
+    - PositionLocator/B_Pelvis/B_Spine/B_Spine1/B_R_Clavicle/B_R_UpperArm/B_R_Forearm/B_R_Hand/B_Prop1
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Sword-Attack-R4
+      name: Staff-Attack1
       takeName: Take 001
       internalID: 7400000
       firstFrame: 0
-      lastFrame: 24
+      lastFrame: 36
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -770,7 +799,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.2917101
+      - time: 0.42378467
         functionName: Hit
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -779,7 +808,7 @@ ModelImporter:
         messageOptions: 0
       transformMask: []
       maskType: 3
-      maskSource: {fileID: 101100000, guid: 3e4e408fdcc93ee468a1275b69104d63, type: 2}
+      maskSource: {fileID: 101100000, guid: 4ebc95c8618479f4d8251c7dafa10029, type: 2}
       additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
@@ -788,26 +817,36 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 0
     importBlendShapes: 0
     importCameras: 0
     importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 0
+    bakeAxisConversion: 0
     preserveHierarchy: 0
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
+    optimizeBones: 1
     meshOptimizationFlags: 0
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 0
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 2
@@ -818,7 +857,6 @@ ModelImporter:
     normalSmoothingSource: 0
   referencedClips: []
   importAnimation: 1
-  copyAvatar: 1
   humanDescription:
     serializedVersion: 3
     human:
@@ -1287,8 +1325,7 @@ ModelImporter:
     - name: B_Spine1
       parentName: B_Spine
       position: {x: -17.632355, y: -0.02012062, z: -0.000000033069227}
-      rotation: {x: -0.00000008811912, y: -0.0000000634867, z: 0.000000044238877,
-        w: 1}
+      rotation: {x: -0.00000008811912, y: -0.0000000634867, z: 0.000000044238877, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: B_Spine2
       parentName: B_Spine1
@@ -1298,8 +1335,7 @@ ModelImporter:
     - name: B_Neck
       parentName: B_Spine2
       position: {x: -33.545334, y: -3.0458548, z: 0.000000099855235}
-      rotation: {x: 0.00000022412031, y: -0.00000028685258, z: -0.00000036507453,
-        w: 1}
+      rotation: {x: 0.00000022412031, y: -0.00000028685258, z: -0.00000036507453, w: 1}
       scale: {x: 0.99999976, y: 0.99999976, z: 1}
     - name: B_Head
       parentName: B_Neck
@@ -1339,8 +1375,7 @@ ModelImporter:
     - name: B_L_Finger12
       parentName: B_L_Finger11
       position: {x: -5.438858, y: -0.000015258789, z: -0.000030517578}
-      rotation: {x: 0.00000021606675, y: 0.000000014901156, z: -0.00000002607704,
-        w: 1}
+      rotation: {x: 0.00000021606675, y: 0.000000014901156, z: -0.00000002607704, w: 1}
       scale: {x: 1, y: 1.0000002, z: 1}
     - name: B_L_Finger0
       parentName: B_L_Hand
@@ -1355,8 +1390,7 @@ ModelImporter:
     - name: B_L_Finger02
       parentName: B_L_Finger01
       position: {x: -4.867088, y: 0.0000009536743, z: 0.000015258789}
-      rotation: {x: 0.00000073574455, y: 0.00000025759837, z: -0.000000085334285,
-        w: 1}
+      rotation: {x: 0.00000073574455, y: 0.00000025759837, z: -0.000000085334285, w: 1}
       scale: {x: 1.0000001, y: 1.0000004, z: 1}
     - name: B_L_Finger2
       parentName: B_L_Hand
@@ -1371,8 +1405,7 @@ ModelImporter:
     - name: B_L_Finger22
       parentName: B_L_Finger21
       position: {x: -6.3453293, y: 0.000015258789, z: 0}
-      rotation: {x: 0.000000014901155, y: 0.0000000074505544, z: 0.000000022351744,
-        w: 1}
+      rotation: {x: 0.000000014901155, y: 0.0000000074505544, z: 0.000000022351744, w: 1}
       scale: {x: 0.99999976, y: 1, z: 1.0000001}
     - name: B_L_Finger3
       parentName: B_L_Hand
@@ -1387,8 +1420,7 @@ ModelImporter:
     - name: B_L_Finger32
       parentName: B_L_Finger31
       position: {x: -5.4388504, y: 0.000019311905, z: 0}
-      rotation: {x: -0.00000026635837, y: 0.00000006332987, z: 0.000000031083015,
-        w: 1}
+      rotation: {x: -0.00000026635837, y: 0.00000006332987, z: 0.000000031083015, w: 1}
       scale: {x: 1, y: 0.9999998, z: 1.0000001}
     - name: B_L_Finger4
       parentName: B_L_Hand
@@ -1433,14 +1465,12 @@ ModelImporter:
     - name: B_R_Finger01
       parentName: B_R_Finger0
       position: {x: -4.8670807, y: -0.000015735626, z: 0.000015258789}
-      rotation: {x: -0.0000008698553, y: 0.00000019018992, z: -0.0000000013309656,
-        w: 1}
+      rotation: {x: -0.0000008698553, y: 0.00000019018992, z: -0.0000000013309656, w: 1}
       scale: {x: 0.9999998, y: 1, z: 1.0000002}
     - name: B_R_Finger02
       parentName: B_R_Finger01
       position: {x: -4.8670807, y: 0.000008106232, z: 0.000015258789}
-      rotation: {x: -0.0000007562336, y: -0.00000033394542, z: -0.000000040237282,
-        w: 1}
+      rotation: {x: -0.0000007562336, y: -0.00000033394542, z: -0.000000040237282, w: 1}
       scale: {x: 1.0000002, y: 1.0000005, z: 1.0000002}
     - name: B_R_Finger1
       parentName: B_R_Hand
@@ -1450,14 +1480,12 @@ ModelImporter:
     - name: B_R_Finger11
       parentName: B_R_Finger1
       position: {x: -5.438858, y: -0.00000047683716, z: 0}
-      rotation: {x: -0.000000031672876, y: 0.00000032037462, z: -0.0000063155308,
-        w: 1}
+      rotation: {x: -0.000000031672876, y: 0.00000032037462, z: -0.0000063155308, w: 1}
       scale: {x: 1.0000001, y: 0.9999998, z: 1}
     - name: B_R_Finger12
       parentName: B_R_Finger11
       position: {x: -5.438843, y: 0.00000047683716, z: 0}
-      rotation: {x: -0.000000020489132, y: -0.00000011920919, z: -0.00000002095497,
-        w: 1}
+      rotation: {x: -0.000000020489132, y: -0.00000011920919, z: -0.00000002095497, w: 1}
       scale: {x: 1.0000001, y: 1.0000001, z: 0.99999976}
     - name: B_R_Finger2
       parentName: B_R_Hand
@@ -1467,8 +1495,7 @@ ModelImporter:
     - name: B_R_Finger21
       parentName: B_R_Finger2
       position: {x: -6.345321, y: -0.000015497208, z: -0.000030517578}
-      rotation: {x: -0.000000010718895, y: 0.000000089406626, z: -0.0000062888153,
-        w: 1}
+      rotation: {x: -0.000000010718895, y: 0.000000089406626, z: -0.0000062888153, w: 1}
       scale: {x: 1.0000001, y: 1.0000004, z: 1.0000001}
     - name: B_R_Finger22
       parentName: B_R_Finger21
@@ -1483,14 +1510,12 @@ ModelImporter:
     - name: B_R_Finger31
       parentName: B_R_Finger3
       position: {x: -5.438835, y: -0.000009536742, z: 0}
-      rotation: {x: -0.0000000061636323, y: 0.000000111758375, z: -0.000006249783,
-        w: 1}
+      rotation: {x: -0.0000000061636323, y: 0.000000111758375, z: -0.000006249783, w: 1}
       scale: {x: 1.0000002, y: 1.0000001, z: 1.0000004}
     - name: B_R_Finger32
       parentName: B_R_Finger31
       position: {x: -5.438858, y: -0.00001513958, z: -0.000015258789}
-      rotation: {x: 0.00000028591583, y: -0.000000014901342, z: -0.000000026309474,
-        w: 1}
+      rotation: {x: 0.00000028591583, y: -0.000000014901342, z: -0.000000026309474, w: 1}
       scale: {x: 0.9999998, y: 1, z: 1.0000004}
     - name: B_R_Finger4
       parentName: B_R_Hand
@@ -1539,11 +1564,15 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 0
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: e57e9b8cd5e115f4f8d7736473e5c7fd,
-    type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: e57e9b8cd5e115f4f8d7736473e5c7fd, type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
-  additionalBone: 0
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
+  additionalBone: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

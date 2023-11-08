@@ -3,6 +3,7 @@ using RPG.Combat;
 using RPG.Movement;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem.XR;
 
 namespace RPG.Control
 {
@@ -28,7 +29,7 @@ namespace RPG.Control
 
         private void Awake()
         {
-            player = GameObject.FindWithTag("Player");
+            player = GameObject.FindGameObjectWithTag("Player");
             navMeshAgent = new NavMeshAgent();
             fighter = GetComponent<Fighter>();
             health = GetComponent<Health>();
@@ -70,6 +71,18 @@ namespace RPG.Control
                     StartMoveAction();
                 }
             }
+
+            UpdateAnimator();
+        }
+
+        private void UpdateAnimator()
+        {
+            print("updating");
+            Vector3 velocity = navMeshAgent.velocity;
+            Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+
+            float speed = localVelocity.z;
+            GetComponent<Animator>().SetFloat("speedY", speed);
         }
 
         public void Reset()
@@ -88,8 +101,37 @@ namespace RPG.Control
 
         private void AttackBehaviour()
         {
+            timeSinceLastSawPlayer = 0;
             fighter.Attack(player);
+            AggrevateNearbyEnemies();
         }
+
+        //
+        private void AggrevateNearbyEnemies()
+        {
+            RaycastHit[] hits = Physics.SphereCastAll(transform.position, shoutDistance, Vector3.up, 0);
+            foreach (RaycastHit hit in hits)
+            {
+                EnemyController ai = hit.collider.GetComponent<EnemyController>();
+                if (ai == null) continue;
+
+                //if (health.GetMaxHealthPoints() > 14000)
+                //{
+                //    ai.Aggrevate();
+                //}
+
+                if (firstTimeAggrevated)
+                {
+                    ai.Aggrevate();
+                }
+                else if (Vector3.Distance(transform.position, player.transform.position) < chaseDistance)
+                {
+                    ai.Aggrevate();
+                }
+            }
+            firstTimeAggrevated = false;
+        }
+        //
 
         public void PatrolBehaviour()
         {

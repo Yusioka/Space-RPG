@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d450ddd0b0429874cb40ff92fcd9d535, type: 3}
-  m_Name: Pistol
+  m_Name: Rifle
   m_EditorClassIdentifier: 
-  itemID: d00e48d4-1584-4888-a11d-183c8308149d
-  displayName: Space Pistol
-  description: You are ready...
-  icon: {fileID: 21300000, guid: d88ae2df08fdb3a4dbf5e146fb61a669, type: 3}
+  itemID: 317f579c-f692-4aed-8e23-ae84ba56df66
+  displayName: Rifle
+  description: 
+  icon: {fileID: 0}
   pickup: {fileID: 0}
   stackable: 0
   price: 0
-  category: 2
+  category: 0
   allowedEquipLocation: 5
   equipCondition:
     and: []
-  animatorOverride: {fileID: 22100000, guid: b5da71fb16ddf5a4b8bf74d84a9d409c, type: 2}
-  equippedPrefab: {fileID: 5615448880605420761, guid: 054873fb4d8fb414f9c75a47ff19cfe1, type: 3}
-  isRightHanded: 0
+  animatorOverride: {fileID: 22100000, guid: 8643a8cf26b3e1b469149b32550a1071, type: 2}
+  equippedPrefab: {fileID: 8962611671970341042, guid: ac46653d56756124eb294a6b8c58d2d3, type: 3}
+  isRightHanded: 1
   weaponDamage: 10
   weaponRange: 2
   percentageBonus: 0

@@ -15,7 +15,7 @@ namespace RPG.Combat
         [SerializeField] float weaponDamage = 10f;
         [SerializeField] float weaponRange = 2f;
         [SerializeField] float percentageBonus = 0f;
-     //   [SerializeField] Projectile projectile = null;
+        [SerializeField] Projectile projectile = null;
 
         const string weaponName = "Weapon";
 
@@ -65,16 +65,16 @@ namespace RPG.Combat
             return handTransform;
         }
 
-        //public bool HasProjectile()
-        //{
-        //    return projectile != null;
-        //}
+        public bool HasProjectile()
+        {
+            return projectile != null;
+        }
 
-        //public void LaunchProjectile(Transform rightHand, Transform leftHand, Health target, GameObject instigator, float calculatedDamage)
-        //{
-        //    //  Projectile projetileInstance = Instantiate(projectile, GetTransform(rightHand, leftHand).position, Quaternion.identity);
-        //    projetileInstance.SetTarget(target, instigator, calculatedDamage);
-        //}
+        public void LaunchProjectile(Transform rightHand, Transform leftHand, Health target, GameObject instigator, float calculatedDamage)
+        {
+            Projectile projetileInstance = Instantiate(projectile, GetTransform(rightHand, leftHand).position, Quaternion.identity);
+            projetileInstance.SetTarget(instigator, target, calculatedDamage);
+        }
 
         public float GetDamage()
         {

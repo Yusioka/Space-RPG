@@ -5854,7 +5854,7 @@ Transform:
   - {fileID: 2786958536502396323}
   - {fileID: 5895906976950317498}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7317722789140269230
 GameObject:
@@ -7104,7 +7104,7 @@ MonoBehaviour:
   timeBetweenAttacks: 1
   rightHandTransform: {fileID: 1804547277500188814}
   leftHandTransform: {fileID: 6445037407165306243}
-  defaultWeapon: {fileID: 0}
+  defaultWeapon: {fileID: 11400000, guid: d9f2620159f680a458bfbb895084984d, type: 2}
 --- !u!114 &9008433709387273456
 MonoBehaviour:
   m_ObjectHideFlags: 0

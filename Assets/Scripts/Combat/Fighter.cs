@@ -5,6 +5,7 @@ using RPG.Attributes;
 using RPG.Stats;
 using RPG.Inventories;
 using GameDevTV.Utils;
+using System.Collections.Generic;
 
 namespace RPG.Combat
 {
@@ -14,6 +15,7 @@ namespace RPG.Combat
         [SerializeField] Transform rightHandTransform = null;
         [SerializeField] Transform leftHandTransform = null;
         [SerializeField] WeaponConfig defaultWeapon = null;
+        [SerializeField] float autoAttackRange = 4;
 
         Health target;
         Equipment equipment;
@@ -25,6 +27,7 @@ namespace RPG.Combat
         {
             currentWeaponConfig = defaultWeapon;
             currentWeapon = new LazyValue<Weapon>(SetupDefaultWeapon);
+
             equipment = GetComponent<Equipment>();
             if (equipment)
             {
@@ -44,7 +47,7 @@ namespace RPG.Combat
             if (target == null) return;
             if (target.IsDead())
             {
-               // target = FindNewTargetInRange();
+                target = FindNewTargetInRange();
                 if (target == null) return;
             }
 
@@ -112,19 +115,52 @@ namespace RPG.Combat
         void Hit()
         {
             if (target == null) return;
+            if (!GetIsInRange(target.transform)) return;
 
             float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
-            //if (currentWeapon.HasProjectile())
-            //{
-            //    currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject, damage);
-            //}
-        //    else
-        //    {
+
+            if (currentWeapon.value != null)
+            {
+                currentWeapon.value.OnHit();
+            }
+            if (currentWeaponConfig.HasProjectile())
+            {
+                currentWeaponConfig.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject, damage);
+            }
+            else
+            {
                 target.TakeDamage(gameObject, damage);
-         //   }
+            }
         }
 
-
+        private Health FindNewTargetInRange()
+        {
+            Health bestCandidate = null;
+            float bestDistance = Mathf.Infinity;
+            foreach (var candidate in FindAllTargetsInRange())
+            {
+                if (candidate == null) continue;
+                float candidateDistance = Vector3.Distance(transform.position, candidate.transform.position);
+                if (candidateDistance < bestDistance)
+                {
+                    bestCandidate = candidate;
+                    bestDistance = candidateDistance;
+                }
+            }
+            return bestCandidate;
+        }
+        private IEnumerable<Health> FindAllTargetsInRange()
+        {
+            RaycastHit[] raycastHits = Physics.SphereCastAll(transform.position, autoAttackRange, Vector3.up);
+            foreach (var hit in raycastHits)
+            {
+                Health health = hit.transform.GetComponent<Health>();
+                if (health == null) continue;
+                if (health.IsDead()) continue;
+                if (health.gameObject == gameObject) continue;
+                yield return health;
+            }
+        }
 
         void Shoot()
         {
