@@ -7,7 +7,7 @@ namespace RPG.Combat
     {
         [SerializeField] UnityEvent onHit;
 
-        public void Hit()
+        public void OnHit()
         {
             onHit.Invoke();
         }

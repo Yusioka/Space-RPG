@@ -24,10 +24,10 @@ MonoBehaviour:
   equipCondition:
     and: []
   animatorOverride: {fileID: 22100000, guid: b5da71fb16ddf5a4b8bf74d84a9d409c, type: 2}
-  timeBetweenAttacks: -5
+  timeBetweenAttacks: 0
   equippedPrefab: {fileID: 5615448880605420761, guid: 054873fb4d8fb414f9c75a47ff19cfe1, type: 3}
   isRightHanded: 0
-  weaponDamage: 10
-  weaponRange: 10
+  weaponDamage: 100
+  weaponRange: 50
   percentageBonus: 0
   projectile: {fileID: 0}

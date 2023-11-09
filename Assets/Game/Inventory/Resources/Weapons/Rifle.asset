@@ -19,13 +19,15 @@ MonoBehaviour:
   pickup: {fileID: 0}
   stackable: 0
   price: 0
-  category: 0
+  category: 2
   allowedEquipLocation: 5
   equipCondition:
     and: []
   animatorOverride: {fileID: 22100000, guid: 8643a8cf26b3e1b469149b32550a1071, type: 2}
+  timeBetweenAttacks: 0
   equippedPrefab: {fileID: 8962611671970341042, guid: ac46653d56756124eb294a6b8c58d2d3, type: 3}
   isRightHanded: 1
   weaponDamage: 10
-  weaponRange: 2
+  weaponRange: 50
   percentageBonus: 0
+  projectile: {fileID: 0}

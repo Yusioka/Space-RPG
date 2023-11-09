@@ -6,6 +6,7 @@ using RPG.Stats;
 using RPG.Inventories;
 using GameDevTV.Utils;
 using System.Collections.Generic;
+using UnityEngine.AI;
 
 namespace RPG.Combat
 {
@@ -43,7 +44,7 @@ namespace RPG.Combat
         {
             timeSinceLastAttack += Time.deltaTime;
 
-            if (target == null) return;
+            if (target == null || GetComponent<Health>().IsDead()) return;
             if (target.IsDead())
             {
                 target = FindNewTargetInRange();
@@ -52,11 +53,12 @@ namespace RPG.Combat
 
             if (!GetIsInRange(target.transform))
             {
+                GetComponent<NavMeshAgent>().isStopped = false;
                 GetComponent<IMover>().MoveTo(target.transform.position, 1f);
             }
             else
             {
-                GetComponent<IAction>().Cancel();
+                GetComponent<NavMeshAgent>().isStopped = true;
                 AttackBehaviour();
             }
         }
@@ -99,7 +101,8 @@ namespace RPG.Combat
 
         private void AttackBehaviour()
         {
-            //transform.LookAt(target.transform.position);
+            if (target == null) return;
+            transform.LookAt(target.transform);
 
             if (timeSinceLastAttack > currentWeaponConfig.GetTimeBetweenAttacks())
             {
@@ -119,11 +122,11 @@ namespace RPG.Combat
             if (target == null) return;
             if (!GetIsInRange(target.transform)) return;
 
-            float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
+            float damage = currentWeaponConfig.GetDamage();
 
             if (currentWeapon != null)
             {
-                currentWeapon.Hit();
+                currentWeapon.OnHit();
             }
             if (currentWeaponConfig.HasProjectile())
             {
@@ -132,6 +135,7 @@ namespace RPG.Combat
             else
             {
                 target.TakeDamage(gameObject, damage);
+                print("damaged");
             }
         }
 
@@ -183,12 +187,12 @@ namespace RPG.Combat
 
         private bool GetIsInRange(Transform targetTransform)
         {
-            return Vector3.Distance(transform.position, targetTransform.position) < currentWeaponConfig.GetRange();
+            return Vector3.Distance(transform.position, targetTransform.position) <= currentWeaponConfig.GetRange();
         }
 
         public bool CanAttack(GameObject combatTarget)
         {
-            if (combatTarget == null) return false;
+            if (combatTarget == null || combatTarget == gameObject) return false;
             Health targetToTest = combatTarget.GetComponent<Health>();
             return targetToTest != null && !targetToTest.IsDead();
         }

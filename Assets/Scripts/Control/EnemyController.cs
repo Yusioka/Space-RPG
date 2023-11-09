@@ -3,7 +3,6 @@ using RPG.Combat;
 using RPG.Movement;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.InputSystem.XR;
 
 namespace RPG.Control
 {
@@ -56,7 +55,7 @@ namespace RPG.Control
 
             if (CanMoveTo())
             {
-                if (IsAggrevated() && fighter.CanAttack(player))
+                if (fighter.CanAttack(player) && DistanceToObject(player) < chaseDistance)
                 {
                     timeSinceLastSawPlayer = 0;
                     AttackBehaviour();
@@ -73,10 +72,10 @@ namespace RPG.Control
                         StartMoveAction();
                     }
 
-                    //if (DistanceToObject(player) <= chaseDistance)
-                    //{
-                    //    transform.LookAt(player.transform.position);
-                    //}
+                    if (DistanceToObject(player) <= chaseDistance)
+                    {
+                        transform.LookAt(player.transform.position);
+                    }
                 }
 
                 timeSinceLastSawPlayer += Time.deltaTime;

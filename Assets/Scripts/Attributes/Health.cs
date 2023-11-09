@@ -61,12 +61,13 @@ namespace RPG.Attributes
             if (healthPoints == 0)
             {
                 onDie.Invoke();
-                GetComponent<Fighter>().Cancel();
+                instigator.GetComponent<Fighter>().Cancel();
                 AwardExperience(instigator);
                 healthPoints = -0.01f;
             }
             else
             {
+                print(healthPoints);
                 takeDamage.Invoke(damage);
             }
             UpdateState();
