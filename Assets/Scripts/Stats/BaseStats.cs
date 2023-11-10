@@ -54,8 +54,6 @@ namespace RPG.Stats
               //  LevelUpEffect();
                 onLevelUp();
                 GetComponent<Health>().Heal(10000);
-
-                print(currentLevel);
             }
         }
 
