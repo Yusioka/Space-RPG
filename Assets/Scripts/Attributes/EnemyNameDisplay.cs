@@ -1,12 +1,11 @@
-using RPG.Attributes;
 using RPG.Combat;
 using RPG.Stats;
 using TMPro;
 using UnityEngine;
 
-namespace RPG.Abilities
+namespace RPG.Attributes
 {
-    public class EnemyLevelDisplay : MonoBehaviour
+    public class EnemyNameDisplay : MonoBehaviour
     {
         Fighter fighter;
 
@@ -19,7 +18,9 @@ namespace RPG.Abilities
         {
             BaseStats stats = fighter.GetTargetHealth().gameObject.GetComponent<BaseStats>();
 
-            GetComponent<TextMeshProUGUI>().text = stats.CalculateLevel().ToString();
+            GetComponent<TextMeshProUGUI>().text = fighter.GetTargetHealth().gameObject.name;
+
+          //  GetComponent<TextMeshProUGUI>().text = stats.GetCharacterClass().ToString();
         }
     }
 }

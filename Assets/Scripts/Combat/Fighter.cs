@@ -7,6 +7,7 @@ using RPG.Inventories;
 using GameDevTV.Utils;
 using System.Collections.Generic;
 using UnityEngine.AI;
+using JetBrains.Annotations;
 
 namespace RPG.Combat
 {
@@ -135,7 +136,6 @@ namespace RPG.Combat
             else
             {
                 target.TakeDamage(gameObject, damage);
-                print("damaged");
             }
         }
 

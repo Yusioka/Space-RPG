@@ -67,7 +67,6 @@ namespace RPG.Attributes
             }
             else
             {
-                print(healthPoints);
                 takeDamage.Invoke(damage);
             }
             UpdateState();

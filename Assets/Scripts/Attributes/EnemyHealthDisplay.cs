@@ -18,15 +18,16 @@ namespace RPG.Attributes
 
         private void Update()
         {
-            //if (fighter.GetHealth() == null)
+            //if (fighter.GetTargetHealth() == null)
             //{
             //    GetComponent<Text>().text = "N/A";
             //    return;
             //}
 
-    //        Health health = fighter.GetTargetHealth();
-            //healthSlider.maxValue = health.GetMaxHealthPoints();
-            //healthSlider.value = health.GetHealthPoints();
+            Health health = fighter.GetTargetHealth();
+
+            healthSlider.maxValue = health.GetMaxHealthPoints();
+            healthSlider.value = health.GetHealthPoints();
         }
     }
 }

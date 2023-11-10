@@ -1,3 +1,4 @@
+using RPG.Attributes;
 using System;
 using UnityEngine;
 
@@ -52,6 +53,8 @@ namespace RPG.Stats
                 currentLevel = newLevel;
               //  LevelUpEffect();
                 onLevelUp();
+                GetComponent<Health>().Heal(10000);
+
                 print(currentLevel);
             }
         }

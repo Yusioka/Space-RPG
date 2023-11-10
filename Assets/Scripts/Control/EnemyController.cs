@@ -206,7 +206,7 @@ namespace RPG.Control
             {
                 if (gameObject.GetComponent<NavMeshAgent>().enabled)
                 {
-                    HealEnemy();
+                //    HealEnemy();
                     firstTimeAggrevated = true;
                     MoveTo(nextPosition, walkingSpeed);
                 }
