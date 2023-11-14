@@ -32,6 +32,7 @@ namespace RPG.Attributes
             healthPoints = GetInitialHealth();
         }
 
+
         private float GetInitialHealth()
         {
             return GetComponent<BaseStats>().GetStat(Stat.Health);

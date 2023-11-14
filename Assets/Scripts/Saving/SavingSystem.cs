@@ -28,7 +28,6 @@ namespace RPG.Saving
             CaptureState(state);
             SaveFile(saveFile, state);
             string path = GetPathFromSaveFile(saveFile);
-            print(File.Exists(path));
         }
         public void Load(string saveFile)
         {
@@ -56,7 +55,7 @@ namespace RPG.Saving
             File.Delete(GetPathFromSaveFile(saveFile));
         }
 
-        private void SaveFile(string saveFile, Dictionary<string, object> state)
+        private void SaveFile(string saveFile, object state)
         {
             string path = GetPathFromSaveFile(saveFile);
             print("File saved in " + path);
@@ -66,6 +65,7 @@ namespace RPG.Saving
                 formatter.Serialize(stream, state);
             }
         }
+
         private Dictionary<string, object> LoadFile(string saveFile)
         {
             string path = GetPathFromSaveFile(saveFile);

@@ -3545,7 +3545,6 @@ GameObject:
   - component: {fileID: 2081964947062359442}
   - component: {fileID: 5926523475999562343}
   - component: {fileID: 5607977312042256039}
-  - component: {fileID: 5855191813426331062}
   - component: {fileID: 3940309736429540495}
   - component: {fileID: 3743982392264250258}
   - component: {fileID: 6596442524504907022}
@@ -3710,25 +3709,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: 0
-  chaseDistance: 3
   patrolPath: {fileID: 0}
+  chaseDistance: 3
   waypointTolerance: 1
   waypointDwellTime: 0
   patrolSpeed: 0.2
-  lookAtOffset: 0.15
---- !u!114 &5855191813426331062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7247723372122206802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d8e9c7dc09bb4841975fb83d0de9871, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uniqueIdentifier: fbe27d0e-d96a-440e-bca4-72587aba70fc
 --- !u!114 &3940309736429540495
 MonoBehaviour:
   m_ObjectHideFlags: 0

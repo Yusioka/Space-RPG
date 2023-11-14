@@ -10,7 +10,7 @@ namespace RPG.Inventories
         [SerializeField] float startingBalance = 1000f;
 
         float balance = 0;
-        public event Action onChange;
+        public event Action OnChanged;
 
         Experience experience;
 
@@ -23,16 +23,13 @@ namespace RPG.Inventories
 
         public float GetBalance()
         {
-            return  balance;
+            return balance;
         }
 
         public void UpdateBalance(float amount)
         {
             balance += amount;
-            if (onChange != null)
-            {
-                onChange();
-            }
+            OnChanged?.Invoke();
         }
 
 
@@ -44,6 +41,7 @@ namespace RPG.Inventories
         public void RestoreState(object state)
         {
             balance = (float)state;
+            OnChanged?.Invoke();
         }
 
         public int AddItems(InventoryItem item, int number)

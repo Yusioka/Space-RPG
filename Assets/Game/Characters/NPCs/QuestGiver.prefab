@@ -5030,7 +5030,6 @@ GameObject:
   - component: {fileID: 8072091769336554656}
   - component: {fileID: 955696926032905209}
   - component: {fileID: 5624834363869024605}
-  - component: {fileID: 2052739555045656882}
   - component: {fileID: 3119269629534442701}
   - component: {fileID: 2187143911869109403}
   - component: {fileID: 121438957761295485}
@@ -5075,7 +5074,7 @@ Transform:
   - {fileID: 8497209860726420922}
   - {fileID: 8329210819166396982}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -1.152, z: 0}
 --- !u!95 &4726939168047005177
 Animator:
@@ -5195,25 +5194,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: 0
-  chaseDistance: 3
   patrolPath: {fileID: 0}
+  chaseDistance: 3
   waypointTolerance: 1
   waypointDwellTime: 0
   patrolSpeed: 0.2
-  lookAtOffset: 0.15
---- !u!114 &2052739555045656882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8641965049601648238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d8e9c7dc09bb4841975fb83d0de9871, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uniqueIdentifier: fbe27d0e-d96a-440e-bca4-72587aba70fc
 --- !u!114 &3119269629534442701
 MonoBehaviour:
   m_ObjectHideFlags: 0

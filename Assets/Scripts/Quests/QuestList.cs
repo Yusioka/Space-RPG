@@ -9,8 +9,9 @@ namespace RPG.Quests
 {
     public class QuestList : MonoBehaviour, ISaveable, IPredicateEvaluator
     {
-        List<QuestStatus> statuses = new List<QuestStatus>();
-        public event Action onUpdate;
+        public event Action OnUpdate;
+        
+        private readonly List<QuestStatus> statuses = new();
 
         private void Update()
         {
@@ -19,29 +20,35 @@ namespace RPG.Quests
 
         public void AddQuest(Quest quest)
         {
-            if (HasQuest(quest)) return;
-            QuestStatus newStatus = new QuestStatus(quest);
+            if (HasQuest(quest)) 
+                return;
+
+            QuestStatus newStatus = new(quest);
             statuses.Add(newStatus);
-            if (onUpdate != null)
-            {
-                onUpdate();
-            }
+
+            OnUpdate?.Invoke();
         }
+
         public void CompleteObjective(Quest quest, string objective)
         {
-            QuestStatus status = GetQuestStatus(quest);
+            var status = GetQuestStatus(quest);
+            
             status.CompleteObjective(objective);
+            
             if (status.IsComplete())
             {
                 GiveReward(quest);
             }
-            if (onUpdate != null)
-            {
-                onUpdate();
-            }
+
+            OnUpdate?.Invoke();
         }
 
-        public bool HasQuest(Quest quest)
+        public IEnumerable<QuestStatus> GetStatuses()
+        {
+            return statuses;
+        }
+
+        private bool HasQuest(Quest quest)
         {
             return GetQuestStatus(quest) != null;
         }
@@ -49,12 +56,8 @@ namespace RPG.Quests
         private bool IsObjectiveComplete(Quest quest, string  objective)
         {
             QuestStatus status = GetQuestStatus(quest);
-            return status.IsObjectiveComplete(objective);
-        }
 
-        public IEnumerable<QuestStatus> GetStatuses()
-        {
-            return statuses;
+            return status.IsObjectiveComplete(objective);
         }
 
         // находит все status квеста
@@ -67,13 +70,16 @@ namespace RPG.Quests
                     return status;
                 }
             }
+
             return null;
         }
+
         private void GiveReward(Quest quest)
         {
             foreach (var reward in quest.GetRewards())
             {
-                bool success = GetComponent<Inventory>().AddToFirstEmptySlot(reward.item, reward.number);
+                var success = GetComponent<Inventory>().AddToFirstEmptySlot(reward.item, reward.number);
+                
                 if (!success)
                 {
                     GetComponent<ItemDropper>().DropItem(reward.item, reward.number);
@@ -84,13 +90,17 @@ namespace RPG.Quests
         private void CompleteObjectivesByPredicates()
         {
             foreach (QuestStatus status in statuses)
-            {
-                if (status.IsComplete()) continue;
-                Quest quest = status.GetQuest();
+            {            
+                if (status.IsComplete()) 
+                    continue;
+                
+                var quest = status.GetQuest();
+                
                 foreach (var objective in quest.GetObjectives())
                 {
-                    if (status.IsObjectiveComplete(objective.reference)) continue;
-                    if (!objective.usesCondition) continue;
+                    if (status.IsObjectiveComplete(objective.reference) || !objective.usesCondition) 
+                        continue;
+                    
                     if (objective.completionCondition.Check(GetComponents<IPredicateEvaluator>()))
                     {
                         CompleteObjective(quest, objective.reference);
@@ -101,24 +111,31 @@ namespace RPG.Quests
 
         public object CaptureState()
         {
-            List<object> state = new List<object>();
+            List<object> state = new();
+            
             foreach (QuestStatus status in statuses)
             {
-                state.Add(status.CaptureState());
+                state.Add(status.CaptureState());          
             }
+
             return state;
         }
 
         public void RestoreState(object state)
         {
-            List<object> stateList = state as List<object>;
-            if (stateList == null) return;
+            var stateList = state as List<object>;
+            
+            if (stateList == null) 
+                return;
 
             statuses.Clear();
+            
             foreach (object objectState in stateList)
             {
                 statuses.Add(new QuestStatus(objectState));
             }
+
+            OnUpdate?.Invoke();
         }
 
         public bool? Evaluate(string predicate, string[] parameters)
@@ -132,8 +149,10 @@ namespace RPG.Quests
                     return GetQuestStatus(Quest.GetByName(parameters[0])).IsComplete();
                 case "CompletedObjective":
                     return IsObjectiveComplete(Quest.GetByName(parameters[0]), parameters[1]);
+                default:
+                    break;
             }
             return null;
         }
-    } 
+    }
 }

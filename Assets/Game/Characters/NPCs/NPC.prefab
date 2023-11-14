@@ -3138,7 +3138,6 @@ GameObject:
   - component: {fileID: 5708212879717019648}
   - component: {fileID: 3127679650488059870}
   - component: {fileID: 7995465443754025439}
-  - component: {fileID: 1725801844771292324}
   - component: {fileID: 1454147009491835550}
   m_Layer: 0
   m_Name: NPC
@@ -3306,19 +3305,6 @@ MonoBehaviour:
   waypointTolerance: 1
   waypointDwellTime: 2
   patrolSpeed: 0.2
---- !u!114 &1725801844771292324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5458913622955550070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d8e9c7dc09bb4841975fb83d0de9871, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uniqueIdentifier: fbe27d0e-d96a-440e-bca4-72587aba70fc
 --- !u!114 &1454147009491835550
 MonoBehaviour:
   m_ObjectHideFlags: 0
