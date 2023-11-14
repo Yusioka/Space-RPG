@@ -18,7 +18,7 @@ namespace RPG.Control
 
         private void Awake()
         {
-            GetComponent<Health>().onDie.AddListener(Respawn);
+            GetComponent<Health>().OnDie.AddListener(Respawn);
         }
 
         private void Start()

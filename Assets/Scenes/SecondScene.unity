@@ -606,11 +606,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a246fcfbe7b0ccb45a21a00654d16933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regenerationPercentage: 70
-  takeDamage:
+  OnDie:
     m_PersistentCalls:
       m_Calls: []
-  onDie:
+  regenerationPercentage: 70
+  takeDamage:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &4961551
@@ -9291,11 +9291,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a246fcfbe7b0ccb45a21a00654d16933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regenerationPercentage: 70
-  takeDamage:
+  OnDie:
     m_PersistentCalls:
       m_Calls: []
-  onDie:
+  regenerationPercentage: 70
+  takeDamage:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &272715987
@@ -12667,11 +12667,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a246fcfbe7b0ccb45a21a00654d16933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regenerationPercentage: 70
-  takeDamage:
+  OnDie:
     m_PersistentCalls:
       m_Calls: []
-  onDie:
+  regenerationPercentage: 70
+  takeDamage:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &354830382
@@ -13867,7 +13867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4774826745949088320, guid: 8eca5e2170a1d3540867a153bf452298, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00039672852
+      value: -0.00079345703
       objectReference: {fileID: 0}
     - target: {fileID: 4996302087816847928, guid: 8eca5e2170a1d3540867a153bf452298, type: 3}
       propertyPath: m_AnchorMax.y
@@ -24467,11 +24467,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a246fcfbe7b0ccb45a21a00654d16933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regenerationPercentage: 70
-  takeDamage:
+  OnDie:
     m_PersistentCalls:
       m_Calls: []
-  onDie:
+  regenerationPercentage: 70
+  takeDamage:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &672509791
@@ -25557,11 +25557,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a246fcfbe7b0ccb45a21a00654d16933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regenerationPercentage: 70
-  takeDamage:
+  OnDie:
     m_PersistentCalls:
       m_Calls: []
-  onDie:
+  regenerationPercentage: 70
+  takeDamage:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &699936557
@@ -30080,11 +30080,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a246fcfbe7b0ccb45a21a00654d16933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regenerationPercentage: 70
-  takeDamage:
+  OnDie:
     m_PersistentCalls:
       m_Calls: []
-  onDie:
+  regenerationPercentage: 70
+  takeDamage:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &847902465
@@ -30418,11 +30418,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a246fcfbe7b0ccb45a21a00654d16933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regenerationPercentage: 70
-  takeDamage:
+  OnDie:
     m_PersistentCalls:
       m_Calls: []
-  onDie:
+  regenerationPercentage: 70
+  takeDamage:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &851313137
@@ -36060,11 +36060,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a246fcfbe7b0ccb45a21a00654d16933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regenerationPercentage: 70
-  takeDamage:
+  OnDie:
     m_PersistentCalls:
       m_Calls: []
-  onDie:
+  regenerationPercentage: 70
+  takeDamage:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1049374200
@@ -43588,11 +43588,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a246fcfbe7b0ccb45a21a00654d16933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regenerationPercentage: 70
-  takeDamage:
+  OnDie:
     m_PersistentCalls:
       m_Calls: []
-  onDie:
+  regenerationPercentage: 70
+  takeDamage:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1266824801
@@ -47719,11 +47719,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a246fcfbe7b0ccb45a21a00654d16933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regenerationPercentage: 70
-  takeDamage:
+  OnDie:
     m_PersistentCalls:
       m_Calls: []
-  onDie:
+  regenerationPercentage: 70
+  takeDamage:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1373630706
@@ -50346,11 +50346,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a246fcfbe7b0ccb45a21a00654d16933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regenerationPercentage: 70
-  takeDamage:
+  OnDie:
     m_PersistentCalls:
       m_Calls: []
-  onDie:
+  regenerationPercentage: 70
+  takeDamage:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1445329931
@@ -58317,11 +58317,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a246fcfbe7b0ccb45a21a00654d16933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regenerationPercentage: 70
-  takeDamage:
+  OnDie:
     m_PersistentCalls:
       m_Calls: []
-  onDie:
+  regenerationPercentage: 70
+  takeDamage:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1697457316
@@ -61467,11 +61467,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a246fcfbe7b0ccb45a21a00654d16933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regenerationPercentage: 70
-  takeDamage:
+  OnDie:
     m_PersistentCalls:
       m_Calls: []
-  onDie:
+  regenerationPercentage: 70
+  takeDamage:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1759888796
@@ -64829,11 +64829,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a246fcfbe7b0ccb45a21a00654d16933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regenerationPercentage: 70
-  takeDamage:
+  OnDie:
     m_PersistentCalls:
       m_Calls: []
-  onDie:
+  regenerationPercentage: 70
+  takeDamage:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1837253132
@@ -69049,11 +69049,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a246fcfbe7b0ccb45a21a00654d16933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regenerationPercentage: 70
-  takeDamage:
+  OnDie:
     m_PersistentCalls:
       m_Calls: []
-  onDie:
+  regenerationPercentage: 70
+  takeDamage:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1954960544

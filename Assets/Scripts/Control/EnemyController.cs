@@ -238,7 +238,7 @@ namespace RPG.Control
 
         private void HealEnemy()
         {
-            if (health && !health.IsDead() && health.GetHealthPoints() != health.GetMaxHealthPoints())
+            if (health && !health.IsDead() && health.HealthPoints != health.GetMaxHealthPoints())
             {
                 health.Heal(5);
             }

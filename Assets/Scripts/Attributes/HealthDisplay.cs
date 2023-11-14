@@ -19,7 +19,7 @@ namespace RPG.Attributes
         private void Update()
         {
             healthSlider.maxValue = health.GetMaxHealthPoints();
-            healthSlider.value = health.GetHealthPoints();
+            healthSlider.value = health.HealthPoints;
         }
     }
 }

@@ -27,7 +27,7 @@ namespace RPG.Attributes
             Health health = fighter.GetTargetHealth();
 
             healthSlider.maxValue = health.GetMaxHealthPoints();
-            healthSlider.value = health.GetHealthPoints();
+            healthSlider.value = health.HealthPoints;
         }
     }
 }
