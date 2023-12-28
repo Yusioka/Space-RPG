@@ -2,19 +2,27 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Planet_01_Material
   m_Shader: {fileID: 4800000, guid: 511e821c788ce374e9310abe9316cdd5, type: 3}
-  m_ShaderKeywords: _ALPHATEST_ON _EMISSION _SOFT_BLEND_SWITCH_ON
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _SOFT_BLEND_SWITCH_ON
+  m_InvalidKeywords:
+  - _ALPHATEST_ON
+  - _EMISSION
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -94,6 +102,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.4
@@ -133,6 +142,7 @@ Material:
     - _Color_Tint: {r: 0, g: 0, b: 0, a: 0}
     - _Color_Tint1: {r: 0.71034485, g: 1, b: 0.25, a: 0}
     - _EmissionColor: {r: 0.5735294, g: 0.29665318, b: 0, a: 1}
-    - _Glow_Tint: {r: 1, g: 0.2689655, b: 0, a: 0}
-    - _Planet_Tint: {r: 0.31617647, g: 1, b: 0.37748462, a: 0}
+    - _Glow_Tint: {r: 0.8301887, g: 0.18348648, b: 0.034460627, a: 0}
+    - _Planet_Tint: {r: 0, g: 0.58241, b: 0.6509434, a: 0}
     - _Test_A: {r: 1, g: 0.6876268, b: 0.4852941, a: 0}
+  m_BuildTextureStacks: []
