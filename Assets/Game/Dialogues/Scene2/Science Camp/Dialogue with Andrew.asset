@@ -1,0 +1,415 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6968839118032393385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: a184e660-ab1a-4b74-8e9e-573a3573c55a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u041D\u043E \u043C\u043D\u0435 \u0440\u0430\u0441\u0441\u043A\u0430\u0437\u044B\u0432\u0430\u043B\u0438,
+    \u0447\u0442\u043E \u0440\u0430\u043D\u0435\u0435 \u0442\u043E\u0436\u0435 \u043E\u0442\u043F\u0440\u0430\u0432\u043B\u044F\u043B\u0438\u0441\u044C
+    \u043E\u0442\u0440\u044F\u0434\u044B \u0437\u0430 \u043F\u0440\u0435\u0434\u0435\u043B\u044B
+    \u0432\u043E\u0440\u043E\u0442 \u0438 \u043D\u0438\u043A\u043E\u0433\u043E \u0442\u0430\u043C
+    \u043D\u0435 \u0431\u044B\u043B\u043E..."
+  children:
+  - eedcca55-e735-4be4-b7fc-7278c9135341
+  rect:
+    serializedVersion: 2
+    x: 1249
+    y: 86
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-6313674827630086931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 853a606d-5a31-48f4-a95b-ac6bf270c1ab
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u0418 \u043A\u0430\u043A, \u043E\u0442\u0440\u044F\u0434 \u21162\u0410
+    \u043D\u0430\u043B\u0430\u0434\u0438\u043B \u0441 \u043D\u0438\u043C\u0438 \u043A\u043E\u043D\u0442\u0430\u043A\u0442?"
+  children:
+  - 670fec68-c95b-4d9a-9199-fe57eb383025
+  rect:
+    serializedVersion: 2
+    x: 1749
+    y: 86
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-4480482373009426449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: eedcca55-e735-4be4-b7fc-7278c9135341
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "\u0414\u0430, \u044F \u0441\u0430\u043C \u0443\u0434\u0438\u0432\u0438\u043B\u0441\u044F,
+    \u044D\u0442\u043E \u043E\u0447\u0435\u043D\u044C \u0441\u0442\u0440\u0430\u043D\u043D\u043E.
+    \u041D\u043E \u0431\u043E\u043B\u0435\u0435 \u0441\u0442\u0440\u0430\u043D\u0435\u043D
+    \u0442\u043E\u0442 \u0444\u0430\u043A\u0442, \u0447\u0442\u043E \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0430,
+    \u043A\u043E\u0442\u043E\u0440\u044B\u0435 \u0442\u0430\u043C \u043E\u0431\u0438\u0442\u0430\u044E\u0442,
+    - \u044D\u0442\u043E \u0440\u0435\u043F\u0442\u0438\u043B\u0438\u0438 \u0438
+    \u043E\u043D\u0438 \u0445\u043E\u0434\u044F\u0442 \u043D\u0430 \u0434\u0432\u0443\u0445...\u044D...\u043D\u043E\u0433\u0430\u0445?...\u043B\u0430\u043F\u0430\u0445?
+    \u0422\u0430\u043A\u0436\u0435 \u043E\u043D\u0438 \u043D\u043E\u0441\u044F\u0442
+    \u043E\u0434\u0435\u0436\u0434\u0443 \u0438 \u043C\u043E\u0433\u0443\u0442 \u0431\u0440\u0430\u0442\u044C
+    \u043E\u0440\u0443\u0436\u0438\u0435 \u0432 \u0440\u0443\u043A\u0438, \u044D\u0442\u043E
+    \u043E\u0447\u0435\u043D\u044C \u043E\u043F\u0430\u0441\u043D\u043E, \u043D\u043E
+    \u043F\u043E\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0430\u0435\u0442 \u0442\u043E\u0442
+    \u0444\u0430\u043A\u0442, \u0447\u0442\u043E \u0443 \u043D\u0438\u0445 \u0435\u0441\u0442\u044C
+    \u043C\u043E\u0437\u0433 \u0438 \u0441 \u043D\u0438\u043C\u0438 \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E
+    \u043D\u0430\u043B\u0430\u0434\u0438\u0442\u044C \u043A\u043E\u043D\u0442\u0430\u043A\u0442!"
+  children:
+  - 853a606d-5a31-48f4-a95b-ac6bf270c1ab
+  rect:
+    serializedVersion: 2
+    x: 1499
+    y: 86
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-382263217424256943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 989b566e-54c2-4c24-b22f-795b7181004f
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u041D\u0435\u0442."
+  children:
+  - 79d4e227-993e-4148-ad64-45685099d9ac
+  rect:
+    serializedVersion: 2
+    x: 749
+    y: 86
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-353200216387799098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: b69b5b56-9d0f-4ed3-9a70-c21bd16b4ec6
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "\u0414\u0430, \u043C\u043D\u0435 \u043A\u0430\u0436\u0435\u0442\u0441\u044F,
+    \u0447\u0442\u043E \u044D\u0442\u043E \u043A\u0442\u043E-\u0442\u043E \u0441\u043E\u0437\u0434\u0430\u043B
+    \u0440\u0435\u043F\u0442\u0438\u043B\u0438\u0439 \u0438 \u0438\u0437-\u0437\u0430
+    \u044D\u0442\u043E\u0433\u043E \u0432\u0437\u043E\u0440\u0432\u0430\u043B\u0430\u0441\u044C
+    \u0447\u0430\u0441\u0442\u044C \u043D\u0430\u0448\u0435\u0439 \u043F\u043B\u0430\u043D\u0435\u0442\u044B
+    \u0438 \u043E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u043B\u0430\u0441\u044C
+    \u0427\u0435\u0440\u043D\u0430\u044F \u0434\u044B\u0440\u0430. \u041A\u0441\u0442\u0430\u0442\u0438,
+    \u043E\u0442\u0440\u044F\u0434 \u21162\u0410 \u0432\u0437\u044F\u043B \u0441
+    \u0441\u043E\u0431\u043E\u0439 \u043E\u0434\u043D\u043E\u0433\u043E \u0438\u0437
+    \u0436\u0438\u0442\u0435\u043B\u0435\u0439 \"\u0417\u0430\u043F\u0440\u0435\u0434\u0435\u043B\u044C\u044F\".
+    \u041E\u043D \u0441\u0435\u0439\u0447\u0430\u0441 \u0432 \u043A\u043B\u0435\u0442\u043A\u0435,
+    \u0442\u044B \u043C\u043E\u0436\u0435\u0448\u044C \u0441 \u043D\u0438\u043C \u043F\u043E\u043E\u0431\u0449\u0430\u0442\u044C\u0441\u044F,
+    \u043D\u043E \u0443\u0447\u0442\u0438, \u0447\u0442\u043E \u043E\u043D \u043D\u0430\u0448
+    \u0432\u0440\u0430\u0433."
+  children:
+  - b6fd1863-873e-4902-8584-1b2e0c587537
+  rect:
+    serializedVersion: 2
+    x: 2499
+    y: 86
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: GiveQuest
+  condition:
+    and: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 591f37a1e8894a141b4d49be861dfef9, type: 3}
+  m_Name: Dialogue with Andrew
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 2237568911462066851}
+  - {fileID: 5474585099764249067}
+  - {fileID: 8773782669161113386}
+  - {fileID: -382263217424256943}
+  - {fileID: 4339304844489642876}
+  - {fileID: -6968839118032393385}
+  - {fileID: -4480482373009426449}
+  - {fileID: -6313674827630086931}
+  - {fileID: 8212564754206359753}
+  - {fileID: 3831720313688075577}
+  - {fileID: -353200216387799098}
+  - {fileID: 1054941341937842986}
+  - {fileID: 2628250233471793318}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &1054941341937842986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: b6fd1863-873e-4902-8584-1b2e0c587537
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u041E\u0442\u043B\u0438\u0447\u043D\u043E, \u044F \u043F\u043E\u0439\u0434\u0443
+    \u043A \u043D\u0435\u043C\u0443. \u0420\u0430\u0434 \u0431\u044B\u043B \u043F\u043E\u0432\u0438\u0434\u0430\u0442\u044C\u0441\u044F
+    \u0441 \u0442\u043E\u0431\u043E\u0439."
+  children:
+  - 32b19cf7-575f-4a00-b721-a57dae9340ba
+  rect:
+    serializedVersion: 2
+    x: 2748
+    y: 86
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &2237568911462066851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 3cc82797-3af2-467d-984a-d52d7594d966
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "\u041E, \u043F\u0440\u0438\u0432\u0435\u0442. \u042F \u0436\u0434\u0430\u043B
+    \u0442\u0435\u0431\u044F, \u0434\u0430\u0432\u043D\u043E \u043D\u0435 \u0432\u0438\u0434\u0435\u043B\u0438\u0441\u044C!"
+  children:
+  - ce4aa649-3192-493e-95ab-cff73a20e145
+  rect:
+    serializedVersion: 2
+    x: 4
+    y: 85
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &2628250233471793318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 32b19cf7-575f-4a00-b721-a57dae9340ba
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "\u042F \u0442\u043E\u0436\u0435 \u0431\u044B\u043B \u043E\u0447\u0435\u043D\u044C
+    \u0440\u0430\u0434 \u0443\u0432\u0438\u0434\u0435\u0442\u044C \u0442\u0435\u0431\u044F."
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 2997
+    y: 89
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &3831720313688075577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 168248b4-f7bd-4ec8-a6c9-8f9c8b9f8898
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u0422\u0430\u043A \u043A\u0430\u043A\u0438\u0435 \u0434\u043E\u0433\u0430\u0434\u043A\u0438
+    \u043F\u043E \u043F\u043E\u0432\u043E\u0434\u0443 \u0427\u0435\u0440\u043D\u043E\u0439
+    \u0434\u044B\u0440\u044B \u0443 \u0442\u0435\u0431\u044F \u0435\u0449\u0451 \u0435\u0441\u0442\u044C?"
+  children:
+  - b69b5b56-9d0f-4ed3-9a70-c21bd16b4ec6
+  rect:
+    serializedVersion: 2
+    x: 2249
+    y: 86
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &4339304844489642876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 79d4e227-993e-4148-ad64-45685099d9ac
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "\u0422\u0430\u043C \u0431\u044B\u043B\u0430 \u0436\u0438\u0437\u043D\u044C!
+    \u041F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u044F\u0435\u0448\u044C,
+    \u0436\u0438\u0437\u043D\u044C \u0437\u0430 \u043F\u0440\u0435\u0434\u0435\u043B\u0430\u043C\u0438
+    \u0432\u043E\u0440\u043E\u0442! "
+  children:
+  - a184e660-ab1a-4b74-8e9e-573a3573c55a
+  rect:
+    serializedVersion: 2
+    x: 999
+    y: 86
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &5474585099764249067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: ce4aa649-3192-493e-95ab-cff73a20e145
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u042F \u0442\u043E\u0436\u0435 \u0440\u0430\u0434 \u0442\u0435\u0431\u044F
+    \u0432\u0438\u0434\u0435\u0442\u044C, \u042D\u043D\u0434\u0440\u044E!"
+  children:
+  - 793c4083-3496-4a6b-908e-30abb964fd9c
+  rect:
+    serializedVersion: 2
+    x: 254
+    y: 85
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &8212564754206359753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 670fec68-c95b-4d9a-9199-fe57eb383025
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "\u041D\u0443, \u044D\u0442\u0438\u0445 \u043F\u043E\u0434\u0440\u043E\u0431\u043D\u043E\u0441\u0442\u0435\u0439
+    \u044F \u043D\u0435 \u0437\u043D\u0430\u044E."
+  children:
+  - 168248b4-f7bd-4ec8-a6c9-8f9c8b9f8898
+  rect:
+    serializedVersion: 2
+    x: 1999
+    y: 86
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &8773782669161113386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 793c4083-3496-4a6b-908e-30abb964fd9c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "\u0423 \u043C\u0435\u043D\u044F \u0435\u0441\u0442\u044C \u0434\u043E\u0433\u0430\u0434\u043A\u0438
+    \u043F\u043E \u043F\u043E\u0432\u043E\u0434\u0443 \u043E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u043D\u0438\u044F
+    \u0427\u0435\u0440\u043D\u043E\u0439 \u0434\u044B\u0440\u044B. \u041D\u0435\u0434\u0430\u0432\u043D\u043E
+    \u043E\u0442\u0440\u044F\u0434 \u21162\u0410 \u0432\u044B\u0445\u043E\u0434\u0438\u043B
+    \u043D\u0430 \u0440\u0430\u0437\u0432\u0435\u0434\u043A\u0443 \u0437\u0430 \u043F\u0440\u0435\u0434\u0435\u043B\u044B
+    \u0432\u043E\u0440\u043E\u0442, \u0438 \u0437\u043D\u0430\u0435\u0448\u044C,
+    \u0447\u0442\u043E \u043E\u043D\u0438 \u0442\u0430\u043C \u0443\u0432\u0438\u0434\u0435\u043B\u0438?"
+  children:
+  - 989b566e-54c2-4c24-b22f-795b7181004f
+  rect:
+    serializedVersion: 2
+    x: 499
+    y: 86
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
