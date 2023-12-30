@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-511265243631202319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: bea2ec1e-16f4-435b-b0ba-a1c6223903bb
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "\u0421\u043C\u0435\u0448\u043D\u043E. \u041C\u044B \u043E\u0447\u0435\u043D\u044C
+    \u0434\u043E\u043B\u0433\u043E \u0436\u0434\u0430\u043B\u0438 \u0432\u0430\u0441
+    \u0438 \u0441\u0432\u0435\u0442\u0438\u043B\u0438 \u0444\u043E\u043D\u0430\u0440\u044F\u043C\u0438
+    \u043F\u0440\u044F\u043C\u043E \u0432 \u0432\u043E\u0440\u043E\u0442\u0430, \u043D\u043E
+    \u043D\u0438\u043A\u0442\u043E \u043D\u0435 \u043F\u0440\u0438\u0445\u043E\u0434\u0438\u043B
+    \u043A \u043D\u0430\u043C..."
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 501
+    y: 0
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 591f37a1e8894a141b4d49be861dfef9, type: 3}
+  m_Name: Dialogue with survivor 1
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 908658101897514961}
+  - {fileID: 2963299048359124026}
+  - {fileID: -511265243631202319}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &908658101897514961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 43197651-de4d-4390-99b7-c351eb8a1f14
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "\u041F\u043E\u0433\u043E\u0434\u0438-\u043A\u0430. \u042F \u0437\u043D\u0430\u044E
+    \u0442\u0435\u0431\u044F."
+  children:
+  - 01530c4e-03fc-4731-bc0a-8946878f8b09
+  rect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &2963299048359124026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 01530c4e-03fc-4731-bc0a-8946878f8b09
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u042F \u043F\u0440\u0438\u0448\u0435\u043B \u0441\u044E\u0434\u0430, \u0447\u0442\u043E\u0431\u044B
+    \u043F\u043E\u043C\u043E\u0447\u044C \u0432\u0430\u043C."
+  children:
+  - bea2ec1e-16f4-435b-b0ba-a1c6223903bb
+  rect:
+    serializedVersion: 2
+    x: 250
+    y: 0
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []

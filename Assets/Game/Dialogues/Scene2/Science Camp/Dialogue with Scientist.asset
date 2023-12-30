@@ -84,7 +84,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 2011
-    y: 78
+    y: 77
     width: 200
     height: 100
   onEnterAction: 
@@ -141,7 +141,7 @@ MonoBehaviour:
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: 
+  onExitAction: CompleteQuest
   condition:
     and: []
 --- !u!114 &-3468364782647202562
@@ -189,7 +189,7 @@ MonoBehaviour:
   - 7b820b11-c9ef-4434-b02e-81fc046d0290
   rect:
     serializedVersion: 2
-    x: 14
+    x: 13
     y: 78
     width: 200
     height: 100

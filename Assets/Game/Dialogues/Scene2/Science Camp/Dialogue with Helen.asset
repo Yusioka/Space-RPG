@@ -242,7 +242,7 @@ MonoBehaviour:
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: GiveQuest
+  onExitAction: GiveQuest1
   condition:
     and: []
 --- !u!114 &-3692636401316454086
@@ -277,7 +277,7 @@ MonoBehaviour:
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: 
+  onExitAction: CompleteQuest
   condition:
     and: []
 --- !u!114 &-3151587166956738266

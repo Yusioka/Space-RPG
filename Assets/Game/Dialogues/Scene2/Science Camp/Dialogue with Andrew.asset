@@ -405,11 +405,11 @@ MonoBehaviour:
   - 989b566e-54c2-4c24-b22f-795b7181004f
   rect:
     serializedVersion: 2
-    x: 499
-    y: 86
+    x: 498
+    y: 84
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: 
+  onExitAction: CompleteQuest
   condition:
     and: []

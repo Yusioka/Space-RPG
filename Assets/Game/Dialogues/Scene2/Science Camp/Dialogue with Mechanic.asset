@@ -81,7 +81,7 @@ MonoBehaviour:
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: 
+  onExitAction: GiveQuest
   condition:
     and: []
 --- !u!114 &11400000
@@ -130,7 +130,7 @@ MonoBehaviour:
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: CompleteObjective
+  onExitAction: CompleteQuest
   condition:
     and: []
 --- !u!114 &651220249991797412

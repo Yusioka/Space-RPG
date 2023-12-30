@@ -321,11 +321,11 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 508
-    y: 55
+    y: 54
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: 
+  onExitAction: CompleteQuest
   condition:
     and: []
 --- !u!114 &2494458763165437807

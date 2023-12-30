@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6c737b32510cbf42a68cdb45e2440ef, type: 3}
+  m_Name: Get Ready
+  m_EditorClassIdentifier: 
+  name: Get Ready
+  objectives:
+  - reference: Go to the Mechanic
+    description: 'Mechanic will give you the powerful equipment '
+    usesCondition: 0
+    completionCondition:
+      and: []
+  rewards:
+  - number: 1000
+    item: {fileID: 11400000, guid: 6dccd2c5a9dec8f4b893d64d53557355, type: 2}
+  - number: 450
+    item: {fileID: 11400000, guid: 0c5cea220450b8f4d8ed646b58501fe3, type: 2}
+  - number: 1
+    item: {fileID: 11400000, guid: f1ceb7297b88aaf4e937e4a1cbf3d91d, type: 2}
+  - number: 1
+    item: {fileID: 11400000, guid: 24320eafb7fe1f448a0579e2cd683040, type: 2}
+  - number: 1
+    item: {fileID: 11400000, guid: 353780375e40f45419b4857bbe245aae, type: 2}
+  - number: 1
+    item: {fileID: 11400000, guid: 426e86e5cad235c40aeaf8334d0d52a1, type: 2}
+  - number: 1
+    item: {fileID: 11400000, guid: 14ab4f34eceedfe4ba4e058f87268743, type: 2}
