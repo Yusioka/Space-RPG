@@ -1,8 +1,5 @@
-using UnityEngine;
-
 namespace RPG.Stats
 {
-    // enum - список из вариантов выбора
     public enum CharacterClass
     {
         Player,
@@ -10,6 +7,20 @@ namespace RPG.Stats
         StormyLizard,
         Boss,
         HeavyRobot,
-        BeetleAlchemist
+        BeetleAlchemist,
+        RobotFemale,
+        SpaceSoldierMale,
+        CaptainFemale,
+        Scientist,
+        Male,
+        Female,
+        MedicMale,
+        Junker,
+        WokerMale,
+        Worker,
+        WorkerFemale,
+        CrewFemale,
+        CaptainMale,
+        HunterFemale
     }
 }

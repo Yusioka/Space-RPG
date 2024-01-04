@@ -16,6 +16,11 @@ namespace RPG.Dialogue
 
         public event Action onConversationUpdated;
 
+        public AIConversant GetCurrentConversant()
+        {
+            return currentConversant;
+        }
+
         public void StartDialogue(AIConversant newConversant, Dialogue newDialogue)
         {
             currentConversant = newConversant;
