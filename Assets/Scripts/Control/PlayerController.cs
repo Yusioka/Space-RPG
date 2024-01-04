@@ -327,12 +327,10 @@ namespace RPG.Control
             RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
             foreach (RaycastHit hit in hits)
             {
-                //если нажали на объект, который имеет скрипт CombatTarget, то таргет будет равен этому объекту
                 CombatTarget target = hit.transform.GetComponent<CombatTarget>();
                 if (target == null) continue;
 
-                if (!GetComponent<Fighter>().CanAttack(target.gameObject)) continue; // то же самое, что и ...
-                                                                                     // if (target == null) continue;
+                if (!GetComponent<Fighter>().CanAttack(target.gameObject)) continue;                                                                          
 
                 if (Input.GetMouseButton(0))
                 {

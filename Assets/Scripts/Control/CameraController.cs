@@ -5,24 +5,24 @@ namespace RPG.Control
 {
     public class CameraController : MonoBehaviour
     {
-        [SerializeField] Transform target; // Ссылка на трансформ игрока
+        [SerializeField] Transform target;
         [SerializeField] Transform targetBody;
-        [SerializeField] float cameraSpeed = 2.0f; // Скорость движения камеры
-        [SerializeField] float rotationSpeed = 2.0f; // Скорость вращения камеры
+        [SerializeField] float cameraSpeed = 2.0f;
+        [SerializeField] float rotationSpeed = 2.0f;
 
-        Vector3 offset; // Смещение между камерой и игроком
+        Vector3 offset;
 
-        [SerializeField] bool isRotating; // Флаг для проверки вращения камеры
-        [SerializeField] float minYAngle = 10.0f; // Минимальный угол наклона по вертикали
-        [SerializeField] float maxYAngle = 80.0f; // Максимальный угол наклона по вертикали
+        [SerializeField] bool isRotating;
+        [SerializeField] float minYAngle = 10.0f;
+        [SerializeField] float maxYAngle = 80.0f;
         float currentX = 0.0f;
         float currentY = 0.0f;
 
-        [SerializeField] float zoomSpeed = 2.0f; // Скорость изменения приближения/отдаления
-        [SerializeField] float minZoom = 2.0f; // Минимальное расстояние приближения
-        [SerializeField] float maxZoom = 15.0f; // Максимальное расстояние отдаления
+        [SerializeField] float zoomSpeed = 2.0f;
+        [SerializeField] float minZoom = 2.0f;
+        [SerializeField] float maxZoom = 15.0f;
 
-        [SerializeField] bool isMoving = false; // Флаг для проверки движения персонажа
+        [SerializeField] bool isMoving = false;
         float currentDistance;
 
         Vector3 initialPosition;
@@ -32,7 +32,7 @@ namespace RPG.Control
         {
             if (target == null || target.tag != "Player")
             {
-                return; // Если цель отсутствует, ничего не делаем
+                return;
             }
             offset = transform.position - target.position;
             currentDistance = offset.magnitude;
