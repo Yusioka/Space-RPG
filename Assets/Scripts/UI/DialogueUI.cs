@@ -1,5 +1,6 @@
 using RPG.Attributes;
 using RPG.Dialogue;
+using RPG.Stats;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,13 +19,10 @@ namespace RPG.UI
         [SerializeField] GameObject choicePrefab;
         [SerializeField] Button quitButton;
 
-        NPCObjectDisplay npcObjectDisplay;
-
         private void Start()
         {
             gameObject.SetActive(false);
             playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
-            npcObjectDisplay = GetComponent<NPCObjectDisplay>();
             playerConversant.onConversationUpdated += UpdateUI;
             nextButton.onClick.AddListener(() => playerConversant.Next());
             quitButton.onClick.AddListener(() => playerConversant.Quit());
@@ -43,7 +41,8 @@ namespace RPG.UI
             if (!playerConversant.IsActive()) return;
 
             conversantName.text = playerConversant.GetCurrentConversantName();
-            conversantAvatar.sprite = npcObjectDisplay.GetAvatar().sprite;
+            conversantAvatar.sprite = playerConversant.GetCurrentConversantAvatar();
+
             AIResponse.SetActive(!playerConversant.IsChoosing());
             choiceRoot.gameObject.SetActive(playerConversant.IsChoosing());
 

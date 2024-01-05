@@ -10,9 +10,6 @@ namespace RPG.Attributes
     {
         [SerializeField] AvatarNPCClass[] characterClasses = null;
 
-        AIConversant currentConversant;
-        Image npcAvatar = null;
-        Fighter fighter;
 
         [System.Serializable]
         class AvatarNPCClass
@@ -21,21 +18,22 @@ namespace RPG.Attributes
             public Sprite avatar;
         }
 
-        private void Start()
+
+        private void Update()
         {
-            currentConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>().GetCurrentConversant();
+      //      print(currentConversant);
         }
 
-        public Image GetAvatar()
-        {
-            foreach (AvatarNPCClass characterClass in characterClasses)
-            {
-                if (currentConversant.GetComponent<BaseStats>().GetCharacterClass() == characterClass.characterClass)
-                {
-                    npcAvatar.sprite = characterClass.avatar;
-                }
-            }
-            return npcAvatar;
-        }
+        //public Image GetAvatar()
+        //{
+        //    //foreach (AvatarNPCClass characterClass in characterClasses)
+        //    //{
+        //    //    if (currentConversant.GetComponent<BaseStats>().GetCharacterClass() == characterClass.characterClass)
+        //    //    {
+        //    //        npcAvatar.sprite = characterClass.avatar;
+        //    //    }
+        //    //}
+        //    //return npcAvatar;
+        //}
     }
 }

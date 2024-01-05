@@ -9,6 +9,7 @@ namespace RPG.Dialogue
     public class PlayerConversant : MonoBehaviour
     {
         [SerializeField] string playerName;
+        [SerializeField] Sprite playerAvatar;
         Dialogue currentDialogue;
         DialogueNode currentNode = null;
         AIConversant currentConversant = null;
@@ -16,7 +17,7 @@ namespace RPG.Dialogue
 
         public event Action onConversationUpdated;
 
-        public AIConversant GetCurrentConversant()
+        public AIConversant GetConversant()
         {
             return currentConversant;
         }
@@ -58,6 +59,18 @@ namespace RPG.Dialogue
             else
             {
                 return currentConversant.GetName();
+            }
+        }
+
+        public Sprite GetCurrentConversantAvatar()
+        {
+            if (isChoosing)
+            {
+                return playerAvatar;
+            }
+            else
+            {
+                return currentConversant.GetAvatar();
             }
         }
 

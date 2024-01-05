@@ -11,16 +11,5 @@ namespace RPG.Stats
         RobotFemale,
         SpaceSoldierMale,
         CaptainFemale,
-        Scientist,
-        Male,
-        Female,
-        MedicMale,
-        Junker,
-        WokerMale,
-        Worker,
-        WorkerFemale,
-        CrewFemale,
-        CaptainMale,
-        HunterFemale
     }
 }

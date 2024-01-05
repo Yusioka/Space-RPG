@@ -2360,6 +2360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: Alice
+  playerAvatar: {fileID: 0}
 --- !u!114 &520188628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2388,7 +2389,6 @@ MonoBehaviour:
   startingLevel: 1
   characterClass: 0
   progression: {fileID: 11400000, guid: aff812314e28fe446b5596751c72aa26, type: 2}
-  levelUpParticleEffect: {fileID: 0}
   shouldUseModifiers: 0
 --- !u!114 &520188630
 MonoBehaviour:
@@ -2402,10 +2402,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aad789b83ce5734cb8b141b7fb7917e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenAttacks: 1
   rightHandTransform: {fileID: 1746113480}
   leftHandTransform: {fileID: 206578701}
   defaultWeapon: {fileID: 0}
+  autoAttackRange: 4
 --- !u!114 &520188631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2418,7 +2418,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a246fcfbe7b0ccb45a21a00654d16933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDie:
+    m_PersistentCalls:
+      m_Calls: []
   regenerationPercentage: 70
+  takeDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &520188632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2431,11 +2437,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb5b224b407449347be0a584e0f5dcb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moverController: {fileID: 148867066746060802, guid: 0b86606c9a6845b468d0d6f24a315493, type: 3}
-  buttonsMovingCamera: {fileID: 1967742330}
-  mouseMovingCamera: {fileID: 551169431}
-  raycastRadius: 3
+  maxSpeed: 5
   numberOfAbilities: 6
+  raycastRadius: 3
 --- !u!114 &520188633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2448,8 +2452,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11cd5573723059f428eb38d75ebf80a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moverController: {fileID: 148867066746060802, guid: 0b86606c9a6845b468d0d6f24a315493, type: 3}
-  maxSpeed: 5
 --- !u!114 &520188634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2700,11 +2702,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 521193674}
   m_Mesh: {fileID: 4300000, guid: 66760207264b85f4aa58a577eddc6ce3, type: 3}
---- !u!1 &551169431 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 746113677418115681, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
-  m_PrefabInstance: {fileID: 1050516563}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &571999882
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8002,11 +7999,6 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2583530105999878226, guid: 3d405adf50e44b0419ae154ee6cfd614, type: 3}
   m_PrefabInstance: {fileID: 1957490289}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1967742330 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1599025329587047746, guid: e4b6bafbe01f03f41bcabcf766117766, type: 3}
-  m_PrefabInstance: {fileID: 1050516563}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1992125009
 GameObject:

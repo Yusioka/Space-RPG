@@ -1,4 +1,5 @@
 using RPG.Attributes;
+using RPG.Stats;
 using UnityEngine;
 
 namespace RPG.Dialogue
@@ -7,6 +8,9 @@ namespace RPG.Dialogue
     {
         [SerializeField] Dialogue dialogue;
         [SerializeField] string conversantName;
+        [SerializeField] Sprite conversantAvatar;
+
+        GameObject conversant = null;
 
         //public bool HandleRaycast(PlayerController callingController)
         //{
@@ -29,6 +33,12 @@ namespace RPG.Dialogue
             if (health &&  health.IsDead()) return;
             if (dialogue == null) return;
             GameObject.FindWithTag("Player").GetComponent<PlayerConversant>().StartDialogue(this, dialogue);
+            conversant = gameObject;
+        }
+
+        public Sprite GetAvatar()
+        {
+            return conversantAvatar;
         }
 
         public string GetName()
