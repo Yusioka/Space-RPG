@@ -6925,7 +6925,6 @@ GameObject:
   - component: {fileID: 7842039426496598419}
   - component: {fileID: 972926614609259161}
   - component: {fileID: 3376941377664111306}
-  - component: {fileID: 7690092285534438938}
   - component: {fileID: 2940290675493893611}
   - component: {fileID: 8637750949226752764}
   - component: {fileID: 1100409349904650307}
@@ -7179,6 +7178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: Alice
+  playerAvatar: {fileID: 0}
 --- !u!114 &972926614609259161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7204,18 +7204,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventorySize: 13
---- !u!114 &7690092285534438938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8932019800705468534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bfcd30a858c1234c97ad041d7d44aed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2940290675493893611
 MonoBehaviour:
   m_ObjectHideFlags: 0
