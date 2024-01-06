@@ -24,6 +24,7 @@ namespace RPG.Control
 
         GameObject player;
         Fighter fighter;
+        Fighter playerFighter;
         Health health;
 
         Vector3 guardPosition;
@@ -41,6 +42,7 @@ namespace RPG.Control
         private void Awake()
         {
             player = GameObject.FindGameObjectWithTag("Player");
+            playerFighter = player.GetComponent<Fighter>();
             navMeshAgent = GetComponent<NavMeshAgent>();
             fighter = GetComponent<Fighter>();
             health = GetComponent<Health>();
@@ -57,7 +59,7 @@ namespace RPG.Control
 
             if (CanMoveTo())
             {
-                if (fighter.CanAttack(player) && DistanceToObject(player) < chaseDistance)
+                if (fighter.CanAttack(player) && DistanceToObject(player) < chaseDistance || playerFighter.GetTargetHealth() == health)
                 {
                     timeSinceLastSawPlayer = 0;
                     AttackBehaviour();
@@ -88,6 +90,7 @@ namespace RPG.Control
 
                 if (player.GetComponent<Health>().IsDead())
                 {
+                    HealEnemy();
                     MoveTo(guardPosition, maxSpeed);
                     StartMoveAction();
                 }
@@ -155,10 +158,10 @@ namespace RPG.Control
                 EnemyController ai = hit.collider.GetComponent<EnemyController>();
                 if (ai == null) continue;
 
-                //if (health.GetMaxHealthPoints() > 14000)
-                //{
-                //    ai.Aggrevate();
-                //}
+                if (health.GetMaxHealthPoints() > 14000)
+                {
+                    ai.Aggrevate();
+                }
 
                 if (firstTimeAggrevated)
                 {
@@ -175,6 +178,7 @@ namespace RPG.Control
 
         public void PatrolBehaviour()
         {
+            HealEnemy();
             Vector3 nextPosition = guardPosition;
             navMeshAgent.speed = walkingSpeed;
 
@@ -200,6 +204,7 @@ namespace RPG.Control
             }
             else
             {
+                MoveTo(guardPosition, walkingSpeed);
                 transform.rotation = startRotation;
             }
 
@@ -208,7 +213,6 @@ namespace RPG.Control
             {
                 if (gameObject.GetComponent<NavMeshAgent>().enabled)
                 {
-                    //    HealEnemy();
                     firstTimeAggrevated = true;
                     MoveTo(nextPosition, walkingSpeed);
                 }

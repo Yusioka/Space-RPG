@@ -68,15 +68,16 @@ namespace RPG.Control
                 Cancel();
             }
 
-            //if (Input.GetKeyDown(KeyCode.Space))
-            //{
-            //    GetComponent<ItemDropper>().DropItem(InventoryItem.GetFromID("82be6903-b622-4d76-b85c-34921bb20a80"));
-            //}
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                GetComponent<ItemDropper>().DropItem(InventoryItem.GetFromID("6fb646b9-8b23-46fa-b103-3182ff170e29"));
+            }
 
 
             if (InteractWithUI()) return;
             if (InteractWithComponent()) return;
-            if (InteractWithCombat()) return;
+            if (InteractWithCombatByMouse()) return;
+            InteractWithCombatByButtons();
             UseAbilities();
         }
 
@@ -322,23 +323,64 @@ namespace RPG.Control
             return hits;
         }
 
-        private bool InteractWithCombat()
+        private bool InteractWithCombatByMouse()
         {
+            if (moverController.isButtonsMoving) return false;
+
             RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+            bool hasHitEnemy = false;
+
             foreach (RaycastHit hit in hits)
             {
                 CombatTarget target = hit.transform.GetComponent<CombatTarget>();
                 if (target == null) continue;
 
-                if (!GetComponent<Fighter>().CanAttack(target.gameObject)) continue;                                                                          
+                if (!GetComponent<Fighter>().CanAttack(target.gameObject)) continue;
 
                 if (Input.GetMouseButton(0))
                 {
                     GetComponent<Fighter>().Attack(target.gameObject);
                 }
-                return true;
+
+                hasHitEnemy = true;
+                break;
             }
-            return false;
+
+            if (!hasHitEnemy && Input.GetMouseButton(0))
+            {
+                GetComponent<Fighter>().Cancel();
+            }
+
+            return hasHitEnemy;
+        }
+
+        private void InteractWithCombatByButtons()
+        {
+            if (!moverController.isButtonsMoving) return;
+
+            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+            bool hasHitEnemy = false;
+
+            foreach (RaycastHit hit in hits)
+            {
+                CombatTarget target = hit.transform.GetComponent<CombatTarget>();
+                if (target == null) continue;
+
+                if (!GetComponent<Fighter>().CanAttack(target.gameObject)) continue;
+
+                if (Input.GetMouseButton(1))
+                {
+                    GetComponent<Fighter>().Attack(target.gameObject);
+                }
+
+                hasHitEnemy = true;
+                break;
+            }
+
+            if (!hasHitEnemy && Input.GetMouseButton(0))
+            {
+                GetComponent<Fighter>().Cancel();
+            }
         }
     }
 }

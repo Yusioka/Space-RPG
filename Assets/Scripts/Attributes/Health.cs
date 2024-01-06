@@ -4,6 +4,8 @@ using RPG.Saving;
 using RPG.Stats;
 using RPG.Core;
 using RPG.Combat;
+using System.Collections;
+using UnityEngine.AI;
 
 namespace RPG.Attributes
 {
@@ -93,6 +95,7 @@ namespace RPG.Attributes
             if (!wasDeadLastFrame && IsDead())
             {
                 animator.SetTrigger("die");
+                StartCoroutine(DieBehaviour());
                 GetComponent<ActionSceduler>().CancelCurrentAction();
             }
             else if (wasDeadLastFrame && !IsDead())
@@ -126,6 +129,18 @@ namespace RPG.Attributes
         {
             HealthPoints = (float)state;
             UpdateState();
+        }
+
+        private IEnumerator DieBehaviour()
+        {
+            gameObject.GetComponent<NavMeshAgent>().enabled = false;
+            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+            yield return new WaitForSecondsRealtime(3f);
+
+            gameObject.GetComponent<Rigidbody>().constraints = 0;
+
+            yield return new WaitForSecondsRealtime(1f);
+            Destroy(gameObject);
         }
     }
 }
