@@ -237,8 +237,8 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 1505
-    y: 156
+    x: 1503
+    y: 155
     width: 200
     height: 100
   onEnterAction: 
@@ -431,12 +431,12 @@ MonoBehaviour:
   - cdd2ff10-efdf-4f2a-8d4f-ab29e85916af
   rect:
     serializedVersion: 2
-    x: 2003
+    x: 2002
     y: 269
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: QiveQuest
+  onExitAction: QiveQuest2
   condition:
     and: []
 --- !u!114 &1640151885258941685
@@ -494,7 +494,7 @@ MonoBehaviour:
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: CompleteQuest
+  onExitAction: CompleteQuest1
   condition:
     and: []
 --- !u!114 &2235181554685438517
@@ -715,7 +715,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 1010
-    y: 47
+    y: 46
     width: 200
     height: 100
   onEnterAction: 

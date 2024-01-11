@@ -53,7 +53,7 @@ namespace RPG.Control
         {
             if (CanMoveTo())
             {
-                if (DistanceToPlayer(player) < chaseDistance)
+                if (player != null && DistanceToPlayer(player) < chaseDistance)
                 {
                     LookAtPlayer();
                 }
@@ -73,9 +73,9 @@ namespace RPG.Control
             {
                 if (AtWaypoint() && waypointDwellTime != 0)
                 {
+                    animator.Play("Idle");
                     navMeshAgent.velocity = Vector3.zero;
                     navMeshAgent.isStopped = true;
-                    animator.Play("Idle");
                     timeSinceArrivedAtWaypoint = 0;
                     CycleWaypoint();
                 }

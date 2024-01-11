@@ -74,7 +74,8 @@ MonoBehaviour:
   isPlayerSpeaking: 0
   text: "\u0414\u0430, \u044F \u043E\u0442\u0442\u0443\u0434\u0430. \u0422\u0435\u0431\u044F
     \u043F\u043E\u0441\u043B\u0430\u043B\u0438, \u0447\u0442\u043E\u0431\u044B \u0441\u043F\u0430\u0441\u0442\u0438
-    \u043D\u0430\u0441?"
+    \u043D\u0430\u0441? \u041C\u0435\u043D\u044F, \u043A\u0441\u0442\u0430\u0442\u0438,
+    Diego \u0437\u043E\u0432\u0443\u0442."
   children:
   - 0e64b407-85d0-401b-99cd-69dfa0b0079a
   rect:
@@ -136,7 +137,7 @@ MonoBehaviour:
   - 5cba88bb-0aad-40d7-83a8-c6ffea81924d
   rect:
     serializedVersion: 2
-    x: 2000
+    x: 1999
     y: 1
     width: 200
     height: 100
@@ -251,7 +252,7 @@ MonoBehaviour:
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: 
+  onExitAction: CompleteQuest
   condition:
     and: []
 --- !u!114 &11400000
@@ -338,7 +339,7 @@ MonoBehaviour:
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: QiveQuest
+  onExitAction: QiveQuest1
   condition:
     and: []
 --- !u!114 &2805640627908619999
@@ -441,12 +442,12 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 3000
+    x: 2999
     y: 0
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: 
+  onExitAction: GiveQuest
   condition:
     and: []
 --- !u!114 &5240709400626739097
