@@ -18,6 +18,9 @@ namespace RPG.Control
         [SerializeField] int numberOfAbilities = 6;
         [SerializeField] float raycastRadius = 3f;
 
+        [SerializeField] GameObject malePrefab;
+        [SerializeField] GameObject femalePrefab;
+
         RaycastHit hit;
         bool hasHit;
         NavMeshAgent navMeshAgent;
@@ -55,6 +58,21 @@ namespace RPG.Control
             actionStore = GetComponent<ActionStore>();
         }
 
+        private void Start()
+        {
+            if (GameObject.FindAnyObjectByType<PickingCharacter>().IsMale)
+            {
+                femalePrefab.SetActive(false);
+                malePrefab.SetActive(true);
+            }
+
+            else
+            {
+                femalePrefab.SetActive(true);
+                malePrefab.SetActive(false);
+            }
+        }
+
         private void Update()
         {
             if (health.IsDead()) return;
@@ -70,7 +88,7 @@ namespace RPG.Control
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                GetComponent<ItemDropper>().DropItem(InventoryItem.GetFromID("6fb646b9-8b23-46fa-b103-3182ff170e29"));
+                GetComponent<ItemDropper>().DropItem(InventoryItem.GetFromID("d00e48d4-1584-4888-a11d-183c8308149d"));
             }
 
 

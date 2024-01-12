@@ -11,12 +11,18 @@ namespace RPG.UI
     public class MainMenuUI : MonoBehaviour
     {
         [SerializeField] TMP_InputField newGameNameField;
+        [SerializeField] GameObject chooseCharacterUI;
 
-        LazyValue<SavingWrapper> savingWrapper;
+        SavingWrapper savingWrapper;
+
+        public TMP_InputField GetNewGameNameField()
+        {
+            return newGameNameField;
+        }
 
         private void Awake()
         {
-            savingWrapper = new LazyValue<SavingWrapper>(GetSavingWpapper);
+            savingWrapper = FindObjectOfType<SavingWrapper>();
         }
 
         private void Update()
@@ -24,20 +30,16 @@ namespace RPG.UI
             if (savingWrapper == null) print("null");
         }
 
-        private SavingWrapper GetSavingWpapper()
-        {
-            return FindObjectOfType<SavingWrapper>();
-        }
-
         public void ContinueGame()
         {
-            savingWrapper.value.ContinueGame();
+            savingWrapper.ContinueGame();
         }
 
-        public void NewGame()
+        public void ChooseCharacter()
         {
-            savingWrapper.value.NewGame(newGameNameField.text);
+            chooseCharacterUI.SetActive(true);
         }
+
         public void QuitGame()
         {
             Application.Quit();

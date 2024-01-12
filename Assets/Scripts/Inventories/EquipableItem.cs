@@ -15,6 +15,9 @@ namespace RPG.Inventories
         [SerializeField] EquipLocation allowedEquipLocation = EquipLocation.Weapon;
         [SerializeField] Condition equipCondition;
 
+        //  [SerializeField] GameObject equipObject;
+        const string equipName = "Equipment";
+
         // PUBLIC
 
         public bool CanEquip(EquipLocation equipLocation, Equipment equipment)
@@ -27,6 +30,28 @@ namespace RPG.Inventories
         public EquipLocation GetAllowedEquipLocation()
         {
             return allowedEquipLocation;
+        }
+
+        public void Equip(Transform gameObject)
+        {
+     //       DestroyOldEquipment(gameObject, equipName);
+
+            string name = this.name;
+            Transform equipObject = gameObject.Find(name);
+            if (equipObject != null)
+            {
+                equipObject.gameObject.SetActive(true);
+            //    equipObject.name = equipName;
+            }
+        }
+
+        public void DestroyOldEquipment(Transform gameObject, string name)
+        {
+            Transform oldEquipment = gameObject.Find(name);
+            if (oldEquipment != null)
+            {
+                oldEquipment.gameObject.SetActive(false);
+            }
         }
     }
 }

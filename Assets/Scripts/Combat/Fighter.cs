@@ -33,6 +33,7 @@ namespace RPG.Combat
             if (equipment)
             {
                 equipment.equipmentUpdated += UpdateWeapon;
+                equipment.equipmentUpdated += UpdateEquipment;
             }
         }
 
@@ -92,6 +93,28 @@ namespace RPG.Combat
             else
             {
                 EquipWeapon(weapon);
+            }
+        }
+
+        private void EquipItem(EquipableItem equipableItem)
+        {
+            if (equipableItem != null)
+            {
+                equipableItem.Equip(gameObject.transform);
+            }
+        }
+
+        private void UpdateEquipment()
+        {
+            var body = equipment.GetItemInSlot(EquipLocation.Body) as EquipableItem;
+            var helmet = equipment.GetItemInSlot(EquipLocation.Helmet) as EquipableItem;
+            if (body != null)
+            {
+                EquipItem(body);
+            }
+            if (helmet != null)
+            {
+                EquipItem(helmet);
             }
         }
 

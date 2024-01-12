@@ -2,6 +2,7 @@ using RPG.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace RPG.Dialogue
@@ -9,7 +10,8 @@ namespace RPG.Dialogue
     public class PlayerConversant : MonoBehaviour
     {
         [SerializeField] string playerName;
-        [SerializeField] Sprite playerAvatar;
+        [SerializeField] Sprite playerAvatarMale;
+        [SerializeField] Sprite playerAvatarFemale;
         Dialogue currentDialogue;
         DialogueNode currentNode = null;
         AIConversant currentConversant = null;
@@ -66,7 +68,15 @@ namespace RPG.Dialogue
         {
             if (isChoosing)
             {
-                return playerAvatar;
+                if (GameObject.FindAnyObjectByType<PickingCharacter>().IsMale)
+                {
+                    return playerAvatarMale;
+                }
+
+                else
+                {
+                    return playerAvatarFemale;
+                }
             }
             else
             {
