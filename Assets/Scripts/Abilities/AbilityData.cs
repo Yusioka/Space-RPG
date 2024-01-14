@@ -21,6 +21,11 @@ namespace RPG.Abilities
             return user;
         }
 
+        public GameObject GetPlayer()
+        {
+            return GameObject.FindWithTag("Player");
+        }
+
         public Vector3 GetTargetedPoint()
         {
             return targetedPoint;

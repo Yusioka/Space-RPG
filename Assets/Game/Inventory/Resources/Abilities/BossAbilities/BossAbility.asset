@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92660520728c8f6498c4d413d9bf015d, type: 3}
+  m_Name: BossAbility
+  m_EditorClassIdentifier: 
+  itemID: 51b5b110-4384-4c7c-b3eb-9bff25a6c4c3
+  displayName: Ass
+  description: 
+  icon: {fileID: 0}
+  pickup: {fileID: 0}
+  stackable: 0
+  price: 0
+  category: 5
+  consumable: 0
+  targetingStrategy: {fileID: 11400000, guid: 167460d7d54f26a4699a273d5e0f55b0, type: 2}
+  filterStrategies: []
+  effectStrategies:
+  - {fileID: 11400000, guid: da49608e870e5244a8568c355dcfd76b, type: 2}
+  - {fileID: 11400000, guid: 5457e346e27557847ba517d033e0041a, type: 2}
+  cooldownTime: 50
+  manaCost: 0

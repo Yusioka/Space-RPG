@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 492ff09a115185040901cec4aaca076a, type: 3}
-  m_Name: Health Effect
+  m_Script: {fileID: 11500000, guid: a826d95a0ac8c734e8c075808166afb1, type: 3}
+  m_Name: Continual Health Effect
   m_EditorClassIdentifier: 
   healthChange: -2
+  duration: 60

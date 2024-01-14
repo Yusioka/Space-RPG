@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d450ddd0b0429874cb40ff92fcd9d535, type: 3}
-  m_Name: Unarmed
+  m_Name: BossSword1
   m_EditorClassIdentifier: 
-  itemID: 54c204dc-c9c7-4fe0-82c4-c79a7720bb13
+  itemID: e06f63e8-1f1a-43ba-a4b4-67d42193a3c4
   displayName: 
   description: 
   icon: {fileID: 0}
@@ -25,9 +25,9 @@ MonoBehaviour:
     and: []
   animatorOverride: {fileID: 0}
   timeBetweenAttacks: 1
-  equippedPrefab: {fileID: 0}
+  equippedPrefab: {fileID: 1965644220271741421, guid: 84bb4d6cf0b32984d90a9551769ccf72, type: 3}
   isRightHanded: 1
-  weaponDamage: 10
-  weaponRange: 5
+  weaponDamage: 0
+  weaponRange: 4
   percentageBonus: 0
   projectile: {fileID: 0}

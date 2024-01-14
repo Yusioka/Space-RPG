@@ -10,6 +10,11 @@ namespace RPG.Attributes
 
         private void Start()
         {
+            if (GameObject.FindAnyObjectByType<PickingCharacter>() == null)
+            {
+                femaleAvatar.SetActive(true);
+                maleAvatar.SetActive(false);
+            }
             if (GameObject.FindAnyObjectByType<PickingCharacter>().IsMale)
             {
                 femaleAvatar.SetActive(false);
