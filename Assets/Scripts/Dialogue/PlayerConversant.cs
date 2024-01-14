@@ -68,6 +68,10 @@ namespace RPG.Dialogue
         {
             if (isChoosing)
             {
+                if (GameObject.FindAnyObjectByType<PickingCharacter>() == null)
+                {
+                    return playerAvatarFemale;
+                }
                 if (GameObject.FindAnyObjectByType<PickingCharacter>().IsMale)
                 {
                     return playerAvatarMale;

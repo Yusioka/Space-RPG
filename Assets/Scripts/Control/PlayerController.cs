@@ -60,6 +60,11 @@ namespace RPG.Control
 
         private void Start()
         {
+            if (GameObject.FindAnyObjectByType<PickingCharacter>() == null)
+            {
+                femalePrefab.SetActive(true);
+                malePrefab.SetActive(false);
+            }
             if (GameObject.FindAnyObjectByType<PickingCharacter>().IsMale)
             {
                 femalePrefab.SetActive(false);
@@ -92,7 +97,7 @@ namespace RPG.Control
             }
 
 
-            if (InteractWithUI()) return;
+       //     if (InteractWithUI()) return;
             if (InteractWithComponent()) return;
             if (InteractWithCombatByMouse()) return;
             InteractWithCombatByButtons();
@@ -296,24 +301,24 @@ namespace RPG.Control
                 }
             }
         }
-        private bool InteractWithUI()
-        {
-            if (Input.GetMouseButtonUp(0))
-            {
-                isDraggingUI = false;
-            }
-            if (EventSystem.current.IsPointerOverGameObject())
-            {
-                if (Input.GetMouseButtonDown(0))
-                {
-                    isDraggingUI = true;
-                }
-                // SetCursor(CursorType.UI);
-                return true;
-            }
-            if (isDraggingUI) return true;
-            else return false;
-        }
+        //private bool InteractWithUI()
+        //{
+        //    if (Input.GetMouseButtonUp(0))
+        //    {
+        //        isDraggingUI = false;
+        //    }
+        //    if (EventSystem.current.IsPointerOverGameObject())
+        //    {
+        //        if (Input.GetMouseButtonDown(0))
+        //        {
+        //            isDraggingUI = true;
+        //        }
+        //        // SetCursor(CursorType.UI);
+        //        return true;
+        //    }
+        //    if (isDraggingUI) return true;
+        //    else return false;
+        //}
         private bool InteractWithComponent()
         {
             foreach (RaycastHit hit in RaycastAllSorted())
