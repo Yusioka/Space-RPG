@@ -56,9 +56,9 @@ namespace RPG.Control
         private void Update()
         {
             if (isBlocking) return;
-
             if (CanMoveTo())
             {
+
                 if (fighter.CanAttack(player) && DistanceToObject(player) < chaseDistance || playerFighter.GetTargetHealth() == health)
                 {
                     timeSinceLastSawPlayer = 0;

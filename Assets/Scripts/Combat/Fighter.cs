@@ -8,6 +8,7 @@ using GameDevTV.Utils;
 using System.Collections.Generic;
 using UnityEngine.AI;
 using JetBrains.Annotations;
+using RPG.Control;
 
 namespace RPG.Combat
 {
@@ -53,12 +54,13 @@ namespace RPG.Combat
                 if (target == null) return;
             }
 
-            if (!GetIsInRange(target.transform))
+            if (!GetIsInRange(target.transform) && !GameObject.FindWithTag("Player").GetComponent<MoverController>().IsButtonsMoving())
             {
                 GetComponent<NavMeshAgent>().isStopped = false;
                 GetComponent<IMover>().MoveTo(target.transform.position, 1f);
             }
-            else
+
+            else if (GetIsInRange(target.transform))
             {
                 GetComponent<NavMeshAgent>().isStopped = true;
                 AttackBehaviour();
@@ -233,14 +235,45 @@ namespace RPG.Combat
         private void TriggerAttack()
         {
             GetComponent<Animator>().ResetTrigger("stopAttack");
-            GetComponent<Animator>().SetTrigger("attack");
+
+            int randomIndex = Random.Range(0, 2);
+
+            if (HasTrigger(GetComponent<Animator>(), "secondAttack"))
+            {
+                if (randomIndex == 0) GetComponent<Animator>().SetTrigger("attack");
+                else if (randomIndex == 1) GetComponent<Animator>().SetTrigger("secondAttack");
+            }
+
+            else
+            {
+                GetComponent<Animator>().SetTrigger("attack");
+            }
         }
 
         private void ResetTriggerAttack()
         {
+            if (HasTrigger(GetComponent<Animator>(), "secondAttack"))
+            {
+                GetComponent<Animator>().ResetTrigger("secondAttack");
+            }
+
             GetComponent<Animator>().ResetTrigger("attack");
             GetComponent<Animator>().SetTrigger("stopAttack");
         }
 
+        private bool HasTrigger(Animator animator, string triggerName)
+        {
+            AnimatorControllerParameter[] parameters = animator.parameters;
+
+            foreach (var parameter in parameters)
+            {
+                if (parameter.type == AnimatorControllerParameterType.Trigger && parameter.name == triggerName)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }
