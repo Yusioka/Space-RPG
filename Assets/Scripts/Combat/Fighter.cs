@@ -54,16 +54,34 @@ namespace RPG.Combat
                 if (target == null) return;
             }
 
-            if (!GetIsInRange(target.transform) && !GameObject.FindWithTag("Player").GetComponent<MoverController>().IsButtonsMoving())
+            if (gameObject == GameObject.FindWithTag("Player"))
             {
-                GetComponent<NavMeshAgent>().isStopped = false;
-                GetComponent<IMover>().MoveTo(target.transform.position, 1f);
-            }
+                if (!GetIsInRange(target.transform) && !GameObject.FindWithTag("Player").GetComponent<MoverController>().IsButtonsMoving())
+                {
+                    GetComponent<NavMeshAgent>().enabled = true;
+                    GetComponent<IMover>().MoveTo(target.transform.position, 1f);
+                }
 
-            else if (GetIsInRange(target.transform))
+                else if (GetIsInRange(target.transform))
+                {
+                    GetComponent<NavMeshAgent>().enabled = false;
+                    AttackBehaviour();
+                }
+            }
+            
+            else
             {
-                GetComponent<NavMeshAgent>().isStopped = true;
-                AttackBehaviour();
+                if (!GetIsInRange(target.transform))
+                {
+                    GetComponent<NavMeshAgent>().enabled = true;
+                    GetComponent<IMover>().MoveTo(target.transform.position, 1f);
+                }
+
+                else
+                {
+                    GetComponent<NavMeshAgent>().enabled = false;
+                    AttackBehaviour();
+                }
             }
         }
 

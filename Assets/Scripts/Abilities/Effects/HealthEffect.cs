@@ -14,6 +14,7 @@ namespace RPG.Abilities.Effects
             foreach (var target in data.GetTargets())
             {
                 var health = target.GetComponent<Health>();
+
                 if (health)
                 {
                     if (healthChange < 0)
