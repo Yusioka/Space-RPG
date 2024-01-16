@@ -32,6 +32,16 @@ namespace RPG.Control
         ActionStore actionStore;
         bool isDraggingUI = false;
 
+        [SerializeField] CursorMapping[] cursorMappings = null;
+
+        [System.Serializable]
+        public struct CursorMapping
+        {
+          //  public CursorType type;
+            public Texture2D texture;
+            public Vector2 hotspot;
+        }
+
         public float GetSpeed()
         {
             if (moverController.IsButtonsMoving())
@@ -80,6 +90,8 @@ namespace RPG.Control
 
         private void Update()
         {
+            if (InteractWithUI()) return;
+
             if (health.IsDead()) return;
 
             if (CanMoveTo())
@@ -97,7 +109,6 @@ namespace RPG.Control
             }
 
 
-       //     if (InteractWithUI()) return;
             if (InteractWithComponent()) return;
             if (InteractWithCombatByMouse()) return;
             InteractWithCombatByButtons();
@@ -301,24 +312,24 @@ namespace RPG.Control
                 }
             }
         }
-        //private bool InteractWithUI()
-        //{
-        //    if (Input.GetMouseButtonUp(0))
-        //    {
-        //        isDraggingUI = false;
-        //    }
-        //    if (EventSystem.current.IsPointerOverGameObject())
-        //    {
-        //        if (Input.GetMouseButtonDown(0))
-        //        {
-        //            isDraggingUI = true;
-        //        }
-        //        // SetCursor(CursorType.UI);
-        //        return true;
-        //    }
-        //    if (isDraggingUI) return true;
-        //    else return false;
-        //}
+        private bool InteractWithUI()
+        {
+            if (Input.GetMouseButtonUp(0))
+            {
+                isDraggingUI = false;
+            }
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    isDraggingUI = true;
+                }
+                // SetCursor(CursorType.UI);
+                return true;
+            }
+            if (isDraggingUI) return true;
+            else return false;
+        }
         private bool InteractWithComponent()
         {
             foreach (RaycastHit hit in RaycastAllSorted())

@@ -34,7 +34,6 @@ namespace RPG.Inventories
                 return null;
             }
 
-            print(equippedItems[equipLocation]);
             return equippedItems[equipLocation];
         }
 

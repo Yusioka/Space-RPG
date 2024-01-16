@@ -61,6 +61,7 @@ namespace RPG.Control
 
                 if (fighter.CanAttack(player) && DistanceToObject(player) < chaseDistance || playerFighter.GetTargetHealth() == health)
                 {
+                    if (health.IsDead()) return;
                     timeSinceLastSawPlayer = 0;
                     AttackBehaviour();
                 }

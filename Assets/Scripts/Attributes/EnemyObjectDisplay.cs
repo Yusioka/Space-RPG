@@ -28,6 +28,7 @@ namespace RPG.Attributes
         private void Update()
         {
             Health target = fighter.GetTargetHealth();
+
             if (target == null)
             {
                 enemyObject.SetActive(false);

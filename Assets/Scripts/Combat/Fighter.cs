@@ -77,12 +77,14 @@ namespace RPG.Combat
                     GetComponent<IMover>().MoveTo(target.transform.position, 1f);
                 }
 
-                else
+                else if (GetIsInRange(target.transform))
                 {
                     GetComponent<NavMeshAgent>().enabled = false;
                     AttackBehaviour();
                 }
             }
+
+            GetComponent<NavMeshAgent>().enabled = true;
         }
 
         private Weapon AttachWeapon(WeaponConfig weapon)

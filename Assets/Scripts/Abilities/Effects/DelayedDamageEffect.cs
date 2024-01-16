@@ -60,7 +60,7 @@ namespace RPG.Abilities.Effects
 
         private IEnumerable<GameObject> GetGameObjectsInRadius(Vector3 point)
         {
-            Collider[] colliders = Physics.OverlapSphere(point, areaAffectRadius);
+            Collider[] colliders = Physics.OverlapSphere(point, areaAffectRadius * 6);
 
             foreach (var collider in colliders)
             {

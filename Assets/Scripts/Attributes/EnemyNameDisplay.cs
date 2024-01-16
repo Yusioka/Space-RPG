@@ -16,7 +16,7 @@ namespace RPG.Attributes
 
         private void Update()
         {
-            BaseStats stats = fighter.GetTargetHealth().gameObject.GetComponent<BaseStats>();
+            if (fighter.GetTargetHealth() == null) return;
 
             GetComponent<TextMeshProUGUI>().text = fighter.GetTargetHealth().gameObject.name;
 

@@ -17,7 +17,13 @@ namespace RPG.Abilities
 
         private void Update()
         {
-            BaseStats stats = fighter.GetTargetHealth().gameObject.GetComponent<BaseStats>();
+            Health health = fighter.GetTargetHealth();
+
+            if (health == null) return;
+
+            BaseStats stats = health.gameObject.GetComponent<BaseStats>();
+
+            if (stats == null) return;
 
             GetComponent<TextMeshProUGUI>().text = stats.CalculateLevel().ToString();
         }

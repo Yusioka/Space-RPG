@@ -36,7 +36,7 @@ namespace RPG.Control
             }
             offset = transform.position - target.position;
             currentDistance = offset.magnitude;
-         //   initialPosition = transform.position;
+            initialPosition = transform.position;
         }
 
         void LateUpdate()
@@ -136,6 +136,23 @@ namespace RPG.Control
                     targetBody.position += cameraForward * targetSpeed * Time.deltaTime; // Перемещаем таргет вперед
                 }
             }        
+        }
+
+        private void OnMouseDown()
+        {
+            if (Input.GetMouseButton(1))
+            {
+                initialPosition = transform.position;
+            }
+            if (Input.GetMouseButton(0))
+            {
+                transform.position = initialPosition;
+            }
+        }
+
+        private void OnMouseUp()
+        {
+            transform.position = initialPosition;
         }
     }
 }

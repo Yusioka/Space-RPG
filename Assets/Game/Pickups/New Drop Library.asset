@@ -14,19 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   potentialDrops:
   - item: {fileID: 11400000, guid: 0c5cea220450b8f4d8ed646b58501fe3, type: 2}
-    relativeChance:
-    - 50
-    - 50
-    - 50
-    - 50
-    - 50
-    minNumber: 3200000032000000320000003200000032000000
-    maxNumber: 9600000096000000960000009600000096000000
-  dropChancePercentage:
-  - 100
-  - 100
-  - 100
-  - 100
-  - 100
-  minDrops: 3200000032000000320000003200000032000000
-  maxDrops: 9600000096000000960000009600000096000000
+    relativeChance: []
+    minNumber: 
+    maxNumber: 
+  dropChancePercentage: []
+  minDrops: 
+  maxDrops: 

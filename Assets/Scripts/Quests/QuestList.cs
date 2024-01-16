@@ -48,7 +48,7 @@ namespace RPG.Quests
             return statuses;
         }
 
-        private bool HasQuest(Quest quest)
+        public bool HasQuest(Quest quest)
         {
             return GetQuestStatus(quest) != null;
         }
