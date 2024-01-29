@@ -97,6 +97,31 @@ MonoBehaviour:
   onExitAction: 
   condition:
     and: []
+--- !u!114 &-3487939699907122955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: e91115b9-2c49-4928-ab84-2b5ee6647f71
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "\u041E\u0443... \u043B\u0430\u0434\u043D\u043E."
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 501
+    y: 186.00002
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
 --- !u!114 &-382263217424256943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,7 +213,45 @@ MonoBehaviour:
   - {fileID: -353200216387799098}
   - {fileID: 1054941341937842986}
   - {fileID: 2628250233471793318}
+  - {fileID: 452801129681356938}
+  - {fileID: -3487939699907122955}
   newNodeOffset: {x: 250, y: 0}
+--- !u!114 &452801129681356938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 11218e47-7ab0-4bc3-958e-63b2c6d6c4b1
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u041F\u0440\u0438\u0432\u0435\u0442. \u042F \u0441\u0435\u0439\u0447\u0430\u0441
+    \u0437\u0430\u043D\u044F\u0442, \u0438\u0437\u0432\u0438\u043D\u0438."
+  children:
+  - e91115b9-2c49-4928-ab84-2b5ee6647f71
+  rect:
+    serializedVersion: 2
+    x: 251
+    y: 186.00002
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - More Details
+        negate: 1
+      - predicate: CompletedQuest
+        parameters:
+        - More Details
+        negate: 0
 --- !u!114 &1054941341937842986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,9 +297,10 @@ MonoBehaviour:
     \u0442\u0435\u0431\u044F, \u0434\u0430\u0432\u043D\u043E \u043D\u0435 \u0432\u0438\u0434\u0435\u043B\u0438\u0441\u044C!"
   children:
   - ce4aa649-3192-493e-95ab-cff73a20e145
+  - 11218e47-7ab0-4bc3-958e-63b2c6d6c4b1
   rect:
     serializedVersion: 2
-    x: 4
+    x: 2
     y: 85
     width: 200
     height: 100
@@ -353,7 +417,17 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    and: []
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - More Details
+        negate: 0
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - More Details
+        negate: 1
 --- !u!114 &8212564754206359753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,6 +445,7 @@ MonoBehaviour:
     \u044F \u043D\u0435 \u0437\u043D\u0430\u044E."
   children:
   - 168248b4-f7bd-4ec8-a6c9-8f9c8b9f8898
+  - 9d7b060e-713f-40aa-a67e-2f00d7665d85
   rect:
     serializedVersion: 2
     x: 1999

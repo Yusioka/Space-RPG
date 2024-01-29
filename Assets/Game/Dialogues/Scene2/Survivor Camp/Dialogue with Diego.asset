@@ -26,7 +26,12 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    and: []
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Looking for information
+        negate: 1
 --- !u!114 &-6603175647739515080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,10 +168,36 @@ MonoBehaviour:
   children:
   - 6627b4bd-5348-48c8-964b-b437f6299960
   - 0b438e04-b5bc-449f-884d-f54c35429b90
+  - e0c2a32a-1971-420e-905b-37de0fbdf4b6
   rect:
     serializedVersion: 2
     x: 0
     y: 0
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-3435784310612476496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: b4a191f6-ddb1-4d02-b19f-78aa4c9aa0a1
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: ...
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 504
+    y: 216.00002
     width: 200
     height: 100
   onEnterAction: 
@@ -286,7 +317,40 @@ MonoBehaviour:
   - {fileID: 2689721342092041893}
   - {fileID: 1610150383056487188}
   - {fileID: -5104875949735713638}
+  - {fileID: 1025602541176926754}
+  - {fileID: -3435784310612476496}
   newNodeOffset: {x: 250, y: 0}
+--- !u!114 &1025602541176926754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: e0c2a32a-1971-420e-905b-37de0fbdf4b6
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u0418\u0437\u0432\u0438\u043D\u0438..."
+  children:
+  - b4a191f6-ddb1-4d02-b19f-78aa4c9aa0a1
+  rect:
+    serializedVersion: 2
+    x: 253
+    y: 216.00002
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Looking for information
+        negate: 0
 --- !u!114 &1610150383056487188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,4 +599,15 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    and: []
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Dangerous Adventure
+        negate: 0
+    - or:
+      - predicate: CompletedObjective
+        parameters:
+        - Dangerous Adventure
+        - Find survivors
+        negate: 1

@@ -52,7 +52,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 1755
-    y: 8
+    y: 9
     width: 200
     height: 100
   onEnterAction: 
@@ -295,14 +295,24 @@ MonoBehaviour:
   - b8bcacb8-a7bb-47b2-b6e7-31894a10f9f7
   rect:
     serializedVersion: 2
-    x: 250
-    y: 0
+    x: 244
+    y: -1
     width: 200
     height: 100
   onEnterAction: 
   onExitAction: 
   condition:
-    and: []
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Looking for information
+        negate: 0
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Looking for information
+        negate: 1
 --- !u!114 &908658101897514961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,4 +502,14 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    and: []
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Get dressed, man x2
+        negate: 0
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Get dressed, man x2
+        negate: 0

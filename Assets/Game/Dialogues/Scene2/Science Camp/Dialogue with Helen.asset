@@ -29,6 +29,45 @@ MonoBehaviour:
   onExitAction: 
   condition:
     and: []
+--- !u!114 &-8729165076956882158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 8d3cb6c8-95bc-4995-8963-a9c6bd37e694
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u041D\u0435\u0442, \u043D\u0438\u0447\u0435\u0433\u043E."
+  children:
+  - 2c190ac1-8c8c-45f6-a651-2af6593f2b8a
+  rect:
+    serializedVersion: 2
+    x: 256
+    y: 368
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Speak with Scientist
+        negate: 0
+      - predicate: HasQuest
+        parameters:
+        - Get Ready
+        negate: 0
+      - predicate: HasQuest
+        parameters:
+        - Dangerous Adventure
+        negate: 0
 --- !u!114 &-8315220527598993967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,7 +157,17 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    and: []
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Get Ready
+        negate: 0
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Get Ready
+        negate: 0
 --- !u!114 &-5973663512645462843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +233,22 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    and: []
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Speak with Scientist
+        negate: 1
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Get Ready
+        negate: 1
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Dangerous Adventure
+        negate: 1
 --- !u!114 &-4643106980848050754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,6 +364,7 @@ MonoBehaviour:
   - 1e08b313-a6f9-45f4-a542-9d481e5e4a06
   - 601593aa-43e5-4a0b-9e87-fd96fc6e0ec4
   - cbf480b5-5039-456d-97fc-8ab9a062537b
+  - 8d3cb6c8-95bc-4995-8963-a9c6bd37e694
   rect:
     serializedVersion: 2
     x: 7
@@ -372,6 +437,8 @@ MonoBehaviour:
   - {fileID: 968015534372403331}
   - {fileID: -2705186008750147732}
   - {fileID: 2235181554685438517}
+  - {fileID: -8729165076956882158}
+  - {fileID: 6326337106823539594}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &253745303408653936
 MonoBehaviour:
@@ -584,7 +651,17 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    and: []
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Something Strange
+        negate: 0
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Something Strange
+        negate: 1
 --- !u!114 &5314009531238771359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -635,6 +712,31 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1753
     y: 269
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &6326337106823539594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 2c190ac1-8c8c-45f6-a651-2af6593f2b8a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "\u041B\u0430\u0434\u043D\u043E."
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 506
+    y: 368
     width: 200
     height: 100
   onEnterAction: 

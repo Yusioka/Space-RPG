@@ -56,6 +56,41 @@ MonoBehaviour:
   onExitAction: 
   condition:
     and: []
+--- !u!114 &-7122223879947768563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: d1c7c172-6072-41e2-b8c7-d5b1d30c1683
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u041F\u0440\u0438\u0432\u0435\u0442... \u0410\u0439\u0439.. \u043E\u0431\u043E\u0437\u043D\u0430\u043B\u0441\u044F."
+  children:
+  - c91f5b52-96bc-4f41-b446-b2cfabbe6c01
+  rect:
+    serializedVersion: 2
+    x: 257
+    y: 173
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Get Ready
+        negate: 1
+      - predicate: CompletedQuest
+        parameters:
+        - Get Ready
+        negate: 0
 --- !u!114 &-6697375474664129865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,6 +139,8 @@ MonoBehaviour:
   - {fileID: 651220249991797412}
   - {fileID: -8964384872259203923}
   - {fileID: -6697375474664129865}
+  - {fileID: -7122223879947768563}
+  - {fileID: 5571642318921059805}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &68216597190929152
 MonoBehaviour:
@@ -161,6 +198,31 @@ MonoBehaviour:
   onExitAction: 
   condition:
     and: []
+--- !u!114 &5571642318921059805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: c91f5b52-96bc-4f41-b446-b2cfabbe6c01
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "\u041B\u0430\u0434\u043D\u043E."
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 507
+    y: 173
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
 --- !u!114 &7129163271746001669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +239,7 @@ MonoBehaviour:
   text: "\u041F\u0440\u0438\u0432\u0435\u0442."
   children:
   - f3e116a9-2d48-4d27-bd4b-16d70dfe5cdf
+  - d1c7c172-6072-41e2-b8c7-d5b1d30c1683
   rect:
     serializedVersion: 2
     x: 10
@@ -214,4 +277,14 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    and: []
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Get Ready
+        negate: 0
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Get Ready
+        negate: 1
