@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 672e46df56dfc534ca5e79604707d242, type: 3}
+  m_Name: Helmet
+  m_EditorClassIdentifier: 
+  itemID: e4507acf-2f33-40d4-b666-2e852d06c774
+  displayName: Space Helmet
+  description: It's too comfortable. I like it!
+  icon: {fileID: 21300000, guid: d8341b0d4e1438545a270f193cb73921, type: 3}
+  pickup: {fileID: 7115260040961628977, guid: 914d1d3d6db5dfa499dd997a21b8fb77, type: 3}
+  stackable: 1
+  price: 10
+  category: 1
+  allowedEquipLocation: 0
+  equipCondition:
+    and: []

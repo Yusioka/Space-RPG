@@ -12,6 +12,7 @@ namespace RPG.UI.Inventories
     {
         [SerializeField] GameObject textContainer = null;
         [SerializeField] TextMeshProUGUI itemNumber = null;
+        [SerializeField] Image defaultIcon = null;
 
         // PUBLIC
 
@@ -25,11 +26,13 @@ namespace RPG.UI.Inventories
             var iconImage = GetComponent<Image>();
             if (item == null)
             {
+                defaultIcon.enabled = true;
                 iconImage.enabled = false;
             }
             else
             {
                 iconImage.enabled = true;
+                defaultIcon.enabled = false;
                 iconImage.sprite = item.GetIcon();
             }
 

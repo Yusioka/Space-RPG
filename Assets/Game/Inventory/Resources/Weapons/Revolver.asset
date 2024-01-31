@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: de8c7b5c-4283-4b56-aaa5-064f0164abff
   displayName: Revolver
-  description: 
-  icon: {fileID: 0}
+  description: It can shoot?
+  icon: {fileID: 21300000, guid: 4188dfb936c00294488c30ef191f845e, type: 3}
   pickup: {fileID: 707000032475300391, guid: 61aff9333b5454049b2116c9bef39edc, type: 3}
   stackable: 0
   price: 0
@@ -27,7 +27,7 @@ MonoBehaviour:
   timeBetweenAttacks: 2
   equippedPrefab: {fileID: -4895195360012457072, guid: 151fe3144103e1440900697f4b29c68e, type: 3}
   isRightHanded: 0
-  weaponDamage: 10
-  weaponRange: 2
+  weaponDamage: 15
+  weaponRange: 20
   percentageBonus: 0
   projectile: {fileID: 0}

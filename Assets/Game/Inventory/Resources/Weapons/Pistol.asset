@@ -15,7 +15,7 @@ MonoBehaviour:
   itemID: d00e48d4-1584-4888-a11d-183c8308149d
   displayName: Space Pistol
   description: You are ready...
-  icon: {fileID: 21300000, guid: d88ae2df08fdb3a4dbf5e146fb61a669, type: 3}
+  icon: {fileID: 21300000, guid: 832aaada9a28240439ed7d2d22f7ff92, type: 3}
   pickup: {fileID: 2656415355510541457, guid: 69670d4b5eb047d4d9ab3fb63aa2c98d, type: 3}
   stackable: 0
   price: 0
@@ -27,7 +27,7 @@ MonoBehaviour:
   timeBetweenAttacks: 1
   equippedPrefab: {fileID: 5615448880605420761, guid: 054873fb4d8fb414f9c75a47ff19cfe1, type: 3}
   isRightHanded: 0
-  weaponDamage: 30
-  weaponRange: 50
+  weaponDamage: 5
+  weaponRange: 20
   percentageBonus: 0
   projectile: {fileID: 0}

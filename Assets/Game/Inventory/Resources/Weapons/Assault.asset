@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 84bca8c1-3d58-46ff-8cab-49b784c59eb5
   displayName: Assault
-  description: 
-  icon: {fileID: 0}
+  description: Ha-ha!
+  icon: {fileID: 21300000, guid: b8c3f19cb1ae058498e51a223a3194a1, type: 3}
   pickup: {fileID: 3803142043383387971, guid: f33fddfb06e9d224b8c909d6edede998, type: 3}
   stackable: 0
   price: 0
@@ -24,7 +24,7 @@ MonoBehaviour:
   equipCondition:
     and: []
   animatorOverride: {fileID: 22100000, guid: 8643a8cf26b3e1b469149b32550a1071, type: 2}
-  timeBetweenAttacks: 1
+  timeBetweenAttacks: 0
   equippedPrefab: {fileID: 6250288948668824851, guid: 2511cb1fb2483184baa8421de342583c, type: 3}
   isRightHanded: 1
   weaponDamage: 10
