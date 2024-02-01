@@ -40,7 +40,7 @@ namespace RPG.Core
             }
         }
 
-        private void Toggle()
+        public void Toggle()
         {
             map.SetActive(!map.activeSelf);
             core.SetActive(!core.activeSelf);

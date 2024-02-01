@@ -74,7 +74,16 @@ namespace RPG.Combat
                 if (!GetIsInRange(target.transform))
                 {
                     GetComponent<NavMeshAgent>().enabled = true;
-                    GetComponent<IMover>().MoveTo(target.transform.position, 1f);
+
+                    if (GetComponent<EnemyController>() != null)
+                    {
+                        GetComponent<IMover>().MoveTo(target.transform.position, GetComponent<EnemyController>().GetSpeed());
+                    }
+
+                    else
+                    {
+                        GetComponent<IMover>().MoveTo(target.transform.position, 1f);
+                    }
                 }
 
                 else if (GetIsInRange(target.transform))

@@ -53,6 +53,11 @@ namespace RPG.Control
             startRotation = transform.rotation;
         }
 
+        public float GetSpeed()
+        {
+            return maxSpeed;
+        }
+
         private void Update()
         {
             if (isBlocking) return;
@@ -273,7 +278,7 @@ namespace RPG.Control
         public void MoveTo(Vector3 destination, float speed)
         {
             navMeshAgent.destination = destination;
-            navMeshAgent.speed = maxSpeed * Mathf.Clamp01(speed);
+            navMeshAgent.speed = speed;
             navMeshAgent.isStopped = false;
         }
     }

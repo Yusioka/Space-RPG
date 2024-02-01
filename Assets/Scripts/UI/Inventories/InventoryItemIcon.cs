@@ -26,13 +26,13 @@ namespace RPG.UI.Inventories
             var iconImage = GetComponent<Image>();
             if (item == null)
             {
-                defaultIcon.enabled = true;
+          //      defaultIcon.enabled = true;
                 iconImage.enabled = false;
             }
             else
             {
                 iconImage.enabled = true;
-                defaultIcon.enabled = false;
+          //      defaultIcon.enabled = false;
                 iconImage.sprite = item.GetIcon();
             }
 
