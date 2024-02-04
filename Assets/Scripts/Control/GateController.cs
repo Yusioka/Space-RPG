@@ -1,8 +1,9 @@
 using RPG.Core;
 using RPG.Dialogue;
 using RPG.Inventories;
+using RPG.Quests;
+using RPG.SceneManagement;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RPG.Control
@@ -10,40 +11,46 @@ namespace RPG.Control
     public class GateController : MonoBehaviour
     {
         [SerializeField] Condition condition;
+        [SerializeField] Portal portalNearGates;
 
-        //public bool CanOpen(EquipLocation equipLocation, Equipment equipment)
-        //{
-        //    if (equipLocation != allowedEquipLocation) return false;
-
-        //    return condition.Check(equipment.GetComponents<IPredicateEvaluator>());
-        //}
+        QuestList playerQuestList;
 
 
-        //public bool CheckCondition(IEnumerable<IPredicateEvaluator> evaluators)
-        //{
-        //    return condition.Check(evaluators);
-        //}
+        private void Awake()
+        {
+            var player = GameObject.FindGameObjectWithTag("Player");
+            playerQuestList = player.GetComponent<QuestList>();
+        }
 
-        //public IEnumerable<DialogueNode> GetChoices()
-        //{
-        //    foreach (DialogueNode node in currentDialogue.GetPlayerChildren(currentNode))
-        //    {
-        //        if (node.CheckCondition(GetEvaluators()))
-        //        {
-        //            // yield - как break, только с возвращаемым значением
-        //            yield return node;
-        //        }
-        //    }
-        //}
+        private void Update()
+        {
+            StartCoroutine(CloseGates());
+        }
 
-        //public int MaxAcceptable(InventoryItem item)
-        //{
-        //    EquipableItem equipableItem = item as EquipableItem;
-        //    if (equipableItem == null) return 0;
-        //    if (!equipableItem.CanEquip(equipLocation, playerEquipment)) return 0;
-        //    if (GetItem() != null) return 0;
+        private bool CanGetAnimation(QuestList questList)
+        {
+            return condition.Check(questList.GetComponents<IPredicateEvaluator>());
+        }
 
-        //    return 1;
-        //}
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.tag == "Player")
+            {
+
+                if (CanGetAnimation(playerQuestList))
+                {
+                    GetComponent<Animator>().SetTrigger("open");
+                }
+            }
+        }
+
+        private IEnumerator CloseGates()
+        {
+            if (portalNearGates.MovedThroughPortal)
+            {
+                yield return new WaitForSeconds(2);
+                GetComponent<Animator>().SetBool("isCloseIdle", true);
+            }
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace RPG.SceneManagement
     {
         enum DestinationIdentifier
         {
-            A, B, C, D
+            A, B, C
         }
 
 
@@ -22,12 +22,14 @@ namespace RPG.SceneManagement
         [SerializeField] float fadeInTime = 2f;
         [SerializeField] float fadeWaitTime = 0.5f;
 
+        public bool MovedThroughPortal {  get; private set; }
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.tag == "Player")
             {
                 StartCoroutine(Transition());
-                print("cath it");
+                MovedThroughPortal = true;
             }
         }
 
@@ -73,7 +75,7 @@ namespace RPG.SceneManagement
             {
                 if (portal == this) continue;
                 // teleport to portal with another DestinationIdentifier
-                if (portal.destination == destination) continue;
+                if (portal.destination != destination) continue;
                 return portal;
             }
             return null;
