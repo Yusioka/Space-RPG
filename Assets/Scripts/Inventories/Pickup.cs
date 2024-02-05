@@ -10,8 +10,9 @@ namespace RPG.Inventories
     public class Pickup : MonoBehaviour
     {
         // STATE
-        InventoryItem item;
-        int number = 1;
+        [SerializeField] InventoryItem item;
+        [SerializeField] int number = 1;
+        [SerializeField] bool shouldDestroy = true;
 
         // CACHED REFERENCE
         Inventory inventory;
@@ -60,7 +61,10 @@ namespace RPG.Inventories
                 if (foundSlot)
                 {
                //     player.GetComponent<Mover>().TakePickupAnim();
-                    Destroy(gameObject);
+                    if (shouldDestroy)
+                    {
+                        Destroy(gameObject);
+                    }
                 }
             }
             else

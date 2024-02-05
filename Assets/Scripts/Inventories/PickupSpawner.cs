@@ -1,5 +1,8 @@
 using UnityEngine;
 using RPG.Saving;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using static UnityEditor.Progress;
 
 namespace RPG.Inventories
 {
@@ -10,7 +13,7 @@ namespace RPG.Inventories
     public class PickupSpawner : MonoBehaviour, ISaveable
     {
         // CONFIG DATA
-        [SerializeField] InventoryItem item = null;
+        [SerializeField] InventoryItem[] items = null;
         [SerializeField] int number = 1;
 
         // LIFECYCLE METHODS
@@ -43,8 +46,20 @@ namespace RPG.Inventories
 
         private void SpawnPickup()
         {
-            var spawnedPickup = item.SpawnPickup(transform.position, number);
-            spawnedPickup.transform.SetParent(transform);
+            for (int i = 0; i < items.Length; i++)
+            {
+                var spawnedPickup = items[i].SpawnPickup(transform.position, number);
+                spawnedPickup.transform.SetParent(transform);
+
+                if (items.Length > 1 && i > 0)
+                {
+                    var childrenRenderers = spawnedPickup.GetComponentsInChildren<MeshRenderer>();
+                    foreach (var child in childrenRenderers)
+                    {
+                        child.enabled = false;
+                    }
+                }
+            }
         }
 
         private void DestroyPickup()
