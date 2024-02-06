@@ -16,7 +16,10 @@ namespace RPG.Control
         private void Start()
         {
             map.SetActive(false);
-            secondMap.SetActive(false);
+            if (secondMap != null)
+            {
+                secondMap.SetActive(false);
+            }
             core.SetActive(true);
             miniMap.SetActive(true);
             buttons.SetActive(false);
@@ -51,7 +54,11 @@ namespace RPG.Control
         public void SwitchMap()
         {
             map.SetActive(!map.activeSelf);
-            secondMap.SetActive(!secondMap.activeSelf);
+
+            if (secondMap != null)
+            {
+                secondMap.SetActive(!secondMap.activeSelf);
+            }
         }
     }
 }

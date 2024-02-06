@@ -11,5 +11,13 @@ namespace RPG.Quests
         {
             onTrigger.Invoke();
         }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.tag == "Player")
+            {
+                onTrigger.Invoke();
+            }
+        }
     }
 }

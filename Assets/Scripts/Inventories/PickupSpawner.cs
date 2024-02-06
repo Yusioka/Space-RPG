@@ -50,15 +50,6 @@ namespace RPG.Inventories
             {
                 var spawnedPickup = items[i].SpawnPickup(transform.position, number);
                 spawnedPickup.transform.SetParent(transform);
-
-                if (items.Length > 1 && i > 0)
-                {
-                    var childrenRenderers = spawnedPickup.GetComponentsInChildren<MeshRenderer>();
-                    foreach (var child in childrenRenderers)
-                    {
-                        child.enabled = false;
-                    }
-                }
             }
         }
 

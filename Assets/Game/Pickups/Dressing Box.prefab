@@ -12,11 +12,10 @@ GameObject:
   - component: {fileID: 8129707260728766009}
   - component: {fileID: 2968484759218263039}
   - component: {fileID: 543613927397223902}
-  - component: {fileID: 7497468885655696836}
-  - component: {fileID: 692717375136473783}
-  - component: {fileID: 3878507146182560865}
   - component: {fileID: -5555054738193894686}
-  - component: {fileID: 6188362860761059078}
+  - component: {fileID: -124617163845854157}
+  - component: {fileID: 2057070423217977896}
+  - component: {fileID: 5885890807307500332}
   m_Layer: 0
   m_Name: Dressing Box
   m_TagString: Untagged
@@ -112,7 +111,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43016953953967716, guid: e91820d93c8f5664f84a2a6745ef6f7d, type: 2}
---- !u!114 &7497468885655696836
+--- !u!114 &-5555054738193894686
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,13 +120,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6548829299537967939}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70979b9cce2cff24c892976d64cb5f36, type: 3}
+  m_Script: {fileID: 11500000, guid: bf6cbc87d3ecc104d9ce6e34e0e7ae1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: 87a6a3f3689e3c8478bb7d7a51a092fe, type: 2}
-  conversantName: The Box
-  conversantAvatar: {fileID: 0}
---- !u!114 &692717375136473783
+  item: {fileID: 0}
+  number: 1
+  shouldDestroy: 1
+--- !u!114 &-124617163845854157
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,26 +135,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 6548829299537967939}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5fc186e66aeae9488a30d03df03c19e, type: 3}
+  m_Script: {fileID: 11500000, guid: f8f878c795533b04484fbb36ee042591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action: CompletedQuest
-  onTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3878507146182560865}
-        m_TargetAssemblyTypeName: RPG.Quests.QuestCompletion, Assembly-CSharp
-        m_MethodName: CompleteObjective
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &3878507146182560865
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Get dressed, man
+        negate: 0
+--- !u!114 &2057070423217977896
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,7 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest: {fileID: 11400000, guid: 03ed40272fc307049bfda2fe1255aea1, type: 2}
   objective: Put on a suit
---- !u!114 &-5555054738193894686
+--- !u!114 &5885890807307500332
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,21 +168,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 6548829299537967939}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf6cbc87d3ecc104d9ce6e34e0e7ae1d, type: 3}
+  m_Script: {fileID: 11500000, guid: 562fc0e380a117e4294e0f768c437ded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6188362860761059078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6548829299537967939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8800918488de91844a95aa3147f76b8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2057070423217977896}
+        m_TargetAssemblyTypeName: RPG.Quests.QuestCompletion, Assembly-CSharp
+        m_MethodName: CompleteObjective
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8538112287326359797
 GameObject:
   m_ObjectHideFlags: 0

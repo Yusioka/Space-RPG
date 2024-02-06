@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3db926b21073ad4f9fdf9ce408d5bd5, type: 3}
+  m_Name: VirusSample
+  m_EditorClassIdentifier: 
+  itemID: 6f2ced57-6966-40f6-96c8-257c06329948
+  displayName: Virus Sample
+  description: None.
+  icon: {fileID: 21300000, guid: c86ab660746b1fd4db5f4ce837da8075, type: 3}
+  pickup: {fileID: 0}
+  stackable: 1
+  price: 0
+  category: 4
+  consumable: 0

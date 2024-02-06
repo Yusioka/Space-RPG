@@ -16,10 +16,15 @@ MonoBehaviour:
   displayName: Space Helmet
   description: It's too comfortable. I like it!
   icon: {fileID: 21300000, guid: d8341b0d4e1438545a270f193cb73921, type: 3}
-  pickup: {fileID: 7115260040961628977, guid: 914d1d3d6db5dfa499dd997a21b8fb77, type: 3}
-  stackable: 1
+  pickup: {fileID: -5555054738193894686, guid: bb2f76e4f02aeca41b4fdd1c8222e5ee, type: 3}
+  stackable: 0
   price: 10
   category: 1
   allowedEquipLocation: 0
   equipCondition:
-    and: []
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Get dressed, man
+        negate: 0
