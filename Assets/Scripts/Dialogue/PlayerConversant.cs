@@ -114,7 +114,7 @@ namespace RPG.Dialogue
             if (numPlayerResponses > 0) 
             {
                 isChoosing = true;
-                TriggerExitAction();
+     //           TriggerExitAction();
                 onConversationUpdated();
                 return;
             }
@@ -122,7 +122,7 @@ namespace RPG.Dialogue
             // к-во ответов АИ
             DialogueNode[] children = FilterOnCondition(currentDialogue.GetAIChildren(currentNode)).ToArray();
             int randomIndex = UnityEngine.Random.Range(0, children.Count());
-            TriggerEnterAction();
+     //       TriggerEnterAction();
             currentNode = children[randomIndex];
             TriggerExitAction();
             onConversationUpdated();

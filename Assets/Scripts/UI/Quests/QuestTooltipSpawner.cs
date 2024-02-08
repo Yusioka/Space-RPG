@@ -6,8 +6,26 @@ namespace RPG.UI.Quests
 {
     public class QuestTooltipSpawner : TooltipSpawner
     {
+        int objectivesCounter;
+
         public override bool CanCreateTooltip()
         {
+            objectivesCounter = 0;
+            QuestStatus status = GetComponent<QuestItemUI>().GetQuestStatus();
+            Quest quest = status.GetQuest();
+
+            foreach (var objective in quest.GetObjectives())
+            {
+                if (objective.reference == "")
+                {
+                    objectivesCounter++;
+                }
+            }
+
+            if (objectivesCounter == quest.GetObjectiveCount())
+            {
+                return false;
+            }
             return true;
         }
 

@@ -43,6 +43,7 @@ namespace RPG.UI.Dragging
             transform.SetParent(originalParent, true);
 
             IDragDestination<T> container;
+
             if (!EventSystem.current.IsPointerOverGameObject())
             {
                 container = parentCanvas.GetComponent<IDragDestination<T>>();

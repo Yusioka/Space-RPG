@@ -15,7 +15,15 @@ namespace RPG.UI.Quests
         {
             this.status = status;
             title.text = status.GetQuest().GetTitle();
-            progress.text = status.GetCompleteObjectivesCount() + "/" + status.GetQuest().GetObjectiveCount();
+
+            if (status.GetCompleteObjectivesCount() < status.GetQuest().GetObjectiveCount())
+            {
+                progress.text = status.GetCompleteObjectivesCount() + "/" + status.GetQuest().GetObjectiveCount();
+            }
+            else
+            {
+                progress.text = status.GetQuest().GetObjectiveCount() + "/" + status.GetQuest().GetObjectiveCount();
+            }
         }
 
         public QuestStatus GetQuestStatus()
