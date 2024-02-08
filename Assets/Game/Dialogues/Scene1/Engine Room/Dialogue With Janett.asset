@@ -122,12 +122,12 @@ MonoBehaviour:
   - 97550dc2-c1e4-4d04-89f2-3f76e7ea7403
   rect:
     serializedVersion: 2
-    x: 510
+    x: 509
     y: 197.99998
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: 
+  onExitAction: CompleteQuest
   condition:
     and: []
 --- !u!114 &-3462506410255626605

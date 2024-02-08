@@ -10,27 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6c737b32510cbf42a68cdb45e2440ef, type: 3}
-  m_Name: Dangerous Adventure
+  m_Name: TEST
   m_EditorClassIdentifier: 
-  name: Dangerous Adventure
+  name: SLAY 3 ENEMIES
   objectives:
-  - reference: Find survivors
-    description: Go outside the gates and look for survivors
+  - reference: 
+    description: 
     usesCondition: 0
     completionCondition:
       and: []
-  - reference: Slay 20 Aliegns
-    description: Slay 20 Aliegns
+  - reference: 
+    description: 
     usesCondition: 0
     completionCondition:
       and: []
-  - reference: Reveal the secret of the Black Hole
-    description: You can do this!
+  - reference: 
+    description: 
     usesCondition: 0
     completionCondition:
       and: []
-  rewards:
-  - number: 1500
-    item: {fileID: 11400000, guid: 0c5cea220450b8f4d8ed646b58501fe3, type: 2}
-  - number: 20000
-    item: {fileID: 11400000, guid: 6dccd2c5a9dec8f4b893d64d53557355, type: 2}
+  rewards: []

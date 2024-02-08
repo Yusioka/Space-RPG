@@ -44,6 +44,7 @@ MonoBehaviour:
   - c0dcf930-af85-4148-9ec5-0b0cd80a383e
   - 1e82f9ce-44fb-44d3-8331-c1eed1b2a84e
   - 903fed48-d0e5-44c8-9efa-091a15ec12ae
+  - 146b286e-8308-4633-8717-5236e5115bf1
   rect:
     serializedVersion: 2
     x: -3
@@ -80,6 +81,44 @@ MonoBehaviour:
   onExitAction: 
   condition:
     and: []
+--- !u!114 &-4124175022374972476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 146b286e-8308-4633-8717-5236e5115bf1
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u041D\u0430\u043F\u043E\u043C\u043D\u0438, \u043F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430.
+    \u0410 \u0433\u0434\u0435 \u043E\u0434\u0435\u0436\u0434\u0430?"
+  children:
+  - 14d00435-5bfe-4417-9baf-c07a5540a293
+  rect:
+    serializedVersion: 2
+    x: 244
+    y: 360
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Get dressed, man
+        negate: 0
+    - or:
+      - predicate: CompletedObjective
+        parameters:
+        - Get dressed, man
+        - Put on a suit
+        negate: 1
 --- !u!114 &-3544366629678602507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,7 +238,7 @@ MonoBehaviour:
   - 257115ef-90eb-4938-ac9e-272cf864513c
   rect:
     serializedVersion: 2
-    x: 246
+    x: 245
     y: 157
     width: 200
     height: 100
@@ -342,6 +381,8 @@ MonoBehaviour:
   - {fileID: 3903679215393675420}
   - {fileID: 69047617651678665}
   - {fileID: 5879465453104698351}
+  - {fileID: -4124175022374972476}
+  - {fileID: 4037244450984612550}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &69047617651678665
 MonoBehaviour:
@@ -514,6 +555,32 @@ MonoBehaviour:
     serializedVersion: 2
     x: 2469
     y: 156
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &4037244450984612550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 14d00435-5bfe-4417-9baf-c07a5540a293
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "\u0425\u0435\u0445, \u0432\u043E\u0442 \u0436\u0435 \u043E\u043D\u0430,
+    \u0432 \u044F\u0449\u0438\u043A\u0435."
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 494
+    y: 360
     width: 200
     height: 100
   onEnterAction: 

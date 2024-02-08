@@ -26,6 +26,42 @@ MonoBehaviour:
   onExitAction: 
   condition:
     and: []
+--- !u!114 &-7593193928415372765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 74f8859d-8d35-4bdf-a304-1245023582c7
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u0425\u0435\u0439!"
+  children:
+  - 2bff455a-c1d3-486a-9655-61fe3dd8bf6d
+  rect:
+    serializedVersion: 2
+    x: 254
+    y: 107
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Your first quest
+        negate: 0
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Your first quest
+        negate: 0
 --- !u!114 &-6022877822758888802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,14 +80,24 @@ MonoBehaviour:
   - b371559a-f27c-475c-bcef-b66dc2a8b7af
   rect:
     serializedVersion: 2
-    x: 250
-    y: -1
+    x: 249
+    y: -4
     width: 200
     height: 100
   onEnterAction: 
   onExitAction: 
   condition:
-    and: []
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Your first quest
+        negate: 0
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Your first quest
+        negate: 1
 --- !u!114 &-5427070097274413628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +171,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 754
-    y: -1
+    y: -2
     width: 200
     height: 100
   onEnterAction: 
@@ -156,6 +202,8 @@ MonoBehaviour:
   - {fileID: 1736031512993822106}
   - {fileID: -1741773529019790851}
   - {fileID: -5427070097274413628}
+  - {fileID: -7593193928415372765}
+  - {fileID: 4420763246385693601}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &1736031512993822106
 MonoBehaviour:
@@ -206,7 +254,7 @@ MonoBehaviour:
   - d86560d3-c7f3-4f76-8acf-56da3a727144
   rect:
     serializedVersion: 2
-    x: 1002
+    x: 1001
     y: -1
     width: 200
     height: 100
@@ -231,8 +279,8 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 491
-    y: 102
+    x: 488
+    y: 104
     width: 200
     height: 100
   onEnterAction: 
@@ -273,8 +321,8 @@ MonoBehaviour:
   - be16a34e-6352-433e-b48d-c000c02f519a
   rect:
     serializedVersion: 2
-    x: 493
-    y: -2
+    x: 491
+    y: -4
     width: 200
     height: 100
   onEnterAction: 
@@ -296,6 +344,37 @@ MonoBehaviour:
         parameters:
         - Your first quest
         negate: 1
+--- !u!114 &4420763246385693601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: c2011d0b-7ace-4db5-8549-7ca339361244
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u041F\u0440\u0438\u0432\u0435\u0442."
+  children:
+  - a10e72c5-e05e-4171-b26b-46f1cc10ceba
+  rect:
+    serializedVersion: 2
+    x: 255
+    y: 212.00002
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Your first quest
+        negate: 1
 --- !u!114 &6883399416844297651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,8 +392,8 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 494
-    y: 215.99998
+    x: 485
+    y: 209.99998
     width: 200
     height: 100
   onEnterAction: 
@@ -342,10 +421,12 @@ MonoBehaviour:
   text: "\u041F\u0440\u0438\u0432\u0435\u0442!"
   children:
   - 551f6c98-cf1f-4424-a788-af656306c63c
+  - 74f8859d-8d35-4bdf-a304-1245023582c7
+  - c2011d0b-7ace-4db5-8549-7ca339361244
   rect:
     serializedVersion: 2
-    x: 0
-    y: 0
+    x: -1
+    y: -1
     width: 200
     height: 100
   onEnterAction: 

@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7820395468281551359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 0365cf97-f614-4fca-b068-027ca46a4e38
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u041B\u0430\u0434\u043D\u043E..."
+  children:
+  - e1669d09-87e0-4f80-bda4-b33ab8b0325a
+  rect:
+    serializedVersion: 2
+    x: 767
+    y: 223.00002
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
 --- !u!114 &-5992212244027295378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,8 +132,8 @@ MonoBehaviour:
   - 1bbac25f-d651-488d-bc3e-d0e5da71a5d4
   rect:
     serializedVersion: 2
-    x: 497
-    y: -11
+    x: 490
+    y: -17.999996
     width: 200
     height: 100
   onEnterAction: 
@@ -132,13 +158,13 @@ MonoBehaviour:
   - {fileID: 7455301069106906196}
   - {fileID: -3718376707164734528}
   - {fileID: 7016068676695967432}
-  - {fileID: 3497067593431684690}
   - {fileID: 3240871468394505596}
   - {fileID: 6416630171037598598}
   - {fileID: -4314412759038048635}
   - {fileID: -5992212244027295378}
   - {fileID: 4996986348872457980}
   - {fileID: 8297992070369925106}
+  - {fileID: -7820395468281551359}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &389956460874854649
 MonoBehaviour:
@@ -186,32 +212,6 @@ MonoBehaviour:
     serializedVersion: 2
     x: 742
     y: -16.000004
-    width: 200
-    height: 100
-  onEnterAction: 
-  onExitAction: 
-  condition:
-    and: []
---- !u!114 &3497067593431684690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
-  m_Name: cf2a4fdf-ab81-47df-b005-32694e61143b
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: "\u0425\u043E\u0440\u043E\u0448\u043E."
-  children:
-  - e1669d09-87e0-4f80-bda4-b33ab8b0325a
-  rect:
-    serializedVersion: 2
-    x: 886
-    y: 213.99997
     width: 200
     height: 100
   onEnterAction: 
@@ -288,7 +288,7 @@ MonoBehaviour:
     3 \u0434\u043D\u044F. \u041D\u0435 \u0432\u043E\u043B\u043D\u0443\u0439\u0441\u044F,
     \u0432\u0441\u0451 \u043D\u043E\u0440\u043C\u0430\u043B\u044C\u043D\u043E."
   children:
-  - cf2a4fdf-ab81-47df-b005-32694e61143b
+  - 0365cf97-f614-4fca-b068-027ca46a4e38
   rect:
     serializedVersion: 2
     x: 498
