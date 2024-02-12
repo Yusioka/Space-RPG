@@ -23,6 +23,7 @@ MonoBehaviour:
   allowedEquipLocation: 0
   equipCondition:
     and: []
+  equipPrefabName: Helmet
   additiveModifiers:
   - stat: 0
     value: 10

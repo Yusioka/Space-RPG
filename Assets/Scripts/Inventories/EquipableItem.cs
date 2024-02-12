@@ -14,6 +14,7 @@ namespace RPG.Inventories
         [Tooltip("Where are we allowed to put this item.")]
         [SerializeField] EquipLocation allowedEquipLocation = EquipLocation.Weapon;
         [SerializeField] Condition equipCondition;
+        [SerializeField] string equipPrefabName;
 
         //  [SerializeField] GameObject equipObject;
         const string equipName = "Equipment";
@@ -34,23 +35,42 @@ namespace RPG.Inventories
 
         public void Equip(Transform gameObject)
         {
-     //       DestroyOldEquipment(gameObject, equipName);
-
-            string name = this.name;
-            Transform equipObject = gameObject.Find(name);
+            Transform equipObject = gameObject.Find(equipPrefabName);
             if (equipObject != null)
             {
-                equipObject.gameObject.SetActive(true);
-            //    equipObject.name = equipName;
+                if (allowedEquipLocation == EquipLocation.Helmet)
+                {
+                    DestroyOldHelmets(gameObject);
+                    equipObject.gameObject.SetActive(true);
+                }
+
+                else if (allowedEquipLocation == EquipLocation.Body)
+                {
+                    DestroyOldEquipment(gameObject);
+                    equipObject.gameObject.SetActive(true);
+                }
             }
         }
 
-        public void DestroyOldEquipment(Transform gameObject, string name)
+        private void DestroyOldEquipment(Transform gameObject)
         {
-            Transform oldEquipment = gameObject.Find(name);
-            if (oldEquipment != null)
+            foreach (Transform child in gameObject)
             {
-                oldEquipment.gameObject.SetActive(false);
+                if (child.gameObject.tag == "Body")
+                {
+                    child.gameObject.SetActive(false);
+                }
+            }
+        }
+
+        private void DestroyOldHelmets(Transform gameObject)
+        {
+            foreach (Transform child in gameObject)
+            {
+                if (child.gameObject.tag == "Helmet")
+                {
+                    child.gameObject.SetActive(false);
+                }
             }
         }
     }

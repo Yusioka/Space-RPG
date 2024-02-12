@@ -11,6 +11,7 @@ namespace RPG.Control
         [SerializeField] float rotationSpeed = 2.0f;
 
         Vector3 offset;
+        GameObject player;
 
         [SerializeField] bool isRotating;
         [SerializeField] float minYAngle = 10.0f;
@@ -28,9 +29,14 @@ namespace RPG.Control
         Vector3 initialPosition;
         [SerializeField] MoverController controller;
 
+        private void Awake()
+        {
+            player = GameObject.FindWithTag("Player");
+        }
+
         void Start()
         {
-            if (target == null || target.tag != "Player")
+            if (target == null)
             {
                 return;
             }
@@ -43,10 +49,12 @@ namespace RPG.Control
         {
             isMoving = target.GetComponentInParent<PlayerController>().IsMoving();
 
-            // ѕолучаем величину вращени€ колесика мыши
-            float zoomInput = Input.GetAxis("Mouse ScrollWheel");
-            currentDistance -= zoomInput * zoomSpeed;
-            currentDistance = Mathf.Clamp(currentDistance, minZoom, maxZoom);
+            if (!player.GetComponent<PlayerController>().IsDraggingUI)
+            {
+                float zoomInput = Input.GetAxis("Mouse ScrollWheel");
+                currentDistance -= zoomInput * zoomSpeed;
+                currentDistance = Mathf.Clamp(currentDistance, minZoom, maxZoom);
+            }
 
             Vector3 desiredPosition = target.position - transform.forward * currentDistance;
 
@@ -75,12 +83,12 @@ namespace RPG.Control
             }
 
 
-            // Ќаправление камеры всегда смотрит на цель
             transform.LookAt(target);
 
             // ≈сли нажата лева€ кнопка мыши, вращаем камеру вокруг игрока
             if (Input.GetMouseButton(0))
             {
+                if (player.GetComponent<PlayerController>().IsDraggingUI) return;
                 currentX += Input.GetAxis("Mouse X") * rotationSpeed;
                 currentY -= Input.GetAxis("Mouse Y") * rotationSpeed;
 
@@ -99,6 +107,7 @@ namespace RPG.Control
                 // ≈сли нажата права€ кнопка мыши, игрок всегда смотрит в сторону камеры
                 if (Input.GetMouseButton(1))
                 {
+                    if (player.GetComponent<PlayerController>().IsDraggingUI) return;
                     float rotationX = Input.GetAxis("Mouse X") * rotationSpeed;
                     float rotationY = Input.GetAxis("Mouse Y") * rotationSpeed;
 
@@ -117,6 +126,7 @@ namespace RPG.Control
 
                 if (Input.GetMouseButton(1) && Input.GetMouseButton(0) || Input.GetMouseButton(0) && Input.GetMouseButton(1))
                 {
+                    if (player.GetComponent<PlayerController>().IsDraggingUI) return;
                     float rotationX = Input.GetAxis("Mouse X") * rotationSpeed;
                     float rotationY = Input.GetAxis("Mouse Y") * rotationSpeed;
 

@@ -1,3 +1,4 @@
+using RPG.Inventories;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -46,7 +47,7 @@ namespace RPG.UI.Dragging
 
             if (!EventSystem.current.IsPointerOverGameObject())
             {
-                container = parentCanvas.GetComponent<IDragDestination<T>>();
+           //     container = parentCanvas.GetComponent<IDragDestination<T>>();
             }
             else
             {
@@ -57,8 +58,6 @@ namespace RPG.UI.Dragging
             {
                 DropItemIntoContainer(container);
             }
-
-
         }
 
         private IDragDestination<T> GetContainer(PointerEventData eventData)

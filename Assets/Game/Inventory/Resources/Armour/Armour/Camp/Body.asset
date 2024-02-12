@@ -23,6 +23,7 @@ MonoBehaviour:
   allowedEquipLocation: 2
   equipCondition:
     and: []
+  equipPrefabName: Body
   additiveModifiers:
   - stat: 0
     value: 25

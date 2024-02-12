@@ -1,4 +1,5 @@
 using RPG.Attributes;
+using RPG.Control;
 using RPG.Stats;
 using UnityEngine;
 
@@ -32,6 +33,8 @@ namespace RPG.Dialogue
             Health health = GetComponent<Health>();
             if (health &&  health.IsDead()) return;
             if (dialogue == null) return;
+            GameObject player = GameObject.FindWithTag("Player");
+            if (!player.GetComponent<PlayerController>().CanInteractWithComponent(gameObject)) return;
             GameObject.FindWithTag("Player").GetComponent<PlayerConversant>().StartDialogue(this, dialogue);
             conversant = gameObject;
         }

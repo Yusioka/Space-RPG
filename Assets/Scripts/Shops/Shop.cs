@@ -1,3 +1,4 @@
+using RPG.Control;
 using RPG.Inventories;
 using RPG.Saving;
 using RPG.Stats;
@@ -366,7 +367,9 @@ namespace RPG.Shops
 
         private void OnMouseDown()
         {
-            GameObject.FindWithTag("Player").GetComponent<Shopper>().SetActiveShop(this);
+            GameObject player = GameObject.FindWithTag("Player");
+            if (!player.GetComponent<PlayerController>().CanInteractWithComponent(gameObject)) return;
+            player.GetComponent<Shopper>().SetActiveShop(this);
         }
 
         public object CaptureState()

@@ -24,13 +24,14 @@ namespace RPG.Control
         RaycastHit hit;
         bool hasHit;
         NavMeshAgent navMeshAgent;
+        float chaseDistance = 3;
         MoverController moverController;
         bool isMoving;
 
         Health health;
 
         ActionStore actionStore;
-        bool isDraggingUI = false;
+        public bool IsDraggingUI { get; private set; }
 
         [SerializeField] CursorMapping[] cursorMappings = null;
 
@@ -73,12 +74,14 @@ namespace RPG.Control
             if (GameObject.FindAnyObjectByType<PickingCharacter>() == null)
             {
                 femalePrefab.SetActive(true);
+           //     femalePrefab.gameObject.name = "Player";
                 malePrefab.SetActive(false);
             }
             if (GameObject.FindAnyObjectByType<PickingCharacter>().IsMale)
             {
                 femalePrefab.SetActive(false);
                 malePrefab.SetActive(true);
+          //      malePrefab.gameObject.name = "Player";
             }
 
             else
@@ -89,9 +92,7 @@ namespace RPG.Control
         }
 
         private void Update()
-        {
-            if (InteractWithUI()) return;
-
+        {      
             if (health.IsDead()) return;
 
             if (CanMoveTo())
@@ -108,9 +109,8 @@ namespace RPG.Control
                 GetComponent<ItemDropper>().DropItem(InventoryItem.GetFromID("d00e48d4-1584-4888-a11d-183c8308149d"));
             }
 
-
-            if (InteractWithComponent()) return;
             if (InteractWithCombatByMouse()) return;
+            if (InteractWithUI()) return;
             InteractWithCombatByButtons();
             UseAbilities();
         }
@@ -316,34 +316,23 @@ namespace RPG.Control
         {
             if (Input.GetMouseButtonUp(0))
             {
-                isDraggingUI = false;
+                IsDraggingUI = false;
             }
             if (EventSystem.current.IsPointerOverGameObject())
             {
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) || Input.GetAxis("Mouse ScrollWheel") != 0)
                 {
-                    isDraggingUI = true;
+                    IsDraggingUI = true;
                 }
                 // SetCursor(CursorType.UI);
                 return true;
             }
-            if (isDraggingUI) return true;
-            else return false;
+
+            return IsDraggingUI;
         }
-        private bool InteractWithComponent()
+        public bool CanInteractWithComponent(GameObject interactable)
         {
-            foreach (RaycastHit hit in RaycastAllSorted())
-            {
-                IRaycastable[] raycastables = hit.transform.GetComponents<IRaycastable>();
-                foreach (IRaycastable raycastable in raycastables)
-                {
-                    if (raycastable.HandleRaycast(this))
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
+            return Vector3.Distance(gameObject.transform.position, interactable.transform.position) <= chaseDistance;
         }
         private RaycastHit[] RaycastAllSorted()
         {

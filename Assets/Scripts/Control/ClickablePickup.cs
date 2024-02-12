@@ -10,6 +10,7 @@ namespace RPG.Control
     {
         [SerializeField] Condition condition;
 
+        GameObject player;
         Pickup pickup;
         QuestList playerQuestList;
 
@@ -17,7 +18,7 @@ namespace RPG.Control
         {
             pickup = GetComponent<Pickup>();
 
-            var player = GameObject.FindGameObjectWithTag("Player");
+            player = GameObject.FindGameObjectWithTag("Player");
             playerQuestList = player.GetComponent<QuestList>();
         }
 
@@ -28,6 +29,7 @@ namespace RPG.Control
 
         private void OnMouseDown()
         {
+            if (!player.GetComponent<PlayerController>().CanInteractWithComponent(gameObject)) return;
             if (CanPickup(playerQuestList))
             {
                 pickup.PickupItem();

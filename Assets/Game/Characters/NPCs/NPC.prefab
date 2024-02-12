@@ -1437,7 +1437,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   markPrefab: {fileID: 4958729997727211077}
-  mapMarkPrefab: {fileID: 0}
   useConditions: 0
   condition:
     and: []
@@ -3068,7 +3067,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3256316607306067647
 Transform:
   m_ObjectHideFlags: 0
@@ -3076,14 +3075,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4958729997727211077}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.2, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2491837577916443013}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4444693740133657876
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5688,7 +5687,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   markPrefab: {fileID: 4465167949443500355}
-  mapMarkPrefab: {fileID: 0}
   useConditions: 0
   condition:
     and: []
