@@ -1,5 +1,6 @@
 using RPG.Attributes;
 using RPG.Inventories;
+using RPGCharacterAnims.Actions;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -33,6 +34,16 @@ namespace RPG.Control
         private float timer;
         private bool isAttacking;
 
+        /// <summary>
+        /// 
+        public float castTime = 2f; // Время каста заклинания
+        public float memoryTime = 1f; // Время запоминания позиции игрока
+        public float attackSpeed = 50f; // Скорость атаки босса
+
+        private Transform playerTransform; // Позиция игрока
+        private Vector3 rememberedPosition; // Запомненная позиция игрока
+        public bool isCasting = false; // Флаг, указывающий, кастует ли босс в данный момент
+        /// </summary>
         private class DockedItemSlot
         {
             public ActionItem item;
@@ -83,6 +94,7 @@ namespace RPG.Control
             AddAction(ability, 0);
 
             animator = GetComponent<Animator>();
+            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         }
 
         private void Start()
@@ -98,60 +110,43 @@ namespace RPG.Control
 
         private void Update()
         {
-        //    animator.SetTrigger("readyToAttack");
-
-            UseAbilities();
-
-            //if (health.HealthPoints <= health.GetMaxHealthPoints()/2)
-            //{
-            //    AddNewAttack();
-            //}
-            //
-            //timer -= Time.deltaTime;
-
-            //if (timer <= 0f && !isAttacking)
-            //{
-            //    StartCoroutine(Wander());
-            //    timer = wanderTimer;
-            //}
-
-            //if (health.HealthPoints <= health.GetMaxHealthPoints() / 2)
-            //{
-            //    AddNewAttack();
-            //}
+            //      UseAbilities();
+            if (!isCasting)
+            {
+                StartCoroutine(CastSpell());
+            }
         }
 
-        private IEnumerator Wander()
+        public void MoveTo(Vector3 destination, float speed)
         {
-            isAttacking = true;
-            animator.SetTrigger("readyToAttack");
+            agent.destination = destination;
+            agent.speed = speed;
+            agent.isStopped = false;
+        }
 
-            Vector3 directionToPlayer = (player.position - transform.position).normalized;
-            Vector3 targetPosition = transform.position + directionToPlayer * 10f; // Расстояние, на которое босс будет бежать
+        IEnumerator CastSpell()
+        {
+            isCasting = true;
 
-            while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
+            rememberedPosition = playerTransform.position;
+            yield return new WaitForSeconds(castTime);
+
+            StartCoroutine(MoveThroughPosition(rememberedPosition));
+            yield return new WaitForSeconds(castTime);
+        }
+
+        IEnumerator MoveThroughPosition(Vector3 targetPosition)
+        {
+            Vector3 currentPosition = transform.position;
+            Vector3 directionToTarget = (targetPosition - currentPosition).normalized;
+            Vector3 destination = targetPosition + directionToTarget * 10f;
+
+            while (Vector3.Distance(transform.position, destination) > 0.1f)
             {
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, agent.speed * Time.deltaTime);
-        //        animator.Play("RunAttack");
+                MoveTo(destination, attackSpeed);
                 yield return null;
             }
-
-      //      yield return new WaitForSeconds(attackCooldown);
-
-            isAttacking = false;
-        }
-
-        private Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
-        {
-            Vector3 randDirection = UnityEngine.Random.insideUnitSphere * dist;
-            randDirection += origin;
-            NavMesh.SamplePosition(randDirection, out NavMeshHit navHit, dist, layermask);
-            return navHit.position;
-        }
-
-        private void AddNewAttack()
-        {
-
+            isCasting = false;
         }
 
         private void OnDrawGizmos()
