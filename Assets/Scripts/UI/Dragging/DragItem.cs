@@ -47,7 +47,7 @@ namespace RPG.UI.Dragging
 
             if (!EventSystem.current.IsPointerOverGameObject())
             {
-           //     container = parentCanvas.GetComponent<IDragDestination<T>>();
+                container = parentCanvas.GetComponent<IDragDestination<T>>();
             }
             else
             {
