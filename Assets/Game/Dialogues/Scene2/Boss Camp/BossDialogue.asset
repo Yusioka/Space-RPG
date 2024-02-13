@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5133891764618007693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: c97a61cf-062e-4565-99d6-dc011ae55e0c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Hi
+  children:
+  - a5beec77-4aa5-4dcd-9dcb-036f7803e82e
+  rect:
+    serializedVersion: 2
+    x: 265
+    y: 51.999996
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-3110527743330743110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: a5beec77-4aa5-4dcd-9dcb-036f7803e82e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: NO
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 515
+    y: 51.999996
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &-2443172261912271080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 0b471484-9c5b-4b02-bfe1-2f776cc5c65d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: ARRR
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 513
+    y: 148
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: Attack
+  condition:
+    and: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 591f37a1e8894a141b4d49be861dfef9, type: 3}
+  m_Name: BossDialogue
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 8761697509620269941}
+  - {fileID: -5133891764618007693}
+  - {fileID: -3110527743330743110}
+  - {fileID: 5779757726516751350}
+  - {fileID: -2443172261912271080}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &5779757726516751350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 35068365-988b-4c31-8100-ad57de27d9a0
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: FIGHT WITH MEE
+  children:
+  - 0b471484-9c5b-4b02-bfe1-2f776cc5c65d
+  rect:
+    serializedVersion: 2
+    x: 263
+    y: 148
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
+--- !u!114 &8761697509620269941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 249a530d-a125-46dd-a104-e2c07a61e9e6
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: ARRR
+  children:
+  - c97a61cf-062e-4565-99d6-dc011ae55e0c
+  - 35068365-988b-4c31-8100-ad57de27d9a0
+  rect:
+    serializedVersion: 2
+    x: 15
+    y: 51.999996
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BossAbility
   m_EditorClassIdentifier: 
   itemID: 51b5b110-4384-4c7c-b3eb-9bff25a6c4c3
-  displayName: Ass
+  displayName: ff
   description: 
   icon: {fileID: 0}
   pickup: {fileID: 0}
@@ -24,6 +24,6 @@ MonoBehaviour:
   targetingStrategy: {fileID: 11400000, guid: fc7cb57814a6d0c4ab5baa5305203c06, type: 2}
   filterStrategies: []
   effectStrategies:
-  - {fileID: 11400000, guid: 4563c51a59d7c1e4a92169de642c0f29, type: 2}
-  cooldownTime: 5
+  - {fileID: 11400000, guid: 185288151092f4349b514ae08d2535c2, type: 2}
+  cooldownTime: 0
   manaCost: 0

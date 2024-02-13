@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using UnityEngine.AI;
 using JetBrains.Annotations;
 using RPG.Control;
+using RPG.Dialogue;
 
 namespace RPG.Combat
 {
@@ -25,7 +26,7 @@ namespace RPG.Combat
         WeaponConfig currentWeaponConfig = null;
         Weapon currentWeapon;
 
-        private void Awake()
+        private void Start()
         {
             currentWeaponConfig = defaultWeapon;
             SetupDefaultWeapon();
@@ -82,7 +83,7 @@ namespace RPG.Combat
 
                     else
                     {
-                        GetComponent<IMover>().MoveTo(target.transform.position, 1f);
+                        GetComponent<IMover>().MoveTo(target.transform.position, GetComponent<BossController>().GetSpeed());
                     }
                 }
 
@@ -246,6 +247,7 @@ namespace RPG.Combat
 
         public bool CanAttack(GameObject combatTarget)
         {
+            if (combatTarget.GetComponent<AIConversant>() && combatTarget.GetComponent<AIConversant>().enabled == true) return false;
             if (combatTarget == null || combatTarget == gameObject) return false;
             Health targetToTest = combatTarget.GetComponent<Health>();
             return targetToTest != null && !targetToTest.IsDead();

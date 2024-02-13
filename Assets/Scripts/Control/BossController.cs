@@ -1,7 +1,7 @@
 using RPG.Attributes;
+using RPG.Combat;
 using RPG.Inventories;
-using RPGCharacterAnims.Actions;
-using System;
+using RPG.Movement;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,122 +9,123 @@ using UnityEngine.AI;
 
 namespace RPG.Control
 {
-    public class BossController : MonoBehaviour
+    public class BossController : MonoBehaviour, IMover
     {
         Dictionary<int, DockedItemSlot> dockedItems = new Dictionary<int, DockedItemSlot>();
 
-        [SerializeField] int numberOfAbilities = 3;
-        [SerializeField] ActionItem ability;
+        [SerializeField] ActionItem[] ability;
+        [SerializeField] int wanderRadius = 200;
+        [SerializeField] float totalCooldownTime = 5;
 
         Health health;
+        Fighter fighter;
         Animator animator;
 
-        float duration = 5;
-        float time = 0;
+        Transform playerTransform;
+        NavMeshAgent navMeshAgent;
 
-        //
-        public float wanderRadius = 10f;
-        public float wanderTimer = 5f;
-        public float attackCooldown = 2f;
+        float castTime = 2f;
+        float speed = 5f;
 
-        public float knockbackForce = 10f; // Сила отталкивания
+        Vector3 rememberedPosition;
+        bool isCasting = false;
+        float cooldownTime = 0;
 
-        private Transform player;
-        private NavMeshAgent agent;
-        private float timer;
-        private bool isAttacking;
-
-        /// <summary>
-        /// 
-        public float castTime = 2f; // Время каста заклинания
-        public float memoryTime = 1f; // Время запоминания позиции игрока
-        public float attackSpeed = 50f; // Скорость атаки босса
-
-        private Transform playerTransform; // Позиция игрока
-        private Vector3 rememberedPosition; // Запомненная позиция игрока
-        public bool isCasting = false; // Флаг, указывающий, кастует ли босс в данный момент
-        /// </summary>
         private class DockedItemSlot
         {
             public ActionItem item;
             public int number;
         }
 
-        public ActionItem GetAction(int index)
-        {
-            return dockedItems[index].item;
-        }
-
-        public int GetNumber(int index)
-        {
-            return dockedItems[index].number;
-        }
-
-        public bool Use(int index, GameObject user)
+        public void UseAction(int index, GameObject user)
         {
             if (dockedItems.ContainsKey(index))
             {
-                bool succeeded = dockedItems[index].item.Use(user);
-                return true;
-            }
-            return false;
-        }
-
-        private void UseAbilities()
-        {
-            for (int i = 0; i < numberOfAbilities; i++)
-            {
-                if (GetNumber(i) == 0)
-                {
-                    Use(i, this.gameObject);
-                }
+                dockedItems[index].item.Use(user);
             }
         }
 
         public void AddAction(ActionItem item, int index)
         {
-            var slot = new DockedItemSlot();
-            slot.item = item as ActionItem;
-            dockedItems[index] = slot;
+            if (dockedItems.ContainsKey(index))
+            {
+                if (object.ReferenceEquals(item, dockedItems[index].item))
+                {
+                    dockedItems[index].number ++;
+                }
+            }
+            else
+            {
+                var slot = new DockedItemSlot();
+                slot.item = item as ActionItem;
+                dockedItems[index] = slot;
+            }
         }
+
+        //
+        public float GetSpeed()
+        {
+            return speed;
+        }
+        //
 
         private void Awake()
         {
-            time = duration;
-            AddAction(ability, 0);
+            for (int i = 0; i < ability.Length; i++)
+            {
+                AddAction(ability[i], i);
+            }
 
-            animator = GetComponent<Animator>();
             playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+            fighter = GetComponent<Fighter>();
         }
 
         private void Start()
         {
             health = GetComponent<Health>();
-            //
-            player = GameObject.FindGameObjectWithTag("Player").transform;
-            agent = GetComponent<NavMeshAgent>();
+            navMeshAgent = GetComponent<NavMeshAgent>();
             animator = GetComponent<Animator>();
-            timer = wanderTimer;
-            isAttacking = false;
+
+            animator.Play("ReadyToAttack");
         }
 
         private void Update()
         {
-            //      UseAbilities();
-            if (!isCasting)
+            cooldownTime += Time.deltaTime;
+            if (!CanMoveTo()) return;
+
+            fighter.Attack(playerTransform.gameObject);
+            UpdateAnimator();
+
+            if (cooldownTime >= totalCooldownTime)
             {
-                StartCoroutine(CastSpell());
+                UseAction(Random.Range(0, ability.Length), gameObject);
+                cooldownTime = 0;
+            }
+
+
+        }
+
+        private IEnumerator UseAbilities()
+        {
+            yield return new WaitForSeconds(totalCooldownTime);
+            UseAction(Random.Range(0, ability.Length), gameObject);
+            yield return new WaitForSeconds(totalCooldownTime);
+        }
+
+        private void AddNewAttack()
+        {
+            if (health.HealthPoints <= health.GetMaxHealthPoints() / 2)
+            {
+                totalCooldownTime = totalCooldownTime * 2;
+                if (!isCasting)
+                {
+                    StartCoroutine(CastSpell());
+                }
             }
         }
 
-        public void MoveTo(Vector3 destination, float speed)
-        {
-            agent.destination = destination;
-            agent.speed = speed;
-            agent.isStopped = false;
-        }
-
-        IEnumerator CastSpell()
+        private IEnumerator CastSpell()
         {
             isCasting = true;
 
@@ -135,15 +136,20 @@ namespace RPG.Control
             yield return new WaitForSeconds(castTime);
         }
 
-        IEnumerator MoveThroughPosition(Vector3 targetPosition)
+        private IEnumerator MoveThroughPosition(Vector3 targetPosition)
         {
             Vector3 currentPosition = transform.position;
             Vector3 directionToTarget = (targetPosition - currentPosition).normalized;
             Vector3 destination = targetPosition + directionToTarget * 10f;
 
+            if (Vector3.Distance(transform.position, playerTransform.position) <= 8f)
+            {
+                animator.Play("RunAttack");
+            }
+
             while (Vector3.Distance(transform.position, destination) > 0.1f)
             {
-                MoveTo(destination, attackSpeed);
+                MoveTo(destination, speed);
                 yield return null;
             }
             isCasting = false;
@@ -155,5 +161,31 @@ namespace RPG.Control
             Gizmos.DrawWireSphere(transform.position, wanderRadius);
         }
 
+        private void UpdateAnimator()
+        {
+            Vector3 velocity = navMeshAgent.velocity;
+            Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+
+            float speed = localVelocity.z;
+            GetComponent<Animator>().SetFloat("speedY", speed);
+        }
+
+        public void MoveTo(Vector3 destination, float speed)
+        {
+            navMeshAgent.destination = destination;
+            navMeshAgent.speed = speed;
+            navMeshAgent.isStopped = false;
+        }
+
+        public bool CanMoveTo()
+        {
+            if (health.IsDead())
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public void StartMoveAction() { }
     }
 }

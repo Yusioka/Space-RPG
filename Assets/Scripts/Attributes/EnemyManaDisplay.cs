@@ -18,21 +18,17 @@ namespace RPG.Attributes
 
         private void Update()
         {
-            if (GameObject.FindWithTag("Boss") == null) return;
+            if (mana == null || GameObject.FindWithTag("Boss") == null)
+            {
+                manaSlider.value = 1;
+            }
 
-            if (GameObject.FindWithTag("Boss") == fighter.GetTargetHealth().gameObject)
+            if (GameObject.FindWithTag("Boss"))
             {
                 mana = GameObject.FindWithTag("Boss").GetComponent<Mana>();
             }
 
-            if (mana == null)
-            {
-                manaSlider.value = 1;
-                return;
-            }
-
             manaSlider.maxValue = mana.GetMaxMana();
-            print(mana.GetMana());
             manaSlider.value = mana.GetMana();
         }
     }

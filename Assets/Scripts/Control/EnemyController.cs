@@ -63,7 +63,6 @@ namespace RPG.Control
             if (isBlocking) return;
             if (CanMoveTo())
             {
-
                 if (fighter.CanAttack(player) && DistanceToObject(player) < chaseDistance || playerFighter.GetTargetHealth() == health)
                 {
                     if (health.IsDead()) return;

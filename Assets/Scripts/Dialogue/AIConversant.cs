@@ -12,6 +12,7 @@ namespace RPG.Dialogue
         [SerializeField] Sprite conversantAvatar;
 
         GameObject conversant = null;
+        GameObject player;
 
         //public bool HandleRaycast(PlayerController callingController)
         //{
@@ -27,13 +28,25 @@ namespace RPG.Dialogue
 
         //    return true;
         //}
+        private void Awake()
+        {
+            player = GameObject.FindWithTag("Player");
+        }
+
+        private void Update()
+        {
+            if (gameObject == conversant && Vector3.Distance(gameObject.transform.position, player.transform.position) > 5)
+            {
+                GameObject.FindWithTag("Player").GetComponent<PlayerConversant>().Quit();
+            }
+        }
 
         private void OnMouseDown()
         {
+            if (this.enabled == false) return;
             Health health = GetComponent<Health>();
             if (health &&  health.IsDead()) return;
             if (dialogue == null) return;
-            GameObject player = GameObject.FindWithTag("Player");
             if (!player.GetComponent<PlayerController>().CanInteractWithComponent(gameObject)) return;
             GameObject.FindWithTag("Player").GetComponent<PlayerConversant>().StartDialogue(this, dialogue);
             conversant = gameObject;

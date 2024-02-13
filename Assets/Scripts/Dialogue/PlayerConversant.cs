@@ -26,6 +26,7 @@ namespace RPG.Dialogue
 
         public void StartDialogue(AIConversant newConversant, Dialogue newDialogue)
         {
+            if (currentConversant != null) return;
             currentConversant = newConversant;
             currentDialogue = newDialogue;
             currentNode = currentDialogue.GetRootNode();
@@ -109,24 +110,23 @@ namespace RPG.Dialogue
 
         public void Next()
         {
-            // к-во ответов плеера
-            int numPlayerResponses = FilterOnCondition(currentDialogue.GetPlayerChildren(currentNode)).Count();
-            if (numPlayerResponses > 0) 
+            int numPlayerResponces = FilterOnCondition(currentDialogue.GetPlayerChildren(currentNode)).Count();
+            if (numPlayerResponces > 0)
             {
                 isChoosing = true;
-     //           TriggerExitAction();
+                TriggerExitAction();
                 onConversationUpdated();
                 return;
             }
 
-            // к-во ответов АИ
             DialogueNode[] children = FilterOnCondition(currentDialogue.GetAIChildren(currentNode)).ToArray();
             int randomIndex = UnityEngine.Random.Range(0, children.Count());
-     //       TriggerEnterAction();
-            currentNode = children[randomIndex];
             TriggerExitAction();
+            currentNode = children[randomIndex];
+            TriggerEnterAction();
             onConversationUpdated();
         }
+
         public bool HasNext()
         {
             return currentDialogue.GetAllChildren(currentNode).Count() > 0;
@@ -151,12 +151,12 @@ namespace RPG.Dialogue
 
         public void Quit()
         {
-            currentDialogue = null;
             TriggerExitAction();
-            onConversationUpdated();
+            currentDialogue = null;
             currentNode = null;
             isChoosing = false;
             currentConversant = null;
+            onConversationUpdated();
         }
 
         public void TriggerEnterAction()
