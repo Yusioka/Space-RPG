@@ -16,6 +16,7 @@ namespace RPG.Control
         [SerializeField] ActionItem[] ability;
         [SerializeField] int wanderRadius = 200;
         [SerializeField] float totalCooldownTime = 5;
+        [SerializeField] float dashCooldownTime = 6;
 
         Health health;
         Fighter fighter;
@@ -29,7 +30,9 @@ namespace RPG.Control
 
         Vector3 rememberedPosition;
         bool isCasting = false;
-        float cooldownTime = 0;
+
+        float currentCooldownTime = 0;
+        float currentDashCooldownTime = 0;
 
         private class DockedItemSlot
         {
@@ -91,34 +94,27 @@ namespace RPG.Control
 
         private void Update()
         {
-            cooldownTime += Time.deltaTime;
+            currentCooldownTime += Time.deltaTime;
+            currentDashCooldownTime += Time.deltaTime;
+
             if (!CanMoveTo()) return;
 
             fighter.Attack(playerTransform.gameObject);
             UpdateAnimator();
 
-            if (cooldownTime >= totalCooldownTime)
+            AddNewAttack();
+            if (currentCooldownTime >= totalCooldownTime)
             {
                 UseAction(Random.Range(0, ability.Length), gameObject);
-                cooldownTime = 0;
+                currentCooldownTime = 0;
             }
-
-
-        }
-
-        private IEnumerator UseAbilities()
-        {
-            yield return new WaitForSeconds(totalCooldownTime);
-            UseAction(Random.Range(0, ability.Length), gameObject);
-            yield return new WaitForSeconds(totalCooldownTime);
         }
 
         private void AddNewAttack()
         {
             if (health.HealthPoints <= health.GetMaxHealthPoints() / 2)
             {
-                totalCooldownTime = totalCooldownTime * 2;
-                if (!isCasting)
+                if (!isCasting && currentDashCooldownTime >= dashCooldownTime)
                 {
                     StartCoroutine(CastSpell());
                 }
@@ -133,12 +129,11 @@ namespace RPG.Control
             yield return new WaitForSeconds(castTime);
 
             StartCoroutine(MoveThroughPosition(rememberedPosition));
-            yield return new WaitForSeconds(castTime);
         }
 
         private IEnumerator MoveThroughPosition(Vector3 targetPosition)
         {
-            Vector3 currentPosition = transform.position;
+            Vector3 currentPosition = (transform.position - targetPosition);
             Vector3 directionToTarget = (targetPosition - currentPosition).normalized;
             Vector3 destination = targetPosition + directionToTarget * 10f;
 
@@ -152,6 +147,8 @@ namespace RPG.Control
                 MoveTo(destination, speed);
                 yield return null;
             }
+
+            currentDashCooldownTime = 0;
             isCasting = false;
         }
 

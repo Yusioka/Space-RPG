@@ -38,7 +38,7 @@ namespace RPG.Control
         [System.Serializable]
         public struct CursorMapping
         {
-          //  public CursorType type;
+            public CursorType type;
             public Texture2D texture;
             public Vector2 hotspot;
         }
@@ -92,8 +92,12 @@ namespace RPG.Control
         }
 
         private void Update()
-        {      
-            if (health.IsDead()) return;
+        {
+            if (health.IsDead())
+            {
+                SetCursor(CursorType.None);
+                return;
+            }
 
             if (CanMoveTo())
             {
@@ -104,15 +108,12 @@ namespace RPG.Control
                 Cancel();
             }
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                GetComponent<ItemDropper>().DropItem(InventoryItem.GetFromID("d00e48d4-1584-4888-a11d-183c8308149d"));
-            }
-
             if (InteractWithCombatByMouse()) return;
             if (InteractWithUI()) return;
             InteractWithCombatByButtons();
             UseAbilities();
+
+  //          SetCursor(CursorType.None);
         }
 
         public bool CanMoveTo()
@@ -139,6 +140,7 @@ namespace RPG.Control
             }
             else
             {
+                SetCursor(CursorType.Movement);
                 UpdateMouseAnimator();
                 if (Input.GetMouseButton(1))
                 {
@@ -324,7 +326,8 @@ namespace RPG.Control
                 {
                     IsDraggingUI = true;
                 }
-                // SetCursor(CursorType.UI);
+
+                SetCursor(CursorType.UI);
                 return true;
             }
 
@@ -358,6 +361,7 @@ namespace RPG.Control
                 CombatTarget target = hit.transform.GetComponent<CombatTarget>();
                 if (target == null) continue;
 
+                SetCursor(CursorType.Combat);
                 if (!GetComponent<Fighter>().CanAttack(target.gameObject)) continue;
 
                 if (Input.GetMouseButton(0))
@@ -389,6 +393,7 @@ namespace RPG.Control
                 CombatTarget target = hit.transform.GetComponent<CombatTarget>();
                 if (target == null) continue;
 
+                SetCursor(CursorType.Combat);
                 if (!GetComponent<Fighter>().CanAttack(target.gameObject)) continue;
 
                 if (Input.GetMouseButton(1))
@@ -404,6 +409,21 @@ namespace RPG.Control
             {
                 GetComponent<Fighter>().Cancel();
             }
+        }
+
+        private void SetCursor(CursorType type)
+        {
+            CursorMapping mapping = GetCursorMapping(type);
+            Cursor.SetCursor(mapping.texture, mapping.hotspot, CursorMode.Auto);
+        }
+
+        private CursorMapping GetCursorMapping(CursorType type)
+        {
+            foreach (CursorMapping mapping in cursorMappings)
+            {
+                if (mapping.type == type) return mapping;
+            }
+            return cursorMappings[0];
         }
     }
 }
