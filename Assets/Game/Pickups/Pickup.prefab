@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 146634168533440585}
   m_Layer: 0
   m_Name: Pickup
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -204,6 +204,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf6cbc87d3ecc104d9ce6e34e0e7ae1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item: {fileID: 0}
+  number: 1
+  shouldDestroy: 1
 --- !u!114 &146634168533440585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,3 +219,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8f878c795533b04484fbb36ee042591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  condition:
+    and: []

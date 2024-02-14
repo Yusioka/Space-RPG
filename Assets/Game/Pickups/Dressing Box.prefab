@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 5885890807307500332}
   m_Layer: 0
   m_Name: Dressing Box
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +37,7 @@ Transform:
   m_Children:
   - {fileID: 8785524705239472649}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -178.595, z: 0}
 --- !u!33 &8129707260728766009
 MeshFilter:
