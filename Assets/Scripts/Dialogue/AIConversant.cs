@@ -1,6 +1,7 @@
 using RPG.Attributes;
 using RPG.Control;
 using RPG.Stats;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace RPG.Dialogue
@@ -35,10 +36,10 @@ namespace RPG.Dialogue
 
         private void Update()
         {
-            if (gameObject == conversant && Vector3.Distance(gameObject.transform.position, player.transform.position) > 5)
-            {
-                GameObject.FindWithTag("Player").GetComponent<PlayerConversant>().Quit();
-            }
+            //if (Vector3.Distance(this.gameObject.transform.position, GameObject.FindWithTag("Player").transform.position)>5)
+            //{
+            //    GameObject.FindWithTag("Player").GetComponent<PlayerConversant>().Quit();
+            //}
         }
 
         private void OnMouseDown()
@@ -49,7 +50,7 @@ namespace RPG.Dialogue
             if (dialogue == null) return;
             if (!player.GetComponent<PlayerController>().CanInteractWithComponent(gameObject)) return;
             GameObject.FindWithTag("Player").GetComponent<PlayerConversant>().StartDialogue(this, dialogue);
-            conversant = gameObject;
+         //   conversant = gameObject;
         }
 
         public Sprite GetAvatar()
