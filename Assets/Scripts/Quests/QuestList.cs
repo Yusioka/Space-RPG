@@ -9,6 +9,7 @@ namespace RPG.Quests
 {
     public class QuestList : MonoBehaviour, ISaveable, IPredicateEvaluator
     {
+        [SerializeField] AudioSource questCompletionAudio;
         public event Action OnUpdate;
         
         private readonly List<QuestStatus> statuses = new();
@@ -38,6 +39,7 @@ namespace RPG.Quests
             if (status.IsComplete())
             {
                 GiveReward(quest);
+                questCompletionAudio?.Play();
             }
 
             OnUpdate?.Invoke();

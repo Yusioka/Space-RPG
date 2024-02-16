@@ -14,6 +14,8 @@ namespace RPG.Stats
       //  [SerializeField] GameObject levelUpParticleEffect = null;
         [SerializeField] bool shouldUseModifiers = false;
 
+        [SerializeField] AudioSource levelUpAudio;
+
         public event Action onLevelUp;
 
         int currentLevel = 0;
@@ -53,6 +55,9 @@ namespace RPG.Stats
                 currentLevel = newLevel;
               //  LevelUpEffect();
                 onLevelUp();
+
+                levelUpAudio?.Play();
+
                 GetComponent<Health>().Heal(10000);
             }
         }

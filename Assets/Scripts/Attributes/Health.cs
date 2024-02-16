@@ -14,10 +14,10 @@ namespace RPG.Attributes
         public float HealthPoints { get; private set; }
         public bool Invulnerable { get; set; }
 
-        public UnityEvent OnDie;
-
         [SerializeField] float regenerationPercentage = 70f;
         [SerializeField] TakeDamageEvent takeDamage;
+
+        public UnityEvent OnDie;
 
         bool wasDeadLastFrame = false;
 
