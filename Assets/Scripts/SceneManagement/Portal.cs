@@ -23,6 +23,7 @@ namespace RPG.SceneManagement
         [SerializeField] float fadeWaitTime = 0.5f;
 
         public bool MovedThroughPortal {  get; private set; }
+        public bool CanDoSomething { get; private set; }
 
         private void OnTriggerEnter(Collider other)
         {
@@ -53,6 +54,7 @@ namespace RPG.SceneManagement
 
             yield return new WaitForSeconds(fadeWaitTime);
             yield return fader.FadeIn(fadeInTime);
+            CanDoSomething = true;
 
             // Destroying the previous scene
             Destroy(gameObject);

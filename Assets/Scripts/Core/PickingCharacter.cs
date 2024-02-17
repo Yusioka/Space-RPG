@@ -31,7 +31,7 @@ namespace RPG.Core
 
         private void Update()
         {
-            Time.timeScale = 2f;
+      //      Time.timeScale = 2f;
         }
     }
 }

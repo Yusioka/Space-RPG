@@ -1,6 +1,4 @@
 using RPG.Core;
-using RPG.Dialogue;
-using RPG.Inventories;
 using RPG.Quests;
 using RPG.SceneManagement;
 using System.Collections;

@@ -315,6 +315,7 @@ namespace RPG.Control
                     IsDraggingUI = true;
                 }
 
+                GetComponent<CursorController>().SetCursor(CursorType.UI);
                 return true;
             }
 
