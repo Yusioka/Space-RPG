@@ -1,4 +1,5 @@
 using RPG.Core;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace RPG.Quests
@@ -7,7 +8,7 @@ namespace RPG.Quests
     {
         [SerializeField] GameObject markPrefab;
         [SerializeField] bool useConditions;
-        [SerializeField] Condition condition;
+        [SerializeField] List<Condition> conditions;
 
         QuestList questList;
         Transform mainCameraTransform;
@@ -28,12 +29,21 @@ namespace RPG.Quests
 
         private bool CanActivateMark(QuestList questList)
         {
+            bool result = false;
+
             if (!useConditions)
             {
                 return false;
             }
 
-            return condition.Check(questList.GetComponents<IPredicateEvaluator>());
+            foreach (Condition condition in conditions)
+            {
+                result = condition.Check(questList.GetComponents<IPredicateEvaluator>());
+
+                if (result) return true;
+            }
+
+            return result;
         }
     }
 }

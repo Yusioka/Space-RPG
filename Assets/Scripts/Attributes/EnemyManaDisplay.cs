@@ -18,6 +18,8 @@ namespace RPG.Attributes
 
         private void Update()
         {
+            if (fighter.GetTargetHealth() == null) return;
+
             if (mana == null || GameObject.FindWithTag("Boss") == null)
             {
                 manaSlider.value = 1;

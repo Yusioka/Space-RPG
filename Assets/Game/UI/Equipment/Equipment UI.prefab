@@ -310,6 +310,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2236010307330562437}
     m_Modifications:
+    - target: {fileID: 1129686911523426971, guid: 7060c69210a381f4ebe6be5ea71a9b8f, type: 3}
+      propertyPath: equipLocation
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895890408174164007, guid: 7060c69210a381f4ebe6be5ea71a9b8f, type: 3}
+      propertyPath: equipLocation
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821500184868498020, guid: 7060c69210a381f4ebe6be5ea71a9b8f, type: 3}
+      propertyPath: equipLocation
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5961128494694742325, guid: 7060c69210a381f4ebe6be5ea71a9b8f, type: 3}
       propertyPath: m_Name
       value: Equipment
@@ -397,6 +409,10 @@ PrefabInstance:
     - target: {fileID: 6057728025209392837, guid: 7060c69210a381f4ebe6be5ea71a9b8f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8885040523101008807, guid: 7060c69210a381f4ebe6be5ea71a9b8f, type: 3}
+      propertyPath: equipLocation
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -30,6 +30,17 @@ MonoBehaviour:
     - or:
       - predicate: HasQuest
         parameters:
+        - Dangerous Adventure
+        negate: 0
+    - or:
+      - predicate: CompletedObjective
+        parameters:
+        - Dangerous Adventure
+        - Find survivors
+        negate: 0
+    - or:
+      - predicate: HasQuest
+        parameters:
         - Looking for information
         negate: 1
 --- !u!114 &-6603175647739515080
@@ -338,7 +349,7 @@ MonoBehaviour:
   - b4a191f6-ddb1-4d02-b19f-78aa4c9aa0a1
   rect:
     serializedVersion: 2
-    x: 253
+    x: 255
     y: 216.00002
     width: 200
     height: 100
@@ -350,6 +361,10 @@ MonoBehaviour:
       - predicate: HasQuest
         parameters:
         - Looking for information
+        negate: 0
+      - predicate: HasQuest
+        parameters:
+        - Pleasant surprise
         negate: 0
 --- !u!114 &1610150383056487188
 MonoBehaviour:
@@ -592,8 +607,8 @@ MonoBehaviour:
   - 5e26435c-6d8a-47b3-978e-7c8710f69bc1
   rect:
     serializedVersion: 2
-    x: 250
-    y: 0
+    x: 249
+    y: -1
     width: 200
     height: 100
   onEnterAction: 

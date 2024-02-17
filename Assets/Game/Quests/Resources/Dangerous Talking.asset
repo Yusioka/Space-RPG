@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Dangerous Talking
   objectives:
   - reference: Speak with Prisoner
-    description: Aw... He is so dangerous.
+    description: Speak with Prisoner
     usesCondition: 0
     completionCondition:
       and: []

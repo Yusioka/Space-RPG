@@ -496,7 +496,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 244
-    y: 120
+    y: 119
     width: 200
     height: 100
   onEnterAction: 
@@ -509,7 +509,8 @@ MonoBehaviour:
         - Get dressed, man x2
         negate: 0
     - or:
-      - predicate: CompletedQuest
+      - predicate: CompletedObjective
         parameters:
         - Get dressed, man x2
+        - Return
         negate: 0

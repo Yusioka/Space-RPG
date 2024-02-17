@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Get dressed, man
   objectives:
   - reference: Put on a suit
-    description: Meh, can you put on a Suit? You look indecent.
+    description: Put on a suit
     usesCondition: 0
     completionCondition:
       and: []

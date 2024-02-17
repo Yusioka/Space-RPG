@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Something Strange
   objectives:
   - reference: Go to the Helen and talk to her
-    description: Helen doesn't say something...
+    description: Go to the Helen and talk to her. Helen doesn't say something...
     usesCondition: 0
     completionCondition:
       and: []

@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Get Ready
   objectives:
   - reference: Go to the Mechanic
-    description: 'Mechanic will give you the powerful equipment '
+    description: 'Go to the Mechanic, he will give you the powerful equipment '
     usesCondition: 0
     completionCondition:
       and: []

@@ -58,7 +58,7 @@ MonoBehaviour:
     - or:
       - predicate: HasQuest
         parameters:
-        - Speak with Scientist
+        - Speak with Chemist
         negate: 0
       - predicate: HasQuest
         parameters:
@@ -161,13 +161,13 @@ MonoBehaviour:
     - or:
       - predicate: HasQuest
         parameters:
-        - Get Ready
+        - Put on the equipment
         negate: 0
     - or:
       - predicate: CompletedQuest
         parameters:
-        - Get Ready
-        negate: 0
+        - Put on the equipment
+        negate: 1
 --- !u!114 &-5973663512645462843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +227,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 257
-    y: 46
+    y: 45
     width: 200
     height: 100
   onEnterAction: 
@@ -237,7 +237,7 @@ MonoBehaviour:
     - or:
       - predicate: HasQuest
         parameters:
-        - Speak with Scientist
+        - Speak with Chemist
         negate: 1
     - or:
       - predicate: HasQuest
@@ -503,7 +503,7 @@ MonoBehaviour:
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: QiveQuest2
+  onExitAction: 
   condition:
     and: []
 --- !u!114 &1640151885258941685
@@ -587,7 +587,7 @@ MonoBehaviour:
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: 
+  onExitAction: GiveQuest2
   condition:
     and: []
 --- !u!114 &2607780129837939518

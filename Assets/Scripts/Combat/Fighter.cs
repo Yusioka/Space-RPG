@@ -10,6 +10,7 @@ using UnityEngine.AI;
 using JetBrains.Annotations;
 using RPG.Control;
 using RPG.Dialogue;
+using UnityEngine.Events;
 
 namespace RPG.Combat
 {

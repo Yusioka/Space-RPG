@@ -28,5 +28,10 @@ namespace RPG.Core
         {
             IsMale = (bool)state;
         }
+
+        private void Update()
+        {
+            Time.timeScale = 2f;
+        }
     }
 }
