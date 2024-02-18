@@ -1923,11 +1923,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2803786964445260287, guid: 96d72374a70dbc34583753bfa57179a0, type: 3}
+      propertyPath: m_Quality
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2803786964445260287, guid: 96d72374a70dbc34583753bfa57179a0, type: 3}
+      propertyPath: m_RootBone
+      value: 
+      objectReference: {fileID: 36277153664948912}
+    - target: {fileID: 2803786964445260287, guid: 96d72374a70dbc34583753bfa57179a0, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96d72374a70dbc34583753bfa57179a0, type: 3}
+--- !u!4 &36277153664948912 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6922987610900728827, guid: 96d72374a70dbc34583753bfa57179a0, type: 3}
+  m_PrefabInstance: {fileID: 6959052550226202955}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4215010248378584086 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6551959078195617117, guid: 96d72374a70dbc34583753bfa57179a0, type: 3}

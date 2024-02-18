@@ -18,6 +18,7 @@ namespace RPG.UI
         [SerializeField] Transform choiceRoot;
         [SerializeField] GameObject choicePrefab;
         [SerializeField] Button quitButton;
+        [SerializeField] AudioClip nextButtonClip;
 
         private void Start()
         {
@@ -73,6 +74,7 @@ namespace RPG.UI
                 Button button = choiceInstance.GetComponentInChildren<Button>();
                 button.onClick.AddListener(() =>
                 {
+                    GetComponentInParent<AudioSource>().PlayOneShot(nextButtonClip);
                     playerConversant.SelectChoice(choice);
                 });
             }

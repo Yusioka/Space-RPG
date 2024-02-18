@@ -20,9 +20,9 @@ namespace RPG.UI
             return newGameNameField;
         }
 
-        private void Awake()
+        private void Start()
         {
-            savingWrapper = FindObjectOfType<SavingWrapper>();
+            savingWrapper = FindAnyObjectByType<SavingWrapper>();
         }
 
         private void Update()

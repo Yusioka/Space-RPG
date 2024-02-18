@@ -15,7 +15,7 @@ namespace RPG.Control
         private void LateUpdate()
         {
             transform.position = new Vector3(PlayerTransform.position.x, transform.position.y, PlayerTransform.position.z);
-            //MapPosition();
+            MapPosition();
         }
 
         private void MapPosition()

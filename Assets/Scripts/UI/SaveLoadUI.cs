@@ -16,7 +16,7 @@ namespace RPG.UI
 
         public void EnableLoadUI()
         {
-            SavingWrapper savingWrapper = FindObjectOfType<SavingWrapper>();
+            SavingWrapper savingWrapper = FindAnyObjectByType<SavingWrapper>();
             if (savingWrapper == null) return;
             foreach (Transform child in contentRoot)
             {

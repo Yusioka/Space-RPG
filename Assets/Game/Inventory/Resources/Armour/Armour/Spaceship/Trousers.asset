@@ -19,8 +19,8 @@ MonoBehaviour:
   pickup: {fileID: -5555054738193894686, guid: 1f5a2aced5409714e8259698c078549b, type: 3}
   stackable: 0
   price: 10
-  category: 0
-  allowedEquipLocation: 5
+  category: 1
+  allowedEquipLocation: 3
   equipCondition:
     and:
     - or:
@@ -28,3 +28,4 @@ MonoBehaviour:
         parameters:
         - Get dressed, man
         negate: 0
+  equipPrefabName: 

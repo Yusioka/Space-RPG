@@ -12,6 +12,7 @@ namespace RPG.Control
         [SerializeField] GameObject core;
         [SerializeField] GameObject buttons;
         [SerializeField] GameObject miniMap;
+        [SerializeField] AudioClip audioClip = null;
         [SerializeField] KeyCode toggleKey = KeyCode.M;
 
         private void Start()
@@ -54,6 +55,11 @@ namespace RPG.Control
             {
                 map.SetActive(false);
                 secondMap.SetActive(false);
+            }
+
+            if (audioClip != null)
+            {
+                GetComponentInParent<AudioSource>().PlayOneShot(audioClip);
             }
 
             core.SetActive(!core.activeSelf);

@@ -34,7 +34,7 @@ namespace RPG.UI
 
             if (audioClip != null)
             {
-                GetComponent<AudioSource>().PlayOneShot(audioClip);
+                GetComponentInParent<AudioSource>().PlayOneShot(audioClip);
             }
         }
     }

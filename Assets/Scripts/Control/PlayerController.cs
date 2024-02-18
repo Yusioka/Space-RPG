@@ -7,7 +7,6 @@ using RPG.Inventories;
 using RPG.Core;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
-using RPG.Saving;
 
 namespace RPG.Control
 {
@@ -21,11 +20,13 @@ namespace RPG.Control
         [SerializeField] GameObject malePrefab;
         [SerializeField] GameObject femalePrefab;
 
+        MoverController moverController;
+        CharacterPrefabController characterPrefabController;
+
         RaycastHit hit;
         bool hasHit;
         NavMeshAgent navMeshAgent;
         float chaseDistance = 3;
-        MoverController moverController;
         bool isMoving;
 
         Health health;
@@ -52,6 +53,7 @@ namespace RPG.Control
 
         private void Awake()
         {
+            characterPrefabController = GetComponent<CharacterPrefabController>();
             moverController = GetComponent<MoverController>();
             navMeshAgent = GetComponent<NavMeshAgent>();
             health = GetComponent<Health>();
@@ -59,30 +61,10 @@ namespace RPG.Control
             actionStore = GetComponent<ActionStore>();
         }
 
-        private void Start()
-        {
-            if (GameObject.FindAnyObjectByType<PickingCharacter>() == null)
-            {
-                femalePrefab.SetActive(true);
-           //     femalePrefab.gameObject.name = "Player";
-                malePrefab.SetActive(false);
-            }
-            if (GameObject.FindAnyObjectByType<PickingCharacter>().IsMale)
-            {
-                femalePrefab.SetActive(false);
-                malePrefab.SetActive(true);
-          //      malePrefab.gameObject.name = "Player";
-            }
-
-            else
-            {
-                femalePrefab.SetActive(true);
-                malePrefab.SetActive(false);
-            }
-        }
-
         private void Update()
         {
+            ChangeCharacterPrefab();
+
             if (health.IsDead())
             {
                 return;
@@ -101,8 +83,6 @@ namespace RPG.Control
             if (InteractWithUI()) return;
             InteractWithCombatByButtons();
             UseAbilities();
-
-  //          SetCursor(CursorType.None);
         }
 
         public bool CanMoveTo()
@@ -397,6 +377,24 @@ namespace RPG.Control
             if (!hasHitEnemy && Input.GetMouseButton(0))
             {
                 GetComponent<Fighter>().Cancel();
+            }
+        }
+
+        private void ChangeCharacterPrefab()
+        {
+            if (characterPrefabController.ChosenMale() && malePrefab.activeSelf) return;
+            if (!characterPrefabController.ChosenMale() && femalePrefab.activeSelf) return;
+
+            if (characterPrefabController.ChosenMale())
+            {
+                femalePrefab.SetActive(false);
+                malePrefab.SetActive(true);
+            }
+
+            else
+            {
+                femalePrefab.SetActive(true);
+                malePrefab.SetActive(false);
             }
         }
     }
