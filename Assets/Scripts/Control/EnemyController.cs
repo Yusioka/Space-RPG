@@ -1,8 +1,6 @@
 using RPG.Attributes;
 using RPG.Combat;
 using RPG.Movement;
-using RPG.Saving;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -36,7 +34,6 @@ namespace RPG.Control
         int currentWaypointIndex = 0;
 
         float timeSinceAggrevated = Mathf.Infinity;
-        bool isBlocking = false;
         bool firstTimeAggrevated = true;
 
         private void Awake()
@@ -60,10 +57,9 @@ namespace RPG.Control
 
         private void Update()
         {
-            if (isBlocking) return;
             if (CanMoveTo())
             {
-                if (fighter.CanAttack(player) && DistanceToObject(player) < chaseDistance || playerFighter.GetTargetHealth() == health)
+                if (fighter.CanAttack(player) && DistanceToObject(player) < chaseDistance || (health.HealthPoints != health.GetMaxHealthPoints() && health == playerFighter.GetTargetHealth()))
                 {
                     if (health.IsDead()) return;
                     timeSinceLastSawPlayer = 0;
@@ -86,6 +82,10 @@ namespace RPG.Control
                         transform.LookAt(player.transform.position);
                     }
                 }
+                if (IsAggrevated())
+                {
+                    AttackBehaviour();
+                }
 
                 timeSinceLastSawPlayer += Time.deltaTime;
                 timeSinceArrivedAtWaypoint += Time.deltaTime;
@@ -102,14 +102,10 @@ namespace RPG.Control
                 UpdateAnimator();
             }
         }
-        //
-        public void SetIsBlocking(bool state)
-        {
-            isBlocking = state;
-        }
 
         public void Aggrevate()
         {
+            IsAggrevated();
             timeSinceAggrevated = 0;
         }
 
@@ -247,7 +243,7 @@ namespace RPG.Control
 
         private void HealEnemy()
         {
-            if (health && !health.IsDead() && health.HealthPoints != health.GetMaxHealthPoints())
+            if (health.HealthPoints != health.GetMaxHealthPoints())
             {
                 health.Heal(5);
             }

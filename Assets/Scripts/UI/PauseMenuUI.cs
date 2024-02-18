@@ -2,17 +2,24 @@ using UnityEngine;
 using RPG.Control;
 using RPG.SceneManagement;
 using RPG.Saving;
+using UnityEngine.UI;
+using RPG.Core;
 
 namespace RPG.UI
 {
     public class PauseMenuUI : MonoBehaviour
     {
+        [SerializeField] Button controlButton;
         [SerializeField] float timeScale = 1;
+
         PlayerController playerController;
+        TypeOfControl typeOfControl;
 
         private void Start()
         {
+            typeOfControl = GameObject.FindAnyObjectByType<TypeOfControl>();
             playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            controlButton.onClick.AddListener(() => typeOfControl.ChooseTypeOfMoving());
         }
 
         private void OnEnable()

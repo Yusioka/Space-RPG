@@ -1,24 +1,24 @@
+using RPG.Core;
+using RPG.Saving;
 using UnityEngine;
 
 namespace RPG.Control
 {
-    public class MoverController : MonoBehaviour
+    public class MoverController : MonoBehaviour, ISaveable
     {
-        public bool isButtonsMoving = false;
-
         public bool IsButtonsMoving()
         {
-            return isButtonsMoving;
+            return FindAnyObjectByType<TypeOfControl>().IsButtonsMoving;
         }
 
-
-        public void MouseMoving()
+        public object CaptureState()
         {
-            isButtonsMoving = false;
+            return FindAnyObjectByType<TypeOfControl>().IsButtonsMoving;
         }
-        public void ButtonsMoving()
+
+        public void RestoreState(object state)
         {
-            isButtonsMoving = true;
+            FindAnyObjectByType<TypeOfControl>().IsButtonsMoving = (bool)state;
         }
     }
 }

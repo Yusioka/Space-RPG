@@ -1,6 +1,4 @@
 using RPG.Saving;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RPG.Core
@@ -27,11 +25,6 @@ namespace RPG.Core
         public void RestoreState(object state)
         {
             IsMale = (bool)state;
-        }
-
-        private void Update()
-        {
-      //      Time.timeScale = 2f;
         }
     }
 }

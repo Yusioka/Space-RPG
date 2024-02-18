@@ -115,8 +115,10 @@ namespace RPG.Control
                 {
                     return true;
                 }
+
                 return false;
             }
+
             return true;
         }
 
@@ -139,9 +141,10 @@ namespace RPG.Control
 
         private void StartMoveActionByButtons()
         {
-            GetComponent<ActionSceduler>().StartAction(this);
+            Cancel();
+            //      GetComponent<ActionSceduler>().StartAction(this);
 
-            float speed = maxSpeed;
+            float speed = GetSpeed();
 
             float verticalMove = Input.GetAxis("Vertical");
             float slew = Input.GetAxis("Horizontal");
@@ -195,7 +198,7 @@ namespace RPG.Control
 
         private void StartMoveActionByMouse(Vector3 destination, float speed)
         {
-            GetComponent<ActionSceduler>().StartAction(this);
+     //       GetComponent<ActionSceduler>().StartAction(this);
             MoveTo(destination, speed);
         }
         public void MoveTo(Vector3 destination, float speed)
@@ -339,9 +342,9 @@ namespace RPG.Control
 
         private bool InteractWithCombatByMouse()
         {
-            if (moverController.isButtonsMoving) return false;
+            if (moverController.IsButtonsMoving()) return false;
 
-            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+            RaycastHit[] hits = Physics.SphereCastAll(GetMouseRay(), raycastRadius);
             bool hasHitEnemy = false;
 
             foreach (RaycastHit hit in hits)
@@ -370,7 +373,7 @@ namespace RPG.Control
 
         private void InteractWithCombatByButtons()
         {
-            if (!moverController.isButtonsMoving) return;
+            if (!moverController.IsButtonsMoving()) return;
 
             RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
             bool hasHitEnemy = false;

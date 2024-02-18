@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace RPG.Control
@@ -45,7 +46,16 @@ namespace RPG.Control
 
         public void Toggle()
         {
-            map.SetActive(!map.activeSelf);
+            if (!map.activeSelf && !secondMap.activeSelf)
+            {
+                map.SetActive(true);
+            }
+            else if (map.activeSelf || secondMap.activeSelf)
+            {
+                map.SetActive(false);
+                secondMap.SetActive(false);
+            }
+
             core.SetActive(!core.activeSelf);
             miniMap.SetActive(!miniMap.activeSelf);
             buttons.SetActive(!buttons.activeSelf);
