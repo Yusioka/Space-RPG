@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6465541768840466843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: cdb9f8bf-3928-4e09-ab49-687a304a6ed5
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: YOU'LL DIE!!!
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 249
+    y: 0
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: Attack
+  condition:
+    and: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 591f37a1e8894a141b4d49be861dfef9, type: 3}
+  m_Name: TestDialogue2
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 1192156937183815755}
+  - {fileID: -6465541768840466843}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &1192156937183815755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 039e7423-887d-46b3-aeef-331a9abf00c1
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: NOOO!!!
+  children:
+  - cdb9f8bf-3928-4e09-ab49-687a304a6ed5
+  rect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []

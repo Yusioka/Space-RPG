@@ -1,5 +1,6 @@
 using RPG.Attributes;
 using RPG.Combat;
+using RPG.Dialogue;
 using RPG.Inventories;
 using RPG.Movement;
 using System.Collections;
@@ -13,6 +14,9 @@ namespace RPG.Control
     {
         Dictionary<int, DockedItemSlot> dockedItems = new Dictionary<int, DockedItemSlot>();
 
+        [SerializeField] GameObject transformCinematicTarget;
+
+        [SerializeField] RPG.Dialogue.Dialogue secondDialogue;
         [SerializeField] ActionItem[] ability;
         [SerializeField] int wanderRadius = 200;
         [SerializeField] float totalCooldownTime = 5;
@@ -25,6 +29,9 @@ namespace RPG.Control
         Transform playerTransform;
         NavMeshAgent navMeshAgent;
 
+        bool shouldJump = false;
+        bool isFalling = false;
+
         float castTime = 2f;
         float speed = 5f;
 
@@ -33,6 +40,13 @@ namespace RPG.Control
 
         float currentCooldownTime = 0;
         float currentDashCooldownTime = 0;
+
+        bool canAttack = false;
+        int killedSons = 0;
+        bool isShow = false;
+        bool b;
+        bool a;
+        bool c;
 
         private class DockedItemSlot
         {
@@ -79,35 +93,81 @@ namespace RPG.Control
                 AddAction(ability[i], i);
             }
 
-            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
             fighter = GetComponent<Fighter>();
         }
 
         private void Start()
         {
+            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
             health = GetComponent<Health>();
             navMeshAgent = GetComponent<NavMeshAgent>();
             animator = GetComponent<Animator>();
-
-            animator.Play("ReadyToAttack");
+            //          animator.Play("ReadyToAttack");
         }
 
         private void Update()
         {
-            currentCooldownTime += Time.deltaTime;
-            currentDashCooldownTime += Time.deltaTime;
 
-            if (!CanMoveTo()) return;
+            Test();
 
-            fighter.Attack(playerTransform.gameObject);
-            UpdateAnimator();
-
-            AddNewAttack();
-            if (currentCooldownTime >= totalCooldownTime)
+            if (canAttack && !a)
             {
-                UseAction(Random.Range(0, ability.Length), gameObject);
-                currentCooldownTime = 0;
+                animator.SetTrigger("useCinemAnimation");
+                a = true;
+          //      canAttack = false;
             }
+
+            if (shouldJump)
+            {
+                StartCoroutine(ActivateCinematicANimation());
+            }
+
+            //currentCooldownTime += Time.deltaTime;
+            //currentDashCooldownTime += Time.deltaTime;
+
+            if (b)
+            {
+                if (!c)
+                {
+                    animator.SetTrigger("readyToAttack");
+                    c = true;
+                }
+
+                if (!CanMoveTo()) return;
+
+                fighter.Attack(playerTransform.gameObject);
+                UpdateAnimator();
+            }
+
+            //AddNewAttack();
+            //if (currentCooldownTime >= totalCooldownTime)
+            //{
+            //    UseAction(Random.Range(0, ability.Length), gameObject);
+            //    currentCooldownTime = 0;
+            //}
+        }
+
+        private void Test()
+        {
+            if (gameObject.tag == "Boss" && Vector3.Distance(gameObject.transform.position, playerTransform.position) <= 90 && !isShow && !canAttack)
+            {
+                AIConversant conversant = GetComponent<AIConversant>();
+                playerTransform.gameObject.GetComponent<PlayerConversant>().StartDialogue(conversant, conversant.GetDialogue());
+                isShow = true;
+            }
+
+            if (killedSons == 2 && isShow)
+            {
+                AIConversant conversant = GetComponent<AIConversant>();
+                playerTransform.gameObject.GetComponent<PlayerConversant>().StartDialogue(conversant, secondDialogue);
+                isShow = false;
+                canAttack = true;
+            }
+        }
+
+        public void SomeTest()
+        {
+            killedSons++;
         }
 
         private void AddNewAttack()
@@ -184,5 +244,49 @@ namespace RPG.Control
         }
 
         public void StartMoveAction() { }
+
+        private IEnumerator ActivateCinematicANimation()
+        {
+            Rigidbody bossRigidbody = GetComponent<Rigidbody>();
+
+            navMeshAgent.enabled = false;
+            bossRigidbody.isKinematic = false;
+            bossRigidbody.AddForce(Vector3.up * 3, ForceMode.Impulse);
+            yield return new WaitForSeconds(1f);
+            bossRigidbody.isKinematic = true;
+            transform.position = transformCinematicTarget.transform.position;
+            yield return new WaitForSeconds(0.1f);
+            bossRigidbody.isKinematic = false;
+            bossRigidbody.AddForce(Vector3.down * 3, ForceMode.Impulse);
+
+            if (!isFalling)
+            {
+                navMeshAgent.enabled = true;
+            }
+            else
+            {
+                navMeshAgent.enabled = false;
+            }
+
+            shouldJump = false;
+            b = true;
+       //     animator.ResetTrigger("useCinemAnimation");
+        }
+
+        public void Attack()
+        {
+ //           canAttack = true;
+        }
+
+        void ShouldJump()
+        {
+            shouldJump = true;
+            //      GetComponent<Rigidbody>().isKinematic = false;
+        }
+
+        void Land()
+        {
+            isFalling = !isFalling;
+        }
     }
 }

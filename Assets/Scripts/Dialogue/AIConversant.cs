@@ -15,6 +15,12 @@ namespace RPG.Dialogue
         GameObject conversant = null;
         GameObject player;
 
+
+        public Dialogue GetDialogue()
+        {
+            return dialogue;
+        }
+
         //public bool HandleRaycast(PlayerController callingController)
         //{
         //    if (dialogue == null) return false;

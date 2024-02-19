@@ -33,7 +33,7 @@ namespace RPG.Control
                     SetCursor(CursorType.None);
                 }
 
-                if (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Boss"))
+                if (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Boss") || hit.collider.CompareTag("BossSon"))
                 {
                     if (hit.collider.GetComponent<AIConversant>() && hit.collider.GetComponent<AIConversant>().enabled == true)
                     {

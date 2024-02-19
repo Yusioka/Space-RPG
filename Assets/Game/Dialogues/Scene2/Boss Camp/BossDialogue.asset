@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: c97a61cf-062e-4565-99d6-dc011ae55e0c
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Hi
+  text: "\u0421\u044B\u043D\u043E\u0432\u044C\u044F \u043D\u0430\u043F\u0430\u0434\u0430\u044E\u0442"
   children:
   - a5beec77-4aa5-4dcd-9dcb-036f7803e82e
   rect:
@@ -48,7 +48,7 @@ MonoBehaviour:
     width: 200
     height: 100
   onEnterAction: 
-  onExitAction: 
+  onExitAction: SonsAttack
   condition:
     and: []
 --- !u!114 &-2443172261912271080
@@ -68,8 +68,8 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 513
-    y: 148
+    x: 515
+    y: 158
     width: 200
     height: 100
   onEnterAction: 
@@ -108,13 +108,13 @@ MonoBehaviour:
   m_Name: 35068365-988b-4c31-8100-ad57de27d9a0
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: FIGHT WITH MEE
+  text: "\u0411\u043E\u0441\u0441 \u043D\u0430\u043F\u0430\u0434\u0430\u0435\u0442"
   children:
   - 0b471484-9c5b-4b02-bfe1-2f776cc5c65d
   rect:
     serializedVersion: 2
-    x: 263
-    y: 148
+    x: 264
+    y: 160
     width: 200
     height: 100
   onEnterAction: 
@@ -134,7 +134,8 @@ MonoBehaviour:
   m_Name: 249a530d-a125-46dd-a104-e2c07a61e9e6
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: ARRR
+  text: "\u041C\u043E\u0438 \u0441\u044B\u043D\u043E\u0432\u044C\u044F \u0443\u043D\u0438\u0447\u0442\u043E\u0436\u0430\u0442
+    \u0442\u0435\u0431\u044F!"
   children:
   - c97a61cf-062e-4565-99d6-dc011ae55e0c
   - 35068365-988b-4c31-8100-ad57de27d9a0
