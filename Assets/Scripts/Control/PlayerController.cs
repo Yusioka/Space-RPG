@@ -308,17 +308,6 @@ namespace RPG.Control
         {
             return Vector3.Distance(gameObject.transform.position, interactable.transform.position) <= chaseDistance;
         }
-        private RaycastHit[] RaycastAllSorted()
-        {
-            RaycastHit[] hits = Physics.SphereCastAll(GetMouseRay(), raycastRadius);
-            float[] distances = new float[hits.Length];
-            for (int i = 0; i < hits.Length; i++)
-            {
-                distances[i] = hits[i].distance;
-            }
-            Array.Sort(distances, hits);
-            return hits;
-        }
 
         private bool InteractWithCombatByMouse()
         {

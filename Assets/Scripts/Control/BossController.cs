@@ -41,17 +41,24 @@ namespace RPG.Control
         float currentCooldownTime = 0;
         float currentDashCooldownTime = 0;
 
-        bool canAttack = false;
         int killedSons = 0;
-        bool isShow = false;
-        bool b;
-        bool a;
-        bool c;
+
+        bool isSecondDialogue = false;
+        bool startAttack = false;
+        bool enableAttackBehaviour = false;
+        bool attackBehaviourEnabled;
+
+        public bool EnableCamera { get; private set; }
 
         private class DockedItemSlot
         {
             public ActionItem item;
             public int number;
+        }
+
+        public bool GetStartAttack()
+        {
+            return startAttack;
         }
 
         public void UseAction(int index, GameObject user)
@@ -102,35 +109,35 @@ namespace RPG.Control
             health = GetComponent<Health>();
             navMeshAgent = GetComponent<NavMeshAgent>();
             animator = GetComponent<Animator>();
-            //          animator.Play("ReadyToAttack");
         }
 
         private void Update()
         {
+            DialogueControl();
 
-            Test();
-
-            if (canAttack && !a)
+            if (startAttack)
             {
                 animator.SetTrigger("useCinemAnimation");
-                a = true;
-          //      canAttack = false;
+
+                isSecondDialogue = true;
+                startAttack = false;
             }
 
             if (shouldJump)
             {
-                StartCoroutine(ActivateCinematicANimation());
+                StartCoroutine(ActivateCinematicAnimation());
             }
 
             //currentCooldownTime += Time.deltaTime;
             //currentDashCooldownTime += Time.deltaTime;
 
-            if (b)
+            if (enableAttackBehaviour)
             {
-                if (!c)
+                if (!attackBehaviourEnabled)
                 {
+                    navMeshAgent.enabled = true;
                     animator.SetTrigger("readyToAttack");
-                    c = true;
+                    attackBehaviourEnabled = true;
                 }
 
                 if (!CanMoveTo()) return;
@@ -147,21 +154,21 @@ namespace RPG.Control
             //}
         }
 
-        private void Test()
+        private void DialogueControl()
         {
-            if (gameObject.tag == "Boss" && Vector3.Distance(gameObject.transform.position, playerTransform.position) <= 90 && !isShow && !canAttack)
+            if (Vector3.Distance(gameObject.transform.position, playerTransform.position) <= 90 && !isSecondDialogue && !startAttack)
             {
                 AIConversant conversant = GetComponent<AIConversant>();
                 playerTransform.gameObject.GetComponent<PlayerConversant>().StartDialogue(conversant, conversant.GetDialogue());
-                isShow = true;
+                isSecondDialogue = true;
             }
 
-            if (killedSons == 2 && isShow)
+            if (killedSons == 2 && isSecondDialogue)
             {
                 AIConversant conversant = GetComponent<AIConversant>();
                 playerTransform.gameObject.GetComponent<PlayerConversant>().StartDialogue(conversant, secondDialogue);
-                isShow = false;
-                canAttack = true;
+                killedSons = 0;
+                isSecondDialogue = false;
             }
         }
 
@@ -245,43 +252,42 @@ namespace RPG.Control
 
         public void StartMoveAction() { }
 
-        private IEnumerator ActivateCinematicANimation()
+        private IEnumerator ActivateCinematicAnimation()
         {
             Rigidbody bossRigidbody = GetComponent<Rigidbody>();
 
-            navMeshAgent.enabled = false;
             bossRigidbody.isKinematic = false;
             bossRigidbody.AddForce(Vector3.up * 3, ForceMode.Impulse);
             yield return new WaitForSeconds(1f);
             bossRigidbody.isKinematic = true;
             transform.position = transformCinematicTarget.transform.position;
             yield return new WaitForSeconds(0.1f);
+            animator.ResetTrigger("useCinemAnimation");
+
+            animator.SetTrigger("flip");
             bossRigidbody.isKinematic = false;
             bossRigidbody.AddForce(Vector3.down * 3, ForceMode.Impulse);
 
+            navMeshAgent.enabled = !isFalling;
+
             if (!isFalling)
             {
-                navMeshAgent.enabled = true;
-            }
-            else
-            {
-                navMeshAgent.enabled = false;
+                animator.ResetTrigger("flip");
             }
 
             shouldJump = false;
-            b = true;
-       //     animator.ResetTrigger("useCinemAnimation");
+            enableAttackBehaviour = true;
         }
 
         public void Attack()
         {
- //           canAttack = true;
+            startAttack = true;
+            EnableCamera = true;
         }
 
         void ShouldJump()
         {
             shouldJump = true;
-            //      GetComponent<Rigidbody>().isKinematic = false;
         }
 
         void Land()

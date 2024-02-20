@@ -13,10 +13,17 @@ namespace RPG.Control
             EnableAnimation();
         }
 
+
         private void EnableAnimation()
         {
-            if (portal.CanDoSomething)
+            //if (portal.CanDoSomething)
+            //{
+            //    cam.SetActive(true);
+            //}
+
+            if (GameObject.FindWithTag("Boss").GetComponent<BossController>().EnableCamera)
             {
+                print("canAttack");
                 cam.SetActive(true);
             }
         }

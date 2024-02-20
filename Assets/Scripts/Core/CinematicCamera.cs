@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RPG.Core
@@ -10,6 +8,7 @@ namespace RPG.Core
         public void CameraEnd()
         {
             gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }
