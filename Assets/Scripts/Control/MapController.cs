@@ -27,16 +27,6 @@ namespace RPG.Control
             buttons.SetActive(false);
         }
 
-        public void CameraStart()
-        {
-            gameObject.GetComponent<Camera>().enabled = true;
-        }
-
-        public void CameraEnd()
-        {
-            gameObject.GetComponent<Camera>().enabled = false;
-        }
-
         private void Update()
         {
             if (Input.GetKeyDown(toggleKey))
@@ -47,14 +37,27 @@ namespace RPG.Control
 
         public void Toggle()
         {
-            if (!map.activeSelf && !secondMap.activeSelf)
+            if (secondMap)
             {
-                map.SetActive(true);
+                if (!map.activeSelf && !secondMap.activeSelf)
+                {
+                    map.SetActive(true);
+
+                    GameObject.FindWithTag("Player").GetComponent<PlayerController>().enabled = false;
+                }
+                else if (map.activeSelf || secondMap.activeSelf)
+                {
+                    map.SetActive(false);
+                    secondMap.SetActive(false);
+
+                    GameObject.FindWithTag("Player").GetComponent<PlayerController>().enabled = true;
+                }
             }
-            else if (map.activeSelf || secondMap.activeSelf)
+
+            else
             {
-                map.SetActive(false);
-                secondMap.SetActive(false);
+                map.SetActive(!map.activeSelf);
+                GameObject.FindWithTag("Player").GetComponent<PlayerController>().enabled = !map.activeSelf;
             }
 
             if (audioClip != null)

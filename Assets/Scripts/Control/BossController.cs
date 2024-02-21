@@ -133,6 +133,8 @@ namespace RPG.Control
 
             if (enableAttackBehaviour)
             {
+                EnableCamera = false;
+
                 if (!attackBehaviourEnabled)
                 {
                     navMeshAgent.enabled = true;

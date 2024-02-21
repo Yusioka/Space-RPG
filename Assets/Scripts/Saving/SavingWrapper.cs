@@ -13,8 +13,8 @@ namespace RPG.Saving
         // const - can't change
         const string currentSaveKey = "currentSaveName";
 
-      //  [SerializeField] float fadeInTime = 0.2f;
-       // [SerializeField] float fadeOutTime = 0.2f;
+        [SerializeField] float fadeInTime = 0.2f;
+        [SerializeField] float fadeOutTime = 0.2f;
         [SerializeField] KeyCode savingKey;
         [SerializeField] KeyCode loadKey;
         [SerializeField] KeyCode deleteKey;
@@ -54,28 +54,27 @@ namespace RPG.Saving
         private IEnumerator LoadMenuScene()
         {
             Fader fader = FindObjectOfType<Fader>();
-         //   fader.SetLoadingScreenForest();
-         //   yield return fader.FadeOut(fadeOutTime);
+            yield return fader.FadeOut(fadeOutTime);
             yield return SceneManager.LoadSceneAsync(0);
-          //  yield return fader.FadeIn(fadeInTime);
+            yield return fader.FadeIn(fadeInTime);
         }
 
         private IEnumerator LoadLastScene()
         {
-         //   Fader fader = FindObjectOfType<Fader>();
+            Fader fader = FindObjectOfType<Fader>();
 
-         //   yield return fader.FadeOut(fadeOutTime);
+            yield return fader.FadeOut(fadeOutTime);
             yield return GetComponent<SavingSystem>().LoadLastScene(GetCurrentSave());
-         //   yield return fader.FadeIn(fadeInTime);
+            yield return fader.FadeIn(fadeInTime);
         }
         private IEnumerator LoadFirstScene()
         {
-         //   Fader fader = FindObjectOfType<Fader>();
+            Fader fader = FindObjectOfType<Fader>();
 
-         //   yield return fader.FadeOut(fadeOutTime);
+            yield return fader.FadeOut(fadeOutTime);
             yield return SceneManager.LoadSceneAsync(1);
             Save();
-         //   yield return fader.FadeIn(fadeInTime);
+            yield return fader.FadeIn(fadeInTime);
         }
 
         private void Update()
