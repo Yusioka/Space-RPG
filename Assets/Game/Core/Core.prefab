@@ -1803,7 +1803,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3473659235036871368}
   - component: {fileID: 6551048371112314896}
-  - component: {fileID: 2578448551055425565}
+  - component: {fileID: 1873612504453381645}
   m_Layer: 0
   m_Name: TakeDamageSound
   m_TagString: Untagged
@@ -1922,7 +1922,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2578448551055425565
+--- !u!114 &1873612504453381645
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1931,7 +1931,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5313751891187185029}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d9d59e27d9226547983132cbb131283, type: 3}
+  m_Script: {fileID: 11500000, guid: 16e82c4868675d34a9e477ff173aacdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sounds: []

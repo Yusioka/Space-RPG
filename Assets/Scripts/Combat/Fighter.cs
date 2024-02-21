@@ -2,12 +2,9 @@ using RPG.Movement;
 using RPG.Core;
 using UnityEngine;
 using RPG.Attributes;
-using RPG.Stats;
 using RPG.Inventories;
-using GameDevTV.Utils;
 using System.Collections.Generic;
 using UnityEngine.AI;
-using JetBrains.Annotations;
 using RPG.Control;
 using RPG.Dialogue;
 using UnityEngine.Events;
@@ -20,6 +17,8 @@ namespace RPG.Combat
         [SerializeField] Transform leftHandTransform = null;
         [SerializeField] WeaponConfig defaultWeapon = null;
         [SerializeField] float autoAttackRange = 4;
+
+        public UnityEvent OnAttack;
 
         Health target;
         Equipment equipment;
@@ -266,6 +265,8 @@ namespace RPG.Combat
 
         private void TriggerAttack()
         {
+            OnAttack.Invoke();
+
             GetComponent<Animator>().ResetTrigger("stopAttack");
 
             int randomIndex = Random.Range(0, 2);
