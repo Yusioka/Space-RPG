@@ -130,7 +130,7 @@ namespace RPG.Stats
         public int CalculateLevel()
         {
             Experience experience = GetComponent<Experience>();
-            if (experience == null) return startingLevel;
+            if (experience == null || experience.GetExperience() == 0) return startingLevel;
 
             float currentXP = GetComponent<Experience>().GetExperience();
             // penultimate - предпоследний

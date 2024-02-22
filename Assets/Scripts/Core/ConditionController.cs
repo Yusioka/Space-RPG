@@ -23,6 +23,11 @@ namespace RPG.Core
 
         private void Update()
         {
+            if (playerQuestList == null)
+            {
+                Destroy(gameObject);
+            }
+
             EnableObject(objectToControl);
         }
 

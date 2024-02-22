@@ -16,6 +16,7 @@ namespace RPG.Control
 
         [SerializeField] int numberOfAbilities = 6;
         [SerializeField] float raycastRadius = 3f;
+        [SerializeField] float movingRadius = 100f;
 
         [SerializeField] GameObject malePrefab;
         [SerializeField] GameObject femalePrefab;
@@ -124,6 +125,8 @@ namespace RPG.Control
             Cancel();
             //      GetComponent<ActionSceduler>().StartAction(this);
 
+            if (Input.GetMouseButton(0) && Input.GetMouseButton(0) && Input.GetKey(KeyCode.W)) return;
+
             float speed = GetSpeed();
 
             float verticalMove = Input.GetAxis("Vertical");
@@ -178,6 +181,7 @@ namespace RPG.Control
 
         private void StartMoveActionByMouse(Vector3 destination, float speed)
         {
+            if (!CanInteractWithMovement()) return;
      //       GetComponent<ActionSceduler>().StartAction(this);
             MoveTo(destination, speed);
         }
@@ -308,12 +312,23 @@ namespace RPG.Control
         {
             return Vector3.Distance(gameObject.transform.position, interactable.transform.position) <= chaseDistance;
         }
+        public bool CanInteractWithMovement()
+        {
+            RaycastHit[] hits = Physics.SphereCastAll(GetMouseRay(), raycastRadius);
+            foreach (RaycastHit hit in hits)
+            {
+                return Vector3.Distance(gameObject.transform.position, hit.transform.position) <= movingRadius;
+            }
+            return false;
+        }
 
         private bool InteractWithCombatByMouse()
         {
             if (moverController.IsButtonsMoving()) return false;
 
             RaycastHit[] hits = Physics.SphereCastAll(GetMouseRay(), raycastRadius);
+            if (!CanInteractWithMovement()) return false;
+
             bool hasHitEnemy = false;
 
             foreach (RaycastHit hit in hits)
@@ -321,7 +336,7 @@ namespace RPG.Control
                 CombatTarget target = hit.transform.GetComponent<CombatTarget>();
                 if (target == null) continue;
 
-                if (!GetComponent<Fighter>().CanAttack(target.gameObject)) continue;
+                if (!GetComponent<Fighter>().CanAttack(target.gameObject)) return false;
 
                 if (Input.GetMouseButton(0))
                 {
@@ -343,6 +358,7 @@ namespace RPG.Control
         private void InteractWithCombatByButtons()
         {
             if (!moverController.IsButtonsMoving()) return;
+            if (!CanInteractWithMovement()) return;
 
             RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
             bool hasHitEnemy = false;

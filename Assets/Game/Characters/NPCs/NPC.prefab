@@ -1438,8 +1438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   markPrefab: {fileID: 4958729997727211077}
   useConditions: 0
-  condition:
-    and: []
+  conditions: []
 --- !u!1 &1995692175739116641
 GameObject:
   m_ObjectHideFlags: 0
@@ -3471,7 +3470,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!195 &5708212879717019648
 NavMeshAgent:
@@ -5688,8 +5687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   markPrefab: {fileID: 4465167949443500355}
   useConditions: 0
-  condition:
-    and: []
+  conditions: []
 --- !u!1 &8781214822743277309
 GameObject:
   m_ObjectHideFlags: 0

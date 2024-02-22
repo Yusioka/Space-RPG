@@ -53,7 +53,7 @@ namespace RPG.Control
         {
             if (CanMoveTo())
             {
-                if (player != null && DistanceToPlayer(player) < chaseDistance)
+                if (player != null && DistanceToPlayer(player) <= chaseDistance)
                 {
                     LookAtPlayer();
                 }

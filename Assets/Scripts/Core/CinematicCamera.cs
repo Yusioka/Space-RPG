@@ -11,6 +11,7 @@ namespace RPG.Core
         public void CameraStart()
         {
             GameObject.FindWithTag("Player").GetComponent<PlayerController>().enabled = false;
+            Cursor.visible = false;
 
             foreach (GameObject obj in cameObjectsToDisable)
             {
@@ -20,6 +21,7 @@ namespace RPG.Core
         public void CameraEnd()
         {
             GameObject.FindWithTag("Player").GetComponent<PlayerController>().enabled = true;
+            Cursor.visible = true;
 
             foreach (GameObject obj in cameObjectsToDisable)
             {

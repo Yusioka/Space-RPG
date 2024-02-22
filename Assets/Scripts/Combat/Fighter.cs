@@ -29,7 +29,7 @@ namespace RPG.Combat
         private void Start()
         {
             currentWeaponConfig = defaultWeapon;
-            SetupDefaultWeapon();
+            currentWeapon = AttachWeapon(currentWeaponConfig);
 
             equipment = GetComponent<Equipment>();
             if (equipment)
@@ -37,11 +37,6 @@ namespace RPG.Combat
                 equipment.equipmentUpdated += UpdateWeapon;
                 equipment.equipmentUpdated += UpdateEquipment;
             }
-        }
-
-        private Weapon SetupDefaultWeapon()
-        {
-            return AttachWeapon(defaultWeapon);
         }
 
         private void Update()
