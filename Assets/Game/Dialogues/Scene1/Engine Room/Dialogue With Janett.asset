@@ -602,6 +602,11 @@ MonoBehaviour:
         parameters:
         - Go to the Captain
         negate: 0
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Do a lot of things for Janett
+        negate: 1
 --- !u!114 &5763129636315009634
 MonoBehaviour:
   m_ObjectHideFlags: 0

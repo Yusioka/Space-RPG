@@ -95,7 +95,7 @@ namespace RPG.Control
 
                 if (player.GetComponent<Health>().IsDead())
                 {
-                    HealEnemy();
+                    health.RegenerateHealth();
                     MoveTo(guardPosition, maxSpeed);
                     StartMoveAction();
                 }
@@ -139,6 +139,7 @@ namespace RPG.Control
 
         private void SuspicionBehaviour()
         {
+            health.RegenerateHealth();
             fighter.Cancel();
         }
 

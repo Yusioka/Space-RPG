@@ -130,14 +130,15 @@ namespace RPG.Stats
         public int CalculateLevel()
         {
             Experience experience = GetComponent<Experience>();
-            if (experience == null || experience.GetExperience() == 0) return startingLevel;
 
-            float currentXP = GetComponent<Experience>().GetExperience();
+            if (experience == null) return startingLevel;
+
+            float currentXP = experience.GetExperience();
             // penultimate - предпоследний
             //   если у меня 5 уровней, в таблице progression заполнять буду 4, т.к. в 4 уровне написано, сколько
             //     XP мне надо для достижения 5-го
             int penultimateLevel = progression.GetLevels(Stat.ExperienceToLevelUp, characterClass);
-            for (int level = 1; level <= penultimateLevel; level++)
+            for (int level = startingLevel; level <= penultimateLevel; level++)
             {
                 float XPToLevelUp = progression.GetStat(Stat.ExperienceToLevelUp, characterClass, level);
 

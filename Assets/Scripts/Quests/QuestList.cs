@@ -55,7 +55,7 @@ namespace RPG.Quests
             return GetQuestStatus(quest) != null;
         }
 
-        private bool IsObjectiveComplete(Quest quest, string  objective)
+        public bool IsObjectiveComplete(Quest quest, string  objective)
         {
             QuestStatus status = GetQuestStatus(quest);
 

@@ -1,5 +1,6 @@
 using RPG.Combat;
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,16 +19,12 @@ namespace RPG.Attributes
 
         private void Update()
         {
-            //if (fighter.GetTargetHealth() == null)
-            //{
-            //    GetComponent<Text>().text = "N/A";
-            //    return;
-            //}
-
             Health health = fighter.GetTargetHealth();
 
             if (health == null) return;
 
+            GetComponentInChildren<TextMeshProUGUI>().text = string.Format("{0:0}/{1:0}", health.HealthPoints, health.GetMaxHealthPoints());
+           
             healthSlider.maxValue = health.GetMaxHealthPoints();
             healthSlider.value = health.HealthPoints;
         }

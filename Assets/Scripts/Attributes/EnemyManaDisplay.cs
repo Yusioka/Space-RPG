@@ -20,18 +20,18 @@ namespace RPG.Attributes
         {
             if (fighter.GetTargetHealth() == null) return;
 
-            if (mana == null || GameObject.FindWithTag("Boss") == null)
+            if (mana == null || fighter.GetTargetHealth().gameObject != GameObject.FindWithTag("Boss"))
             {
                 manaSlider.value = 1;
             }
 
-            if (GameObject.FindWithTag("Boss"))
+            else if (fighter.GetTargetHealth().gameObject != GameObject.FindWithTag("Boss"))
             {
                 mana = GameObject.FindWithTag("Boss").GetComponent<Mana>();
-            }
 
-            manaSlider.maxValue = mana.GetMaxMana();
-            manaSlider.value = mana.GetMana();
+                manaSlider.maxValue = mana.GetMaxMana();
+                manaSlider.value = mana.GetMana();
+            }
         }
     }
 }

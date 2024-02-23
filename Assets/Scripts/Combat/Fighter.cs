@@ -44,10 +44,16 @@ namespace RPG.Combat
             timeSinceLastAttack += Time.deltaTime;
 
             if (target == null || GetComponent<Health>().IsDead()) return;
+
             if (target.IsDead())
             {
                 target = FindNewTargetInRange();
                 if (target == null) return;
+            }
+
+            if (timeSinceLastAttack >= 10)
+            {
+                GetComponent<Health>().RegenerateHealth();
             }
 
             if (gameObject == GameObject.FindWithTag("Player"))
@@ -189,7 +195,7 @@ namespace RPG.Combat
             }
         }
 
-        private Health FindNewTargetInRange()
+        public Health FindNewTargetInRange()
         {
             Health bestCandidate = null;
             float bestDistance = Mathf.Infinity;

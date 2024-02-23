@@ -1,6 +1,3 @@
-using RPG.Combat;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,6 +17,7 @@ namespace RPG.Attributes
 
         private void Update()
         {
+            GetComponentInChildren<TextMeshProUGUI>().text = string.Format("{0:0}/{1:0}", mana.GetMana(), mana.GetMaxMana());
             manaSlider.maxValue = mana.GetMaxMana();
             manaSlider.value = mana.GetMana();
         }

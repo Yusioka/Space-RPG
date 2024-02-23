@@ -125,7 +125,7 @@ namespace RPG.Control
             Cancel();
             //      GetComponent<ActionSceduler>().StartAction(this);
 
-            if (Input.GetMouseButton(0) && Input.GetMouseButton(0) && Input.GetKey(KeyCode.W)) return;
+            if (Input.GetMouseButton(0) && Input.GetMouseButton(1) && Input.GetKey(KeyCode.W)) return;
 
             float speed = GetSpeed();
 
@@ -181,8 +181,7 @@ namespace RPG.Control
 
         private void StartMoveActionByMouse(Vector3 destination, float speed)
         {
-            if (!CanInteractWithMovement()) return;
-     //       GetComponent<ActionSceduler>().StartAction(this);
+            GetComponent<ActionSceduler>().StartAction(this);
             MoveTo(destination, speed);
         }
         public void MoveTo(Vector3 destination, float speed)
@@ -312,24 +311,21 @@ namespace RPG.Control
         {
             return Vector3.Distance(gameObject.transform.position, interactable.transform.position) <= chaseDistance;
         }
-        public bool CanInteractWithMovement()
-        {
-            RaycastHit[] hits = Physics.SphereCastAll(GetMouseRay(), raycastRadius);
-            foreach (RaycastHit hit in hits)
-            {
-                return Vector3.Distance(gameObject.transform.position, hit.transform.position) <= movingRadius;
-            }
-            return false;
-        }
 
         private bool InteractWithCombatByMouse()
         {
             if (moverController.IsButtonsMoving()) return false;
 
             RaycastHit[] hits = Physics.SphereCastAll(GetMouseRay(), raycastRadius);
-            if (!CanInteractWithMovement()) return false;
 
             bool hasHitEnemy = false;
+            Health newTarget = GetComponent<Fighter>().FindNewTargetInRange();
+
+            if (!newTarget) return false;
+            if (newTarget && newTarget.gameObject.GetComponent<Fighter>().GetTargetHealth() == health)
+            {
+                GetComponent<Fighter>().Attack(newTarget.gameObject);
+            }
 
             foreach (RaycastHit hit in hits)
             {
@@ -338,7 +334,7 @@ namespace RPG.Control
 
                 if (!GetComponent<Fighter>().CanAttack(target.gameObject)) return false;
 
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButtonDown(0))
                 {
                     GetComponent<Fighter>().Attack(target.gameObject);
                 }
@@ -347,9 +343,10 @@ namespace RPG.Control
                 break;
             }
 
-            if (!hasHitEnemy && Input.GetMouseButton(0))
+            if (Input.GetMouseButton(1))
             {
                 GetComponent<Fighter>().Cancel();
+                newTarget = null;
             }
 
             return hasHitEnemy;
@@ -358,10 +355,17 @@ namespace RPG.Control
         private void InteractWithCombatByButtons()
         {
             if (!moverController.IsButtonsMoving()) return;
-            if (!CanInteractWithMovement()) return;
 
             RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
             bool hasHitEnemy = false;
+
+            Health newTarget = GetComponent<Fighter>().FindNewTargetInRange();
+
+            if (!newTarget) return;
+            if (newTarget && newTarget.gameObject.GetComponent<Fighter>().GetTargetHealth() == health)
+            {
+                GetComponent<Fighter>().Attack(newTarget.gameObject);
+            }
 
             foreach (RaycastHit hit in hits)
             {

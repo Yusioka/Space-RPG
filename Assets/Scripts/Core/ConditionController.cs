@@ -1,5 +1,6 @@
 using RPG.Quests;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace RPG.Core
 {
@@ -9,6 +10,7 @@ namespace RPG.Core
         [SerializeField] Condition condition;
 
         QuestList playerQuestList;
+        int currentSceneIndex;
 
         private void Awake()
         {
@@ -21,13 +23,13 @@ namespace RPG.Core
             return condition.Check(questList.GetComponents<IPredicateEvaluator>());
         }
 
+        private void Start()
+        {
+            currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        }
+
         private void Update()
         {
-            if (playerQuestList == null)
-            {
-                Destroy(gameObject);
-            }
-
             EnableObject(objectToControl);
         }
 

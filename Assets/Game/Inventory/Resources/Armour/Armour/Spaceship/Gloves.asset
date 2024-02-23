@@ -22,10 +22,5 @@ MonoBehaviour:
   category: 1
   allowedEquipLocation: 7
   equipCondition:
-    and:
-    - or:
-      - predicate: HasQuest
-        parameters:
-        - Get dressed, man
-        negate: 0
+    and: []
   equipPrefabName: 

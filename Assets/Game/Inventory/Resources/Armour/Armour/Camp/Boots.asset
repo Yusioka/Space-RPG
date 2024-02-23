@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: d3a849da-6828-4c09-a24b-0ed300464246
   displayName: Powerful Boots
-  description: Now I have all what i need.
+  description: 'Now I have all what i need.
+
+    Health +20'
   icon: {fileID: 21300000, guid: 1263d8c60a079664fa7fff62e103a058, type: 3}
   pickup: {fileID: 7115260040961628977, guid: 914d1d3d6db5dfa499dd997a21b8fb77, type: 3}
   stackable: 0
@@ -23,6 +25,7 @@ MonoBehaviour:
   allowedEquipLocation: 4
   equipCondition:
     and: []
+  equipPrefabName: 
   additiveModifiers:
   - stat: 0
     value: 20

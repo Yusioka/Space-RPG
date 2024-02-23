@@ -114,7 +114,7 @@ namespace RPG.Attributes
             experience.GainExperience(GetComponent<BaseStats>().GetStat(Stat.ExperienceReward));
         }
 
-        private void RegenerateHealth()
+        public void RegenerateHealth()
         {
             var regenHealthPoints = GetMaxHealthPoints() * (regenerationPercentage / 100);
             HealthPoints = Mathf.Max(HealthPoints, regenHealthPoints);
