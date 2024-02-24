@@ -8,6 +8,7 @@ using UnityEngine.AI;
 using RPG.Control;
 using RPG.Dialogue;
 using UnityEngine.Events;
+using RPG.Stats;
 
 namespace RPG.Combat
 {
@@ -179,7 +180,7 @@ namespace RPG.Combat
             if (target == null) return;
             if (!GetIsInRange(target.transform)) return;
 
-            float damage = currentWeaponConfig.GetDamage();
+            float damage = currentWeaponConfig.GetDamage() + (currentWeaponConfig.GetDamage() * GetComponent<BaseStats>().GetStat(Stat.Damage) / 100);
 
             if (currentWeapon != null)
             {

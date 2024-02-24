@@ -14,20 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: a12dac64-cf6b-428f-aa47-c03ebc4ff66c
   displayName: Bat
-  description: Simple bat.
+  description: 'Simple bat.
+
+    Damage: 25'
   icon: {fileID: 21300000, guid: caa4e263a97d7674ca2a2a82955180b0, type: 3}
   pickup: {fileID: 543890158334913342, guid: 6349207997cf7d74893e45fdb05a63c7, type: 3}
   stackable: 0
-  price: 1000
+  price: 500
   category: 2
   allowedEquipLocation: 5
   equipCondition:
     and: []
+  equipPrefabName: 
   animatorOverride: {fileID: 22100000, guid: d5bae2ba054e7184f96f84528bc48a0b, type: 2}
   timeBetweenAttacks: 1
   equippedPrefab: {fileID: -7934824431573796155, guid: d855c6cd18605f34dbfdca25cb40d71c, type: 3}
   isRightHanded: 1
-  weaponDamage: 10
+  weaponDamage: 25
   weaponRange: 2
   percentageBonus: 0
   projectile: {fileID: 0}

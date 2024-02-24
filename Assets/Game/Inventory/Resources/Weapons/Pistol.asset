@@ -14,20 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 11a3cdf2-5d63-41d6-8e37-063a26f26f9c
   displayName: Space Pistol
-  description: You are ready...
+  description: 'You are ready...
+
+    Damage: 25'
   icon: {fileID: 21300000, guid: 832aaada9a28240439ed7d2d22f7ff92, type: 3}
   pickup: {fileID: 2656415355510541457, guid: 69670d4b5eb047d4d9ab3fb63aa2c98d, type: 3}
   stackable: 0
-  price: 2500
+  price: 300
   category: 2
   allowedEquipLocation: 5
   equipCondition:
     and: []
+  equipPrefabName: 
   animatorOverride: {fileID: 22100000, guid: b5da71fb16ddf5a4b8bf74d84a9d409c, type: 2}
   timeBetweenAttacks: 1
   equippedPrefab: {fileID: 5615448880605420761, guid: 054873fb4d8fb414f9c75a47ff19cfe1, type: 3}
   isRightHanded: 0
-  weaponDamage: 5
+  weaponDamage: 25
   weaponRange: 20
   percentageBonus: 0
   projectile: {fileID: 0}

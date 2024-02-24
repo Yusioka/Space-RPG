@@ -14,20 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: da89752a-f3e0-4f5e-a191-5b275680c2a5
   displayName: Axe
-  description: Be careful. It's too dangerous.
+  description: 'Be careful. It''s too dangerous.
+
+    Damage: 65'
   icon: {fileID: 21300000, guid: 9dcc706db97130c4ab3ccd028d289274, type: 3}
   pickup: {fileID: -6964821330343334565, guid: 65af33317f063f74a958bccb5d983577, type: 3}
   stackable: 0
-  price: 2500
+  price: 1000
   category: 2
   allowedEquipLocation: 5
   equipCondition:
     and: []
+  equipPrefabName: 
   animatorOverride: {fileID: 22100000, guid: 0e75048143158db48b583c7a03edfced, type: 2}
   timeBetweenAttacks: 3
   equippedPrefab: {fileID: 1353155917336454631, guid: ce19fb53e9caab643acc577785bae5d4, type: 3}
   isRightHanded: 1
-  weaponDamage: 25
+  weaponDamage: 65
   weaponRange: 2
   percentageBonus: 0
   projectile: {fileID: 0}

@@ -321,11 +321,11 @@ namespace RPG.Control
             bool hasHitEnemy = false;
             Health newTarget = GetComponent<Fighter>().FindNewTargetInRange();
 
-            if (!newTarget) return false;
-            if (newTarget && newTarget.gameObject.GetComponent<Fighter>().GetTargetHealth() == health)
-            {
-                GetComponent<Fighter>().Attack(newTarget.gameObject);
-            }
+            //if (!newTarget) return false;
+            //if (newTarget && newTarget.gameObject.GetComponent<Fighter>().GetTargetHealth() == health)
+            //{
+            //    GetComponent<Fighter>().Attack(newTarget.gameObject);
+            //}
 
             foreach (RaycastHit hit in hits)
             {
@@ -346,7 +346,7 @@ namespace RPG.Control
             if (Input.GetMouseButton(1))
             {
                 GetComponent<Fighter>().Cancel();
-                newTarget = null;
+          //      newTarget = null;
             }
 
             return hasHitEnemy;

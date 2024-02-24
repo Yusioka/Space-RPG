@@ -23,11 +23,12 @@ MonoBehaviour:
   allowedEquipLocation: 5
   equipCondition:
     and: []
+  equipPrefabName: 
   animatorOverride: {fileID: 0}
   timeBetweenAttacks: 1
   equippedPrefab: {fileID: 1965644220271741421, guid: 84bb4d6cf0b32984d90a9551769ccf72, type: 3}
   isRightHanded: 1
-  weaponDamage: 0
+  weaponDamage: 70
   weaponRange: 3
   percentageBonus: 0
   projectile: {fileID: 0}
