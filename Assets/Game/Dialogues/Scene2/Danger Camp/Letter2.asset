@@ -86,31 +86,6 @@ MonoBehaviour:
   onExitAction: 
   condition:
     and: []
---- !u!114 &-6073088359134666446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
-  m_Name: 88d443ef-7fab-40c7-ad28-742e4078f070
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: "\u042F \u0443\u0436\u0435 \u0447\u0438\u0442\u0430\u043B \u044D\u0442\u043E."
-  children: []
-  rect:
-    serializedVersion: 2
-    x: 252
-    y: 313
-    width: 200
-    height: 100
-  onEnterAction: 
-  onExitAction: 
-  condition:
-    and: []
 --- !u!114 &-2505607801992875792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +131,6 @@ MonoBehaviour:
   nodes:
   - {fileID: 7219506917538135612}
   - {fileID: -7264882815779683619}
-  - {fileID: -6073088359134666446}
   - {fileID: 1738699895687349803}
   - {fileID: 1105274071115128350}
   - {fileID: 2813032847650446592}
@@ -309,7 +283,6 @@ MonoBehaviour:
   isPlayerSpeaking: 0
   text: ...
   children:
-  - 88d443ef-7fab-40c7-ad28-742e4078f070
   - 5b4ef755-46e3-46b8-80b2-90b7b011861c
   rect:
     serializedVersion: 2

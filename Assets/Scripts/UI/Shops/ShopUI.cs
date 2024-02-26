@@ -17,15 +17,20 @@ namespace RPG.UI.Shops
         Shopper shopper = null;
         Shop currentShop = null;
 
-        Color originalTotalTestColor;
+        Color originalTotalTextColor;
 
         private void Start()
         {
             gameObject.SetActive(false);
-            originalTotalTestColor = totalField.color;
+
+            originalTotalTextColor = totalField.color;
             shopper = GameObject.FindGameObjectWithTag("Player").GetComponent<Shopper>();
+
             if (shopper == null) return;
+
             shopper.activeShopChanged += ShopChanged;
+            confirmButton.onClick.AddListener(ConfirmTransaction);
+            switchButton.onClick.AddListener(SwitchMode);
             ShopChanged();
         }
 
@@ -66,7 +71,7 @@ namespace RPG.UI.Shops
             }
 
             totalField.text = $"Total: ${currentShop.TransactionTotal()}";
-            totalField.color = currentShop.HasSufficientFunds() ? originalTotalTestColor : Color.red;
+            totalField.color = currentShop.HasSufficientFunds() ? originalTotalTextColor : Color.red;
             confirmButton.interactable = currentShop.CanTransact();
 
             TextMeshProUGUI switchText = switchButton.GetComponentInChildren<TextMeshProUGUI>();

@@ -14,41 +14,41 @@ namespace RPG.Control
         QuestList playerQuestList;
 
 
-        private void Awake()
-        {
-            var player = GameObject.FindGameObjectWithTag("Player");
-            playerQuestList = player.GetComponent<QuestList>();
-        }
+    //    private void Awake()
+    //    {
+    //        var player = GameObject.FindGameObjectWithTag("Player");
+    //        playerQuestList = player.GetComponent<QuestList>();
+    //    }
 
-        private void Update()
-        {
-            StartCoroutine(CloseGates());
-        }
+    //    private void Update()
+    //    {
+    //        StartCoroutine(CloseGates());
+    //    }
 
-        private bool CanGetAnimation(QuestList questList)
-        {
-            return condition.Check(questList.GetComponents<IPredicateEvaluator>());
-        }
+    //    private bool CanGetAnimation(QuestList questList)
+    //    {
+    //        return condition.Check(questList.GetComponents<IPredicateEvaluator>());
+    //    }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.gameObject.tag == "Player")
-            {
+    //    private void OnTriggerEnter(Collider other)
+    //    {
+    //        if (other.gameObject.tag == "Player")
+    //        {
 
-                if (CanGetAnimation(playerQuestList))
-                {
-                    GetComponent<Animator>().SetTrigger("open");
-                }
-            }
-        }
+    //            if (CanGetAnimation(playerQuestList))
+    //            {
+    //                GetComponent<Animator>().SetTrigger("open");
+    //            }
+    //        }
+    //    }
 
-        private IEnumerator CloseGates()
-        {
-            if (portalNearGates.MovedThroughPortal)
-            {
-                yield return new WaitForSeconds(2);
-                GetComponent<Animator>().SetBool("isCloseIdle", true);
-            }
-        }
+    //    private IEnumerator CloseGates()
+    //    {
+    //        if (portalNearGates.MovedThroughPortal)
+    //        {
+    //            yield return new WaitForSeconds(2);
+    //            GetComponent<Animator>().SetBool("isCloseIdle", true);
+    //        }
+    //    }
     }
 }

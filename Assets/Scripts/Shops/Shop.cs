@@ -133,15 +133,6 @@ namespace RPG.Shops
         }
         //
 
-        private int GetAvailability(InventoryItem item)
-        {
-            if (isBuyingMode)
-            {
-                return 0;
-            }
-            return CountItemsInInventory(item);
-        }
-
         private int CountItemsInInventory(InventoryItem item)
         {
             Inventory inventory = currentShopper.GetComponent<Inventory>();
@@ -158,16 +149,6 @@ namespace RPG.Shops
             return total;
         }
 
-        private float GetPrice(StockItemConfig config)
-        {
-            if (isBuyingMode)
-            {
-                return config.item.GetPrice() * (1 - config.buyingDiscountPercentage / 100);
-            }
-
-            return config.item.GetPrice() * (sellingDiscountPercentage / 100);
-        }
-
         public void SelectCategory(ItemCategory category) { }
         public ItemCategory GetFilter()
         {
@@ -176,7 +157,6 @@ namespace RPG.Shops
         internal void SelectFilter(ItemCategory category)
         {
             filter = category;
-            print(category);
 
             if (onChange != null)
             {
@@ -191,7 +171,8 @@ namespace RPG.Shops
                 onChange();
             }
         }
-        public bool IsBuyingMode() {
+        public bool IsBuyingMode()
+        {
             return isBuyingMode;
         }
         public bool CanTransact() 
@@ -276,7 +257,7 @@ namespace RPG.Shops
             if (success)
             {
                 AddToTransaction(item, -1);
-                if (stockSold.ContainsKey(item))
+                if (!stockSold.ContainsKey(item))
                 {
                     stockSold[item] = 0;
                 }
@@ -292,7 +273,7 @@ namespace RPG.Shops
 
             AddToTransaction(item, -1);
             shopperInventory.RemoveFromSlot(slot, 1);
-            if (stockSold.ContainsKey(item))
+            if (!stockSold.ContainsKey(item))
             {
                 stockSold[item] = 0;
             }
@@ -302,7 +283,7 @@ namespace RPG.Shops
 
         private int FindFirstItemSlot(Inventory shopperInventory, InventoryItem item)
         {
-            for (int i = 0; i < shopperInventory.GetSize();  i++)
+            for (int i = 0; i < shopperInventory.GetSize(); i++)
             {
                 if (shopperInventory.GetItemInSlot(i) == item)
                 {

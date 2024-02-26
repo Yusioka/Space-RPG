@@ -68,8 +68,8 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 2507
-    y: 52
+    x: 2692
+    y: 55
     width: 200
     height: 100
   onEnterAction: 
@@ -262,6 +262,7 @@ MonoBehaviour:
   - {fileID: 8202031626030707112}
   - {fileID: -3755159609606683229}
   - {fileID: -8254928954474916862}
+  - {fileID: 4166452198074794286}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &176027161342277870
 MonoBehaviour:
@@ -483,6 +484,36 @@ MonoBehaviour:
   onExitAction: 
   condition:
     and: []
+--- !u!114 &4166452198074794286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 748b475a-3308-4a88-95e5-ea2cddd1eb6d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "\u041B\u0430\u0434\u043D\u043E, \u043F\u043E\u0439\u0434\u0443 \u0443\u0437\u043D\u0430\u044E,
+    \u0447\u0442\u043E \u0441\u043B\u0443\u0447\u0438\u043B\u043E\u0441\u044C \u0441
+    \u043E\u0442\u0440\u044F\u0434\u043E\u043C \u21162\u0410, \u043A\u043E\u0433\u0434\u0430
+    \u043E\u043D\u0438 \u043F\u0440\u0438\u0432\u0435\u043B\u0438 \u0442\u0435\u0431\u044F
+    \u0441\u044E\u0434\u0430."
+  children:
+  - fd246abf-d90a-45a7-b65e-95486778a385
+  rect:
+    serializedVersion: 2
+    x: 2463
+    y: 64
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
 --- !u!114 &4977980421828524164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,13 +585,9 @@ MonoBehaviour:
   text: "\u042F \u043F\u043E\u043D\u044F\u043B, \u0442\u043E \u0436\u0435 \u0441\u0430\u043C\u043E\u0435,
     \u0447\u0442\u043E \u0438 \u0441\u043F\u0440\u043E\u0441\u0438\u0442\u044C \u0447\u0435\u043B\u043E\u0432\u0435\u043A\u0430,
     \u043E\u0442\u043A\u0443\u0434\u0430 \u043F\u043E\u044F\u0432\u0438\u043B\u0438\u0441\u044C
-    \u043B\u044E\u0434\u0438... \u041B\u0430\u0434\u043D\u043E, \u043F\u043E\u0439\u0434\u0443
-    \u0443\u0437\u043D\u0430\u044E, \u0447\u0442\u043E \u0441\u043B\u0443\u0447\u0438\u043B\u043E\u0441\u044C
-    \u0441 \u043E\u0442\u0440\u044F\u0434\u043E\u043C \u21162\u0410, \u043A\u043E\u0433\u0434\u0430
-    \u043E\u043D\u0438 \u043F\u0440\u0438\u0432\u0435\u043B\u0438 \u0442\u0435\u0431\u044F
-    \u0441\u044E\u0434\u0430. "
+    \u043B\u044E\u0434\u0438... "
   children:
-  - fd246abf-d90a-45a7-b65e-95486778a385
+  - 748b475a-3308-4a88-95e5-ea2cddd1eb6d
   rect:
     serializedVersion: 2
     x: 2257

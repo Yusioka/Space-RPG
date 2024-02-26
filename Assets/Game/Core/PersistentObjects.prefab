@@ -62,7 +62,6 @@ MonoBehaviour:
   savingKey: 256
   loadKey: 257
   deleteKey: 258
-  time: 2
 --- !u!1 &325574562713326715
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,7 +253,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "GAME\n NAMENAME"
+  m_text: 'Space Salvation
+
+    Viral Frontier'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf6e457abeebcfe44899ae5ec3dbd072, type: 2}
   m_sharedMaterial: {fileID: -6490935408633428835, guid: bf6e457abeebcfe44899ae5ec3dbd072, type: 2}
@@ -358,7 +359,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 17.0576, y: 379.0459}
+  m_AnchoredPosition: {x: -1, y: 379.0459}
   m_SizeDelta: {x: 976.0162, y: 286.8582}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4110130215502571998

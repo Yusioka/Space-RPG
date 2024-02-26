@@ -12,37 +12,37 @@ namespace RPG.Core
         QuestList playerQuestList;
         int currentSceneIndex;
 
-        private void Awake()
-        {
-            var player = GameObject.FindGameObjectWithTag("Player");
-            playerQuestList = player.GetComponent<QuestList>();
-        }
+    //    private void Awake()
+    //    {
+    //        var player = GameObject.FindGameObjectWithTag("Player");
+    //        playerQuestList = player.GetComponent<QuestList>();
+    //    }
 
-        private bool CanEnableObject(QuestList questList)
-        {
-            return condition.Check(questList.GetComponents<IPredicateEvaluator>());
-        }
+    //    private bool CanEnableObject(QuestList questList)
+    //    {
+    //        return condition.Check(questList.GetComponents<IPredicateEvaluator>());
+    //    }
 
-        private void Start()
-        {
-            currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        }
+    //    private void Start()
+    //    {
+    //        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    //    }
 
-        private void Update()
-        {
-            EnableObject(objectToControl);
-        }
+    //    private void Update()
+    //    {
+    //        EnableObject(objectToControl);
+    //    }
 
-        private void EnableObject(BoxCollider collider)
-        {
-            if (CanEnableObject(playerQuestList))
-            {
-                collider.enabled = true;
-            }
-            else
-            {
-                collider.enabled = false;
-            }
-        }
+    //    private void EnableObject(BoxCollider collider)
+    //    {
+    //        if (CanEnableObject(playerQuestList))
+    //        {
+    //            collider.enabled = true;
+    //        }
+    //        else
+    //        {
+    //            collider.enabled = false;
+    //        }
+    //    }
     }
 }

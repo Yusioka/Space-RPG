@@ -25,7 +25,12 @@ MonoBehaviour:
   onEnterAction: 
   onExitAction: 
   condition:
-    and: []
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Lizard search
+        negate: 1
 --- !u!114 &-3950857542453079186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,6 +67,31 @@ MonoBehaviour:
   onExitAction: 
   condition:
     and: []
+--- !u!114 &-3911466974141646457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
+  m_Name: 9130b9ea-9e96-4a2b-b92d-42e259aa439f
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: ...
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 505
+    y: 238.00002
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    and: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,6 +112,7 @@ MonoBehaviour:
   - {fileID: 612669076188199235}
   - {fileID: 1699476715374733973}
   - {fileID: -7536363336185601424}
+  - {fileID: -3911466974141646457}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &612669076188199235
 MonoBehaviour:
@@ -194,17 +225,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
   text: "\u042F \u0443\u0436\u0435 \u0447\u0438\u0442\u0430\u043B \u044D\u0442\u043E."
-  children: []
+  children:
+  - 9130b9ea-9e96-4a2b-b92d-42e259aa439f
   rect:
     serializedVersion: 2
-    x: 256
+    x: 255
     y: 238.00002
     width: 200
     height: 100
   onEnterAction: 
   onExitAction: 
   condition:
-    and: []
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Lizard search
+        negate: 0
 --- !u!114 &8259488617660801157
 MonoBehaviour:
   m_ObjectHideFlags: 0

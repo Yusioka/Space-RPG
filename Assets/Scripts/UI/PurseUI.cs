@@ -10,9 +10,11 @@ namespace RPG.UI
 
         Purse playerPurse = null;
 
-        private void OnEnable()
-        {           
-            if (GameObject.FindGameObjectWithTag("Player").TryGetComponent(out playerPurse))
+        private void Start()
+        {
+            playerPurse = GameObject.FindGameObjectWithTag("Player").GetComponent<Purse>();
+
+            if (playerPurse != null)
             {
                 playerPurse.OnChanged += RefreshUI;
             }

@@ -46,36 +46,10 @@ MonoBehaviour:
   text: ...
   children:
   - e285cf4c-29cf-4f5c-ab89-4c8dc9949ab4
-  - 143dc2ca-e6f0-40e8-b9a1-4fde7afb54fd
   rect:
     serializedVersion: 2
     x: 3
     y: 15
-    width: 200
-    height: 100
-  onEnterAction: 
-  onExitAction: 
-  condition:
-    and: []
---- !u!114 &-4444110157269811094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f983f4a8bf890ec4cb008a3b94761c40, type: 3}
-  m_Name: 143dc2ca-e6f0-40e8-b9a1-4fde7afb54fd
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: "\u042F \u0443\u0436\u0435 \u0447\u0438\u0442\u0430\u043B \u044D\u0442\u043E."
-  children: []
-  rect:
-    serializedVersion: 2
-    x: 251
-    y: 114
     width: 200
     height: 100
   onEnterAction: 
@@ -157,7 +131,6 @@ MonoBehaviour:
   - {fileID: -5271242098221150027}
   - {fileID: -1870960026276097556}
   - {fileID: -6219160505817647905}
-  - {fileID: -4444110157269811094}
   - {fileID: 4225045140128807400}
   - {fileID: -4193987740969250536}
   - {fileID: 1338506819565929918}
