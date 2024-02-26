@@ -16,7 +16,7 @@ namespace RPG.Quests
 
         private void Update()
         {
-            CompleteObjectivesByPredicates();
+      //      CompleteObjectivesByPredicates();
         }
 
         public void AddQuest(Quest quest)
@@ -32,7 +32,9 @@ namespace RPG.Quests
 
         public void CompleteObjective(Quest quest, string objective)
         {
-            var status = GetQuestStatus(quest);
+            QuestStatus status = GetQuestStatus(quest);
+
+            if (status == null) return;
             
             status.CompleteObjective(objective);
             
@@ -96,13 +98,13 @@ namespace RPG.Quests
                 if (status.IsComplete()) 
                     continue;
                 
-                var quest = status.GetQuest();
+                Quest quest = status.GetQuest();
                 
                 foreach (var objective in quest.GetObjectives())
                 {
                     if (status.IsObjectiveComplete(objective.reference) || !objective.usesCondition) 
                         continue;
-                    
+
                     if (objective.completionCondition.Check(GetComponents<IPredicateEvaluator>()))
                     {
                         CompleteObjective(quest, objective.reference);
@@ -137,7 +139,7 @@ namespace RPG.Quests
                 statuses.Add(new QuestStatus(objectState));
             }
 
-            OnUpdate?.Invoke();
+       //     OnUpdate?.Invoke();
         }
 
         public bool? Evaluate(string predicate, string[] parameters)
