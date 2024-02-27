@@ -62,7 +62,7 @@ namespace RPG.Quests
         public object CaptureState()
         {
             QuestStatusRecord state = new QuestStatusRecord();
-   //         state.questName = quest.name;
+            state.questName = quest.name;
             state.completeObjectives = completeObjectives;
             return state;
         }

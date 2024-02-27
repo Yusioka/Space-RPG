@@ -17,11 +17,16 @@ namespace RPG.UI.Quests
 
         private void Redraw()
         {
+            if (!questList)
+            {
+                print("quest list is NULL");
+                return;
+            }
+
             foreach (Transform item in transform)
             {
                 Destroy(item.gameObject);
             }
-
             foreach (QuestStatus status in questList.GetStatuses())
             {
                 QuestItemUI uiInstance = Instantiate(questPrefab, transform);

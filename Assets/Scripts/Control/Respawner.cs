@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine.AI;
 using UnityEngine;
-using Cinemachine;
 using RPG.SceneManagement;
 using RPG.Attributes;
 using RPG.Saving;
@@ -67,11 +66,6 @@ namespace RPG.Control
             GetComponent<NavMeshAgent>().Warp(respawnlocation.position);
             Health health = GetComponent<Health>();
             health.Heal(health.GetMaxHealthPoints() * healthRegenPercentage / 100);
-            ICinemachineCamera activeVirtualCamera = FindObjectOfType<CinemachineBrain>().ActiveVirtualCamera;
-            if (activeVirtualCamera.Follow == transform)
-            {
-                activeVirtualCamera.OnTargetObjectWarped(transform, positionDelta);
-            }
         }
     }
 }

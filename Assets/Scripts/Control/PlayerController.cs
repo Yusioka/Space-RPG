@@ -2,7 +2,6 @@ using UnityEngine;
 using RPG.Movement;
 using RPG.Combat;
 using RPG.Attributes;
-using System;
 using RPG.Inventories;
 using RPG.Core;
 using UnityEngine.AI;
@@ -16,7 +15,6 @@ namespace RPG.Control
 
         [SerializeField] int numberOfAbilities = 6;
         [SerializeField] float raycastRadius = 3f;
-        [SerializeField] float movingRadius = 100f;
 
         [SerializeField] GameObject malePrefab;
         [SerializeField] GameObject femalePrefab;
@@ -112,11 +110,12 @@ namespace RPG.Control
             }
             else
             {
-                UpdateMouseAnimator();
                 if (Input.GetMouseButton(1))
                 {
                     StartMoveActionByMouse(hit.point, 1f);
                 }
+
+                UpdateMouseAnimator();
             }
         }
 
@@ -319,7 +318,7 @@ namespace RPG.Control
             RaycastHit[] hits = Physics.SphereCastAll(GetMouseRay(), raycastRadius);
 
             bool hasHitEnemy = false;
-            Health newTarget = GetComponent<Fighter>().FindNewTargetInRange();
+          //  Health newTarget = GetComponent<Fighter>().FindNewTargetInRange();
 
             //if (!newTarget) return false;
             //if (newTarget && newTarget.gameObject.GetComponent<Fighter>().GetTargetHealth() == health)

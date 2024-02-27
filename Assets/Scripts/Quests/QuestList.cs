@@ -115,11 +115,11 @@ namespace RPG.Quests
 
         public object CaptureState()
         {
-            List<object> state = new();
-            
+            List<object> state = new List<object>();
+
             foreach (QuestStatus status in statuses)
             {
-                state.Add(status.CaptureState());          
+                state.Add(status.CaptureState());
             }
 
             return state;
@@ -127,19 +127,18 @@ namespace RPG.Quests
 
         public void RestoreState(object state)
         {
-            var stateList = state as List<object>;
-            
-            if (stateList == null) 
-                return;
+            List<object> stateList = state as List<object>;
+
+            if (stateList == null) return;
 
             statuses.Clear();
-            
+
             foreach (object objectState in stateList)
             {
                 statuses.Add(new QuestStatus(objectState));
             }
 
-       //     OnUpdate?.Invoke();
+         //   OnUpdate?.Invoke();
         }
 
         public bool? Evaluate(string predicate, string[] parameters)
