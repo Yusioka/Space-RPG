@@ -1,6 +1,5 @@
 using RPG.Quests;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace RPG.Core
 {

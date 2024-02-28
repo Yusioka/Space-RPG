@@ -6,14 +6,14 @@ namespace RPG.Core
 {
     public class CinematicCamera : MonoBehaviour
     {
-        [SerializeField] List<GameObject> cameObjectsToDisable;
+        [SerializeField] List<GameObject> camObjectsToDisable;
 
         public void CameraStart()
         {
             GameObject.FindWithTag("Player").GetComponent<PlayerController>().enabled = false;
             Cursor.visible = false;
 
-            foreach (GameObject obj in cameObjectsToDisable)
+            foreach (GameObject obj in camObjectsToDisable)
             {
                 obj.SetActive(false);
             }
@@ -23,7 +23,7 @@ namespace RPG.Core
             GameObject.FindWithTag("Player").GetComponent<PlayerController>().enabled = true;
             Cursor.visible = true;
 
-            foreach (GameObject obj in cameObjectsToDisable)
+            foreach (GameObject obj in camObjectsToDisable)
             {
                 obj.SetActive(true);
             }

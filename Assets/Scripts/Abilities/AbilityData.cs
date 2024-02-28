@@ -2,7 +2,8 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using RPG.Core;
-using Unity.VisualScripting.FullSerializer;
+
+using RPG.Combat;
 
 namespace RPG.Abilities
 {

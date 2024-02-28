@@ -25,7 +25,6 @@ namespace RPG.Control
         [SerializeField] bool isMoving = false;
         float currentDistance;
 
-        Vector3 initialPosition;
         [SerializeField] MoverController controller;
 
         private void Awake()
@@ -35,13 +34,10 @@ namespace RPG.Control
 
         void Start()
         {
-            if (target == null)
-            {
-                return;
-            }
+            if (!target) return;
+
             offset = transform.position - target.position;
             currentDistance = offset.magnitude;
-            initialPosition = transform.position;
         }
 
         void LateUpdate()
@@ -58,7 +54,7 @@ namespace RPG.Control
             Vector3 desiredPosition = target.position - transform.forward * currentDistance;
 
             //
-            if (isMoving && controller.IsButtonsMoving())
+            if (isMoving && controller.IsButtonsMoving() && !Input.GetMouseButton(1))
             {
                 // вид от первого лица
                 //desiredPosition = target.position - initialPosition * currentDistance;
@@ -70,7 +66,7 @@ namespace RPG.Control
             }
             //
 
-            if (controller.IsButtonsMoving())
+            if (controller.IsButtonsMoving() && !Input.GetMouseButton(1))
             {
                 Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, 0.023f);
                 transform.position = smoothedPosition;
@@ -85,7 +81,7 @@ namespace RPG.Control
             transform.LookAt(target);
 
             // Если нажата левая кнопка мыши, вращаем камеру вокруг игрока
-            if (Input.GetMouseButton(0))
+            if (!controller.IsButtonsMoving() && Input.GetMouseButton(0))
             {
                 if (player.GetComponent<PlayerController>().IsDraggingUI) return;
                 currentX += Input.GetAxis("Mouse X") * rotationSpeed;
@@ -103,8 +99,8 @@ namespace RPG.Control
 
             if (controller.IsButtonsMoving())
             {
-                // Если нажата правая кнопка мыши, игрок всегда смотрит в сторону камеры
-                if (Input.GetMouseButton(1))
+                // Если нажата правая кнопка мыши, игрок всегда стоит к камере спиной
+                if (Input.GetMouseButton(1) && !Input.GetMouseButton(0) || Input.GetMouseButton(0) && !Input.GetMouseButton(1))
                 {
                     if (player.GetComponent<PlayerController>().IsDraggingUI) return;
                     float rotationX = Input.GetAxis("Mouse X") * rotationSpeed;
@@ -114,13 +110,21 @@ namespace RPG.Control
                     Vector3 cameraForward = Camera.main.transform.forward;
                     cameraForward.y = 0f; // Обнуляем компоненту Y, чтобы двигать только по горизонтали
                     cameraForward.Normalize(); // Нормализуем вектор
-                    ;
-                    Quaternion rotation = Quaternion.LookRotation(cameraForward);
-                    targetBody.rotation = Quaternion.Slerp(targetBody.rotation, rotation, rotationSpeed * Time.deltaTime);
 
-                    targetBody.Rotate(Vector3.up * rotationX);
+                    if (Input.GetMouseButton(1))
+                    {
+                        Quaternion rotation = Quaternion.LookRotation(cameraForward);
+                        targetBody.rotation = Quaternion.Slerp(targetBody.rotation, rotation, rotationSpeed * Time.deltaTime);
+
+                        targetBody.Rotate(Vector3.up * rotationX);
+                    }
+
+                    float newRotationY = currentY - rotationY;
+                    newRotationY = Mathf.Clamp(newRotationY, minYAngle, maxYAngle);
+                    rotationY = currentY - newRotationY;
                     transform.RotateAround(targetBody.position, Vector3.up, rotationX);
                     transform.RotateAround(targetBody.position, transform.right, -rotationY);
+                    currentY = newRotationY;
                 }
 
                 if (Input.GetMouseButton(1) && Input.GetMouseButton(0) || Input.GetMouseButton(0) && Input.GetMouseButton(1))
@@ -137,31 +141,19 @@ namespace RPG.Control
                     Quaternion rotation = Quaternion.LookRotation(cameraForward);
                     targetBody.rotation = Quaternion.Slerp(targetBody.rotation, rotation, rotationSpeed * Time.deltaTime);
 
+                    float newRotationY = currentY - rotationY;
+                    newRotationY = Mathf.Clamp(newRotationY, minYAngle, maxYAngle);
+                    rotationY = currentY - newRotationY;
                     targetBody.Rotate(Vector3.up * rotationX);
                     transform.RotateAround(targetBody.position, Vector3.up, rotationX);
                     transform.RotateAround(targetBody.position, transform.right, -rotationY);
+                    currentY = newRotationY;
 
                     float targetSpeed = targetBody.GetComponent<PlayerController>().GetSpeed();
                     targetBody.position += cameraForward * targetSpeed * Time.deltaTime; // Перемещаем таргет вперед
+
                 }
             }        
-        }
-
-        private void OnMouseDown()
-        {
-            if (Input.GetMouseButton(1))
-            {
-                initialPosition = transform.position;
-            }
-            if (Input.GetMouseButton(0))
-            {
-                transform.position = initialPosition;
-            }
-        }
-
-        private void OnMouseUp()
-        {
-            transform.position = initialPosition;
         }
     }
 }

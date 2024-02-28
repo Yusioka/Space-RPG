@@ -1,44 +1,49 @@
-using RPG.Combat;
-using System.Collections;
 using UnityEngine;
+using RPG.Core;
+using RPG.Quests;
+using RPG.Control;
 
 namespace RPG.Inventories
 {
+    [RequireComponent(typeof(Pickup))]
     public class ClickablePickup : MonoBehaviour
     {
-        [SerializeField] InventoryItem item = null;
-        [SerializeField] float respawnTime = 3f;
+        [SerializeField] Condition condition;
 
-        Inventory inventory;
+        GameObject player;
+        Pickup pickup;
+        QuestList playerQuestList;
 
         private void Awake()
         {
-            inventory = GameObject.FindWithTag("Player").GetComponent<Inventory>();
+            pickup = GetComponent<Pickup>();
+
+            player = GameObject.FindGameObjectWithTag("Player");
+            playerQuestList = player.GetComponent<QuestList>();
+        }
+
+        private bool CanPickup(QuestList questList)
+        {
+            return condition.Check(questList.GetComponents<IPredicateEvaluator>());
+        }
+
+        private void OnMouseDown()
+        {
+            if (!player.GetComponent<PlayerController>().CanInteractWithComponent(gameObject)) return;
+            if (CanPickup(playerQuestList))
+            {
+                pickup.PickupItem();
+            }
         }
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.tag == "Player")
             {
-                inventory.AddItemToSlot(0, item, 1);
-                StartCoroutine(HideForSeconds(respawnTime));
-            }
-        }
-
-        private IEnumerator HideForSeconds(float seconds)
-        {
-            ShowPickup(false);
-            yield return new WaitForSeconds(seconds);
-            ShowPickup(true);
-        }
-
-
-        private void ShowPickup(bool shouldShow)
-        {
-            GetComponent<Collider>().enabled = shouldShow;
-            foreach (Transform child in transform)
-            {
-                child.gameObject.SetActive(shouldShow);
+                if (CanPickup(playerQuestList))
+                {
+                    pickup.PickupItem();
+                }
             }
         }
     }

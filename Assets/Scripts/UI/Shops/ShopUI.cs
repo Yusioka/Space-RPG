@@ -40,6 +40,7 @@ namespace RPG.UI.Shops
             {
                 currentShop.onChange -= RefreshUI;
             }
+
             currentShop = shopper.GetActiveShop();
             gameObject.SetActive(currentShop != null);
 

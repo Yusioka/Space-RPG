@@ -174,7 +174,7 @@ namespace RPG.Control
             }
         }
 
-        public void SomeTest()
+        public void AddKillSon()
         {
             killedSons++;
         }

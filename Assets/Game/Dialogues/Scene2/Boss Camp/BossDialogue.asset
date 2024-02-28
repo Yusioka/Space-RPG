@@ -141,11 +141,11 @@ MonoBehaviour:
   - 35068365-988b-4c31-8100-ad57de27d9a0
   rect:
     serializedVersion: 2
-    x: 15
-    y: 51.999996
+    x: 14
+    y: 51
     width: 200
     height: 100
-  onEnterAction: 
+  onEnterAction: GiveQuest
   onExitAction: 
   condition:
     and: []

@@ -1,4 +1,3 @@
-using RPG.Movement;
 using UnityEngine;
 
 namespace RPG.Inventories
@@ -55,9 +54,10 @@ namespace RPG.Inventories
 
         public void PickupItem()
         {
-            if (Vector3.Distance(player.transform.position, transform.position) < 3)
+            if (Vector3.Distance(player.transform.position, transform.position) < 5)
             {
                 bool foundSlot = inventory.AddToFirstEmptySlot(item, number);
+
                 if (foundSlot)
                 {
                //     player.GetComponent<Mover>().TakePickupAnim();

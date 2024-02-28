@@ -11,7 +11,6 @@ namespace RPG.UI.Inventories
 
         // STATE
         int index;
-        InventoryItem item;
         Inventory inventory;
 
         // PUBLIC

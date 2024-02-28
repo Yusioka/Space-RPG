@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92660520728c8f6498c4d413d9bf015d, type: 3}
+  m_Name: Parasits
+  m_EditorClassIdentifier: 
+  itemID: 23420fb5-880e-4ee2-a312-8d3f36a89d15
+  displayName: Parasits
+  description: Make the parasites destroy your enemy!
+  icon: {fileID: 21300000, guid: 0413201c56fdf6d4fa1605bfa55c1a0f, type: 3}
+  pickup: {fileID: 7115260040961628977, guid: 914d1d3d6db5dfa499dd997a21b8fb77, type: 3}
+  stackable: 0
+  price: 1000
+  category: 5
+  consumable: 0
+  targetingStrategy: {fileID: 11400000, guid: 3b0ebbef92cd3424e81ac03d99d9313a, type: 2}
+  filterStrategies:
+  - {fileID: 11400000, guid: d2de3d4cc38a4d74ab0dc2bbc583404b, type: 2}
+  effectStrategies:
+  - {fileID: 11400000, guid: ef8f41b3bad61df4da64b6b8d90bb894, type: 2}
+  - {fileID: 11400000, guid: 59b5ef32c804dc143aa9b2d844c92d49, type: 2}
+  - {fileID: 11400000, guid: 8f5907cce3336b847830428f1be70c6d, type: 2}
+  cooldownTime: 65
+  manaCost: 300

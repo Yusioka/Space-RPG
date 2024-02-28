@@ -4,6 +4,7 @@ using UnityEngine;
 using RPG.Saving;
 //using RPG.Utils;
 using RPG.Core;
+using UnityEngine.Events;
 
 namespace RPG.Inventories
 {
@@ -12,6 +13,8 @@ namespace RPG.Inventories
         // CONFIG DATA
         [Tooltip("Allowed size")]
         [SerializeField] int inventorySize = 16;
+
+        public UnityEvent OnSpecialAdd;
 
         // STATE
         InventorySlot[] slots;
@@ -74,6 +77,11 @@ namespace RPG.Inventories
 
         public bool AddToFirstEmptySlot(InventoryItem item, int number)
         {
+            if (item.GetCategory() == ItemCategory.Special)
+            {
+                OnSpecialAdd?.Invoke();
+            }
+
             foreach (var store in GetComponents<IItemStore>())
             {
                 number -= store.AddItems(item, number);
@@ -136,7 +144,7 @@ namespace RPG.Inventories
         {
             if (slots[slot].item != null)
             {
-                return AddToFirstEmptySlot(item, number); ;
+                return AddToFirstEmptySlot(item, number);
             }
 
             var i = FindStack(item);

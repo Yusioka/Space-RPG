@@ -30,6 +30,10 @@ namespace RPG.Attributes
         {
             return mana;
         }
+        public void AddMana(float mana)
+        {
+            this.mana += mana;
+        }
 
         public float GetMaxMana()
         {

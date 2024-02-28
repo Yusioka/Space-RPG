@@ -403,6 +403,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2284061943740710313, guid: 709e60a2291e5ea4d8897f9ba2407b90, type: 3}
+      propertyPath: m_Padding.m_Left
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3804777991653821173, guid: 709e60a2291e5ea4d8897f9ba2407b90, type: 3}
       propertyPath: m_Name
       value: Traits

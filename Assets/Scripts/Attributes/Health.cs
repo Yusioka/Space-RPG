@@ -95,7 +95,12 @@ namespace RPG.Attributes
             if (!wasDeadLastFrame && IsDead())
             {
                 animator.SetTrigger("die");
-         //       StartCoroutine(DieBehaviour());
+
+                if (gameObject != GameObject.FindWithTag("Player"))
+                {
+                    StartCoroutine(DieBehaviour());
+                }
+
                 GetComponent<ActionSceduler>().CancelCurrentAction();
             }
             else if (wasDeadLastFrame && !IsDead())
