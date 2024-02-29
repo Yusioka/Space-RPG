@@ -12,4 +12,16 @@ At the beginning of the game you are given the **choice of gender for your chara
 
 ## Screenshots
 *****BE CAREFUL! SPOILERS IN THE END!*****
-//<img src = "Assets/Asset Packs/Screenshots/Menu.png"> </img>
+<img src = "Assets/Screenshots/menu.png"> </img>
+<img src = "Assets/Screenshots/picking_character.png"> </img>
+<img src = "Assets/Screenshots/first_cinematic_1.png"> </img>
+<img src = "Assets/Screenshots/first_cinematic_3.png"> </img>
+<img src = "Assets/Screenshots/first_cinematic_4.png"> </img>
+<img src = "Assets/Screenshots/first_quest.png"> </img>
+<img src = "Assets/Screenshots/equipment.png"> </img>
+<img src = "Assets/Screenshots/equiped_items.png"> </img>
+<img src = "Assets/Screenshots/second_scene_1.png"> </img>
+<img src = "Assets/Screenshots/second_scene_2.png"> </img>
+<img src = "Assets/Screenshots/combat.png"> </img>
+<img src = "Assets/Screenshots/map.png"> </img>
+<img src = "Assets/Screenshots/boss_cinematic_1.png"> </img>
