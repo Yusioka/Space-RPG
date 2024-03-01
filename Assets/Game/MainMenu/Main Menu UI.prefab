@@ -2860,7 +2860,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4191056749816245474}
   - component: {fileID: 3301780982262987585}
-  - component: {fileID: 3763528057882600487}
+  - component: {fileID: 9066093797171112649}
   m_Layer: 5
   m_Name: Main Menu UI
   m_TagString: Untagged
@@ -2882,7 +2882,7 @@ RectTransform:
   m_Children:
   - {fileID: 802984209321896830}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2902,7 +2902,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newGameNameField: {fileID: 5790618126442265153}
---- !u!114 &3763528057882600487
+  chooseCharacterUI: {fileID: 0}
+--- !u!114 &9066093797171112649
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2911,10 +2912,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5602641997645097486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba13da1c1dd249a40b935e36045eb241, type: 3}
+  m_Script: {fileID: 11500000, guid: e6aa908e33c634e4cac44fd64d27d036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  persistentObjectPrefab: {fileID: 3222552704307202902, guid: f855daee3bee0b049bf6d252128cb1e4, type: 3}
+  contentRoot: {fileID: 0}
+  buttonPrefab: {fileID: 0}
 --- !u!1 &5939230129710874822
 GameObject:
   m_ObjectHideFlags: 0
@@ -4942,7 +4944,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 861290334992369853}
-  - component: {fileID: 3209404017136968677}
   m_Layer: 5
   m_Name: Load Menu
   m_TagString: Untagged
@@ -4974,20 +4975,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3209404017136968677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9034393784874700215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6aa908e33c634e4cac44fd64d27d036, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  contentRoot: {fileID: 3664584572013192128}
-  buttonPrefab: {fileID: 7540762415781758654, guid: 3d405adf50e44b0419ae154ee6cfd614, type: 3}
 --- !u!1 &9098835686015354086
 GameObject:
   m_ObjectHideFlags: 0

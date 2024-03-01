@@ -1,6 +1,5 @@
 using UnityEngine;
 using RPG.Control;
-using RPG.SceneManagement;
 using RPG.Saving;
 using UnityEngine.UI;
 using RPG.Core;

@@ -1,6 +1,7 @@
 using RPG.Control;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace RPG.Core
 {
@@ -8,8 +9,25 @@ namespace RPG.Core
     {
         [SerializeField] List<GameObject> camObjectsToDisable;
 
+        public UnityEvent enableCamera;
+        public bool wasEnabled { get; set; }
+
+        private void Update()
+        {
+            if (!wasEnabled)
+            {
+                enableCamera.Invoke();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                CameraEnd();
+            }
+        }
+
         public void CameraStart()
         {
+            wasEnabled = true;
             GameObject.FindWithTag("Player").GetComponent<PlayerController>().enabled = false;
             Cursor.visible = false;
 

@@ -1,6 +1,4 @@
-using RPG.Attributes;
 using RPG.Dialogue;
-using RPG.Stats;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,6 +41,9 @@ namespace RPG.UI
 
             conversantName.text = playerConversant.GetCurrentConversantName();
             conversantAvatar.sprite = playerConversant.GetCurrentConversantAvatar();
+
+            AIText.text = playerConversant.GetText();
+            nextButton.gameObject.SetActive(playerConversant.HasNext());
 
             AIResponse.SetActive(!playerConversant.IsChoosing());
             choiceRoot.gameObject.SetActive(playerConversant.IsChoosing());

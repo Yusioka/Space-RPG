@@ -1,5 +1,4 @@
 using RPG.SceneManagement;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,7 +27,7 @@ namespace RPG.Saving
         }
         public void NewGame(string saveFile)
         {
-            if (String.IsNullOrEmpty(saveFile)) return;
+            if (string.IsNullOrEmpty(saveFile)) return;
             SetCurrentSave(saveFile);
             StartCoroutine(LoadFirstScene());
         }
@@ -96,17 +95,14 @@ namespace RPG.Saving
         public void Save()
         {
             GetComponent<SavingSystem>().Save(GetCurrentSave());
-            print("saved");
         }
         public void Load()
         {
             GetComponent<SavingSystem>().Load(GetCurrentSave());
-            print("loaded");
         }
         public void Delete()
         {
             GetComponent<SavingSystem>().Delete(GetCurrentSave());
-            print("deleted");
         }
 
         public IEnumerable<string> ListSaves()

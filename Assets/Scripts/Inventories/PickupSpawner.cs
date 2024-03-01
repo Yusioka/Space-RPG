@@ -1,8 +1,5 @@
 using UnityEngine;
 using RPG.Saving;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using static UnityEditor.Progress;
 
 namespace RPG.Inventories
 {

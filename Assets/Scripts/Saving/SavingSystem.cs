@@ -27,7 +27,6 @@ namespace RPG.Saving
             Dictionary<string, object> state = LoadFile(saveFile);
             CaptureState(state);
             SaveFile(saveFile, state);
-            string path = GetPathFromSaveFile(saveFile);
         }
         public void Load(string saveFile)
         {
@@ -41,7 +40,6 @@ namespace RPG.Saving
                 {
                     yield return Path.GetFileNameWithoutExtension(path);
                 }
-                yield return path;
             }
         }
 

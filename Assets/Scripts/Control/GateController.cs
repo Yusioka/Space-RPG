@@ -34,7 +34,6 @@ namespace RPG.Control
         {
             if (other.gameObject.tag == "Player")
             {
-
                 if (CanGetAnimation(playerQuestList))
                 {
                     GetComponent<Animator>().SetTrigger("open");

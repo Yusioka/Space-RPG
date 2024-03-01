@@ -400,8 +400,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -107.027466, y: 33}
-  m_SizeDelta: {x: 82.3199, y: 25.1357}
+  m_AnchoredPosition: {x: -148.09, y: 72}
+  m_SizeDelta: {x: 182.2486, y: 68.746}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4435003703939769200
 CanvasRenderer:
@@ -484,7 +484,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8323318026873853236}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2200235706509508249}
+        m_TargetAssemblyTypeName: RPG.UI.DialogueUI, Assembly-CSharp
+        m_MethodName: Next
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4632905435597970745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,8 +1014,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.18383993, y: 0.42654318}
   m_AnchorMax: {x: 0.18383993, y: 0.42654318}
-  m_AnchoredPosition: {x: 2.6199493, y: -1.800003}
-  m_SizeDelta: {x: 74.24, y: 88.43431}
+  m_AnchoredPosition: {x: 9.7097, y: -35.209}
+  m_SizeDelta: {x: 155.2893, y: 151.2475}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1221286517368912876
 CanvasRenderer:
@@ -1140,7 +1152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AspectMode: 0
-  m_AspectRatio: 1
+  m_AspectRatio: 1.4953618
 --- !u!114 &2200235706509508249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1154,12 +1166,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AIText: {fileID: 6527179841242761790}
+  conversantAvatar: {fileID: 0}
   conversantName: {fileID: 3851025699577365665}
   AIResponse: {fileID: 9121028440277810199}
   nextButton: {fileID: 214157649983674770}
   choiceRoot: {fileID: 6539561019760530400}
   choicePrefab: {fileID: 2590459855008110410, guid: f09100c2e3caeb84a8566bb60b016c48, type: 3}
   quitButton: {fileID: 3953622999289391358}
+  nextButtonClip: {fileID: 0}
 --- !u!1 &8192669566004272286
 GameObject:
   m_ObjectHideFlags: 0
@@ -1459,11 +1473,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6812412715419784915, guid: d69e89e452683934888c1352b31ff901, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 31.6532
+      value: 68.665
       objectReference: {fileID: 0}
     - target: {fileID: 6812412715419784915, guid: d69e89e452683934888c1352b31ff901, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 30.9066
+      value: 68.336
       objectReference: {fileID: 0}
     - target: {fileID: 6812412715419784915, guid: d69e89e452683934888c1352b31ff901, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1495,11 +1509,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6812412715419784915, guid: d69e89e452683934888c1352b31ff901, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -27
+      value: -45.5059
       objectReference: {fileID: 0}
     - target: {fileID: 6812412715419784915, guid: d69e89e452683934888c1352b31ff901, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -37
+      value: -55.715
       objectReference: {fileID: 0}
     - target: {fileID: 6812412715419784915, guid: d69e89e452683934888c1352b31ff901, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

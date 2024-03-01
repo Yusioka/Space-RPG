@@ -1,4 +1,7 @@
+using RPG.Core;
+using RPG.Quests;
 using RPG.SceneManagement;
+using RPG.UI.Quests;
 using UnityEngine;
 
 namespace RPG.Control
@@ -6,26 +9,35 @@ namespace RPG.Control
     public class CinematicCameraController : MonoBehaviour
     {
         [SerializeField] Portal portal;
-        [SerializeField] GameObject cam;
+        [SerializeField] Condition condition;
 
-        private void Update()
+
+        public void EnableStartCinematic(GameObject camera)
         {
-            EnableAnimation();
+            QuestList playerQuestList = GameObject.FindGameObjectWithTag("Player").GetComponent<QuestList>();
+
+            if (condition.Check(playerQuestList.GetComponents<IPredicateEvaluator>()))
+            {
+                camera.SetActive(true);
+            }
         }
 
-
-        private void EnableAnimation()
+        public void EnablePreBossAnimation(GameObject camera)
         {
             if (portal.CanDoSomething)
             {
-                cam.SetActive(true);
+                camera.SetActive(true);
             }
+        }
 
-            //if (GameObject.FindWithTag("Boss").GetComponent<BossController>().EnableCamera)
-            //{
-            //    print("canAttack");
-            //    cam.SetActive(true);
-            //}
+        public void EnableBossAnimation(GameObject camera)
+        {
+            if (GameObject.FindWithTag("Boss").GetComponent<BossController>().EnableCamera)
+            {
+                print("canAttack");
+                camera.SetActive(true);
+            }
         }
     }
+ 
 }
