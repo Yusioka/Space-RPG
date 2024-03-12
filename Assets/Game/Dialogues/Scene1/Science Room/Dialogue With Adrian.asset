@@ -100,8 +100,8 @@ MonoBehaviour:
   - 14d00435-5bfe-4417-9baf-c07a5540a293
   rect:
     serializedVersion: 2
-    x: 244
-    y: 360
+    x: 268
+    y: 364
     width: 200
     height: 100
   onEnterAction: 
@@ -180,12 +180,12 @@ MonoBehaviour:
     - or:
       - predicate: HasQuest
         parameters:
-        - What are the plans?
+        - What are the plans
         negate: 0
     - or:
       - predicate: CompletedQuest
         parameters:
-        - What are the plans?
+        - What are the plans
         negate: 1
 --- !u!114 &-1171541849406202557
 MonoBehaviour:
@@ -455,7 +455,7 @@ MonoBehaviour:
   - fb604372-783f-4c40-a013-e7204f14caf4
   rect:
     serializedVersion: 2
-    x: 243
+    x: 242
     y: 263
     width: 200
     height: 100
@@ -466,7 +466,7 @@ MonoBehaviour:
     - or:
       - predicate: HasQuest
         parameters:
-        - What are the plans?
+        - What are the plans
         negate: 1
 --- !u!114 &2461494477490422635
 MonoBehaviour:
@@ -580,7 +580,7 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 494
-    y: 360
+    y: 359
     width: 200
     height: 100
   onEnterAction: 

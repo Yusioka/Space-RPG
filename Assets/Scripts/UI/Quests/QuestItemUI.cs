@@ -19,15 +19,14 @@ namespace RPG.UI.Quests
             this.status = status;
             title.text = status.GetQuest().GetTitle();
 
-            progress.text = status.GetCompletedObjectivesCount() + "/" + status.GetQuest().GetObjectivesCount();
-            //if (status.GetCompleteObjectivesCount() < status.GetQuest().GetObjectiveCount())
-            //{
-            //    progress.text = status.GetCompleteObjectivesCount() + "/" + status.GetQuest().GetObjectiveCount();
-            //}
-            //else
-            //{
-            //    progress.text = status.GetQuest().GetObjectiveCount() + "/" + status.GetQuest().GetObjectiveCount();
-            //}
+            if (status.GetCompletedObjectivesCount() < status.GetQuest().GetObjectivesCount())
+            {
+                progress.text = status.GetCompletedObjectivesCount() + "/" + status.GetQuest().GetObjectivesCount();
+            }
+            else
+            {
+                progress.text = status.GetQuest().GetObjectivesCount() + "/" + status.GetQuest().GetObjectivesCount();
+            }
         }
 
         public QuestStatus GetQuestStatus()

@@ -21,12 +21,10 @@ namespace RPG.Quests
 
         public void AddQuest(Quest quest)
         {
-            if (HasQuest(quest)) 
-                return;
-
+            if (HasQuest(quest)) return;
+            print(quest.name);
             QuestStatus newStatus = new(quest);
             statuses.Add(newStatus);
-
             OnUpdate?.Invoke();
         }
 
@@ -99,7 +97,7 @@ namespace RPG.Quests
                     continue;
                 
                 Quest quest = status.GetQuest();
-                
+
                 foreach (var objective in quest.GetObjectives())
                 {
                     if (status.IsObjectiveComplete(objective.reference) || !objective.usesCondition) 
