@@ -1,10 +1,6 @@
-using GameDevTV.Utils;
-using RPG.Core;
 using RPG.Saving;
-using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace RPG.UI
 {
@@ -15,9 +11,9 @@ namespace RPG.UI
 
         SavingWrapper savingWrapper;
 
-        public TMP_InputField GetNewGameNameField()
+        public string GetNewGameName()
         {
-            return newGameNameField;
+            return newGameNameField.text;
         }
 
         private void Start()
@@ -28,6 +24,11 @@ namespace RPG.UI
         private void Update()
         {
             if (savingWrapper == null) print("null");
+        }
+
+        public void NewGame()
+        {
+            savingWrapper.NewGame(GetNewGameName());
         }
 
         public void ContinueGame()
@@ -42,7 +43,11 @@ namespace RPG.UI
 
         public void QuitGame()
         {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
             Application.Quit();
+#endif
         }
     }
 }

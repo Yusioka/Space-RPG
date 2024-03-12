@@ -1,8 +1,5 @@
-using GameDevTV.Utils;
 using RPG.Core;
 using RPG.Saving;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,7 +32,7 @@ namespace RPG.UI
         public void SaveChanges()
         {
             savingWrapper.Save();
-            savingWrapper.NewGame(mainMenuUI.GetNewGameNameField().text);
+            savingWrapper.NewGame(mainMenuUI.GetNewGameName());
         }
     }
 }
