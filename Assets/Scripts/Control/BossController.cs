@@ -48,7 +48,7 @@ namespace RPG.Control
         bool enableAttackBehaviour = false;
         bool attackBehaviourEnabled;
 
-        public bool EnableCamera { get; private set; }
+        public bool CanEnableCamera { get; private set; }
 
         private class DockedItemSlot
         {
@@ -133,7 +133,7 @@ namespace RPG.Control
 
             if (enableAttackBehaviour)
             {
-                EnableCamera = false;
+                CanEnableCamera = false;
 
                 if (!attackBehaviourEnabled)
                 {
@@ -284,7 +284,7 @@ namespace RPG.Control
         public void Attack()
         {
             startAttack = true;
-            EnableCamera = true;
+            CanEnableCamera = true;
         }
 
         void ShouldJump()

@@ -33,7 +33,7 @@ namespace RPG.Quests
         {
             return name;
         }
-        public int GetObjectiveCount()
+        public int GetObjectivesCount()
         {
             return objectives.Count;
         }
@@ -61,7 +61,7 @@ namespace RPG.Quests
 
         public static Quest GetByName(string questName)
         {
-            foreach (Quest quest in Resources.LoadAll<Quest>(""))
+            foreach (Quest quest in Resources.LoadAll<Quest>("Quests"))
             {
                 if (quest.name == questName)
                 {

@@ -16,13 +16,13 @@ namespace RPG.UI.Quests
 
             foreach (var objective in quest.GetObjectives())
             {
-                if (objective.reference == "")
+                if (string.IsNullOrEmpty(objective.reference))
                 {
                     objectivesCounter++;
                 }
             }
 
-            if (objectivesCounter == quest.GetObjectiveCount())
+            if (objectivesCounter == quest.GetObjectivesCount())
             {
                 return false;
             }

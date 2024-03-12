@@ -6,14 +6,14 @@ using RPG.Saving;
 
 namespace RPG.SceneManagement
 {
+    enum DestinationIdentifier
+    {
+        A, B, C
+    }
+
+
     public class Portal : MonoBehaviour
     {
-        enum DestinationIdentifier
-        {
-            A, B, C
-        }
-
-
         [SerializeField] int sceneToLoad = -1;
         [SerializeField] Transform spawnPoint;
         [SerializeField] DestinationIdentifier destination;
@@ -35,16 +35,16 @@ namespace RPG.SceneManagement
 
         private IEnumerator Transition()
         {
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(transform.root.gameObject);
 
             Fader fader = FindObjectOfType<Fader>();
             SavingWrapper savingWrapper = FindObjectOfType<SavingWrapper>();
 
             yield return fader.FadeOut(fadeOutTime);
-       //     savingWrapper.Save();
+            savingWrapper.Save();
 
             yield return SceneManager.LoadSceneAsync(sceneToLoad);
-       //     savingWrapper.Load();
+            savingWrapper.Load();
      //       print("Scene Loaded");
 
             Portal otherPortal = GetOtherPortal();
@@ -52,7 +52,7 @@ namespace RPG.SceneManagement
             savingWrapper.Save();
 
             yield return new WaitForSeconds(fadeWaitTime);
-            yield return fader.FadeIn(fadeInTime);
+            fader.FadeIn(fadeInTime);
             CanDoSomething = true;
 
             // Destroying the previous scene

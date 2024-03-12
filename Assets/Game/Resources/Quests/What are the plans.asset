@@ -10,19 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6c737b32510cbf42a68cdb45e2440ef, type: 3}
-  m_Name: Final Quest
+  m_Name: What are the plans
   m_EditorClassIdentifier: 
-  name: Say goodbye to the space station
+  name: What are the plans
   objectives:
-  - reference: Go to the Exit
-    description: When you're ready go to the exit and put on your spacesuit
+  - reference: Go to Adrian
+    description: Go to Adrian, he'll tell about the plans (he is in the Science Room)
     usesCondition: 0
     completionCondition:
       and: []
   rewards:
-  - number: 1
-    item: {fileID: 11400000, guid: 9fad3e0c28b6453458e631a35cf8cf4f, type: 2}
-  - number: 1000
-    item: {fileID: 11400000, guid: 0c5cea220450b8f4d8ed646b58501fe3, type: 2}
-  - number: 2500
+  - number: 150
     item: {fileID: 11400000, guid: 6dccd2c5a9dec8f4b893d64d53557355, type: 2}

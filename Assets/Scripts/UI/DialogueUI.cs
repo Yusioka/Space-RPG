@@ -42,9 +42,6 @@ namespace RPG.UI
             conversantName.text = playerConversant.GetCurrentConversantName();
             conversantAvatar.sprite = playerConversant.GetCurrentConversantAvatar();
 
-            AIText.text = playerConversant.GetText();
-            nextButton.gameObject.SetActive(playerConversant.HasNext());
-
             AIResponse.SetActive(!playerConversant.IsChoosing());
             choiceRoot.gameObject.SetActive(playerConversant.IsChoosing());
 

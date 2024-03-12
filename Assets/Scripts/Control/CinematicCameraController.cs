@@ -1,7 +1,6 @@
 using RPG.Core;
 using RPG.Quests;
 using RPG.SceneManagement;
-using RPG.UI.Quests;
 using UnityEngine;
 
 namespace RPG.Control
@@ -32,7 +31,7 @@ namespace RPG.Control
 
         public void EnableBossAnimation(GameObject camera)
         {
-            if (GameObject.FindWithTag("Boss").GetComponent<BossController>().EnableCamera)
+            if (GameObject.FindWithTag("Boss").GetComponent<BossController>().CanEnableCamera)
             {
                 print("canAttack");
                 camera.SetActive(true);

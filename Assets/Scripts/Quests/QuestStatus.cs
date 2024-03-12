@@ -1,17 +1,19 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace RPG.Quests
 {
+    [System.Serializable]
     public class QuestStatus
     {
         Quest quest;
-        List<string> completeObjectives = new List<string>();
+        List<string> completedObjectives = new List<string>();
 
         [System.Serializable]
         class QuestStatusRecord
         {
             public string questName;
-            public List<string> completeObjectives;
+            public List<string> completedObjectives;
         }
 
         public QuestStatus(Quest quest)
@@ -23,21 +25,26 @@ namespace RPG.Quests
         {
             QuestStatusRecord state = objectState as QuestStatusRecord;
             quest = Quest.GetByName(state.questName);
-            completeObjectives = state.completeObjectives;
+            completedObjectives = state.completedObjectives;
         }
 
         public void CompleteObjective(string objective)
         {
             if (quest.HasObjective(objective))
             {
-                completeObjectives.Add(objective);
+                foreach (var obj in completedObjectives)
+                {
+                    if (obj == objective) return;
+                }
+
+                completedObjectives.Add(objective);
             }
         }
         public bool IsComplete()
         {
             foreach (var objective in quest.GetObjectives())
             {
-                if (!completeObjectives.Contains(objective.reference) || GetQuest() == null)
+                if (!completedObjectives.Contains(objective.reference))
                 {
                     return false;
                 }
@@ -49,21 +56,21 @@ namespace RPG.Quests
         {
             return quest;
         }
-        public int GetCompleteObjectivesCount()
+        public int GetCompletedObjectivesCount()
         {
-            return completeObjectives.Count;
+            return completedObjectives.Count;
         }
         public bool IsObjectiveComplete(string objective)
         {
-            // если completeObjectives плеера == обджективам скриптабл обджекта quest
-            return completeObjectives.Contains(objective);
+            // если completedObjectives плеера == обджективам скриптабл обджекта quest
+            return completedObjectives.Contains(objective);
         }
 
         public object CaptureState()
         {
             QuestStatusRecord state = new QuestStatusRecord();
             state.questName = quest.name;
-            state.completeObjectives = completeObjectives;
+            state.completedObjectives = completedObjectives;
             return state;
         }
     }

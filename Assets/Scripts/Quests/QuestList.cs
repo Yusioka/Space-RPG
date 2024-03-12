@@ -12,11 +12,11 @@ namespace RPG.Quests
         [SerializeField] AudioSource questCompletionAudio;
         public event Action OnUpdate;
         
-        private readonly List<QuestStatus> statuses = new();
+        List<QuestStatus> statuses = new List<QuestStatus>();
 
         private void Update()
         {
-      //      CompleteObjectivesByPredicates();
+            CompleteObjectivesByPredicates();
         }
 
         public void AddQuest(Quest quest)
@@ -95,7 +95,7 @@ namespace RPG.Quests
         {
             foreach (QuestStatus status in statuses)
             {            
-                if (status.IsComplete()) 
+                if (status == null || status.IsComplete()) 
                     continue;
                 
                 Quest quest = status.GetQuest();
@@ -137,8 +137,6 @@ namespace RPG.Quests
             {
                 statuses.Add(new QuestStatus(objectState));
             }
-
-         //   OnUpdate?.Invoke();
         }
 
         public bool? Evaluate(string predicate, string[] parameters)

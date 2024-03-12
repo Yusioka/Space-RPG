@@ -10,27 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6c737b32510cbf42a68cdb45e2440ef, type: 3}
-  m_Name: Janett Quest
+  m_Name: Final Quest
   m_EditorClassIdentifier: 
-  name: Do a lot of things for Janett
+  name: Say goodbye to the space station
   objectives:
-  - reference: Find the Oil
-    description: Find the Oil in the Canteen
-    usesCondition: 0
-    completionCondition:
-      and: []
-  - reference: Find the Snack
-    description: ... And the Snack for Janett
-    usesCondition: 0
-    completionCondition:
-      and: []
-  - reference: Return to Janett
-    description: Return to Janett
+  - reference: Go to the Exit
+    description: When you're ready go to the exit and put on your spacesuit
     usesCondition: 0
     completionCondition:
       and: []
   rewards:
-  - number: 250
+  - number: 1
+    item: {fileID: 11400000, guid: 9fad3e0c28b6453458e631a35cf8cf4f, type: 2}
+  - number: 1000
     item: {fileID: 11400000, guid: 0c5cea220450b8f4d8ed646b58501fe3, type: 2}
-  - number: 300
+  - number: 500
     item: {fileID: 11400000, guid: 6dccd2c5a9dec8f4b893d64d53557355, type: 2}

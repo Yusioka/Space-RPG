@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6c737b32510cbf42a68cdb45e2440ef, type: 3}
-  m_Name: What are the plans
+  m_Name: Chemist will help you
   m_EditorClassIdentifier: 
-  name: What are the plans?
+  name: Chemist will help you
   objectives:
-  - reference: Go to Adrian
-    description: Go to Adrian, he'll tell about the plans (he is in the Science Room)
+  - reference: Go to Chemist
+    description: Go to Chemist(Medicine), he will give you more information.
     usesCondition: 0
     completionCondition:
       and: []
   rewards:
-  - number: 200
+  - number: 150
     item: {fileID: 11400000, guid: 6dccd2c5a9dec8f4b893d64d53557355, type: 2}

@@ -72,7 +72,7 @@ namespace RPG.Saving
 
             yield return fader.FadeOut(fadeOutTime);
             yield return SceneManager.LoadSceneAsync(1);
-            Save();
+    //        Save();
             yield return fader.FadeIn(fadeInTime);
         }
 

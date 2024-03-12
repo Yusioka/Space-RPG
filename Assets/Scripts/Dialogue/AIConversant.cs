@@ -1,7 +1,5 @@
 using RPG.Attributes;
 using RPG.Control;
-using RPG.Stats;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace RPG.Dialogue
