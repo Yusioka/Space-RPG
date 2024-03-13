@@ -20,7 +20,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 758656f4df641c9499f11dd49416e55d, type: 3}
   pickup: {fileID: 7115260040961628977, guid: 914d1d3d6db5dfa499dd997a21b8fb77, type: 3}
   stackable: 1
-  price: 50
+  price: 250
   category: 3
   consumable: 1
   targetingStrategy: {fileID: 11400000, guid: fc7cb57814a6d0c4ab5baa5305203c06, type: 2}
@@ -28,5 +28,6 @@ MonoBehaviour:
   effectStrategies:
   - {fileID: 11400000, guid: 2fb88e14c3fe8314ab7a240edb8dd1f6, type: 2}
   - {fileID: 11400000, guid: b1d09ccca98044f468d713f4bce0e1c3, type: 2}
+  - {fileID: 11400000, guid: e01210237ae8c8442961f9dfc6df14de, type: 2}
   cooldownTime: 60
   manaCost: 0

@@ -11,7 +11,7 @@ namespace RPG.Attributes
 {
     public class Health : MonoBehaviour, ISaveable
     {
-        public float HealthPoints { get; private set; }
+        public float HealthPoints { get; set; }
         public bool Invulnerable { get; set; }
 
         [SerializeField] float regenerationPercentage = 70f;

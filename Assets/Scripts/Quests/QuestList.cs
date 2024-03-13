@@ -22,7 +22,7 @@ namespace RPG.Quests
         public void AddQuest(Quest quest)
         {
             if (HasQuest(quest)) return;
-            print(quest.name);
+
             QuestStatus newStatus = new(quest);
             statuses.Add(newStatus);
             OnUpdate?.Invoke();

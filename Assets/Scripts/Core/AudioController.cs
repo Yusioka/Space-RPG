@@ -45,7 +45,8 @@ namespace RPG.Control
             {
                 if (CanEnableAudio(audio.condition, playerQuestList) && (enabledIndex == -1 || enabledIndex != audio.index))
                 {
-                    GetComponent<AudioSource>().PlayOneShot(audio.audioClip);
+                    GetComponent<AudioSource>().clip = audio.audioClip;
+                    GetComponent<AudioSource>().Play();
                     enabledIndex = audio.index;
                 }
 

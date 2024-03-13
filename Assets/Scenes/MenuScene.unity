@@ -10875,7 +10875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 246073504064126530, guid: 87d09536097c3074cad94c6d7304fab9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 550909755427504685, guid: 87d09536097c3074cad94c6d7304fab9, type: 3}
       propertyPath: m_AnchorMax.y
@@ -11411,7 +11411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4839131949306065909, guid: 87d09536097c3074cad94c6d7304fab9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4884005879023359930, guid: 87d09536097c3074cad94c6d7304fab9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -11711,7 +11711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8448993655570472682, guid: 87d09536097c3074cad94c6d7304fab9, type: 3}
       propertyPath: m_MovementType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8448993655570472682, guid: 87d09536097c3074cad94c6d7304fab9, type: 3}
       propertyPath: m_ScrollSensitivity

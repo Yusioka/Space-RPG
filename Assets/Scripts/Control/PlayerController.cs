@@ -369,7 +369,7 @@ namespace RPG.Control
             foreach (RaycastHit hit in hits)
             {
                 CombatTarget target = hit.transform.GetComponent<CombatTarget>();
-                if (target == null) continue;
+                if (target == null) break;
 
                 if (!GetComponent<Fighter>().CanAttack(target.gameObject)) continue;
 

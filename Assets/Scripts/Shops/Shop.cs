@@ -349,7 +349,7 @@ namespace RPG.Shops
         private void OnMouseDown()
         {
             GameObject player = GameObject.FindWithTag("Player");
-            if (!player.GetComponent<PlayerController>().CanInteractWithComponent(gameObject)) return;
+ //           if (!player.GetComponent<PlayerController>().CanInteractWithComponent(gameObject)) return;
             player.GetComponent<Shopper>().SetActiveShop(this);
         }
 

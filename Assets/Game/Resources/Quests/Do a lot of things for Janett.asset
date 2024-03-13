@@ -10,17 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6c737b32510cbf42a68cdb45e2440ef, type: 3}
-  m_Name: Letter3Quest
+  m_Name: Do a lot of things for Janett
   m_EditorClassIdentifier: 
-  name: Lizard search
+  name: Do a lot of things for Janett
   objectives:
-  - reference: "Find the colleague of \u21162A member"
-    description: "Find the colleague of \u21162A member"
+  - reference: Find the Oil
+    description: Find the Oil in the Canteen
+    usesCondition: 0
+    completionCondition:
+      and: []
+  - reference: Find the Snack
+    description: ... And the Snack for Janett
+    usesCondition: 0
+    completionCondition:
+      and: []
+  - reference: Return to Janett
+    description: Return to Janett
     usesCondition: 0
     completionCondition:
       and: []
   rewards:
-  - number: 2000
+  - number: 250
+    item: {fileID: 11400000, guid: 0c5cea220450b8f4d8ed646b58501fe3, type: 2}
+  - number: 350
     item: {fileID: 11400000, guid: 6dccd2c5a9dec8f4b893d64d53557355, type: 2}
-  - number: 1
-    item: {fileID: 11400000, guid: c46a25ecac138684c908fc8ba0e11df8, type: 2}

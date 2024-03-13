@@ -8,6 +8,7 @@ namespace RPG.Abilities.Effects
     public class SpawnFXEffect : EffectStrategy
     {
         [SerializeField] Transform prefabToSpawn;
+        [SerializeField] AudioClip soundEffect;
         [SerializeField] float destroyDelay = -1;
 
         public override void StartEffect(AbilityData data, Action finished)
@@ -19,6 +20,13 @@ namespace RPG.Abilities.Effects
         {
             foreach (var target in data.GetTargets())
             {
+                if (soundEffect)
+                {
+                    data.GetUser().GetComponentInChildren<AudioSource>().PlayOneShot(soundEffect);
+                }
+
+                if (!prefabToSpawn) yield break;
+
                 Transform instance = Instantiate(prefabToSpawn, target.transform);
                 instance.position = data.GetTargetedPoint();
 

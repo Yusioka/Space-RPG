@@ -10,17 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6c737b32510cbf42a68cdb45e2440ef, type: 3}
-  m_Name: Letter5Quest
+  m_Name: Say goodbye to the space station
   m_EditorClassIdentifier: 
-  name: Find the treasure in the tunnel
+  name: Say goodbye to the space station
   objectives:
-  - reference: Find the treasure in the tunnel
-    description: Find the treasure in the tunnel
+  - reference: Go to the Exit
+    description: When you're ready go to the exit and put on your spacesuit
     usesCondition: 0
     completionCondition:
       and: []
   rewards:
   - number: 1
-    item: {fileID: 11400000, guid: 12143ff6667f75345be3c99b9bb68160, type: 2}
-  - number: 850
+    item: {fileID: 11400000, guid: 9fad3e0c28b6453458e631a35cf8cf4f, type: 2}
+  - number: 350
     item: {fileID: 11400000, guid: 0c5cea220450b8f4d8ed646b58501fe3, type: 2}
+  - number: 500
+    item: {fileID: 11400000, guid: 6dccd2c5a9dec8f4b893d64d53557355, type: 2}

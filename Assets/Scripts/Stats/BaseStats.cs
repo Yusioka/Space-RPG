@@ -11,7 +11,7 @@ namespace RPG.Stats
         [SerializeField] int startingLevel = 1;
         [SerializeField] CharacterClass characterClass;
         [SerializeField] Progression progression = null;
-      //  [SerializeField] GameObject levelUpParticleEffect = null;
+        [SerializeField] GameObject levelUpParticleEffect = null;
         [SerializeField] bool shouldUseModifiers = false;
 
         [SerializeField] AudioSource levelUpAudio;
@@ -53,7 +53,7 @@ namespace RPG.Stats
             if (newLevel > currentLevel)
             {
                 currentLevel = newLevel;
-              //  LevelUpEffect();
+                LevelUpEffect();
                 onLevelUp();
 
                 levelUpAudio?.Play();
@@ -64,7 +64,7 @@ namespace RPG.Stats
 
         private void LevelUpEffect()
         {
-         //   Instantiate(levelUpParticleEffect, transform);
+            Instantiate(levelUpParticleEffect, transform);
         }
 
         public CharacterClass GetCharacterClass()

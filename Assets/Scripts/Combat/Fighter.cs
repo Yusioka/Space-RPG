@@ -37,6 +37,7 @@ namespace RPG.Combat
             {
                 equipment.equipmentUpdated += UpdateWeapon;
                 equipment.equipmentUpdated += UpdateEquipment;
+                UpdateEquipment();
             }
         }
 
@@ -44,17 +45,27 @@ namespace RPG.Combat
         {
             timeSinceLastAttack += Time.deltaTime;
 
+
+            if (gameObject.tag == "Player" && timeSinceLastAttack >= 25 && target == null)
+            {
+                Health health = GetComponent<Health>();
+                if (health.HealthPoints < health.GetMaxHealthPoints())
+                {
+                    health.Heal(GetComponent<BaseStats>().GetStat(Stat.ManaRegenRate));
+
+                    if (health.HealthPoints > health.GetMaxHealthPoints())
+                    {
+                        health.HealthPoints = health.GetMaxHealthPoints();
+                    }
+                }
+            }
+
             if (target == null || GetComponent<Health>().IsDead()) return;
 
             if (target.IsDead())
             {
                 target = FindNewTargetInRange();
                 if (target == null) return;
-            }
-
-            if (timeSinceLastAttack >= 10)
-            {
-                GetComponent<Health>().RegenerateHealth();
             }
 
             if (gameObject == GameObject.FindWithTag("Player"))
@@ -186,6 +197,7 @@ namespace RPG.Combat
             {
                 currentWeapon.OnHit();
             }
+
             if (currentWeaponConfig.HasProjectile())
             {
                 currentWeaponConfig.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject, damage);
