@@ -140,12 +140,17 @@ namespace RPG.Attributes
         {
             gameObject.GetComponent<NavMeshAgent>().enabled = false;
             gameObject.GetComponent<CapsuleCollider>().enabled = false;
+
             yield return new WaitForSecondsRealtime(3f);
 
-            gameObject.GetComponent<Rigidbody>().constraints = 0;
+            if (gameObject.tag != "Boss")
+            {
+                gameObject.GetComponent<Rigidbody>().constraints = 0;
 
-            yield return new WaitForSecondsRealtime(1f);
-            Destroy(gameObject);
+                yield return new WaitForSecondsRealtime(1f);
+
+                Destroy(gameObject);
+            }
         }
     }
 }

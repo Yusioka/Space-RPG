@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Parasits
   description: 'Make the parasites destroy your enemy!
 
-    -80 HP by 3 times'
+    -150 HP by 5 TIMES!'
   icon: {fileID: 21300000, guid: 0413201c56fdf6d4fa1605bfa55c1a0f, type: 3}
   pickup: {fileID: 7115260040961628977, guid: 914d1d3d6db5dfa499dd997a21b8fb77, type: 3}
   stackable: 0
@@ -31,4 +31,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 59b5ef32c804dc143aa9b2d844c92d49, type: 2}
   - {fileID: 11400000, guid: 8f5907cce3336b847830428f1be70c6d, type: 2}
   cooldownTime: 65
-  manaCost: 300
+  manaCost: 450

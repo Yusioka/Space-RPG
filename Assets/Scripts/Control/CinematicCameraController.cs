@@ -17,6 +17,7 @@ namespace RPG.Control
 
             if (condition.Check(playerQuestList.GetComponents<IPredicateEvaluator>()))
             {
+                if (camera == null) return;
                 camera.SetActive(true);
             }
         }
@@ -25,6 +26,7 @@ namespace RPG.Control
         {
             if (portal.CanDoSomething)
             {
+                if (camera == null) return;
                 camera.SetActive(true);
             }
         }
@@ -33,7 +35,7 @@ namespace RPG.Control
         {
             if (GameObject.FindWithTag("Boss").GetComponent<BossController>().CanEnableCamera)
             {
-                print("canAttack");
+                if (camera == null) return;
                 camera.SetActive(true);
             }
         }

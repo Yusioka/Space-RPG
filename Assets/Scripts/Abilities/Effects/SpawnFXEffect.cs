@@ -22,7 +22,7 @@ namespace RPG.Abilities.Effects
             {
                 if (soundEffect)
                 {
-                    data.GetUser().GetComponentInChildren<AudioSource>().PlayOneShot(soundEffect);
+                    data.GetUser().GetComponentInParent<AudioSource>().PlayOneShot(soundEffect);
                 }
 
                 if (!prefabToSpawn) yield break;

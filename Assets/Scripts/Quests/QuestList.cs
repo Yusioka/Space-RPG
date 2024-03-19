@@ -36,7 +36,12 @@ namespace RPG.Quests
             
             status.CompleteObjective(objective);
             
-            if (status.IsComplete())
+            if (status.IsComplete() && !String.IsNullOrEmpty(objective))
+            {
+                GiveReward(quest);
+                questCompletionAudio?.Play();
+            }
+            else if (String.IsNullOrEmpty(objective) && status.GetCompletedObjectivesCount() >= status.GetQuest().GetObjectivesCount())
             {
                 GiveReward(quest);
                 questCompletionAudio?.Play();

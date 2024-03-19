@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   itemID: 11a3cdf2-5d63-41d6-8e37-063a26f26f9c
-  displayName: Space Pistol
+  displayName: Space Pistol (Lvl1)
   description: 'You are ready...
 
     Damage: 25'
@@ -30,7 +30,7 @@ MonoBehaviour:
   timeBetweenAttacks: 1
   equippedPrefab: {fileID: 5615448880605420761, guid: 054873fb4d8fb414f9c75a47ff19cfe1, type: 3}
   isRightHanded: 0
-  weaponDamage: 25
+  weaponDamage: 20
   weaponRange: 20
   percentageBonus: 0
   projectile: {fileID: 0}

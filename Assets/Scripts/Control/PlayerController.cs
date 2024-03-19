@@ -318,13 +318,6 @@ namespace RPG.Control
             RaycastHit[] hits = Physics.SphereCastAll(GetMouseRay(), raycastRadius);
 
             bool hasHitEnemy = false;
-          //  Health newTarget = GetComponent<Fighter>().FindNewTargetInRange();
-
-            //if (!newTarget) return false;
-            //if (newTarget && newTarget.gameObject.GetComponent<Fighter>().GetTargetHealth() == health)
-            //{
-            //    GetComponent<Fighter>().Attack(newTarget.gameObject);
-            //}
 
             foreach (RaycastHit hit in hits)
             {
@@ -345,7 +338,6 @@ namespace RPG.Control
             if (Input.GetMouseButton(1))
             {
                 GetComponent<Fighter>().Cancel();
-          //      newTarget = null;
             }
 
             return hasHitEnemy;
@@ -355,34 +347,24 @@ namespace RPG.Control
         {
             if (!moverController.IsButtonsMoving()) return;
 
-            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
-            bool hasHitEnemy = false;
-
-            Health newTarget = GetComponent<Fighter>().FindNewTargetInRange();
-
-            if (!newTarget) return;
-            if (newTarget && newTarget.gameObject.GetComponent<Fighter>().GetTargetHealth() == health)
-            {
-                GetComponent<Fighter>().Attack(newTarget.gameObject);
-            }
+            RaycastHit[] hits = Physics.SphereCastAll(GetMouseRay(), raycastRadius);
 
             foreach (RaycastHit hit in hits)
             {
                 CombatTarget target = hit.transform.GetComponent<CombatTarget>();
-                if (target == null) break;
+                if (target == null) continue;
 
-                if (!GetComponent<Fighter>().CanAttack(target.gameObject)) continue;
+                if (!GetComponent<Fighter>().CanAttack(target.gameObject)) return;
 
-                if (Input.GetMouseButton(1))
+                if (Input.GetMouseButtonDown(1))
                 {
                     GetComponent<Fighter>().Attack(target.gameObject);
                 }
 
-                hasHitEnemy = true;
                 break;
             }
 
-            if (!hasHitEnemy && Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0))
             {
                 GetComponent<Fighter>().Cancel();
             }

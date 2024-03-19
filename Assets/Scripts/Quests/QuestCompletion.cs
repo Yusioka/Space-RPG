@@ -11,7 +11,7 @@ namespace RPG.Quests
         {
             QuestList questList = GameObject.FindWithTag("Player").GetComponent<QuestList>();
 
-            if (questList.HasQuest(quest) && !questList.IsObjectiveComplete(quest, objective))
+            if (questList.HasQuest(quest) && !questList.IsObjectiveComplete(quest, objective) || string.IsNullOrEmpty(objective))
             {
                 questList.CompleteObjective(quest, objective);
             }

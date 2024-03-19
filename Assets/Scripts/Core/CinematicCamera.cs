@@ -19,9 +19,14 @@ namespace RPG.Core
                 enableCamera.Invoke();
             }
 
-            if (Input.GetKeyDown(KeyCode.Escape))
+            foreach (CinematicCamera camera in GetComponentsInChildren<CinematicCamera>())
             {
-                CameraEnd();
+                if (camera.tag == "EditorOnly") continue;
+
+                if (camera.enabled && Input.GetKeyDown(KeyCode.Escape))
+                {
+                    camera.CameraEnd();
+                }
             }
         }
 

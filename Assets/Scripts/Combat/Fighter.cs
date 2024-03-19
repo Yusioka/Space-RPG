@@ -26,6 +26,7 @@ namespace RPG.Combat
         float timeSinceLastAttack = 0;
         WeaponConfig currentWeaponConfig = null;
         Weapon currentWeapon;
+        bool canMoveToEnemy = false;
 
         private void Start()
         {
@@ -37,6 +38,7 @@ namespace RPG.Combat
             {
                 equipment.equipmentUpdated += UpdateWeapon;
                 equipment.equipmentUpdated += UpdateEquipment;
+                UpdateWeapon();
                 UpdateEquipment();
             }
         }
@@ -68,9 +70,11 @@ namespace RPG.Combat
                 if (target == null) return;
             }
 
+            if (target && Input.GetMouseButtonDown(0)) canMoveToEnemy = true;
+
             if (gameObject == GameObject.FindWithTag("Player"))
             {
-                if (!GetIsInRange(target.transform) && !GameObject.FindWithTag("Player").GetComponent<MoverController>().IsButtonsMoving())
+                if (!GetIsInRange(target.transform) && !GameObject.FindWithTag("Player").GetComponent<MoverController>().IsButtonsMoving() && canMoveToEnemy)
                 {
                     GetComponent<NavMeshAgent>().enabled = true;
                     GetComponent<IMover>().MoveTo(target.transform.position, 1f);
@@ -171,7 +175,11 @@ namespace RPG.Combat
         private void AttackBehaviour()
         {
             if (target == null) return;
-            transform.LookAt(target.transform);
+
+            if (gameObject.tag != "Player" || gameObject.tag == "Player" && !GameObject.FindWithTag("Player").GetComponent<MoverController>().IsButtonsMoving())
+            {
+               transform.LookAt(target.transform);
+            }
 
             if (timeSinceLastAttack > currentWeaponConfig.GetTimeBetweenAttacks())
             {
@@ -191,7 +199,7 @@ namespace RPG.Combat
             if (target == null) return;
             if (!GetIsInRange(target.transform)) return;
 
-            float damage = currentWeaponConfig.GetDamage() + (currentWeaponConfig.GetDamage() * GetComponent<BaseStats>().GetStat(Stat.Damage) / 100);
+            float damage = currentWeaponConfig.GetDamage() + (currentWeaponConfig.GetDamage() + GetComponent<BaseStats>().GetStat(Stat.Damage));
 
             if (currentWeapon != null)
             {
@@ -268,12 +276,13 @@ namespace RPG.Combat
         }
         public void Attack(GameObject combatTarget)
         {
-         //   GetComponent<ActionSceduler>().StartAction(this);
+            //   GetComponent<ActionSceduler>().StartAction(this);
             target = combatTarget.GetComponent<Health>();
         }
         public void Cancel()
         {
             ResetTriggerAttack();
+            canMoveToEnemy = false;
             target = null;
         }
 

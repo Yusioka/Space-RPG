@@ -16,11 +16,11 @@ MonoBehaviour:
   displayName: Bat
   description: 'Simple bat.
 
-    Damage: 25'
+    Damage: 30'
   icon: {fileID: 21300000, guid: caa4e263a97d7674ca2a2a82955180b0, type: 3}
   pickup: {fileID: 543890158334913342, guid: 6349207997cf7d74893e45fdb05a63c7, type: 3}
   stackable: 0
-  price: 500
+  price: 250
   category: 2
   allowedEquipLocation: 5
   equipCondition:
@@ -30,7 +30,7 @@ MonoBehaviour:
   timeBetweenAttacks: 1
   equippedPrefab: {fileID: -7934824431573796155, guid: d855c6cd18605f34dbfdca25cb40d71c, type: 3}
   isRightHanded: 1
-  weaponDamage: 25
+  weaponDamage: 30
   weaponRange: 2
   percentageBonus: 0
   projectile: {fileID: 0}

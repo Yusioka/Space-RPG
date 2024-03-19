@@ -38,6 +38,12 @@ namespace RPG.Abilities.Effects
             health.TakeDamage(data.GetUser(), healthChange);
             yield return new WaitForSeconds(duration);
             health.TakeDamage(data.GetUser(), healthChange);
+            yield return new WaitForSeconds(duration);
+            health.TakeDamage(data.GetUser(), healthChange);
+            yield return new WaitForSeconds(duration);
+            health.TakeDamage(data.GetUser(), healthChange);
+            yield return new WaitForSeconds(duration);
+
             finished();
         }
 

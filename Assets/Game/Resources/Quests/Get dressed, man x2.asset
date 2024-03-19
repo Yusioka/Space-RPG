@@ -15,10 +15,35 @@ MonoBehaviour:
   name: Get dressed, man x2
   objectives:
   - reference: Buy some equipment
-    description: Buy some equipment
-    usesCondition: 0
+    description: Buy all equipment in the shop
+    usesCondition: 1
     completionCondition:
-      and: []
+      and:
+      - or:
+        - predicate: HasInventoryItem
+          parameters:
+          - 119c2d8d-2ce8-45f3-9287-506d3e190698
+          negate: 0
+      - or:
+        - predicate: HasInventoryItem
+          parameters:
+          - d3a849da-6828-4c09-a24b-0ed300464246
+          negate: 0
+      - or:
+        - predicate: HasInventoryItem
+          parameters:
+          - b2c7f089-dd47-40ef-94ce-8f157dbbe903
+          negate: 0
+      - or:
+        - predicate: HasInventoryItem
+          parameters:
+          - 36c3084f-0ad2-4db7-b860-7ef6f3deb7b8
+          negate: 0
+      - or:
+        - predicate: HasInventoryItem
+          parameters:
+          - 5af9ecb2-8644-44d7-a47d-b1639f6531c1
+          negate: 0
   - reference: Return
     description: Return to the Survivor
     usesCondition: 0

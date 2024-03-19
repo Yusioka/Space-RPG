@@ -34,7 +34,7 @@ namespace RPG.Quests
             {
                 foreach (var obj in completedObjectives)
                 {
-                    if (obj == objective) return;
+                    if (obj == objective && !string.IsNullOrEmpty(obj)) return;
                 }
 
                 completedObjectives.Add(objective);

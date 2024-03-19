@@ -103,29 +103,39 @@ namespace RPG.Control
                 if (Input.GetMouseButton(1) && !Input.GetMouseButton(0) || Input.GetMouseButton(0) && !Input.GetMouseButton(1))
                 {
                     if (player.GetComponent<PlayerController>().IsDraggingUI) return;
-                    float rotationX = Input.GetAxis("Mouse X") * rotationSpeed;
-                    float rotationY = Input.GetAxis("Mouse Y") * rotationSpeed;
 
-                    // Вычисляем вектор направления, в котором смотрит камера
+                    // Получаем смещения мыши для вращения камеры
+                    float rotationX = Input.GetAxis("Mouse X") * rotationSpeed;
+                    float rotationY = -Input.GetAxis("Mouse Y") * rotationSpeed; // Изменяем знак для правильного вращения по оси Y
+
+                    // Обновляем углы вращения камеры
+                    currentX += rotationX;
+                    currentY += rotationY;
+
+                    // Ограничиваем угол обзора по оси Y
+                    currentY = Mathf.Clamp(currentY, minYAngle, maxYAngle);
+
                     Vector3 cameraForward = Camera.main.transform.forward;
                     cameraForward.y = 0f; // Обнуляем компоненту Y, чтобы двигать только по горизонтали
                     cameraForward.Normalize(); // Нормализуем вектор
 
                     if (Input.GetMouseButton(1))
                     {
-                        Quaternion rotation = Quaternion.LookRotation(cameraForward);
-                        targetBody.rotation = Quaternion.Slerp(targetBody.rotation, rotation, rotationSpeed * Time.deltaTime);
+                        Quaternion playerRotation = Quaternion.LookRotation(cameraForward);
+                        targetBody.rotation = Quaternion.Slerp(targetBody.rotation, playerRotation, rotationSpeed * Time.deltaTime);
 
                         targetBody.Rotate(Vector3.up * rotationX);
                     }
 
-                    float newRotationY = currentY - rotationY;
-                    newRotationY = Mathf.Clamp(newRotationY, minYAngle, maxYAngle);
-                    rotationY = currentY - newRotationY;
-                    transform.RotateAround(targetBody.position, Vector3.up, rotationX);
-                    transform.RotateAround(targetBody.position, transform.right, -rotationY);
-                    currentY = newRotationY;
+                    // Поворачиваем камеру вокруг цели
+
+                    Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
+                    float rotationDistance = Vector3.Distance(transform.position, target.position);
+                    Vector3 position = rotation * new Vector3(0, 0, -rotationDistance) + target.position;
+                    transform.rotation = rotation;
+                    transform.position = position;
                 }
+
 
                 if (Input.GetMouseButton(1) && Input.GetMouseButton(0) || Input.GetMouseButton(0) && Input.GetMouseButton(1))
                 {

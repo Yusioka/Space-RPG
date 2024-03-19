@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Rifle
   description: 'With it I''ll be unkillable!
 
-    Damage: 50'
+    Damage: 25. No cooldown.'
   icon: {fileID: 21300000, guid: afc798fae1a6c63498b13ee943da0e81, type: 3}
   pickup: {fileID: 7503961017672719578, guid: a51be704305fbeb49ab04e41f7c7a272, type: 3}
   stackable: 0
@@ -30,7 +30,7 @@ MonoBehaviour:
   timeBetweenAttacks: 0
   equippedPrefab: {fileID: 8962611671970341042, guid: ac46653d56756124eb294a6b8c58d2d3, type: 3}
   isRightHanded: 1
-  weaponDamage: 50
-  weaponRange: 50
+  weaponDamage: 1000
+  weaponRange: 30
   percentageBonus: 0
   projectile: {fileID: 0}

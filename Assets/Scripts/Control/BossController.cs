@@ -113,23 +113,8 @@ namespace RPG.Control
 
         private void Update()
         {
-            DialogueControl();
-
-            if (startAttack)
-            {
-                animator.SetTrigger("useCinemAnimation");
-
-                isSecondDialogue = true;
-                startAttack = false;
-            }
-
-            if (shouldJump)
-            {
-                StartCoroutine(ActivateCinematicAnimation());
-            }
-
-            //currentCooldownTime += Time.deltaTime;
-            //currentDashCooldownTime += Time.deltaTime;
+            currentCooldownTime += Time.deltaTime;
+            currentDashCooldownTime += Time.deltaTime;
 
             if (enableAttackBehaviour)
             {
@@ -146,14 +131,32 @@ namespace RPG.Control
 
                 fighter.Attack(playerTransform.gameObject);
                 UpdateAnimator();
+
+                if (currentCooldownTime >= totalCooldownTime)
+                {
+                    UseAction(Random.Range(0, ability.Length), gameObject);
+                    currentCooldownTime = 0;
+                }
             }
 
-            //AddNewAttack();
-            //if (currentCooldownTime >= totalCooldownTime)
-            //{
-            //    UseAction(Random.Range(0, ability.Length), gameObject);
-            //    currentCooldownTime = 0;
-            //}
+            if (enableAttackBehaviour) return;
+
+            DialogueControl();
+
+            if (startAttack)
+            {
+                animator.SetTrigger("useCinemAnimation");
+
+                isSecondDialogue = true;
+                startAttack = false;
+            }
+
+            if (shouldJump)
+            {
+                StartCoroutine(ActivateCinematicAnimation());
+            }
+
+      //      AddNewAttack();
         }
 
         private void DialogueControl()

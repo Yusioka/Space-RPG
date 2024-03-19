@@ -20,6 +20,7 @@ namespace RPG.SceneManagement
         [SerializeField] float fadeOutTime = 1f;
         [SerializeField] float fadeInTime = 2f;
         [SerializeField] float fadeWaitTime = 0.5f;
+        [SerializeField] bool cantSave = false;
 
         public bool MovedThroughPortal {  get; private set; }
         public bool CanDoSomething { get; private set; }
@@ -49,7 +50,11 @@ namespace RPG.SceneManagement
 
             Portal otherPortal = GetOtherPortal();
             UpdatePlayer(otherPortal);
-            savingWrapper.Save();
+
+            if (!cantSave)
+            {
+                savingWrapper.Save();
+            }
 
             yield return new WaitForSeconds(fadeWaitTime);
             fader.FadeIn(fadeInTime);
