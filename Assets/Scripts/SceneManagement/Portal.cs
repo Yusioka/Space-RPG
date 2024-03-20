@@ -8,7 +8,7 @@ namespace RPG.SceneManagement
 {
     enum DestinationIdentifier
     {
-        A, B, C
+        A, B, C, D
     }
 
 
@@ -21,6 +21,7 @@ namespace RPG.SceneManagement
         [SerializeField] float fadeInTime = 2f;
         [SerializeField] float fadeWaitTime = 0.5f;
         [SerializeField] bool cantSave = false;
+        [SerializeField] bool cantUpdatePlayer = false;
 
         public bool MovedThroughPortal {  get; private set; }
         public bool CanDoSomething { get; private set; }
@@ -48,8 +49,11 @@ namespace RPG.SceneManagement
             savingWrapper.Load();
      //       print("Scene Loaded");
 
-            Portal otherPortal = GetOtherPortal();
-            UpdatePlayer(otherPortal);
+            if (!cantUpdatePlayer)
+            {
+                Portal otherPortal = GetOtherPortal();
+                UpdatePlayer(otherPortal);
+            }
 
             if (!cantSave)
             {

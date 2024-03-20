@@ -134,8 +134,9 @@ namespace RPG.Control
             if (verticalMove != 0 || slew != 0) isMoving = true;
             else isMoving = false;
 
-            float rotation = slew * (speed / 2);
             Vector3 moveDirection = new Vector3(0, 0, verticalMove).normalized;
+
+            float rotation = slew * (speed / 2);
 
             if (verticalMove > 0)
             {

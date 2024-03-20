@@ -175,6 +175,8 @@ namespace RPG.Combat
         private void AttackBehaviour()
         {
             if (target == null) return;
+            if (Vector3.Dot((target.transform.position - GameObject.FindWithTag("Player").transform.position).normalized, GameObject.FindWithTag("Player").transform.forward) < 0.96) return;
+
 
             if (gameObject.tag != "Player" || gameObject.tag == "Player" && !GameObject.FindWithTag("Player").GetComponent<MoverController>().IsButtonsMoving())
             {

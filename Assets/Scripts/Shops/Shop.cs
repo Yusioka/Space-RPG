@@ -10,6 +10,7 @@ namespace RPG.Shops
 {
     public class Shop : MonoBehaviour, ISaveable
     {
+        [SerializeField] float maxDistanceToInteract = 8;
         [SerializeField] string shopName;
 
         [Range(0, 100)]
@@ -349,7 +350,12 @@ namespace RPG.Shops
         private void OnMouseDown()
         {
             GameObject player = GameObject.FindWithTag("Player");
- //           if (!player.GetComponent<PlayerController>().CanInteractWithComponent(gameObject)) return;
+
+            if (Vector3.Distance(player.transform.position, gameObject.transform.position) > maxDistanceToInteract)
+            {
+                return;
+            }
+
             player.GetComponent<Shopper>().SetActiveShop(this);
         }
 
