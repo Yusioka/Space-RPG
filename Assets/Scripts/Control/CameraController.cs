@@ -62,7 +62,7 @@ namespace RPG.Control
                 //transform.position = test;
 
                 // Используем направление персонажа
-                desiredPosition = target.position - targetBody.forward * currentDistance + Vector3.up; 
+                desiredPosition = target.position - targetBody.forward * currentDistance + new Vector3(0,5,0); 
             }
             //
 
@@ -100,7 +100,7 @@ namespace RPG.Control
             if (controller.IsButtonsMoving())
             {
                 // Если нажата правая кнопка мыши, игрок всегда стоит к камере спиной
-                if (Input.GetMouseButton(1) && !Input.GetMouseButton(0) || Input.GetMouseButton(0) && !Input.GetMouseButton(1))
+                if (Input.GetMouseButton(1) && !Input.GetMouseButton(0))
                 {
                     if (player.GetComponent<PlayerController>().IsDraggingUI) return;
 
@@ -119,13 +119,10 @@ namespace RPG.Control
                     cameraForward.y = 0f; // Обнуляем компоненту Y, чтобы двигать только по горизонтали
                     cameraForward.Normalize(); // Нормализуем вектор
 
-                    if (Input.GetMouseButton(1))
-                    {
-                        Quaternion playerRotation = Quaternion.LookRotation(cameraForward);
-                        targetBody.rotation = Quaternion.Slerp(targetBody.rotation, playerRotation, rotationSpeed * Time.deltaTime);
+                    Quaternion playerRotation = Quaternion.LookRotation(cameraForward);
+                    targetBody.rotation = Quaternion.Slerp(targetBody.rotation, playerRotation, rotationSpeed * Time.deltaTime);
 
-                        targetBody.Rotate(Vector3.up * rotationX);
-                    }
+                    targetBody.Rotate(Vector3.up * rotationX);
 
                     // Поворачиваем камеру вокруг цели
 

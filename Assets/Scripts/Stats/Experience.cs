@@ -16,6 +16,7 @@ namespace RPG.Stats
         public event Action onExperienceGained;
 
 
+#if UNITY_EDITOR
         private void Update()
         {
             if (Input.GetKey(KeyCode.O))
@@ -23,6 +24,7 @@ namespace RPG.Stats
                 GainExperience(Time.deltaTime * 500);
             }
         }
+#endif
 
         public float GetExperience()
         {

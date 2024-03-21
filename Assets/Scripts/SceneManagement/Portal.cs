@@ -8,7 +8,7 @@ namespace RPG.SceneManagement
 {
     enum DestinationIdentifier
     {
-        A, B, C, D
+        A, B, C
     }
 
 
@@ -43,10 +43,18 @@ namespace RPG.SceneManagement
             SavingWrapper savingWrapper = FindObjectOfType<SavingWrapper>();
 
             yield return fader.FadeOut(fadeOutTime);
-            savingWrapper.Save();
+
+            if (!cantSave)
+            {
+                savingWrapper.Save();
+            }
 
             yield return SceneManager.LoadSceneAsync(sceneToLoad);
-            savingWrapper.Load();
+
+            if (!cantSave)
+            {
+                savingWrapper.Load();
+            }
      //       print("Scene Loaded");
 
             if (!cantUpdatePlayer)

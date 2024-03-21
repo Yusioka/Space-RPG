@@ -180,7 +180,7 @@ namespace RPG.Control
 
         public void PatrolBehaviour()
         {
-            HealEnemy();
+   //         HealEnemy();
             Vector3 nextPosition = guardPosition;
             navMeshAgent.speed = walkingSpeed;
 

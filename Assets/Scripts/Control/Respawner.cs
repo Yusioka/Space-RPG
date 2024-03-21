@@ -37,13 +37,15 @@ namespace RPG.Control
         {
             Fader fader = FindObjectOfType<Fader>();
             SavingWrapper savingWrapper = FindObjectOfType<SavingWrapper>();
-         //   savingWrapper.SetLoadingScreen(fader);
-            savingWrapper.Save();
+        
+            //savingWrapper.SetLoadingScreen(fader);
             yield return new WaitForSeconds(respawnDelay);
             yield return fader.FadeOut(fadeTime);
-            RespawnPlayer();
-            ResetEnemies();
-            savingWrapper.Save();
+
+            savingWrapper.Load();
+    //        RespawnPlayer();
+     //       ResetEnemies();
+     //       savingWrapper.Save();
             yield return fader.FadeIn(fadeTime);
         }
 

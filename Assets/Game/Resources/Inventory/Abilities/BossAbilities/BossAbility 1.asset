@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BossAbility 1
   m_EditorClassIdentifier: 
   itemID: 28901815-aa82-40c2-8325-5f0f09ccf459
-  displayName: Ass
+  displayName: Circle
   description: 
   icon: {fileID: 0}
   pickup: {fileID: 0}
@@ -25,5 +25,6 @@ MonoBehaviour:
   filterStrategies: []
   effectStrategies:
   - {fileID: 11400000, guid: 185288151092f4349b514ae08d2535c2, type: 2}
+  - {fileID: 11400000, guid: 4563c51a59d7c1e4a92169de642c0f29, type: 2}
   cooldownTime: 0
   manaCost: 0

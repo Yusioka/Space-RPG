@@ -95,17 +95,17 @@ namespace RPG.Attributes
             if (!wasDeadLastFrame && IsDead())
             {
                 animator.SetTrigger("die");
+                GetComponent<ActionSceduler>().CancelCurrentAction();
 
                 if (gameObject != GameObject.FindWithTag("Player"))
                 {
                     StartCoroutine(DieBehaviour());
                 }
-
-                GetComponent<ActionSceduler>().CancelCurrentAction();
             }
             else if (wasDeadLastFrame && !IsDead())
             {
                 animator.Rebind();
+                gameObject.GetComponent<Rigidbody>().isKinematic = true;
             }
 
             wasDeadLastFrame = IsDead();
@@ -149,7 +149,9 @@ namespace RPG.Attributes
 
                 yield return new WaitForSecondsRealtime(1f);
 
-                Destroy(gameObject);
+                gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                gameObject.GetComponent<CapsuleCollider>().enabled = true;
+                //           Destroy(gameObject);
             }
         }
     }

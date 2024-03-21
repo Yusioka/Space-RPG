@@ -62,13 +62,18 @@ namespace RPG.Combat
                 }
             }
 
-            if (target == null || GetComponent<Health>().IsDead()) return;
+            if (target == null) return;
 
-            if (target.IsDead())
+            if (GetComponent<Health>().IsDead() || target.IsDead())
             {
-                target = FindNewTargetInRange();
-                if (target == null) return;
+                Cancel();
             }
+
+            //if (target.IsDead())
+            //{
+            //    target = FindNewTargetInRange();
+            //    if (target == null) return;
+            //}
 
             if (target && Input.GetMouseButtonDown(0)) canMoveToEnemy = true;
 
@@ -175,7 +180,7 @@ namespace RPG.Combat
         private void AttackBehaviour()
         {
             if (target == null) return;
-            if (Vector3.Dot((target.transform.position - GameObject.FindWithTag("Player").transform.position).normalized, GameObject.FindWithTag("Player").transform.forward) < 0.96) return;
+            if (gameObject == GameObject.FindWithTag("Player") && GameObject.FindWithTag("Player").GetComponent<MoverController>().IsButtonsMoving() && Vector3.Dot((target.transform.position - GameObject.FindWithTag("Player").transform.position).normalized, GameObject.FindWithTag("Player").transform.forward) < 0.96) return;
 
 
             if (gameObject.tag != "Player" || gameObject.tag == "Player" && !GameObject.FindWithTag("Player").GetComponent<MoverController>().IsButtonsMoving())

@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using RPG.Attributes;
 using System.Collections;
-using System.Net.NetworkInformation;
 
 namespace RPG.Abilities.Effects
 {

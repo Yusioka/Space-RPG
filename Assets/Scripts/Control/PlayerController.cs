@@ -78,9 +78,8 @@ namespace RPG.Control
                 Cancel();
             }
 
-            if (InteractWithCombatByMouse()) return;
+            if (InteractWithCombat()) return;
             if (InteractWithUI()) return;
-            InteractWithCombatByButtons();
             UseAbilities();
         }
 
@@ -312,9 +311,9 @@ namespace RPG.Control
             return Vector3.Distance(gameObject.transform.position, interactable.transform.position) <= chaseDistance;
         }
 
-        private bool InteractWithCombatByMouse()
+        private bool InteractWithCombat()
         {
-            if (moverController.IsButtonsMoving()) return false;
+  //          if (moverController.IsButtonsMoving()) return false;
 
             RaycastHit[] hits = Physics.SphereCastAll(GetMouseRay(), raycastRadius);
 
@@ -336,39 +335,12 @@ namespace RPG.Control
                 break;
             }
 
-            if (Input.GetMouseButton(1))
+            if (!moverController.IsButtonsMoving() && Input.GetMouseButtonDown(1) || moverController.IsButtonsMoving() && Input.GetKeyDown(KeyCode.Backspace))
             {
                 GetComponent<Fighter>().Cancel();
             }
 
             return hasHitEnemy;
-        }
-
-        private void InteractWithCombatByButtons()
-        {
-            if (!moverController.IsButtonsMoving()) return;
-
-            RaycastHit[] hits = Physics.SphereCastAll(GetMouseRay(), raycastRadius);
-
-            foreach (RaycastHit hit in hits)
-            {
-                CombatTarget target = hit.transform.GetComponent<CombatTarget>();
-                if (target == null) continue;
-
-                if (!GetComponent<Fighter>().CanAttack(target.gameObject)) return;
-
-                if (Input.GetMouseButtonDown(1))
-                {
-                    GetComponent<Fighter>().Attack(target.gameObject);
-                }
-
-                break;
-            }
-
-            if (Input.GetMouseButton(0))
-            {
-                GetComponent<Fighter>().Cancel();
-            }
         }
 
         private void ChangeCharacterPrefab()

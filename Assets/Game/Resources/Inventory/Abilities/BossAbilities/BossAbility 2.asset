@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BossAbility 2
   m_EditorClassIdentifier: 
   itemID: 7131c859-0715-4066-b854-fc95a841cbba
-  displayName: df
+  displayName: Vampyric
   description: 
   icon: {fileID: 0}
   pickup: {fileID: 0}
@@ -24,6 +24,6 @@ MonoBehaviour:
   targetingStrategy: {fileID: 11400000, guid: 167460d7d54f26a4699a273d5e0f55b0, type: 2}
   filterStrategies: []
   effectStrategies:
-  - {fileID: 11400000, guid: 53cdf8cbead5efa42bf0fcb2d64ce47e, type: 2}
+  - {fileID: 11400000, guid: bc3d8b2214db30e4fbe7d77b816b3236, type: 2}
   cooldownTime: 0
   manaCost: 0
